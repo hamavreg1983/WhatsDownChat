@@ -9,7 +9,7 @@
 
 void sanity_check(char* _string, uint _size, char _replaceWith)
 {
-    int j = 0;
+    uint j = 0;
 
     while (j < _size)
     {

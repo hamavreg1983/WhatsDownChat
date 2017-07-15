@@ -15,7 +15,7 @@
 #include "Protocol.h"
 #include "tcp.h"
 
-#include "../backEnd/IOcomm.h"
+#include "IOcomm.h"
 
 #define MAX_CONNECTIONS_ALLWAED 1000
 
