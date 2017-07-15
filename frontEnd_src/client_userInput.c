@@ -56,7 +56,7 @@ int main(int argc, char* argv[])
 
 		char sendMsgProtocol[MAX_MSG_SIZE];
 		int length;
-		length = Protocol_EncodeSignUp(msg, "passWorD", sendMsgProtocol);
+		length = Protocol_EncodeSignUp(msg, "pass1WorD", sendMsgProtocol);
 
 		sent_bytes = TCP_ClientSend(client, sendMsgProtocol, length) ;
 		printf("\nJust send this msg:%s\n",sendMsgProtocol);
@@ -77,7 +77,7 @@ int main(int argc, char* argv[])
 			ClientReceiveMessage_t recivebuf;
 			Protocol_DecodeClient(buffer, recv_bytes, &recivebuf);
 
-			printf("status:%d\n", recivebuf.m_status);
+			printf("Msg Type:%d. status:%d\n", recivebuf.m_messageType , recivebuf.m_status);
 
 		}
 	}

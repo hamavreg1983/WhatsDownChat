@@ -53,7 +53,7 @@
 					</folderInfo>
 					<sourceEntries>
 						<entry excluding="tests|comm|backEnd_src|src|frontEnd_src" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="backEnd_src"/>
+						<entry excluding="IO_Server_comm.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="backEnd_src"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="comm"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="frontEnd_src"/>
 						<entry excluding="whatdownApp.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
@@ -104,7 +104,7 @@
 					</folderInfo>
 					<sourceEntries>
 						<entry excluding="tests|comm|backEnd_src|src|frontEnd_src" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="backEnd_src"/>
+						<entry excluding="IO_Server_comm.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="backEnd_src"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="comm"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="frontEnd_src"/>
 						<entry excluding="whatdownApp.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
@@ -141,6 +141,8 @@
 								<option id="gnu.c.compiler.exe.debug.option.debugging.level.1812473608" name="Debug Level" superClass="gnu.c.compiler.exe.debug.option.debugging.level" useByScannerDiscovery="false" value="gnu.c.debugging.level.max" valueType="enumerated"/>
 								<option id="gnu.c.compiler.option.include.paths.2094662138" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="../comm"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src}&quot;"/>
+									<listOptionValue builtIn="false" value="../hashmap"/>
 									<listOptionValue builtIn="false" value="../backEnd_src"/>
 									<listOptionValue builtIn="false" value="../comm/tcp/list/src"/>
 									<listOptionValue builtIn="false" value="../comm/tcp/src"/>
@@ -165,7 +167,7 @@
 					</folderInfo>
 					<sourceEntries>
 						<entry excluding="tests|comm|backEnd_src|src|frontEnd_src" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="backEnd_src"/>
+						<entry excluding="IO_Server_comm.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="backEnd_src"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="comm"/>
 						<entry excluding="whatdownApp.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
 					</sourceEntries>

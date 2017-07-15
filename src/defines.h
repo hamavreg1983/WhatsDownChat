@@ -46,7 +46,6 @@
 															}
 
 /* ~~~ defines ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-
 #ifndef TRUE
 
 #define TRUE 1
@@ -54,7 +53,11 @@
 
 #endif /* TRUE */
 
+
+//#ifndef __cplusplus
 typedef int bool;
+//#endif /* __cplusplus */
+
 typedef unsigned int uint;
 typedef unsigned int Uint;
 typedef unsigned int Uint_t;
