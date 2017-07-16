@@ -52,10 +52,10 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry excluding="frontEnd_src|tests|comm|backEnd_src|src" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
-						<entry excluding="IO_Server_comm.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="backEnd_src"/>
+						<entry excluding="chats|frontEnd_src|tests|comm|backEnd_src|src" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="backEnd_main.c|IO_Server_comm.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="backEnd_src"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="comm"/>
-						<entry excluding="client_userInput.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="frontEnd_src"/>
+						<entry excluding="client_WhatDownApp_main.c|client_userInput.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="frontEnd_src"/>
 						<entry excluding="whatdownApp.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
 					</sourceEntries>
 				</configuration>
@@ -103,10 +103,10 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry excluding="frontEnd_src|tests|comm|backEnd_src|src" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
-						<entry excluding="IO_Server_comm.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="backEnd_src"/>
+						<entry excluding="chats|frontEnd_src|tests|comm|backEnd_src|src" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="backEnd_main.c|IO_Server_comm.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="backEnd_src"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="comm"/>
-						<entry excluding="client_userInput.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="frontEnd_src"/>
+						<entry excluding="client_WhatDownApp_main.c|client_userInput.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="frontEnd_src"/>
 						<entry excluding="whatdownApp.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
 					</sourceEntries>
 				</configuration>
@@ -166,10 +166,10 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry excluding="frontEnd_src|tests|comm|backEnd_src|src" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="chats|frontEnd_src|tests|comm|backEnd_src|src" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 						<entry excluding="IO_Server_comm.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="backEnd_src"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="comm"/>
-						<entry excluding="client_userInput.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="frontEnd_src"/>
+						<entry excluding="client_WhatDownApp_main.c|client_userInput.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="frontEnd_src"/>
 						<entry excluding="whatdownApp.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
 					</sourceEntries>
 				</configuration>
@@ -231,9 +231,74 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry excluding="frontEnd_src|tests|comm|backEnd_src|src" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="chats|frontEnd_src|tests|comm|backEnd_src|src" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="comm"/>
 						<entry excluding="client_userInput.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="frontEnd_src"/>
+						<entry excluding="whatdownApp.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
+					</sourceEntries>
+				</configuration>
+			</storageModule>
+			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
+		</cconfiguration>
+		<cconfiguration id="cdt.managedbuild.config.gnu.exe.debug.1611725391.1298655889.2021208378">
+			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="cdt.managedbuild.config.gnu.exe.debug.1611725391.1298655889.2021208378" moduleId="org.eclipse.cdt.core.settings" name="chats_run">
+				<externalSettings/>
+				<extensions>
+					<extension id="org.eclipse.cdt.core.GNU_ELF" point="org.eclipse.cdt.core.BinaryParser"/>
+					<extension id="org.eclipse.cdt.core.GASErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GmakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GLDErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.CWDLocator" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+				</extensions>
+			</storageModule>
+			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+				<configuration artifactName="${ProjName}" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe,org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug" cleanCommand="rm -rf" description="" id="cdt.managedbuild.config.gnu.exe.debug.1611725391.1298655889.2021208378" name="chats_run" parent="cdt.managedbuild.config.gnu.exe.debug">
+					<folderInfo id="cdt.managedbuild.config.gnu.exe.debug.1611725391.1298655889.2021208378." name="/" resourcePath="">
+						<toolChain id="cdt.managedbuild.toolchain.gnu.exe.debug.1234742777" name="Linux GCC" superClass="cdt.managedbuild.toolchain.gnu.exe.debug">
+							<targetPlatform id="cdt.managedbuild.target.gnu.platform.exe.debug.913785851" name="Debug Platform" superClass="cdt.managedbuild.target.gnu.platform.exe.debug"/>
+							<builder buildPath="${workspace_loc:/whatDown}/Debug" id="cdt.managedbuild.target.gnu.builder.exe.debug.33016588" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="Gnu Make Builder" superClass="cdt.managedbuild.target.gnu.builder.exe.debug"/>
+							<tool id="cdt.managedbuild.tool.gnu.archiver.base.1714572761" name="GCC Archiver" superClass="cdt.managedbuild.tool.gnu.archiver.base"/>
+							<tool id="cdt.managedbuild.tool.gnu.cpp.compiler.exe.debug.851738950" name="GCC C++ Compiler" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.exe.debug">
+								<option id="gnu.cpp.compiler.exe.debug.option.optimization.level.1423538129" name="Optimization Level" superClass="gnu.cpp.compiler.exe.debug.option.optimization.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.optimization.level.none" valueType="enumerated"/>
+								<option id="gnu.cpp.compiler.exe.debug.option.debugging.level.2105775225" name="Debug Level" superClass="gnu.cpp.compiler.exe.debug.option.debugging.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.debugging.level.max" valueType="enumerated"/>
+							</tool>
+							<tool id="cdt.managedbuild.tool.gnu.c.compiler.exe.debug.1685476901" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.exe.debug">
+								<option defaultValue="gnu.c.optimization.level.none" id="gnu.c.compiler.exe.debug.option.optimization.level.1653976819" name="Optimization Level" superClass="gnu.c.compiler.exe.debug.option.optimization.level" useByScannerDiscovery="false" valueType="enumerated"/>
+								<option id="gnu.c.compiler.exe.debug.option.debugging.level.435955312" name="Debug Level" superClass="gnu.c.compiler.exe.debug.option.debugging.level" useByScannerDiscovery="false" value="gnu.c.debugging.level.max" valueType="enumerated"/>
+								<option id="gnu.c.compiler.option.include.paths.1056575673" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
+									<listOptionValue builtIn="false" value="../comm"/>
+									<listOptionValue builtIn="false" value="../hashmap"/>
+									<listOptionValue builtIn="false" value="src"/>
+									<listOptionValue builtIn="false" value="../frontEnd_src"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/frontEnd_src}&quot;"/>
+									<listOptionValue builtIn="false" value="../comm/tcp/list/src"/>
+									<listOptionValue builtIn="false" value="../comm/tcp/src"/>
+									<listOptionValue builtIn="false" value="../src"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src}&quot;"/>
+								</option>
+								<option id="gnu.c.compiler.option.dialect.std.2000572330" name="Language standard" superClass="gnu.c.compiler.option.dialect.std" useByScannerDiscovery="true" value="gnu.c.compiler.dialect.default" valueType="enumerated"/>
+								<option id="gnu.c.compiler.option.warnings.pedantic.1564360095" name="Pedantic (-pedantic)" superClass="gnu.c.compiler.option.warnings.pedantic" useByScannerDiscovery="false" value="true" valueType="boolean"/>
+								<option id="gnu.c.compiler.option.warnings.extrawarn.587537499" name="Extra warnings (-Wextra)" superClass="gnu.c.compiler.option.warnings.extrawarn" useByScannerDiscovery="false" value="true" valueType="boolean"/>
+								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.2104794524" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+							</tool>
+							<tool id="cdt.managedbuild.tool.gnu.c.linker.exe.debug.848988110" name="GCC C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.exe.debug">
+								<inputType id="cdt.managedbuild.tool.gnu.c.linker.input.293695853" superClass="cdt.managedbuild.tool.gnu.c.linker.input">
+									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
+									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
+								</inputType>
+							</tool>
+							<tool id="cdt.managedbuild.tool.gnu.cpp.linker.exe.debug.648446553" name="GCC C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.exe.debug"/>
+							<tool id="cdt.managedbuild.tool.gnu.assembler.exe.debug.480485006" name="GCC Assembler" superClass="cdt.managedbuild.tool.gnu.assembler.exe.debug">
+								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.1079234768" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
+							</tool>
+						</toolChain>
+					</folderInfo>
+					<sourceEntries>
+						<entry excluding="chats|frontEnd_src|tests|comm|backEnd_src|src" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="chats"/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="comm"/>
+						<entry excluding="client_WhatDownApp_main.c|client_userInput.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="frontEnd_src"/>
 						<entry excluding="whatdownApp.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
 					</sourceEntries>
 				</configuration>

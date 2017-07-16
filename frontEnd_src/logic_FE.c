@@ -8,6 +8,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
+/* inet_ntoa */
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+
 #include "logicFE.h"
 #include "Protocol.h"
 
@@ -34,6 +40,8 @@ static int LogicFE_Send(Logic_FE_t* _logic, void* _msg,  uint _msgLength);
 static int LogicFE_Recive( TCP_C_t* _netClient , ClientReceiveMessage_t* _recivebuf);
 
 static bool IsStructValid(Logic_FE_t* _logic);
+
+static bool OpenChatWindows(sockaddr_in_t* _sockaddr_t, const char* _name);
 
 /* ~~~ API function ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
@@ -138,5 +146,36 @@ static bool IsStructValid(Logic_FE_t* _logic)
 	return ! (NULL == _logic || _logic->m_magicNumer != MAGIC_NUMBER_ALIVE_LOGIC_FE);
 }
 
+static bool OpenChatWindows(sockaddr_in_t* _sockaddr_t, const char* _name)
+{
+	uint port;
+	char* ip;
 
+	char writerCommand[MAX_MESSAGE_LENGTH];
+	char readerCommand[MAX_MESSAGE_LENGTH];
+
+	if (NULL == _sockaddr_t || NULL == _name)
+	{
+		return FALSE;
+	}
+
+#define WINDOW_HIGHT_WRITER 10
+#define WINDOW_HIGHT_READER 30
+#define WINDOW_WIDTH 100
+#define WINDOW_X_POS 100
+#define WINDOW_Y_POS_WRITER 600
+#define WINDOW_Y_POS_READER 0
+
+	port = ntohs(_sockaddr_t->sin_port );
+	ip = inet_ntoa(_sockaddr_t->sin_addr) ;
+
+	/* setup setting for new windows */
+	sprintf(writerCommand, "gnome-terminal --geometry=WINDOW_WIDTHxWINDOW_HIGHT_WRITER+WINDOW_X_POS+WINDOW_Y_POS_WRITER --command=\"./writer %s %d %s%c", ip, port, _name,'\"');
+	sprintf(readerCommand, "gnome-terminal --geometry=WINDOW_WIDTHxWINDOW_HIGHT_READER+WINDOW_X_POS+WINDOW_Y_POS_READER --command=\" ./reader %s %d%c", ip, port,'\"');
+
+	system(writerCommand);
+	system(readerCommand);
+
+	return TRUE;
+}
 
