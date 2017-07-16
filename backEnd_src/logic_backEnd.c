@@ -6,9 +6,12 @@
  */
 
 #include <string.h> /* memset */
+#include <err.h>
 #include "logic_backEnd.h"
 #include "Protocol.h"
 #include "usersHandle.h"
+#include "ipHandle.h"
+#include "groupsHandle.h"
 
 /* ~~~ Defines ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
@@ -27,7 +30,7 @@ struct Logic_BE
 	TCP_S_t* m_net;
 	void* m_usersHandel;
 	void* m_groupHandle;
-	void* m_IP_handle;
+	IP_Handle_t* m_IP_handle;
 
 	ServerReceiveMessage_t* m_decodedMsg;
 };
@@ -37,6 +40,7 @@ struct Logic_BE
 static int LogicBE_Send(Logic_BE_t* _logic, uint _socketNum, MessageType _msgType, BackEndStatus _responseResult, void* _msg,  uint _msgLength);
 
 static bool SignUp(Logic_BE_t* _logicBE, ServerReceiveMessage_t* m_decodedMsg, uint _socketNum);
+static bool CreateGroup(Logic_BE_t* _logicBE, ServerReceiveMessage_t* _decodedMsg, uint _socketNum);
 
 static bool IsStructValid(Logic_BE_t* _logicBE);
 static bool FlushServerReceiveMessage_t(ServerReceiveMessage_t* _decodedMsg);
@@ -47,11 +51,10 @@ Logic_BE_t* LogicBE_Create(void* _usersHandel, void* _groupHandle, void* _IP_han
 {
 	Logic_BE_t* aLogic;
 
-	// TODO enable later on */
-//		if (NULL == _usersHandel || _groupHandle || _IP_handle)
-//		{
-//			return NULL;
-//		}
+	if (!_usersHandel || !_groupHandle || !_IP_handle)
+	{
+		return NULL;
+	}
 
 	aLogic = malloc( 1* sizeof(Logic_BE_t) );
 	if (!aLogic)
@@ -137,8 +140,9 @@ int LogicBE_ReciveDataFunc(void* _data, size_t _sizeData, uint _socketNum, void*
 
 			break;
 		case MESSAGETYPE_CREATE_GROUP:
-
+			CreateGroup(_contex, ((Logic_BE_t*)_contex)->m_decodedMsg, _socketNum);
 			break;
+
 		case MESSAGETYPE_LEAVE_GROUP:
 
 			break;
@@ -221,6 +225,40 @@ static bool SignUp(Logic_BE_t* _logicBE, ServerReceiveMessage_t* _decodedMsg, ui
 	return TRUE;
 }
 
+static bool CreateGroup(Logic_BE_t* _logicBE, ServerReceiveMessage_t* _decodedMsg, uint _socketNum)
+{
+	sockaddr_in_t* addrs;
+
+	if (strlen(_decodedMsg->m_groupName) > MAX_GROUP_NAME)
+	{
+		LogicBE_Send(_logicBE, _socketNum, MESSAGETYPE_CREATE_GROUP, BackEnd_GROUP_NAME_INVALID, "",  0);
+		return FALSE;
+	}
+
+	addrs = IP_Handle_GetFreeIP(_logicBE->m_IP_handle);
+	if (!addrs)
+	{
+		LogicBE_Send(_logicBE, _socketNum, MESSAGETYPE_CREATE_GROUP, BackEnd_NO_FREE_IP, "",  0);
+		return FALSE;
+	}
+
+	if (GroupsHandel_IsGroupExist(_logicBE->m_groupHandle, _decodedMsg->m_groupName) )
+	{
+		LogicBE_Send(_logicBE, _socketNum, MESSAGETYPE_CREATE_GROUP, BackEnd_GROUP_NAME_TAKEN, "",  0);
+		return FALSE;
+	}
+
+	if (! GroupsHandel_NewGroup(_logicBE->m_groupHandle, _decodedMsg->m_groupName, _socketNum, addrs) )
+	{
+		LogicBE_Send(_logicBE, _socketNum, MESSAGETYPE_CREATE_GROUP, BackEnd_SYSTEM_FAIL, "",  0);
+		return FALSE;
+	}
+
+	LogicBE_Send(_logicBE, _socketNum, MESSAGETYPE_CREATE_GROUP, BackEnd_SUCCESS, addrs,  sizeof(addrs));
+
+	return TRUE;
+}
+
 static int LogicBE_Send(Logic_BE_t* _logic, uint _socketNum, MessageType _msgType, BackEndStatus _responseResult, void* _msg,  uint _msgLength)
 {
 
@@ -249,8 +287,9 @@ static int LogicBE_Send(Logic_BE_t* _logic, uint _socketNum, MessageType _msgTyp
 
 			break;
 		case MESSAGETYPE_CREATE_GROUP:
-
+			length = Protocol_EncodeNewGroup_Response(_responseResult, *(sockaddr_in_t*)_msg, buffer);
 			break;
+
 		case MESSAGETYPE_LEAVE_GROUP:
 
 			break;

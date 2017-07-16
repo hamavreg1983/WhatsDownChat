@@ -24,15 +24,26 @@ int main(int argc, char *argv[])
 	int fd, nbytes,addrlen;
 	struct ip_mreq mreq;
 	char msgbuf[MSG_BUF_SIZE];
-	int port = atoi(argv[2]);
+	int port;
+	char ip[16];
 	u_int yes=1;
+
+	if (argc == 3)
+	{
+		strcpy(ip, argv[1] );
+		port = atoi(argv[2]);
+	}
+	else
+	{
+		strcpy(ip, "225.225.225.225" );
+		port = 2255;
+	}
 
 	/* create what looks like an ordinary UDP socket */
 	if ((fd=socket(AF_INET,SOCK_DGRAM,0)) < 0) {
 		perror("socket");
 		return(1);
 	}
-
 
 	/* allow multiple sockets to use the same PORT number */
 	if (setsockopt(fd,SOL_SOCKET,SO_REUSEADDR,&yes,sizeof(yes)) < 0)
@@ -55,12 +66,13 @@ int main(int argc, char *argv[])
 	}
 
 	/* use setsockopt() to request that the kernel join a multicast group */
-	mreq.imr_multiaddr.s_addr=inet_addr(argv[1]);
+//	memset( &mreq , 0 , sizeof(struct ip_mreq));
+	mreq.imr_multiaddr.s_addr=inet_addr(ip);
 	mreq.imr_interface.s_addr=htonl(INADDR_ANY);
-	if (setsockopt(fd,IPPROTO_IP,IP_ADD_MEMBERSHIP,&mreq,sizeof(mreq)) < 0)
+	if (setsockopt(fd,IPPROTO_IP,IP_ADD_MEMBERSHIP,&mreq,sizeof(mreq)) < 0) /* mybe yuval = IP_MULTICAST_IF*/
 	{
-		perror("setsockopt");
-		return(1);
+		perror("setsockopt failed");
+		return(3);
 	}
 
 	/* now just enter a read-print loop */

@@ -4,8 +4,8 @@
 # TCP
 
 # File names
-EXE_NAME1 = writer
-EXE_NAME2 = reader
+EXE_NAME1 = reader
+EXE_NAME2 = writer
 #SOURCES = $(wildcard *.cpp)
 #OBJECTS = $(SOURCES:.cpp=.o)
 #H_FILES = $(wildcard *.h)
@@ -18,14 +18,16 @@ CFLAGS = -g -Wall -pedantic -Isrc/
 .Phony : clean rebuild all run
 
 # Main target
-$(EXE_NAME1): reader.o 
+$(EXE_NAME1): reader.o reader.c
 	$(CC) $(CFLAGS) reader.o -o $(EXE_NAME1) 
 
-$(EXE_NAME2): writer.o
+$(EXE_NAME2): writer.o writer.c
 	$(CC) $(CFLAGS) writer.o -o $(EXE_NAME2)
  
 
 all: $(EXE_NAME1) $(EXE_NAME2)
+	
+
 
 # To obtain object files
 %.o: %.c

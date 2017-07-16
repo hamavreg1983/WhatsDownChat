@@ -52,7 +52,7 @@ Client_UI* UI_Create(Logic_FE_t* _frontEnd)
 
 void Ui_Run(Client_UI* _ui)
 {
-	int res;
+	int res = TRUE; /* set to 1 so would enter the loop */
 	    system("clear");
 	    printf("Program start \n ");
 	    printf("The program is initialized \n");
@@ -173,8 +173,24 @@ void DeleteUserFunction(Client_UI* _ui)
 }
 void CreateNewGroupFunction(Client_UI* _ui)
 {
+	char groupName[MAX_GROUP_NAME]= {0};
+	int result;
+	BackEndStatus statusServer;
 
+	system("clear");
+
+	printf("Welcome to sign up to whatsDown Chat app \n");
+	do {
+		printf("please insert new Group's Name \n");
+		result = GetUserInput(groupName, MAX_GROUP_NAME);
+	} while ( result <= 0 );
+
+	statusServer = LogicFE_CreateGroup(_ui->m_logicFE, groupName);
+	PrintBackEndResponse(statusServer);
+
+	return;
 }
+
 void JoinGruopFunction(Client_UI* _ui)
 {
 

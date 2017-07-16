@@ -63,6 +63,8 @@ GroupHandel_t* GroupsHandel_Create()
 		return NULL;
 	}
 
+	gHndl->m_magicNumber = MAGIC_NUMBER_GRP_HNDL;
+
 	return gHndl;
 }
 

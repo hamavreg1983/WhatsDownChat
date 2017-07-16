@@ -8,7 +8,7 @@
 #ifndef LOGICFE_H_
 #define LOGICFE_H_
 
-//#include "defines.h"
+#include "defines.h"
 #include "tcp_client.h"
 
 /* ~~~ Defines ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
@@ -27,6 +27,8 @@ void LogicFE_Destroy(Logic_FE_t* _logic);
 int LogicFE_ReciveDataFunc(void* _data, size_t _sizeData, uint _socketNum, void* _contex);
 
 int LogicFE_Signup(Logic_FE_t* _logic, const char* _username, const char* _password);
+
+int LogicFE_CreateGroup(Logic_FE_t* _logic, const char* _groupName);
 
 
 #endif /* LOGICFE_H_ */

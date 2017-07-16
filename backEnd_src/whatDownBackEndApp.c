@@ -8,8 +8,8 @@
 #include "whatDownBackEndApp.h"
 #include "logic_backEnd.h"
 #include "usersHandle.h"
-/* groupsHandle */
-/* iphandle*/
+#include "ipHandle.h"
+#include "groupsHandle.h"
 
 
 /* ~~~ Defines ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
@@ -26,11 +26,10 @@ struct WhatDownBackEndApp
 	uint m_magicNumber;
 
 	UsersHandle_t* m_usersHandlePtr;
-	/* groupsHandle */
-	/* iphandle*/
+	IP_Handle_t* m_ipHndlPtr;
+	GroupHandel_t* m_groupsHndlPtr;
 	Logic_BE_t* m_BElogicPtr;
 	TCP_S_t* m_TCPnet;
-
 
 };
 
@@ -54,9 +53,28 @@ WhatDownBackEndApp_t* WhatDownBackEndApp_Create()
 		return NULL;
 	}
 
-	app->m_BElogicPtr = LogicBE_Create(app->m_usersHandlePtr, NULL, NULL); /* TODO fill other DB */
+	app->m_ipHndlPtr = IP_Handle_Create(CHAT_FIRSET_IP, CHAT_MAX_NUM_IP, CHAT_PORT);
+	if (! app->m_ipHndlPtr)
+	{
+		UsersHandle_Destroy(app->m_usersHandlePtr);
+		free(app);
+		return NULL;
+	}
+
+	app->m_groupsHndlPtr = GroupsHandel_Create();
+	if (!app->m_groupsHndlPtr)
+	{
+		IP_Handle_Destory(app->m_ipHndlPtr);
+		UsersHandle_Destroy(app->m_usersHandlePtr);
+		free(app);
+		return NULL;
+	}
+
+	app->m_BElogicPtr = LogicBE_Create(app->m_usersHandlePtr, app->m_groupsHndlPtr, app->m_ipHndlPtr);
 	if (! app->m_BElogicPtr )
 	{
+		GroupsHandel_Destroy(app->m_groupsHndlPtr);
+		IP_Handle_Destory(app->m_ipHndlPtr);
 		UsersHandle_Destroy(app->m_usersHandlePtr);
 		free(app);
 		return NULL;
@@ -72,6 +90,8 @@ WhatDownBackEndApp_t* WhatDownBackEndApp_Create()
 	if (!app)
 	{
 		LogicBE_Destroy(app->m_BElogicPtr);
+		GroupsHandel_Destroy(app->m_groupsHndlPtr);
+		IP_Handle_Destory(app->m_ipHndlPtr);
 		UsersHandle_Destroy(app->m_usersHandlePtr);
 		free(app);
 		return NULL;

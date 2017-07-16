@@ -31,8 +31,11 @@ struct Logic_FE
 	TCP_C_t* m_netClient;
 //	void* m_ui;
 
+	char m_userName[MAX_USERNAME];
+
 	ClientReceiveMessage_t* m_recivebuf;
 };
+
 /* ~~~ Internal function forward declartion ~~~~~~~~~~~~~~~~~ */
 
 static int LogicFE_Send(Logic_FE_t* _logic, void* _msg,  uint _msgLength);
@@ -70,6 +73,10 @@ Logic_FE_t* LogicFE_Create(TCP_C_t* _netClient)
 //	logicFE->m_ui = _ui;
 	logicFE->m_magicNumer = MAGIC_NUMBER_ALIVE_LOGIC_FE;
 
+
+	/*TODO remove HARD coded test */
+	strcpy( logicFE->m_userName , "user1" );
+
 	return logicFE;
 }
 
@@ -88,15 +95,55 @@ int LogicFE_Signup(Logic_FE_t* _logic, const char* _username, const char* _passw
 	int result;
 
 	length = Protocol_EncodeSignUp(_username, _password, buffer);
-	/* TODO check return */
+	if (length <= 0)
+	{
+		return -1;
+	}
 
 	result = LogicFE_Send(_logic, buffer, length);
-	/* TODO check return */
+	if (result <= 0)
+	{
+		return -1;
+	}
 
 	return LogicFE_Recive( _logic->m_netClient , _logic->m_recivebuf);
-	/* TODO check return */
 
 }
+
+int LogicFE_CreateGroup(Logic_FE_t* _logic, const char* _groupName)
+{
+	/* TODO check input param */
+	if (! IsStructValid(_logic))
+	{
+		return -1;
+	}
+
+	/* check values */
+
+	char buffer[MAX_MESSAGE_LENGTH];
+	uint length;
+	int result;
+
+	length = Protocol_EncodeNewGroup(_groupName, buffer);
+	if (length <= 0)
+	{
+		return -1;
+	}
+
+	result = LogicFE_Send(_logic, buffer, length);
+	if (result <= 0)
+	{
+		return -1;
+	}
+
+	int status;
+	status = LogicFE_Recive( _logic->m_netClient , _logic->m_recivebuf);
+
+	OpenChatWindows(&_logic->m_recivebuf->m_groupAdrres, _logic->m_userName);
+
+	return status;
+}
+
 
 /* ~~~ Internal function ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
@@ -132,11 +179,18 @@ static int LogicFE_Recive( TCP_C_t* _netClient , ClientReceiveMessage_t* _recive
 		printf("\n server closed connection. exiting.");
 		return BackEnd_SYSTEM_FAIL;
 	}
-	printf("recived(%d): %s.\n", recv_bytes, (char*) buffer);
+
+#ifndef NDBUG
+	printf("recived(%d): %.*s .\n", recv_bytes, recv_bytes, (char*) buffer);
+#endif
 
 	Protocol_DecodeClient(buffer, recv_bytes, _recivebuf);
 
+#ifndef NDBUG
 	printf("Msg Type:%d. status:%d\n", _recivebuf->m_messageType , _recivebuf->m_status);
+#endif
+
+
 
 	return _recivebuf->m_status;
 }
@@ -149,7 +203,7 @@ static bool IsStructValid(Logic_FE_t* _logic)
 static bool OpenChatWindows(sockaddr_in_t* _sockaddr_t, const char* _name)
 {
 	uint port;
-	char* ip;
+//	char* ip;
 
 	char writerCommand[MAX_MESSAGE_LENGTH];
 	char readerCommand[MAX_MESSAGE_LENGTH];
@@ -166,12 +220,14 @@ static bool OpenChatWindows(sockaddr_in_t* _sockaddr_t, const char* _name)
 #define WINDOW_Y_POS_WRITER 600
 #define WINDOW_Y_POS_READER 0
 
-	port = ntohs(_sockaddr_t->sin_port );
-	ip = inet_ntoa(_sockaddr_t->sin_addr) ;
+//	port = ntohs(_sockaddr_t->sin_port );
+//	ip = inet_ntoa(_sockaddr_t->sin_addr) ;
+	port = 2255;
+	char ip[] = "225.225.225.225";
 
 	/* setup setting for new windows */
-	sprintf(writerCommand, "gnome-terminal --geometry=WINDOW_WIDTHxWINDOW_HIGHT_WRITER+WINDOW_X_POS+WINDOW_Y_POS_WRITER --command=\"./writer %s %d %s%c", ip, port, _name,'\"');
-	sprintf(readerCommand, "gnome-terminal --geometry=WINDOW_WIDTHxWINDOW_HIGHT_READER+WINDOW_X_POS+WINDOW_Y_POS_READER --command=\" ./reader %s %d%c", ip, port,'\"');
+	sprintf(writerCommand, "gnome-terminal --geometry=100x10+100+600 --command=\"../chats/writer %s %d %s%c", ip, port, _name,'\"');
+	sprintf(readerCommand, "gnome-terminal --geometry=100x30+100+0   --command=\"../chats/reader %s %d%c", ip, port,'\"');
 
 	system(writerCommand);
 	system(readerCommand);
