@@ -26,5 +26,7 @@ void LogicFE_Destroy(Logic_FE_t* _logic);
 
 int LogicFE_ReciveDataFunc(void* _data, size_t _sizeData, uint _socketNum, void* _contex);
 
+int LogicFE_Signup(Logic_FE_t* _logic, const char* _username, const char* _password);
+
 
 #endif /* LOGICFE_H_ */

@@ -77,7 +77,11 @@ void WhatDownClientApp_Destroy(WhatDownClientApp_t* _appBE)
 
 bool WhatDownClientApp_Run(WhatDownClientApp_t* _appBE)
 {
+	/* TODO check param */
 
+	Ui_Run(_appBE->m_UI);
+
+	return TRUE;
 }
 
 bool WhatDownClientApp_Stop(WhatDownClientApp_t* _appBE)
