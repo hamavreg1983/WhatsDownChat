@@ -15,6 +15,9 @@
 
 /* ~~~ Defines ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
+/* TEMP */
+//#define TRUE 1
+//#define FALSE 0
 
 
 /* ~~~ Struct ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
@@ -23,7 +26,7 @@
 
 /* ~~~ Internal function forward declaration ~~~~~~~~~~~~~~~~~~~~~~~~ */
 
-static int CopyUntilDelimiter(void* _dst, void* _src, char* _delim, uint _delimLength);
+static int CopyUntilDelimiter(void* _dst, void* _src, size_t _length, char* _delim, uint _delimLength);
 static bool IsDelim(void* _msg, char* _delim, uint _delimLength);
 static int DecodeGroupsName(ClientReceiveMessage_t* _message , void* decodedStr, uint groupsLength, char* _delim, uint _delimLength);
 
@@ -65,7 +68,7 @@ int Protocol_EncodeSignUp_Response(BackEndStatus _responseStatus, void* _buffer)
 		return GEN_ERROR;
 	}
 
-	length = sprintf(tempMsg, "%d%s", _responseStatus, DELIMITER);
+	length = sprintf(tempMsg, "%c%s", _responseStatus, DELIMITER);
 
 	result = TLV_encoder(tempMsg, (char) MESSAGETYPE_SIGNUP, length, _buffer, &tlvLength);
 	if (result != TLV_SUCCESS)
@@ -102,7 +105,7 @@ int Protocol_DecodeClient(void* _dataToDecode, size_t _lenght, ClientReceiveMess
 	}
 
 	_message->m_messageType = datatypeFound;
-	switch (datatypeFound)
+	switch (_message->m_messageType)
 		{
 			case MESSAGETYPE_RESPONS:
 				/* not used */
@@ -175,27 +178,27 @@ bool Protocol_DecodeServer(void* _dataToDecode, size_t _lenght, ServerReceiveMes
 			return FALSE;
 			break;
 		case MESSAGETYPE_SIGNUP:
-			length = CopyUntilDelimiter( _message->m_userName , decodedStr, DELIMITER, DELIMITER_LENGHT);
-			length = CopyUntilDelimiter( _message->m_password , (char*) decodedStr + length + DELIMITER_LENGHT, DELIMITER, DELIMITER_LENGHT);
+			length = CopyUntilDelimiter( _message->m_userName , decodedStr, decodedStrLength, DELIMITER, DELIMITER_LENGHT);
+			length = CopyUntilDelimiter( _message->m_password , decodedStr + length + DELIMITER_LENGHT, decodedStrLength - length - DELIMITER_LENGHT, DELIMITER, DELIMITER_LENGHT);
 			break;
 		case MESSAGETYPE_LOGIN:
-			length = CopyUntilDelimiter( _message->m_userName , decodedStr, DELIMITER, DELIMITER_LENGHT);
-			length = CopyUntilDelimiter( _message->m_password , (char*) decodedStr + length + DELIMITER_LENGHT, DELIMITER, DELIMITER_LENGHT);
+			length = CopyUntilDelimiter( _message->m_userName , decodedStr, decodedStrLength, DELIMITER, DELIMITER_LENGHT);
+			length = CopyUntilDelimiter( _message->m_password , (char*) decodedStr + length + DELIMITER_LENGHT, decodedStrLength, DELIMITER, DELIMITER_LENGHT);
 			break;
 		case MESSAGETYPE_LOGOUT:
-			CopyUntilDelimiter( _message->m_userName , decodedStr, DELIMITER, DELIMITER_LENGHT);
+			CopyUntilDelimiter( _message->m_userName , decodedStr, decodedStrLength, DELIMITER, DELIMITER_LENGHT);
 			break;
 		case MESSAGETYPE_DELETE_USER:
-			CopyUntilDelimiter( _message->m_userName , decodedStr, DELIMITER, DELIMITER_LENGHT);
+			CopyUntilDelimiter( _message->m_userName , decodedStr, decodedStrLength, DELIMITER, DELIMITER_LENGHT);
 			break;
 		case MESSAGETYPE_JOIN_GROUP:
-			CopyUntilDelimiter(_message->m_groupName, decodedStr, DELIMITER, DELIMITER_LENGHT);
+			CopyUntilDelimiter(_message->m_groupName, decodedStr, decodedStrLength, DELIMITER, DELIMITER_LENGHT);
 			break;
 		case MESSAGETYPE_CREATE_GROUP:
-			CopyUntilDelimiter(_message->m_groupName, decodedStr, DELIMITER, DELIMITER_LENGHT);
+			CopyUntilDelimiter(_message->m_groupName, decodedStr, decodedStrLength, DELIMITER, DELIMITER_LENGHT);
 			break;
 		case MESSAGETYPE_LEAVE_GROUP:
-			CopyUntilDelimiter(_message->m_groupName, decodedStr, DELIMITER, DELIMITER_LENGHT);
+			CopyUntilDelimiter(_message->m_groupName, decodedStr, decodedStrLength, DELIMITER, DELIMITER_LENGHT);
 			break;
 		case MESSAGETYPE_GET_ALL_GROUPS:
 			/* do nothing more */
@@ -217,7 +220,7 @@ bool Protocol_DecodeServer(void* _dataToDecode, size_t _lenght, ServerReceiveMes
 
 /* ~~~ Internal function  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
-static int CopyUntilDelimiter(void* _dst, void* _src, char* _delim, uint _delimLength)
+static int CopyUntilDelimiter(void* _dst, void* _src, size_t _length, char* _delim, uint _delimLength)
 {
 	if( NULL == _dst || NULL == _src || NULL == _delim)
 	{
@@ -229,7 +232,7 @@ static int CopyUntilDelimiter(void* _dst, void* _src, char* _delim, uint _delimL
 	char* srcLoc = _src;
 	char* dstLoc = _dst;
 
-	while( TRUE )
+	while( charNum <= _length )
 	{
 		if ( IsDelim( ( srcLoc + charNum), _delim, _delimLength) == TRUE )
 		{
@@ -265,16 +268,16 @@ static bool IsDelim(void* _msg, char* _delim, uint _delimLength)
 }
  /* TODO return address somehere!!! */
 
-static int DecodeGroupsName(ClientReceiveMessage_t* _message , void* _decodedStr, uint groupsLength, char* _delim, uint _delimLength)
+static int DecodeGroupsName(ClientReceiveMessage_t* _message , void* _decodedStr, uint _groupsLength, char* _delim, uint _delimLength)
 {
 	uint src_itr = 0;
 	uint dsc_itr = 0;
 	uint general_itr = 0;
 	uint groupNum = 0;
 
-	while (dsc_itr < groupsLength)
+	while (dsc_itr < _groupsLength)
 	{
-		general_itr = CopyUntilDelimiter(_message->m_GroupName + dsc_itr, _decodedStr + src_itr, _delim, _delimLength);
+		general_itr = CopyUntilDelimiter(_message->m_GroupName + dsc_itr, (char*)_decodedStr + src_itr, _groupsLength, _delim, _delimLength);
 		src_itr += general_itr + 1;
 		dsc_itr += general_itr + DELIMITER_LENGHT;
 		++groupNum;

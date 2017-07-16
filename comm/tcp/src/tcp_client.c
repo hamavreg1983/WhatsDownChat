@@ -13,6 +13,8 @@
 /* #include <errno.h> */
 #include <unistd.h> /* close */
 
+#include "defines.h"
+
 #include "list.h"
 #include "tcp_client.h"
 
@@ -54,7 +56,6 @@ static bool IsConnected(TCP_C_t* _TCP);
 
 bool TCP_ClientConnect(TCP_C_t* _TCP);
 
-static void sanity_check(char* _string, uint _size, char _replaceWith);
 
 
 /* ~~~ API function ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
@@ -214,37 +215,6 @@ bool IsStructValid(TCP_C_t* _TCP)
 bool IsConnected(TCP_C_t* _TCP)
 {
 	return (bool) _TCP->m_connectedNum;
-}
-
-static void sanity_check(char* _string, uint _size, char _replaceWith)
-{
-    int j = 0;
-
-    while (j < _size)
-    {
-    	if ( 	(_string[j] <= 'z' && _string[j] >= 'a')
-			|| 	(_string[j] <= 'Z' && _string[j] >= 'A' )
-			||	(_string[j] <= '9' && _string[j] >= '0' )
-			|| 	_string[j] == ' '
-			|| 	_string[j] == '?'
-			|| 	_string[j] == '!'
-			|| 	_string[j] == '"'
-			|| 	_string[j] == '.'
-			|| 	_string[j] == ','
-			|| 	_string[j] == ':'
-			|| 	_string[j] == '\''
-			|| 	_string[j] == '\0'
-    		)
-    	{
-    		/* good char, do nothing */
-    	}
-    	else
-    	{
-    		_string[j] = _replaceWith ;
-        }
-        j++;
-    }
-    return;
 }
 
 

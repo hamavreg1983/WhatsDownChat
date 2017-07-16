@@ -1,8 +1,9 @@
 #ifndef __DEFINES_H__
 #define __DEFINES_H__
 
-#include <stdint.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <stdint.h>
 #include <stddef.h> /* size_t */
 
 
@@ -46,7 +47,6 @@
 															}
 
 /* ~~~ defines ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-
 #ifndef TRUE
 
 #define TRUE 1
@@ -54,7 +54,12 @@
 
 #endif /* TRUE */
 
+
+//#ifndef __cplusplus
+//#ifndef bool
 typedef int bool;
+//#endif /* __cplusplus */
+
 typedef unsigned int uint;
 typedef unsigned int Uint;
 typedef unsigned int Uint_t;
