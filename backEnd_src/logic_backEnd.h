@@ -26,12 +26,22 @@ int LogicBE_SetServerPTR(Logic_BE_t* _logicBE, TCP_S_t* _server);
 
 void LogicBE_Destroy(Logic_BE_t* _logic);
 
+<<<<<<< HEAD
 /* call back functions */
 int LogicBE_ReciveDataFunc(void* _data, size_t _sizeData, uint _socketNum, void* _contex);
 int LogicBE_NewClientFunc(uint _socketNum, void* _contex);
 int LogicBE_ClientDissconnectedFunc(uint _socketNum, void* _contex);
 int LogicBE_ErrorFunc(TCP_SERVER_USER_ERROR _status, uint _socketNum, void* _contex);
 
+=======
+
+int LogicBE_ReciveDataFunc(void* _data, size_t _sizeData, uint _socketNum, void* _contex);
+int LogicBE_NewClientFunc(uint _socketNum, void* _contex);
+int LogicBE_ClientDissconnectedFunc(uint _socketNum, void* _contex);
+int LogicBE_ErrorFunc(TCP_SERVER_USER_ERROR _status, uint _socketNum, void* _contex);
+
+/* TODO internal */
+>>>>>>> refs/remotes/origin/master
 
 
 

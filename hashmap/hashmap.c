@@ -337,6 +337,7 @@ ds_hashmap_print_keyvals(struct DSHashMap *hash, char* (tostring)(void*))
 }
 
 void
+<<<<<<< HEAD
 ds_hashmap_foreach_value(struct DSHashMap *hash, char* (tostring)(void*))
 {
     int32_t i;
@@ -358,6 +359,8 @@ ds_hashmap_foreach_value(struct DSHashMap *hash, char* (tostring)(void*))
 }
 
 void
+=======
+>>>>>>> refs/remotes/origin/master
 ds_hashmap_sort_keys(struct DSHashMap *hash)
 {
     ds_hashmap_sort_by(hash, ds_hashmap_compare_keys);

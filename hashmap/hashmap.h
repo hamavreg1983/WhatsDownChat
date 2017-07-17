@@ -147,8 +147,11 @@ ds_hashmap_print_keys(struct DSHashMap *hash);
 void
 ds_hashmap_print_keyvals(struct DSHashMap *hash, char* (tostring)(void*));
 
+<<<<<<< HEAD
 void
 ds_hashmap_foreach_value(struct DSHashMap *hash, char* (tostring)(void*));
 
+=======
+>>>>>>> refs/remotes/origin/master
 #endif
 

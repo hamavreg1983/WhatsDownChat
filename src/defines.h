@@ -56,7 +56,10 @@
 
 
 //#ifndef __cplusplus
+<<<<<<< HEAD
 //#ifndef bool
+=======
+>>>>>>> refs/remotes/origin/master
 typedef int bool;
 //#endif /* __cplusplus */
 
