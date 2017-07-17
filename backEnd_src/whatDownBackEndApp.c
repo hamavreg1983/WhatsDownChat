@@ -34,6 +34,7 @@ struct WhatDownBackEndApp
 };
 
 /* ~~~ Internal function forward declartion ~~~~~~~~~~~~~~~~~ */
+static bool IsStructValid(WhatDownBackEndApp_t* _appBE);
 
 /* ~~~ API function ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
@@ -104,17 +105,52 @@ WhatDownBackEndApp_t* WhatDownBackEndApp_Create()
 	return app;
 }
 
-// TODO void WhatDownBackEndApp_Destroy(WhatDownBackEndApp_t* _appBE);
+void WhatDownBackEndApp_Destroy(WhatDownBackEndApp_t* _appBE)
+{
+	if (! IsStructValid(_appBE))
+	{
+		return;
+	}
+
+	_appBE->m_magicNumber = 0;
+
+	LogicBE_Destroy(_appBE->m_BElogicPtr);
+	GroupsHandel_Destroy(_appBE->m_groupsHndlPtr);
+	/* TODO make sure group didn't leave any address un-free-ed */
+	IP_Handle_Destory(_appBE->m_ipHndlPtr);
+	UsersHandle_Destroy(_appBE->m_usersHandlePtr);
+	TCP_DestroyServer(_appBE->m_TCPnet);
+	free(_appBE);
+
+	return;
+}
 
 bool WhatDownBackEndApp_Run(WhatDownBackEndApp_t* _appBE)
 {
-	/* TODO check input */
+	if (! IsStructValid(_appBE))
+	{
+		return FALSE;
+	}
 
 	return TCP_RunServer(_appBE->m_TCPnet);
-
 }
 
-// TODO bool WhatDownBackEndApp_Stop(WhatDownBackEndApp_t* _appBE);
+bool WhatDownBackEndApp_Stop(WhatDownBackEndApp_t* _appBE)
+{
+	if (! IsStructValid(_appBE))
+	{
+		return FALSE;
+	}
+
+	return TCP_StopServer(_appBE->m_TCPnet);
+}
 
 /* ~~~ Internal function ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+static bool IsStructValid(WhatDownBackEndApp_t* _appBE)
+{
+	return !(NULL == _appBE || _appBE->m_magicNumber != MAGIC_NUMBER_ALIVE_BE_APP);
+}
+
+
 

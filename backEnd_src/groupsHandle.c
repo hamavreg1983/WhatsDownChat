@@ -44,6 +44,7 @@ static GroupUnit_t* CreateValue(const char* _groupName, struct sockaddr_in* m_gr
 static void DestoyValue(GroupUnit_t* _group);
 static bool AddUser2Group(GroupUnit_t* _group, uint _socketNum);
 static GroupUnit_t* GroupsHandel_FindGroup(GroupHandel_t* _groupsHndl, const char* _groupName);
+static bool IsUserInGroup(GroupUnit_t* _group, uint _socket);
 
 /* ~~~ API function ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
@@ -126,6 +127,13 @@ int GroupsHandel_JoinGroup(GroupHandel_t* _groupsHndl, const char* _groupName, u
 		return FALSE;
 	}
 
+	if ( IsUserInGroup(aGroup, _socket) )
+	{
+		/* user already in group */
+		*_addrsOUT = aGroup->m_groupAddrs;
+		return FALSE;
+	}
+
 	if (! AddUser2Group(aGroup, _socket) )
 	{
 		return FALSE;
@@ -153,6 +161,24 @@ int GroupsHandel_IsGroupExist(GroupHandel_t* _groupsHndl, const char* _groupName
 	return TRUE;
 }
 
+sockaddr_in_t* GroupsHandel_GetGroupAddres(GroupHandel_t* _groupsHndl, const char* _groupName)
+{
+	GroupUnit_t* grp2join;
+
+	if (! IsStructValid(_groupsHndl))
+	{
+		return FALSE;
+	}
+
+	grp2join = GroupsHandel_FindGroup(_groupsHndl, _groupName);
+	if (!grp2join)
+	{
+		/* group not found */
+		return NULL;
+	}
+
+	return grp2join->m_groupAddrs;
+}
 
 /* ~~~ Internal function ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
@@ -185,8 +211,13 @@ static void DestoyValue(GroupUnit_t* _group)
 
 static bool AddUser2Group(GroupUnit_t* _group, uint _socketNum)
 {
-	++_group->m_userInGroupNum;
+	if (NULL == _group || _group->m_magicNumber != MAGIC_NUMBER_GRP_UNT)
+	{
+		return FALSE;
+	}
+
 	_group->m_usersSockets[_group->m_userInGroupNum] = _socketNum;
+	++_group->m_userInGroupNum;
 
 	return TRUE;
 }
@@ -201,7 +232,28 @@ static GroupUnit_t* GroupsHandel_FindGroup(GroupHandel_t* _groupsHndl, const cha
 	return ds_hashmap_get_str( _groupsHndl->m_groupContiner , (char*)_groupName) ;
 }
 
+static bool IsUserInGroup(GroupUnit_t* _group, uint _socket)
+{
+	int i;
 
+	if (NULL == _group || _group->m_magicNumber != MAGIC_NUMBER_GRP_UNT)
+	{
+		/* if delivered wrong ptr, than give back the irregular answer that would stop the caller */
+		return TRUE;
+	}
+
+	for ( i =0 ; i < _group->m_userInGroupNum ; ++i)
+	{
+		if (_group->m_usersSockets[i] == _socket)
+		{
+			/* found user socket */
+			return TRUE;
+		}
+	}
+
+	/* didn't find user */
+	return FALSE;
+}
 
 
 

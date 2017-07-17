@@ -41,6 +41,7 @@ static int LogicBE_Send(Logic_BE_t* _logic, uint _socketNum, MessageType _msgTyp
 
 static bool SignUp(Logic_BE_t* _logicBE, ServerReceiveMessage_t* m_decodedMsg, uint _socketNum);
 static bool CreateGroup(Logic_BE_t* _logicBE, ServerReceiveMessage_t* _decodedMsg, uint _socketNum);
+static bool JoinGroup(Logic_BE_t* _logicBE, ServerReceiveMessage_t* _decodedMsg, uint _socketNum);
 
 static bool IsStructValid(Logic_BE_t* _logicBE);
 static bool FlushServerReceiveMessage_t(ServerReceiveMessage_t* _decodedMsg);
@@ -137,8 +138,9 @@ int LogicBE_ReciveDataFunc(void* _data, size_t _sizeData, uint _socketNum, void*
 
 			break;
 		case MESSAGETYPE_JOIN_GROUP:
-
+			JoinGroup(_contex, ((Logic_BE_t*)_contex)->m_decodedMsg, _socketNum);
 			break;
+
 		case MESSAGETYPE_CREATE_GROUP:
 			CreateGroup(_contex, ((Logic_BE_t*)_contex)->m_decodedMsg, _socketNum);
 			break;
@@ -153,9 +155,6 @@ int LogicBE_ReciveDataFunc(void* _data, size_t _sizeData, uint _socketNum, void*
 			warn("Unknown msg type %d recived from socket %d.\n", ( (Logic_BE_t*)_contex)->m_decodedMsg->m_MessageType , _socketNum );
 			break;
 	}
-
-
-
 
 	/* clear struct for next transmission */
 	FlushServerReceiveMessage_t( ( ( (Logic_BE_t*)_contex)->m_decodedMsg ) );
@@ -259,11 +258,48 @@ static bool CreateGroup(Logic_BE_t* _logicBE, ServerReceiveMessage_t* _decodedMs
 	return TRUE;
 }
 
+
+static bool JoinGroup(Logic_BE_t* _logicBE, ServerReceiveMessage_t* _decodedMsg, uint _socketNum)
+{
+	sockaddr_in_t* addrs = NULL;
+
+	if (strlen(_decodedMsg->m_groupName) > MAX_GROUP_NAME || strlen(_decodedMsg->m_groupName) <= 1)
+	{
+		LogicBE_Send(_logicBE, _socketNum, MESSAGETYPE_JOIN_GROUP, BackEnd_GROUP_NAME_INVALID, "",  0);
+		return FALSE;
+	}
+
+	if (!GroupsHandel_IsGroupExist(_logicBE->m_groupHandle, _decodedMsg->m_groupName) )
+	{
+		LogicBE_Send(_logicBE, _socketNum, MESSAGETYPE_JOIN_GROUP, BackEnd_GROUP_DO_NOT_EXIST, "",  0);
+		return FALSE;
+	}
+
+	/* get group  IP from groupHndl */
+	if ( !GroupsHandel_JoinGroup(_logicBE->m_groupHandle, _decodedMsg->m_groupName, _socketNum, &addrs) )
+	{
+		LogicBE_Send(_logicBE, _socketNum, MESSAGETYPE_JOIN_GROUP, BackEnd_USER_NAME_TAKEN, "",  0);
+		return FALSE;
+	}
+
+//	addrs = GroupsHandel_GetGroupAddres(_logicBE->m_groupHandle , _decodedMsg->m_groupName);
+	if (!addrs)
+	{
+		LogicBE_Send(_logicBE, _socketNum, MESSAGETYPE_JOIN_GROUP, BackEnd_NO_FREE_IP, "",  0);
+		return FALSE;
+	}
+
+	LogicBE_Send(_logicBE, _socketNum, MESSAGETYPE_JOIN_GROUP, BackEnd_SUCCESS, addrs,  sizeof(addrs));
+
+	return TRUE;
+}
+
+
 static int LogicBE_Send(Logic_BE_t* _logic, uint _socketNum, MessageType _msgType, BackEndStatus _responseResult, void* _msg,  uint _msgLength)
 {
 
 	/* send response */
-	char buffer[MAX_MESSAGE_LENGTH];
+	char buffer[MAX_MESSAGE_LENGTH] = { '\0' };
 	uint length;
 	int sentBytes;
 
@@ -284,7 +320,7 @@ static int LogicBE_Send(Logic_BE_t* _logic, uint _socketNum, MessageType _msgTyp
 
 			break;
 		case MESSAGETYPE_JOIN_GROUP:
-
+			length = Protocol_EncodeJoinGroup_Response(_responseResult, *(sockaddr_in_t*)_msg, buffer);
 			break;
 		case MESSAGETYPE_CREATE_GROUP:
 			length = Protocol_EncodeNewGroup_Response(_responseResult, *(sockaddr_in_t*)_msg, buffer);

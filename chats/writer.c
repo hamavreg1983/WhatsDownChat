@@ -19,18 +19,21 @@ int main(int argc, char *argv[])
 	int n;
 	char ip[16];
 	char nickName[64];
+	char groupName[64];
 
-	if (argc == 4)
+	if (argc == 5)
 	{
 		strcpy(ip, argv[1] );
 		port = atoi(argv[2]);
 		strcpy(nickName, argv[3]);
+		strcpy(groupName, argv[4]);
 	}
 	else
 	{
 		strcpy(ip, "225.225.225.225" );
 		port = 2255;
 		strcpy(nickName, "myUser");
+		strcpy(groupName, "unknown");
 	}
 
 
@@ -47,7 +50,7 @@ int main(int argc, char *argv[])
 	addr.sin_addr.s_addr=inet_addr(ip);
 	addr.sin_port=htons(port);
 
-	printf("Writer \n--------------\n");
+	printf("Writer group:%s (%s)\n--------------\n", groupName, ip);
 
 	/* now just sendto() our destination! */
 	while (1) {

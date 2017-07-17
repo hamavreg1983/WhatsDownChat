@@ -32,5 +32,7 @@ bool GroupsHandel_LeaveGroup(GroupHandel_t* _groupsHndl, const char* _groupName,
 
 bool GroupsHandel_IsGroupExist(GroupHandel_t* _groupsHndl, const char* _groupName);
 
+sockaddr_in_t* GroupsHandel_GetGroupAddres(GroupHandel_t* _groupsHndl, const char* _groupName);
+
 
 #endif /* GROUPSHANDLE_H_ */

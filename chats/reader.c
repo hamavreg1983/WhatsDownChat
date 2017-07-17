@@ -26,17 +26,20 @@ int main(int argc, char *argv[])
 	char msgbuf[MSG_BUF_SIZE];
 	int port;
 	char ip[16];
+	char groupName[64];
 	u_int yes=1;
 
-	if (argc == 3)
+	if (argc == 4)
 	{
 		strcpy(ip, argv[1] );
 		port = atoi(argv[2]);
+		strcpy(groupName, argv[3] );
 	}
 	else
 	{
 		strcpy(ip, "225.225.225.225" );
 		port = 2255;
+		strcpy(groupName, "Unknown" );
 	}
 
 	/* create what looks like an ordinary UDP socket */
@@ -55,7 +58,7 @@ int main(int argc, char *argv[])
 	/* set up destination address */
 	memset(&addr,0,sizeof(addr));
 	addr.sin_family=AF_INET;
-	addr.sin_addr.s_addr=htonl(INADDR_ANY); /* N.B.: differs from sender */
+	addr.sin_addr.s_addr=inet_addr(ip); /* N.B.: differs from sender */
 	addr.sin_port=htons(port);
 
 	/* bind to receive address */
@@ -76,7 +79,7 @@ int main(int argc, char *argv[])
 	}
 
 	/* now just enter a read-print loop */
-	printf("reader \n");
+	printf("reader group:%s (%s)\n-------------\n",groupName, ip);
 	while (1)
 	{
 		addrlen=sizeof(addr);

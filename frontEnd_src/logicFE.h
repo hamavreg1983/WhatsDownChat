@@ -30,5 +30,9 @@ int LogicFE_Signup(Logic_FE_t* _logic, const char* _username, const char* _passw
 
 int LogicFE_CreateGroup(Logic_FE_t* _logic, const char* _groupName);
 
+int LogicFE_JoinGroup(Logic_FE_t* _logic, const char* _groupName);
+
+int LogicFE_GetAllGroupsName(Logic_FE_t* _logic);
+
 
 #endif /* LOGICFE_H_ */

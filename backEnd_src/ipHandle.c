@@ -139,14 +139,18 @@ static bool CreateAddrsAndQue(struct DSQueue* _ipContiner , const char* _firstIP
 
 	for (i = 0 ; i < _numOfAdrs ; ++i)
 	{
-		if (NULL == (addr = CreateAddrs(ip, _port) ) )
+		if (NULL == (addr = CreateAddrs( (ip), _port) ) )
 		{
 			return FALSE;
 		}
 
 		ds_queue_put(_ipContiner, addr);
 
-		++ip;
+		ip += 256 * 256 * 256; /* this caouses the last address to increse by one.  */
+		if ((i % 255) == 0) /* buggy */
+		{
+			ip -= 256 * 256;
+		}
 	}
 
 
@@ -168,7 +172,7 @@ static sockaddr_in_t* CreateAddrs(uint32_t _ip, uint _port)
 		return NULL;
 	}
 
-	addrs->sin_family = AF_INET; /* TODO check if currect */
+	addrs->sin_family = AF_INET;
 	addrs->sin_addr.s_addr = _ip;
 	addrs->sin_port = htons(_port);
 

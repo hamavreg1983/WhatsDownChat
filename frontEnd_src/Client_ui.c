@@ -179,7 +179,7 @@ void CreateNewGroupFunction(Client_UI* _ui)
 
 	system("clear");
 
-	printf("Welcome to sign up to whatsDown Chat app \n");
+	printf("Create new chat group \n");
 	do {
 		printf("please insert new Group's Name \n");
 		result = GetUserInput(groupName, MAX_GROUP_NAME);
@@ -193,15 +193,48 @@ void CreateNewGroupFunction(Client_UI* _ui)
 
 void JoinGruopFunction(Client_UI* _ui)
 {
+	char groupName[MAX_GROUP_NAME]= {0};
+	int result;
+	BackEndStatus statusServer;
 
+	system("clear");
+
+	printf("Join a existing chat group \n");
+
+	/* TODO call show all groups */
+
+	do {
+		printf("please insert group's Name \n");
+		result = GetUserInput(groupName, MAX_GROUP_NAME);
+	} while ( result <= 0 );
+
+	statusServer = LogicFE_JoinGroup(_ui->m_logicFE, groupName);
+	PrintBackEndResponse(statusServer);
+
+	return;
 }
+
 void LeaveGroupFunction(Client_UI* _ui)
 {
 
 }
 void GetAllGruopFunction(Client_UI* _ui)
 {
+	char groupName[MAX_GROUP_NAME]= {0};
+	int result;
+	BackEndStatus statusServer;
 
+	system("clear");
+
+	printf("Fetching all groups... \n");
+
+//	statusServer = LogicFE_GetAllGroupsName(_ui->m_logicFE);
+
+	/* TODO contine later. think about how to return the string to the UI */
+
+	PrintBackEndResponse(statusServer);
+
+	return;
 }
 
 static int GetUserInput(char* _buffer , uint _maxLength)

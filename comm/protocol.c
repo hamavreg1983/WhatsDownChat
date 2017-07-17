@@ -9,6 +9,11 @@
 #include <string.h> /* strncpy */
 #include <stdio.h> /* sprintf */
 #include <err.h> /* warn & err */
+/* inet */
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+
 #include "defines.h"
 #include "Protocol.h"
 #include "tlv.h"
@@ -81,8 +86,6 @@ int Protocol_EncodeSignUp_Response(BackEndStatus _responseStatus, void* _buffer)
 }
 
 
-/* TODO change all varibuls to like this uint32_t ? */
-
 int Protocol_DecodeClient(void* _dataToDecode, size_t _lenght, ClientReceiveMessage_t* _message )
 {
 	char decodedStr[MAX_MESSAGE_LENGTH];
@@ -132,7 +135,10 @@ int Protocol_DecodeClient(void* _dataToDecode, size_t _lenght, ClientReceiveMess
 
 			case MESSAGETYPE_CREATE_GROUP:
 				_message->m_status = decodedStr[0];
-				DecodeAddress(_message , decodedStr, DELIMITER, DELIMITER_LENGHT);
+				if (_message->m_status == BackEnd_SUCCESS)
+				{
+					DecodeAddress(_message , decodedStr, DELIMITER, DELIMITER_LENGHT);
+				}
 				break;
 
 			case MESSAGETYPE_LEAVE_GROUP:
@@ -253,8 +259,7 @@ int Protocol_EncodeNewGroup_Response(BackEndStatus _responseStatus, sockaddr_in_
 		return GEN_ERROR;
 	}
 
-	/* TODO decide if to change to ASCI the port and IP */
-	length = sprintf(tempMsg, "%c%s%u%s%u%s", _responseStatus, DELIMITER, m_groupAdrres.sin_addr.s_addr, DELIMITER, m_groupAdrres.sin_port, DELIMITER);
+	length = sprintf(tempMsg, "%c%s%s%s%u%s", _responseStatus, DELIMITER, inet_ntoa(m_groupAdrres.sin_addr) , DELIMITER, ntohs(m_groupAdrres.sin_port ), DELIMITER);
 
 	result = TLV_encoder(tempMsg, (char) MESSAGETYPE_CREATE_GROUP, length, _buffer, &tlvLength);
 	if (result != TLV_SUCCESS)
@@ -265,7 +270,51 @@ int Protocol_EncodeNewGroup_Response(BackEndStatus _responseStatus, sockaddr_in_
 	return tlvLength;
 }
 
+int Protocol_EncodeJoinGroup(const char* _groupNameToJoin, void* _buffer)
+{
+	char tempMsg[MAX_MESSAGE_LENGTH];
+	int length = 0;
+	uint tlvLength;
+	TLV_Result result;
 
+	if (NULL == _groupNameToJoin || NULL == _buffer)
+	{
+		return GEN_ERROR;
+	}
+
+	length = sprintf(tempMsg, "%s%s", _groupNameToJoin, DELIMITER);
+
+	result = TLV_encoder(tempMsg, (char) MESSAGETYPE_JOIN_GROUP, length, _buffer, &tlvLength);
+	if (result != TLV_SUCCESS)
+	{
+		return GEN_ERROR;
+	}
+
+	return tlvLength;
+}
+
+int Protocol_EncodeJoinGroup_Response(BackEndStatus _responseStatus, sockaddr_in_t m_groupAdrres, void* _buffer)
+{
+	char tempMsg[MAX_MESSAGE_LENGTH];
+	int length = 0;
+	uint tlvLength;
+	TLV_Result result;
+
+	if (NULL == _buffer)
+	{
+		return GEN_ERROR;
+	}
+
+	length = sprintf(tempMsg, "%c%s%s%s%u%s", _responseStatus, DELIMITER, inet_ntoa(m_groupAdrres.sin_addr) , DELIMITER, ntohs(m_groupAdrres.sin_port ), DELIMITER);
+
+	result = TLV_encoder(tempMsg, (char) MESSAGETYPE_JOIN_GROUP, length, _buffer, &tlvLength);
+	if (result != TLV_SUCCESS)
+	{
+		return GEN_ERROR;
+	}
+
+	return tlvLength;
+}
 
 /* ~~~ Internal function  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
@@ -339,15 +388,16 @@ static int DecodeGroupsName(ClientReceiveMessage_t* _message , void* _decodedStr
 
 static int DecodeAddress(ClientReceiveMessage_t* _message , void* _decodedStr, char* _delim, uint _delimLength)
 {
-	char ip[20];
-	char port[10];
+	char ip[20] = {0};
+	char port[10] = {0};
 
-	int itr = 1;
-	itr += CopyUntilDelimiter( ip , (char*)_decodedStr + itr, MAX_MESSAGE_LENGTH, _delim, _delimLength);
-	itr += CopyUntilDelimiter( port , (char*)_decodedStr + itr, MAX_MESSAGE_LENGTH, _delim, _delimLength);
+	int itr = 1 + _delimLength;
+	itr += CopyUntilDelimiter( ip , ((char*)_decodedStr) + itr, MAX_MESSAGE_LENGTH, _delim, _delimLength);
+	itr += _delimLength;
+	itr += CopyUntilDelimiter( port , ((char*)_decodedStr) + itr, MAX_MESSAGE_LENGTH, _delim, _delimLength);
 
-	_message->m_groupAdrres.sin_addr.s_addr =  atoi(ip) ;
-	_message->m_groupAdrres.sin_port = atoi(port);
+	_message->m_groupAdrres.sin_addr.s_addr =  inet_addr(ip) ;
+	_message->m_groupAdrres.sin_port = htons(atoi(port));
 
 	return itr;
 }

@@ -29,9 +29,9 @@ struct Logic_FE
 	uint m_magicNumer;
 
 	TCP_C_t* m_netClient;
-//	void* m_ui;
 
 	char m_userName[MAX_USERNAME];
+	/* list of group name */
 
 	ClientReceiveMessage_t* m_recivebuf;
 };
@@ -44,7 +44,7 @@ static int LogicFE_Recive( TCP_C_t* _netClient , ClientReceiveMessage_t* _recive
 
 static bool IsStructValid(Logic_FE_t* _logic);
 
-static bool OpenChatWindows(sockaddr_in_t* _sockaddr_t, const char* _name);
+static bool OpenChatWindows(sockaddr_in_t* _sockaddr_t, const char* _name, const char* _groupName);
 
 /* ~~~ API function ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
@@ -82,6 +82,8 @@ Logic_FE_t* LogicFE_Create(TCP_C_t* _netClient)
 
 int LogicFE_Signup(Logic_FE_t* _logic, const char* _username, const char* _password)
 {
+	int status;
+
 	/* TODO check input param */
 	if (! IsStructValid(_logic))
 	{
@@ -106,13 +108,22 @@ int LogicFE_Signup(Logic_FE_t* _logic, const char* _username, const char* _passw
 		return -1;
 	}
 
-	return LogicFE_Recive( _logic->m_netClient , _logic->m_recivebuf);
-
+	status = LogicFE_Recive( _logic->m_netClient , _logic->m_recivebuf);
+	if (status == BackEnd_SUCCESS)
+	{
+		strcpy( _logic->m_userName , _username);
+	}
+	return status;
 }
 
 int LogicFE_CreateGroup(Logic_FE_t* _logic, const char* _groupName)
 {
-	/* TODO check input param */
+
+	if (NULL == _groupName)
+	{
+		return -1;
+	}
+
 	if (! IsStructValid(_logic))
 	{
 		return -1;
@@ -139,10 +150,61 @@ int LogicFE_CreateGroup(Logic_FE_t* _logic, const char* _groupName)
 	int status;
 	status = LogicFE_Recive( _logic->m_netClient , _logic->m_recivebuf);
 
-	OpenChatWindows(&_logic->m_recivebuf->m_groupAdrres, _logic->m_userName);
+	if (status == BackEnd_SUCCESS)
+	{
+		/* TODO add group to group list */
+
+		OpenChatWindows(&_logic->m_recivebuf->m_groupAdrres, _logic->m_userName, _groupName);
+	}
 
 	return status;
 }
+
+int LogicFE_JoinGroup(Logic_FE_t* _logic, const char* _groupName)
+{
+	if (NULL == _groupName)
+	{
+		return -1;
+	}
+
+	if (! IsStructValid(_logic))
+	{
+		return -1;
+	}
+
+	/* check values */
+
+	char buffer[MAX_MESSAGE_LENGTH];
+	uint length;
+	int result;
+
+
+	length = Protocol_EncodeJoinGroup(_groupName, buffer);
+	if (length <= 0)
+	{
+		return -1;
+	}
+
+	result = LogicFE_Send(_logic, buffer, length);
+	if (result <= 0)
+	{
+		return -1;
+	}
+
+	int status;
+	status = LogicFE_Recive( _logic->m_netClient , _logic->m_recivebuf);
+
+	if (status == BackEnd_SUCCESS)
+	{
+		/* TODO add group to group list */
+
+		OpenChatWindows(&_logic->m_recivebuf->m_groupAdrres, _logic->m_userName, _groupName);
+	}
+
+	return status;
+
+}
+
 
 
 /* ~~~ Internal function ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
@@ -200,10 +262,9 @@ static bool IsStructValid(Logic_FE_t* _logic)
 	return ! (NULL == _logic || _logic->m_magicNumer != MAGIC_NUMBER_ALIVE_LOGIC_FE);
 }
 
-static bool OpenChatWindows(sockaddr_in_t* _sockaddr_t, const char* _name)
+static bool OpenChatWindows(sockaddr_in_t* _sockaddr_t, const char* _name, const char* _groupName)
 {
 	uint port;
-//	char* ip;
 
 	char writerCommand[MAX_MESSAGE_LENGTH];
 	char readerCommand[MAX_MESSAGE_LENGTH];
@@ -213,6 +274,7 @@ static bool OpenChatWindows(sockaddr_in_t* _sockaddr_t, const char* _name)
 		return FALSE;
 	}
 
+	/* TODO remove hardcocded */
 #define WINDOW_HIGHT_WRITER 10
 #define WINDOW_HIGHT_READER 30
 #define WINDOW_WIDTH 100
@@ -220,17 +282,19 @@ static bool OpenChatWindows(sockaddr_in_t* _sockaddr_t, const char* _name)
 #define WINDOW_Y_POS_WRITER 600
 #define WINDOW_Y_POS_READER 0
 
-//	port = ntohs(_sockaddr_t->sin_port );
-//	ip = inet_ntoa(_sockaddr_t->sin_addr) ;
-	port = 2255;
-	char ip[] = "225.225.225.225";
+	port = ntohs(_sockaddr_t->sin_port );
+	char* ip = inet_ntoa(_sockaddr_t->sin_addr) ;
 
 	/* setup setting for new windows */
-	sprintf(writerCommand, "gnome-terminal --geometry=100x10+100+600 --command=\"../chats/writer %s %d %s%c", ip, port, _name,'\"');
-	sprintf(readerCommand, "gnome-terminal --geometry=100x30+100+0   --command=\"../chats/reader %s %d%c", ip, port,'\"');
+	sprintf(writerCommand, "gnome-terminal --geometry=100x10+100+600 --command=\"../chats/writer %s %d %s %s%c", ip, port, _name, _groupName, '\"');
+	sprintf(readerCommand, "gnome-terminal --geometry=100x30+100+0   --command=\"../chats/reader %s %d %s%c", ip, port, _groupName, '\"');
 
 	system(writerCommand);
 	system(readerCommand);
+
+#ifndef DNDBUG
+	printf("Group Create (%s %d) and windows chats were opened. Enjoy\n", ip, port);
+#endif
 
 	return TRUE;
 }
