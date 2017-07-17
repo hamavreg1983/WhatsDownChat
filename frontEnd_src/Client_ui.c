@@ -117,7 +117,7 @@ static int Menu()
 	printf("\n Create new group ---------------------> 6  \n");
 	printf("\n Join to group ------------------------> 7  \n");
 	printf("\n Leave group --------------------------> 8  \n");
-	printf("\n Get all groups -----------------------> 9  \n");
+	printf("\n Show all groups ----------------------> 9  \n");
 	printf("\n To Exit Press-------------------------> 0  \n");
 	GetUserInput(choose, 2);
 	sel = atoi(choose);
@@ -232,17 +232,20 @@ void GetAllGruopFunction(Client_UI* _ui)
 
 	statusServer = LogicFE_GetAllGroupsName(_ui->m_logicFE, groupName, &numOfGroups, 1024);
 
+	PrintBackEndResponse(statusServer);
+	printf("Groups Name \n");
+
 	k = 0;
 	for (i = 0; i < numOfGroups; ++i)
 	{
 		if (groupName[k] != '\0')
 		{
-			k += printf("%s");
+			k += printf("\t%s\n", groupName + k);
+			k -= 2;
 		}
+		k++;
 	}
-	/* TODO contine later. think about how to return the string to the UI */
-
-	PrintBackEndResponse(statusServer);
+	printf("Groups Name Ended\n");
 
 	return;
 }
@@ -256,9 +259,9 @@ static int GetUserInput(char* _buffer , uint _maxLength)
 
 	do {
 		fgets(_buffer, _maxLength , stdin); 		/* safer. no overflow */
+		_buffer[strcspn(_buffer, "\n")] = 0; 		/* remove trailing \n */
 	} while (_buffer[0] == '\0');
 
-	_buffer[strcspn(_buffer, "\n")] = 0; 		/* remove trailing \n */
 	sanity_check(_buffer, _maxLength, '_'); 	/* remove illegal unsafe char */
 
 	return strlen(_buffer);

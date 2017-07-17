@@ -190,6 +190,35 @@ sockaddr_in_t* GroupsHandel_GetGroupAddres(GroupHandel_t* _groupsHndl, const cha
 	return grp2join->m_groupAddrs;
 }
 
+int GroupsHandel_GetGroupsName(GroupHandel_t* _groupsHndl, char* _groupsNames_out, size_t _bufferSize, size_t* _groupsLength_out)
+{
+	int groupNum = 0;
+	uint itr = 0;
+
+	if (NULL == _groupsNames_out || !IsStructValid(_groupsHndl))
+	{
+		return GEN_ERROR;
+	}
+
+	/* TODO foreach */
+//	ds_hashmap_foreach_value(_groupsHndl->m_groupContiner, tostring)
+
+	/* TODO stop copy if bigger than _bufferSize */
+
+	strcpy(_groupsNames_out, "Example GroupName");
+	itr += strlen("Example GroupName") + 1;
+	groupNum++;
+
+	strcpy(_groupsNames_out + itr, "Grp_stuff");
+	itr += strlen("Grp_stuff") + 1;
+	groupNum++;
+
+	*_groupsLength_out = itr;
+
+	return groupNum;
+}
+
+
 /* ~~~ Internal function ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 static bool IsStructValid(GroupHandel_t* _groupsHndl)

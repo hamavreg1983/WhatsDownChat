@@ -34,5 +34,7 @@ bool GroupsHandel_IsGroupExist(GroupHandel_t* _groupsHndl, const char* _groupNam
 
 sockaddr_in_t* GroupsHandel_GetGroupAddres(GroupHandel_t* _groupsHndl, const char* _groupName);
 
+int GroupsHandel_GetGroupsName(GroupHandel_t* _groupsHndl, char* _groupsNames_out, size_t _bufferSize, size_t* _groupsLength_out);
+
 
 #endif /* GROUPSHANDLE_H_ */

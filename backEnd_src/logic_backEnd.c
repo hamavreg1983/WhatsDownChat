@@ -42,6 +42,7 @@ static int LogicBE_Send(Logic_BE_t* _logic, uint _socketNum, MessageType _msgTyp
 static bool SignUp(Logic_BE_t* _logicBE, ServerReceiveMessage_t* m_decodedMsg, uint _socketNum);
 static bool CreateGroup(Logic_BE_t* _logicBE, ServerReceiveMessage_t* _decodedMsg, uint _socketNum);
 static bool JoinGroup(Logic_BE_t* _logicBE, ServerReceiveMessage_t* _decodedMsg, uint _socketNum);
+static bool GetAllGroups(Logic_BE_t* _logicBE, ServerReceiveMessage_t* _decodedMsg, uint _socketNum);
 
 static bool IsStructValid(Logic_BE_t* _logicBE);
 static bool FlushServerReceiveMessage_t(ServerReceiveMessage_t* _decodedMsg);
@@ -149,8 +150,9 @@ int LogicBE_ReciveDataFunc(void* _data, size_t _sizeData, uint _socketNum, void*
 
 			break;
 		case MESSAGETYPE_GET_ALL_GROUPS:
-
+			GetAllGroups(_contex, ((Logic_BE_t*)_contex)->m_decodedMsg, _socketNum);
 			break;
+
 		default:
 			warn("Unknown msg type %d recived from socket %d.\n", ( (Logic_BE_t*)_contex)->m_decodedMsg->m_MessageType , _socketNum );
 			break;
@@ -294,6 +296,53 @@ static bool JoinGroup(Logic_BE_t* _logicBE, ServerReceiveMessage_t* _decodedMsg,
 	return TRUE;
 }
 
+static bool GetAllGroups(Logic_BE_t* _logicBE, ServerReceiveMessage_t* _decodedMsg, uint _socketNum)
+{
+//	if (strlen(_decodedMsg->m_userName) < MINIMAL_USER_PASSWORD || strlen(_decodedMsg->m_userName) > MAX_USERNAME )
+//	{
+//		LogicBE_Send(_logicBE, _socketNum, MESSAGETYPE_SIGNUP, BackEnd_USER_NAME_INVALID, "",  0);
+//		return FALSE;
+//	}
+//
+//	if (strlen(_decodedMsg->m_password) < MINIMAL_USER_PASSWORD || strlen(_decodedMsg->m_password) > MAX_PASSWORD )
+//	{
+//		LogicBE_Send(_logicBE, _socketNum, MESSAGETYPE_SIGNUP, BackEnd_PASSWORD_INVALID, "",  0);
+//		return FALSE;
+//	}
+//
+//	if (UsersHandle_IsUserExist(_logicBE->m_usersHandel, _decodedMsg->m_userName) )
+//	{
+//		/* username exsists */
+//		LogicBE_Send(_logicBE , _socketNum, MESSAGETYPE_SIGNUP, BackEnd_USER_NAME_TAKEN, "",  0);
+//		return FALSE;
+//	}
+//
+//	if (! UsersHandle_AddNewUser(_logicBE->m_usersHandel, _decodedMsg->m_userName, _decodedMsg->m_password, NULL, 0, _socketNum) )
+//	{
+//		LogicBE_Send(_logicBE, _socketNum, MESSAGETYPE_SIGNUP, BackEnd_SYSTEM_FAIL, "",  0);
+//		return FALSE;
+//	}
+
+	int groupNum = -1;
+	int groupsLength = -1;
+	int length = -1;
+	char groupNameBuffer[MAX_MESSAGE_LENGTH] = { 0 };
+	char buffer[MAX_MESSAGE_LENGTH] = { 0 };
+	groupNum = GroupsHandel_GetGroupsName(_logicBE->m_groupHandle, groupNameBuffer, MAX_MESSAGE_LENGTH, &groupsLength);
+
+//	memmove(groupNameBuffer + 1 + DELIMITER_LENGHT, groupNameBuffer, groupsLength + 1);
+//
+//	memmove(groupNameBuffer + 1 + DELIMITER_LENGHT, groupNameBuffer, groupsLength + 1);
+	length = sprintf(buffer, "%d%s%s%s", groupNum, DELIMITER, groupNameBuffer , DELIMITER);
+	memcpy(buffer + length, groupNameBuffer, groupsLength);
+	length += groupsLength;
+	memcpy(buffer + length, DELIMITER, DELIMITER_LENGHT);
+	length += DELIMITER_LENGHT;
+
+	LogicBE_Send(_logicBE, _socketNum, MESSAGETYPE_GET_ALL_GROUPS, BackEnd_SUCCESS, buffer, groupsLength );
+
+	return TRUE;
+}
 
 static int LogicBE_Send(Logic_BE_t* _logic, uint _socketNum, MessageType _msgType, BackEndStatus _responseResult, void* _msg,  uint _msgLength)
 {
@@ -330,7 +379,7 @@ static int LogicBE_Send(Logic_BE_t* _logic, uint _socketNum, MessageType _msgTyp
 
 			break;
 		case MESSAGETYPE_GET_ALL_GROUPS:
-
+			length = Protocol_EncodeGetAllGroups_Response(_responseResult, _msg, _msgLength, buffer);
 			break;
 
 		default:

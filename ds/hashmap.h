@@ -36,6 +36,8 @@ struct DSHashKey {
     } key;
 };
 
+typedef char* (*UserFunc)(void*);
+
 /**
  * Some shortcut functions:
  * ds_puts -> ds_hashmap_put_str

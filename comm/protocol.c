@@ -318,8 +318,52 @@ int Protocol_EncodeJoinGroup_Response(BackEndStatus _responseStatus, sockaddr_in
 
 int Protocol_EncodeGetAllGroups(void* _buffer)
 {
-	/*TODO */
+	char tempMsg[MAX_MESSAGE_LENGTH];
+	int length = 0;
+	uint tlvLength;
+	TLV_Result result;
+
+	if (NULL == _buffer)
+	{
+		return GEN_ERROR;
+	}
+
+	length = sprintf(tempMsg, "%s", DELIMITER);
+
+	result = TLV_encoder(tempMsg, (char) MESSAGETYPE_GET_ALL_GROUPS, length, _buffer, &tlvLength);
+	if (result != TLV_SUCCESS)
+	{
+		return GEN_ERROR;
+	}
+
+	return tlvLength;
 }
+
+int Protocol_EncodeGetAllGroups_Response(BackEndStatus _responseStatus, const char* _groupsNames, size_t _numGroups, void* _buffer)
+{
+	char tempMsg[MAX_MESSAGE_LENGTH];
+	int length = 0;
+	uint tlvLength;
+	TLV_Result result;
+
+	if (NULL == _buffer)
+	{
+		return GEN_ERROR;
+	}
+
+	length = sprintf(tempMsg, "%c%s%.*s%s", _responseStatus, DELIMITER, (int)_numGroups, _groupsNames , DELIMITER);
+
+	result = TLV_encoder(tempMsg, (char) MESSAGETYPE_GET_ALL_GROUPS, length, _buffer, &tlvLength);
+	if (result != TLV_SUCCESS)
+	{
+		return GEN_ERROR;
+	}
+
+	return tlvLength;
+
+}
+
+
 
 /* ~~~ Internal function  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
@@ -372,20 +416,26 @@ static bool IsDelim(void* _msg, char* _delim, uint _delimLength)
 
 static int DecodeGroupsName(ClientReceiveMessage_t* _message , void* _decodedStr, uint _groupsLength, char* _delim, uint _delimLength)
 {
-	uint src_itr = 0;
+	uint src_itr = 1 + DELIMITER_LENGHT;
 	uint dsc_itr = 0;
 	uint general_itr = 0;
 	uint groupNum = 0;
+	char numOfGroupsRecived[5];
 
-	while (dsc_itr < _groupsLength)
+	general_itr = CopyUntilDelimiter(numOfGroupsRecived + dsc_itr, (char*)_decodedStr + src_itr, _groupsLength, _delim, _delimLength);
+	_message->m_numberOfGroups = atoi(numOfGroupsRecived);
+	src_itr += general_itr + DELIMITER_LENGHT;
+	dsc_itr += 0;
+
+	while (dsc_itr < _groupsLength && groupNum <= _message->m_numberOfGroups)
 	{
 		general_itr = CopyUntilDelimiter(_message->m_GroupName + dsc_itr, (char*)_decodedStr + src_itr, _groupsLength, _delim, _delimLength);
-		src_itr += general_itr + 1;
-		dsc_itr += general_itr + DELIMITER_LENGHT;
+		src_itr += general_itr + DELIMITER_LENGHT;
+		dsc_itr += general_itr + 1;
 		++groupNum;
 	}
 
-	_message->m_numberOfGroups = groupNum;
+//	_message->m_numberOfGroups = groupNum;
 
 	return general_itr;
 }
