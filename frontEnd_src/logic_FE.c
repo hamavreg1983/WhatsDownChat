@@ -73,9 +73,7 @@ Logic_FE_t* LogicFE_Create(TCP_C_t* _netClient)
 //	logicFE->m_ui = _ui;
 	logicFE->m_magicNumer = MAGIC_NUMBER_ALIVE_LOGIC_FE;
 
-
-	/*TODO remove HARD coded test */
-	strcpy( logicFE->m_userName , "user1" );
+	strcpy( logicFE->m_userName , "UnknownName" );
 
 	return logicFE;
 }

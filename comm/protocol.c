@@ -364,7 +364,6 @@ static bool IsDelim(void* _msg, char* _delim, uint _delimLength)
 
 	return TRUE;
 }
- /* TODO return address somehere!!! */
 
 static int DecodeGroupsName(ClientReceiveMessage_t* _message , void* _decodedStr, uint _groupsLength, char* _delim, uint _delimLength)
 {

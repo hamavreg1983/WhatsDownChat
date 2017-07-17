@@ -17,8 +17,8 @@
  *  @author Author Yuval Hamberg (yuval.hamberg@gmail.com) 
  *	@date April 2017
  * 
- *  @bug No known bugs. TODO 
- *	bug1 check that no str function are called that provened non string information.
+ *  @bug No known bugs.
+ *	@bug check that no str function are called that provened non string information.
  */ 
 
 

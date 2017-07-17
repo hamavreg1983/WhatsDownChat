@@ -337,6 +337,27 @@ ds_hashmap_print_keyvals(struct DSHashMap *hash, char* (tostring)(void*))
 }
 
 void
+ds_hashmap_foreach_value(struct DSHashMap *hash, char* (tostring)(void*))
+{
+    int32_t i;
+
+    for (i = 0; i < hash->keys->size; ++i) {
+        struct DSHashKey *key;
+
+        key = ds_vector_get(hash->keys, i);
+
+        switch(key->keytype) {
+        case DS_HASHMAP_KEY_STRING:
+            tostring(ds_gets(hash, key->key.s));
+            break;
+        case DS_HASHMAP_KEY_INT:
+            tostring(ds_geti(hash, key->key.i));
+            break;
+        }
+    }
+}
+
+void
 ds_hashmap_sort_keys(struct DSHashMap *hash)
 {
     ds_hashmap_sort_by(hash, ds_hashmap_compare_keys);

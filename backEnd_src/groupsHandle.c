@@ -69,17 +69,27 @@ GroupHandel_t* GroupsHandel_Create()
 	return gHndl;
 }
 
+char* DestoryAddres(GroupUnit_t* _value)
+{
+	free(_value->m_groupAddrs);
+	return NULL;
+}
+
 void GroupsHandel_Destroy(GroupHandel_t* _groupsHndl)
 {
 	if (! IsStructValid(_groupsHndl))
 	{
 		return;
 	}
-	/* TODO */
 
 	_groupsHndl->m_magicNumber = 0;
 
-	ds_hashmap_free(_groupsHndl->m_groupContiner, 1, 1); /* TODO might coause free core */
+	/* free the address left in group */
+//	ds_hashmap_foreach_value(_groupsHndl->m_groupContiner , DestoryAddres);
+
+	ds_hashmap_free(_groupsHndl->m_groupContiner, 1, 1); /* TODO might cause free core */
+
+	free(_groupsHndl);
 
 	return;
 }

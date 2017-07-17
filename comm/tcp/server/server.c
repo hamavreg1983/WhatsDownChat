@@ -72,14 +72,20 @@ int ActivateServer(int argc, char* argv[])
 	printf("--START--\n");
 
 	uint portNum = 4848;
-	TCP_S_t* server;
+	char ip[16] = { 0 };
 	uint timeoutMS = 300000; /* 5 min */
 
-	/* TODO option get ip and port from agrc */
+	TCP_S_t* server;
+
+	if (argc == 3)
+	{
+		strcpy(ip, argv[1] );
+		portNum = atoi(argv[2]);
+	}
 
 	signalHangelSet(sigAbortHandler);
 
-	server = TCP_CreateServer(portNum, NULL, MAX_CONNECTIONS_ALLWAED, timeoutMS, MyFunc, NULL, NULL, NULL, NULL);
+	server = TCP_CreateServer(portNum, ip, MAX_CONNECTIONS_ALLWAED, timeoutMS, MyFunc, NULL, NULL, NULL, NULL);
 	g_tcp = server;
 
 	TCP_RunServer(server);
