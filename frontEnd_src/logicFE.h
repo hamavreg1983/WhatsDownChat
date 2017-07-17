@@ -34,5 +34,7 @@ int LogicFE_JoinGroup(Logic_FE_t* _logic, const char* _groupName);
 
 int LogicFE_GetAllGroupsName(Logic_FE_t* _logic);
 
+int LogicFE_GetAllGroupsName(Logic_FE_t* _logic, char* _GroupsName_out, uint* _numOfGroups_out, uint _bufferSize);
+
 
 #endif /* LOGICFE_H_ */

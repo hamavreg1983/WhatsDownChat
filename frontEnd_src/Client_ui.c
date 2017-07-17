@@ -220,16 +220,26 @@ void LeaveGroupFunction(Client_UI* _ui)
 }
 void GetAllGruopFunction(Client_UI* _ui)
 {
-	char groupName[MAX_GROUP_NAME]= {0};
+	char groupName[1024]= {0};
+	uint numOfGroups;
 	int result;
+	uint i , k;
 	BackEndStatus statusServer;
 
 	system("clear");
 
 	printf("Fetching all groups... \n");
 
-//	statusServer = LogicFE_GetAllGroupsName(_ui->m_logicFE);
+	statusServer = LogicFE_GetAllGroupsName(_ui->m_logicFE, groupName, &numOfGroups, 1024);
 
+	k = 0;
+	for (i = 0; i < numOfGroups; ++i)
+	{
+		if (groupName[k] != '\0')
+		{
+			k += printf("%s");
+		}
+	}
 	/* TODO contine later. think about how to return the string to the UI */
 
 	PrintBackEndResponse(statusServer);

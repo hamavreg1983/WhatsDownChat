@@ -84,8 +84,8 @@ void GroupsHandel_Destroy(GroupHandel_t* _groupsHndl)
 
 	_groupsHndl->m_magicNumber = 0;
 
-	/* free the address left in group */
-//	ds_hashmap_foreach_value(_groupsHndl->m_groupContiner , DestoryAddres);
+	/* TODO free the address left in group. this is one option to free them */
+/*	ds_hashmap_foreach_value(_groupsHndl->m_groupContiner , DestoryAddres); */
 
 	ds_hashmap_free(_groupsHndl->m_groupContiner, 1, 1); /* TODO might cause free core */
 

@@ -203,7 +203,52 @@ int LogicFE_JoinGroup(Logic_FE_t* _logic, const char* _groupName)
 
 }
 
+int LogicFE_GetAllGroupsName(Logic_FE_t* _logic, char* _groupsName_out, uint* _numOfGroups_out, uint _bufferSize)
+{
+	if (NULL == _groupsName_out || NULL == _numOfGroups_out)
+	{
+		return -1;
+	}
 
+	if (! IsStructValid(_logic))
+	{
+		return -1;
+	}
+
+	/* check values */
+
+	char buffer[MAX_MESSAGE_LENGTH];
+	uint length;
+	int result;
+
+
+	length = Protocol_EncodeGetAllGroups(buffer);
+	if (length <= 0)
+	{
+		return -1;
+	}
+
+	result = LogicFE_Send(_logic, buffer, length);
+	if (result <= 0)
+	{
+		return -1;
+	}
+
+	int status;
+	status = LogicFE_Recive( _logic->m_netClient , _logic->m_recivebuf);
+
+	if (status == BackEnd_SUCCESS)
+	{
+		/* TODO should remove group user is member of? */
+
+		*_numOfGroups_out = _logic->m_recivebuf->m_numberOfGroups;
+
+		memcpy(_groupsName_out , _logic->m_recivebuf->m_GroupName, _bufferSize);
+	}
+
+	return status;
+
+}
 
 /* ~~~ Internal function ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
