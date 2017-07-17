@@ -52,13 +52,8 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-<<<<<<< HEAD
 						<entry excluding="chats|frontEnd_src|tests|comm|backEnd_src|src" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 						<entry excluding="backEnd_main.c|IO_Server_comm.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="backEnd_src"/>
-=======
-						<entry excluding="tests|comm|backEnd_src|src|frontEnd_src" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
-						<entry excluding="IO_Server_comm.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="backEnd_src"/>
->>>>>>> refs/remotes/origin/master
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="comm"/>
 						<entry excluding="ClientWhatDownApp.c|Client_ui.c|logic_FE.c|client_WhatDownApp_main.c|client_userInput.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="frontEnd_src"/>
 						<entry excluding="whatdownApp.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
@@ -108,13 +103,8 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-<<<<<<< HEAD
 						<entry excluding="chats|frontEnd_src|tests|comm|backEnd_src|src" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 						<entry excluding="backEnd_main.c|IO_Server_comm.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="backEnd_src"/>
-=======
-						<entry excluding="tests|comm|backEnd_src|src|frontEnd_src" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
-						<entry excluding="IO_Server_comm.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="backEnd_src"/>
->>>>>>> refs/remotes/origin/master
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="comm"/>
 						<entry excluding="ClientWhatDownApp.c|Client_ui.c|logic_FE.c|client_WhatDownApp_main.c|client_userInput.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="frontEnd_src"/>
 						<entry excluding="whatdownApp.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
@@ -152,7 +142,7 @@
 								<option id="gnu.c.compiler.option.include.paths.2094662138" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="../comm"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src}&quot;"/>
-									<listOptionValue builtIn="false" value="../hashmap"/>
+									<listOptionValue builtIn="false" value="../ds"/>
 									<listOptionValue builtIn="false" value="../backEnd_src"/>
 									<listOptionValue builtIn="false" value="../comm/tcp/list/src"/>
 									<listOptionValue builtIn="false" value="../comm/tcp/src"/>
@@ -176,11 +166,7 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-<<<<<<< HEAD
 						<entry excluding="chats|frontEnd_src|tests|comm|backEnd_src|src" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
-=======
-						<entry excluding="tests|comm|backEnd_src|src|frontEnd_src" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
->>>>>>> refs/remotes/origin/master
 						<entry excluding="IO_Server_comm.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="backEnd_src"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="comm"/>
 						<entry excluding="ClientWhatDownApp.c|Client_ui.c|logic_FE.c|client_WhatDownApp_main.c|client_userInput.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="frontEnd_src"/>

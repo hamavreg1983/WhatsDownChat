@@ -85,11 +85,7 @@ int ActivateServer(int argc, char* argv[])
 
 	signalHangelSet(sigAbortHandler);
 
-<<<<<<< HEAD
 	server = TCP_CreateServer(portNum, ip, MAX_CONNECTIONS_ALLWAED, timeoutMS, MyFunc, NULL, NULL, NULL, NULL);
-=======
-	server = TCP_CreateServer(portNum, NULL, MAX_CONNECTIONS_ALLWAED, timeoutMS, MyFunc, NULL, NULL, NULL, NULL);
->>>>>>> refs/remotes/origin/master
 	g_tcp = server;
 
 	TCP_RunServer(server);

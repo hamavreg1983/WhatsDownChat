@@ -17,13 +17,10 @@
 #define SERVER_MAX_CONNECTION 1000
 #define SERVER_TIMOUT_MS 60000
 
-<<<<<<< HEAD
 #define CHAT_FIRSET_IP "225.1.1.1"
 #define CHAT_MAX_NUM_IP 100
 #define CHAT_PORT 2255
 
-=======
->>>>>>> refs/remotes/origin/master
 /* ~~~ Globals ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 /* ~~~ Struct ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */

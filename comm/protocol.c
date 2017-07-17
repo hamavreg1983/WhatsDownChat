@@ -316,6 +316,11 @@ int Protocol_EncodeJoinGroup_Response(BackEndStatus _responseStatus, sockaddr_in
 	return tlvLength;
 }
 
+int Protocol_EncodeGetAllGroups(void* _buffer)
+{
+	/*TODO */
+}
+
 /* ~~~ Internal function  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 static int CopyUntilDelimiter(void* _dst, void* _src, size_t _length, char* _delim, uint _delimLength)
