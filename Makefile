@@ -10,7 +10,7 @@ EXE_NAME3 = reader
 EXE_NAME4 = writer
 
 CC = gcc
-CFLAGS = -g -Wall -pedantic -I../src/ 
+CFLAGS = -g -Wall -pedantic -ansi -Isrc/ 
 
 .Phony : clean rebuild all run run$(EXE_NAME1) run$(EXE_NAME2)
 
