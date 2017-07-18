@@ -143,7 +143,6 @@
 								<option id="gnu.c.compiler.exe.debug.option.debugging.level.1812473608" name="Debug Level" superClass="gnu.c.compiler.exe.debug.option.debugging.level" useByScannerDiscovery="false" value="gnu.c.debugging.level.max" valueType="enumerated"/>
 								<option id="gnu.c.compiler.option.include.paths.2094662138" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="../comm"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src}&quot;"/>
 									<listOptionValue builtIn="false" value="../ds"/>
 									<listOptionValue builtIn="false" value="../backEnd_src"/>
 									<listOptionValue builtIn="false" value="../comm/tcp/list/src"/>
@@ -210,11 +209,9 @@
 									<listOptionValue builtIn="false" value="../hashmap"/>
 									<listOptionValue builtIn="false" value="src"/>
 									<listOptionValue builtIn="false" value="../frontEnd_src"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/frontEnd_src}&quot;"/>
 									<listOptionValue builtIn="false" value="../comm/tcp/list/src"/>
 									<listOptionValue builtIn="false" value="../comm/tcp/src"/>
 									<listOptionValue builtIn="false" value="../src"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src}&quot;"/>
 								</option>
 								<option id="gnu.c.compiler.option.dialect.std.956888805" name="Language standard" superClass="gnu.c.compiler.option.dialect.std" useByScannerDiscovery="true" value="gnu.c.compiler.dialect.default" valueType="enumerated"/>
 								<option id="gnu.c.compiler.option.warnings.pedantic.69920334" name="Pedantic (-pedantic)" superClass="gnu.c.compiler.option.warnings.pedantic" useByScannerDiscovery="false" value="true" valueType="boolean"/>

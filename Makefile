@@ -42,13 +42,13 @@ run$(EXE_NAME2): $(EXE_NAME2)
 
 
 clean:
-	rm -f *.o src/*.o client_test/*.o server/*.o
-	rm -f *~
-	rm -f $(EXE_NAME1) $(EXE_NAME2) $(EXE_NAME3) $(EXE_NAME4)
-	rm -f a.out
 	$(MAKE) clean -C clientSide
 	$(MAKE) clean -C serverSide
 	$(MAKE) clean -C chats
+	rm -f $(EXE_NAME1) $(EXE_NAME2) $(EXE_NAME3) $(EXE_NAME4)
+	rm -f a.out
+	find . -name "*.o" -print -delete
+	find . -name "*~" -print -delete
 
 rebuild : clean all
 
