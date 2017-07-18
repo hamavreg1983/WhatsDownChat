@@ -1,7 +1,7 @@
 # Yuval Hamberg
 # yuval.hamberg@gmail.com
-# 04/07/2017
-# TCP
+# 15/07/2017
+# chats windows udp multicast
 
 # File names
 EXE_NAME1 = reader
@@ -37,7 +37,7 @@ $(NEEDED_LIB) :
 	$(MAKE) all -C list
 
 clean:
-	rm -f *.o src/*.o client_test/*.o server/*.o
+	rm -f *.o src/*.o
 	rm -f *~
 	rm -f $(EXE_NAME1) $(EXE_NAME2) $(EXE_NAME3)
 	rm -f a.out
