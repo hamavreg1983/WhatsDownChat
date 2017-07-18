@@ -19,8 +19,8 @@
 int main(int argc, char* argv[])
 {
 	int user;
-	uint serverPort = 7254;  		/* Default value */
-	char serverIP[16] = "192.168.0.17"; /* Default value */
+	uint serverPort = 0;  		/* Default value */
+	char serverIP[16] = "0"; /* Default value */
 	char msg[MAX_MSG_SIZE];			/* Default value */
 	void* buffer[MAX_MSG_SIZE];
 
