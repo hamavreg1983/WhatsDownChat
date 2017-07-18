@@ -1,8 +1,8 @@
 /*
  * protocol.c
  *
- *  Created on: Jul 12, 2017
- *      Author: Yuval Hamberg
+ *  @date Jul 12, 2017
+ *  @authorYuval Hamberg
  */
 
 #include <stdlib.h> /* atoi */

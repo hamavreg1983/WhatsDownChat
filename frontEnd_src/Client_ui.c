@@ -1,8 +1,8 @@
 /*
  * Client_ui.c
  *
- *  Created on: Jul 13, 2017
- *      Author: pavel
+ *  @date Jul 13, 2017
+ *  @authorpavel
  */
 
 #include <stdlib.h>

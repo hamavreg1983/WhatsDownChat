@@ -1,8 +1,10 @@
-/*
- * client.c
+/**
+ *  @file client_WhatDown_main.c
  *
- *  Created on: Jul 4, 2017
- *      Author: uv
+ *  @date Jul 4, 2017
+ *  @author Yuval Hamberg
+ *
+ *  @brief user call for whatDown chat app. mostly getting to connect to the right server.
  */
 
 #include <stdio.h>
@@ -19,10 +21,8 @@
 int main(int argc, char* argv[])
 {
 	int user;
-	uint serverPort = 0;  		/* Default value */
-	char serverIP[16] = "0"; /* Default value */
-	char msg[MAX_MSG_SIZE];			/* Default value */
-	void* buffer[MAX_MSG_SIZE];
+	uint serverPort = 0;
+	char serverIP[16] = "0";
 
 	if (argc == 3)
 	{
@@ -35,35 +35,38 @@ int main(int argc, char* argv[])
 		printf("1 for T is in the house tomer \n");
 		printf("2 for the man whit 100 ids guy \n");
 		printf("3 for Manager Manager yuval \n");
-		printf("4 for pavel  \n");
+		printf("4 for Pavel  \n");
+		printf("5 for loopBack  \n");
 		scanf("%d",&user);
 
-		switch(user)
-		{
-		case 1:
-		{
-			strcpy(serverIP , "192.168.0.37");
-			serverPort = 3000 ;
-			break;
-		}
-		case 2:
-		{
-			strcpy(serverIP , "192.168.0.67");
-			serverPort = 7984 ;
-			break;
+			switch(user)
+			{
+			case 1:
+				strcpy(serverIP , "192.168.0.37");
+				serverPort = 3000 ;
+				break;
+			case 2:
+				strcpy(serverIP , "192.168.0.67");
+				serverPort = 7984 ;
+				break;
 
-		}
-		case 3:
-		{
-			strcpy(serverIP , "192.168.0.48");
-			serverPort = 4848 ;
-			break;
-		}
-		case 4:
-			strcpy(serverIP , "192.168.0.17");
-			serverPort = 7254 ;
-			break;
-		}
+			case 3:
+				strcpy(serverIP , "192.168.0.48");
+				serverPort = 4848 ;
+				break;
+			case 4:
+				strcpy(serverIP , "192.168.0.17");
+				serverPort = 7254 ;
+				break;
+			case 5:
+				strcpy(serverIP , "127.0.0.1");
+				serverPort = 4848 ;
+				break;
+			default:
+				printf("wrong choose");
+				exit(1);
+				break;
+			}
 	}
 
 	WhatDownClientApp_t* appClient = WhatDownClientApp_Create(serverIP, serverPort);

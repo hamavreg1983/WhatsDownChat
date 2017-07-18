@@ -18,7 +18,7 @@
  *	@date April 2017
  * 
  *  @bug No known bugs.
- *	@bug check that no str function are called that provened non string information.
+ *	@bug check that no str function are called that prevent non string information.
  */ 
 
 

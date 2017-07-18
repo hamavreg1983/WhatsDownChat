@@ -1,8 +1,8 @@
 /*
  * usersHandle.c
  *
- *  Created on: Jul 15, 2017
- *      Author: yuval
+ *  @dateJul 15, 2017
+ *  @authoryuval
  */
 
 #include <string.h> /* strcpy */

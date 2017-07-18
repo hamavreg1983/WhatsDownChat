@@ -1,8 +1,8 @@
 /*
  * groupsHandle.c
  *
- *  Created on: Jul 16, 2017
- *      Author: uv
+ *  @date Jul 16, 2017
+ *  @authoruv
  */
 
 #include <string.h>

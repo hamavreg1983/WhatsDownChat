@@ -1,8 +1,8 @@
 /*
  * ClientWhatDownApp.c
  *
- *  Created on: Jul 16, 2017
- *      Author: uv
+ *  @date Jul 16, 2017
+ *  @authoruv
  */
 
 #include <stdio.h> /*TODO remove */
@@ -14,7 +14,7 @@
 
 
 /* ~~~ Defines ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-
+#define NDBUG /* remove for debug */
 #define MAGIC_NUMBER_ALIVE_CLIENT_APP 0xfaceaaaa
 /* ~~~ Globals ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
@@ -63,8 +63,6 @@ WhatDownClientApp_t* WhatDownClientApp_Create(const char* _serverIP, uint _serve
 		return NULL;
 	}
 
-
-
 	client->m_magicNumber = MAGIC_NUMBER_ALIVE_CLIENT_APP;
 
 	return client;
@@ -86,7 +84,11 @@ bool WhatDownClientApp_Run(WhatDownClientApp_t* _appBE)
 
 bool WhatDownClientApp_Stop(WhatDownClientApp_t* _appBE)
 {
+	/* TODO check param */
 
+	/* TODO Ui_Stop(_appBE->m_UI); */
+
+	return FALSE;
 }
 
 /* ~~~ Internal function ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */

@@ -1,8 +1,8 @@
 /*
  * whatDownBackEndApp.c
  *
- *  Created on: Jul 15, 2017
- *      Author: yuval
+ *  @dateJul 15, 2017
+ *  @authoryuval
  */
 
 #include "whatDownBackEndApp.h"
@@ -33,7 +33,7 @@ struct WhatDownBackEndApp
 
 };
 
-/* ~~~ Internal function forward declartion ~~~~~~~~~~~~~~~~~ */
+/* ~~~ Internal function forward declaration ~~~~~~~~~~~~~~~~~ */
 static bool IsStructValid(WhatDownBackEndApp_t* _appBE);
 
 /* ~~~ API function ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */

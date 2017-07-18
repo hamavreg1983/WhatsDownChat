@@ -1,8 +1,12 @@
 /****************************************************
- *  Protocol.h
- *  Created on: 12-7-2017 10:57:48
- *  Implementation of the Class Protocol
+ *  @file Protocol.h
+ *  @date 12-7-2017 10:57:48
+ *
  *  Original author: A-Team
+ *
+ *  @brief The Module is apart of Chat app project.
+ * Protocol module Responsible to Encode and Decode Messages between
+ * server client
  ****************************************************/
 
 #ifndef _PROTOCOL_H
@@ -26,13 +30,6 @@
 #define ourInt 32
 #define DELIMITER "@@@"
 #define DELIMITER_LENGHT 3
-
-
-/**
- * The Module is apart of Chat app project.
- * Protocol module Responsible to Encode and Decode Messages between
- * server client
- */
 
 
 typedef struct sockaddr_in sockaddr_in_t;

@@ -1,11 +1,13 @@
-/*
- * listener.c -- joins a multicast group and echoes all data it receives from
- *		the group to its stdout...
+/**
+ * @file reader.c
  *
- * Antony Courtney,	25/11/94
- * Modified by: Frédéric Bastien (25/03/04)
- * to compile without warning and work correctly
+ *  @date Jul 18, 2017
+ *  @author Yuval Hamberg
+ *
+ *  @brief joins a multicast group and echoes all data it receives from
+ *		the group to its stdout
  */
+
 
 #include <sys/types.h>
 #include <sys/socket.h>

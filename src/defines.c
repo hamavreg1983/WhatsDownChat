@@ -1,8 +1,8 @@
 /*
  * defines.c
  *
- *  Created on: Jul 12, 2017
- *      Author: uv
+ *  @date Jul 12, 2017
+ *  @authoruv
  */
 
 #include "defines.h"

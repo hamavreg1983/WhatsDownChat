@@ -18,15 +18,14 @@ CFLAGS = -g -Wall -pedantic -I../src/
 .Phony : clean rebuild all run
 
 # Main target
+all: $(EXE_NAME1) $(EXE_NAME2)
+	
+
 $(EXE_NAME1): reader.o reader.c netUDP_MultiCast.o netUDP_MultiCast.c 
 	$(CC) $(CFLAGS) reader.o netUDP_MultiCast.o -o $(EXE_NAME1) 
 
 $(EXE_NAME2): writer.o writer.c netUDP_MultiCast.o netUDP_MultiCast.c
 	$(CC) $(CFLAGS) writer.o netUDP_MultiCast.o -o $(EXE_NAME2)
- 
-
-all: $(EXE_NAME1) $(EXE_NAME2)
-	
 
 
 # To obtain object files

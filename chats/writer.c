@@ -1,22 +1,25 @@
-#include <sys/types.h>
-#include <sys/socket.h>
-#include <netinet/in.h>
-#include <arpa/inet.h>
-#include <time.h>
-#include <string.h>
+/**
+ * @file writer.c
+ *
+ *  @date Jul 18, 2017
+ *  @author Yuval Hamberg
+ *
+ *  @brief joins a multicast group and send messages from stdin to group
+ *
+ */
+
+
 #include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h>
-#include "defines.h"
+#include <string.h>
 
 #include "netUDP_MultiCast.h"
+#include "defines.h"
 
 #define MSG_BUF_SIZE 1024
 
 int main(int argc, char *argv[])
 {
-	struct sockaddr_in addr;
-	int fd;
 	char message[MSG_BUF_SIZE] = {0};
 	int port;
 	int n;

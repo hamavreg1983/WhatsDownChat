@@ -1,8 +1,8 @@
 /*
  * ipHandle.h
  *
- *  Created on: Jul 16, 2017
- *      Author: yuval
+ *  @dateJul 16, 2017
+ *  @authoryuval
  */
 
 #ifndef IPHANDLE_H_

@@ -1,8 +1,8 @@
 /*
  * netUDP_MultiCast.c
  *
- *  Created on: Jul 18, 2017
- *      Author: uv
+ *  @date Jul 18, 2017
+ *  @authoruv
  */
 
 #include "netUDP_MultiCast.h"

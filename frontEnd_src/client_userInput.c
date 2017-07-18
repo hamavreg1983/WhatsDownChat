@@ -1,8 +1,8 @@
 /*
  * client.c
  *
- *  Created on: Jul 4, 2017
- *      Author: uv
+ *  @date Jul 4, 2017
+ *  @authoruv
  */
 
 #include <stdio.h>

@@ -1,8 +1,8 @@
 /*
  * logic_backEnd.c
  *
- *  Created on: Jul 15, 2017
- *      Author: yuval
+ *  @dateJul 15, 2017
+ *  @authoryuval
  */
 
 #include <string.h> /* memset */
@@ -180,7 +180,7 @@ int LogicBE_ClientDissconnectedFunc(uint _socketNum, void* _contex)
 
 	return -1;
 }
-int LogicBE_ErrorFunc(TCP_SERVER_USER_ERROR _status, uint _socketNum, void* _contex)
+int LogicBE_ErrorFunc(int _status, uint _socketNum, void* _contex)
 {
 #ifndef NDBUG
 	printf("Error! server detected a problem of TCP_SERVER_USER_ERROR #%d possibly related to socket %d.\n" , _status, _socketNum);

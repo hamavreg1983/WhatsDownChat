@@ -1,8 +1,8 @@
 /*
  * tcp_client.c
  *
- *  Created on: Jul 4, 2017
- *      Author: Yuval Hamberg
+ *  @date Jul 4, 2017
+ *  @authorYuval Hamberg
  */
 
 #include <stdio.h>

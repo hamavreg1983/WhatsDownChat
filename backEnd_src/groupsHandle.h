@@ -1,8 +1,8 @@
 /*
  * groupsHandle.h
  *
- *  Created on: Jul 16, 2017
- *      Author: uv
+ *  @dateJul 16, 2017
+ *  @authoruv
  */
 
 #ifndef GROUPSHANDLE_H_
