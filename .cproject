@@ -54,7 +54,7 @@
 					<sourceEntries>
 						<entry excluding="chats|frontEnd_src|tests|comm|backEnd_src|src" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 						<entry excluding="backEnd_main.c|IO_Server_comm.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="backEnd_src"/>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="chats"/>
+						<entry excluding="reader.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="chats"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="comm"/>
 						<entry excluding="ClientWhatDownApp.c|Client_ui.c|logic_FE.c|client_WhatDownApp_main.c|client_userInput.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="frontEnd_src"/>
 						<entry excluding="whatdownApp.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
@@ -106,7 +106,7 @@
 					<sourceEntries>
 						<entry excluding="chats|frontEnd_src|tests|comm|backEnd_src|src" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 						<entry excluding="backEnd_main.c|IO_Server_comm.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="backEnd_src"/>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="chats"/>
+						<entry excluding="reader.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="chats"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="comm"/>
 						<entry excluding="ClientWhatDownApp.c|Client_ui.c|logic_FE.c|client_WhatDownApp_main.c|client_userInput.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="frontEnd_src"/>
 						<entry excluding="whatdownApp.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
@@ -170,7 +170,7 @@
 					<sourceEntries>
 						<entry excluding="chats|frontEnd_src|tests|comm|backEnd_src|src" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 						<entry excluding="IO_Server_comm.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="backEnd_src"/>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="chats"/>
+						<entry excluding="writer.c|reader.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="chats"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="comm"/>
 						<entry excluding="ClientWhatDownApp.c|Client_ui.c|logic_FE.c|client_WhatDownApp_main.c|client_userInput.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="frontEnd_src"/>
 						<entry excluding="whatdownApp.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
@@ -235,7 +235,7 @@
 					</folderInfo>
 					<sourceEntries>
 						<entry excluding="chats|frontEnd_src|tests|comm|backEnd_src|src" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="chats"/>
+						<entry excluding="writer.c|reader.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="chats"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="comm"/>
 						<entry excluding="client_userInput.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="frontEnd_src"/>
 						<entry excluding="whatdownApp.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>

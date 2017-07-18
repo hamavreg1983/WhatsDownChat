@@ -126,6 +126,27 @@ int UsersHandle_IsUserExist(UsersHandle_t* _usersHandel, char* _userName)
 	return TRUE;
 }
 
+int UsersHandle_IsUserPasswordMatch(UsersHandle_t* _usersHandel, const char* _userName, const char* _password)
+{
+	User_t* value;
+
+	if (NULL == (value = ds_hashmap_get_str( _usersHandel->m_continer , _userName) ) )
+	{
+		/* key username does not exists */
+		return FALSE;
+	}
+
+	if ( strcmp( value->m_password , _password) != 0)
+	{
+		/* password does not match */
+		return FALSE;
+	}
+
+	return TRUE;
+}
+
+
+
 /* ~~~ Internal function ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 bool IsStructValid(UsersHandle_t* _usersHandel)

@@ -18,8 +18,9 @@
 #include "Protocol.h"
 
 /* ~~~ Defines ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-
+#define NDBUG /* remove for debug */
 #define MAGIC_NUMBER_ALIVE_LOGIC_FE 0xfacecdcd
+
 /* ~~~ Globals ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 /* ~~~ Struct ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
@@ -82,13 +83,17 @@ int LogicFE_Signup(Logic_FE_t* _logic, const char* _username, const char* _passw
 {
 	int status;
 
-	/* TODO check input param */
-	if (! IsStructValid(_logic))
+	if (!_username || !_password)
 	{
-		return -1;
+		return GEN_ERROR;
 	}
 
-	/* check values */
+	if (! IsStructValid(_logic))
+	{
+		return GEN_ERROR;
+	}
+
+	/* TODO check values */
 
 	char buffer[MAX_MESSAGE_LENGTH];
 	uint length;
@@ -113,6 +118,47 @@ int LogicFE_Signup(Logic_FE_t* _logic, const char* _username, const char* _passw
 	}
 	return status;
 }
+
+int LogicFE_Login(Logic_FE_t* _logic, const char* _username, const char* _password)
+{
+	int status;
+
+	if (!_username || !_password)
+	{
+		return GEN_ERROR;
+	}
+
+	if (! IsStructValid(_logic))
+	{
+		return GEN_ERROR;
+	}
+
+	/* TODO check values */
+
+	char buffer[MAX_MESSAGE_LENGTH];
+	uint length;
+	int result;
+
+	length = Protocol_EncodeLogIn(_username, _password, buffer);
+	if (length <= 0)
+	{
+		return -1;
+	}
+
+	result = LogicFE_Send(_logic, buffer, length);
+	if (result <= 0)
+	{
+		return -1;
+	}
+
+	status = LogicFE_Recive( _logic->m_netClient , _logic->m_recivebuf);
+	if (status == BackEnd_SUCCESS)
+	{
+		strcpy( _logic->m_userName , _username);
+	}
+	return status;
+}
+
 
 int LogicFE_CreateGroup(Logic_FE_t* _logic, const char* _groupName)
 {
@@ -277,7 +323,6 @@ static int LogicFE_Recive( TCP_C_t* _netClient , ClientReceiveMessage_t* _recive
 	/* empty struct to prevent old data */
 	memset(_recivebuf , 0 , sizeof(ClientReceiveMessage_t) );
 
-
 	recv_bytes = TCP_ClientRecive(_netClient, buffer, MAX_MESSAGE_LENGTH);
 	if (0 == recv_bytes)
 	{
@@ -294,8 +339,6 @@ static int LogicFE_Recive( TCP_C_t* _netClient , ClientReceiveMessage_t* _recive
 #ifndef NDBUG
 	printf("Msg Type:%d. status:%d\n", _recivebuf->m_messageType , _recivebuf->m_status);
 #endif
-
-
 
 	return _recivebuf->m_status;
 }

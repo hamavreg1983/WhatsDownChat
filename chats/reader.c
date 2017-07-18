@@ -16,82 +16,87 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "defines.h"
+#include "netUDP_MultiCast.h"
+
+/* ~~~ Defines ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 #define MSG_BUF_SIZE 1024
+#define MAX_GROUP_NAME 64
+#define GO_UP_LINE_TERMINAL "\033[1A"
+
+/* ~~~ Internal function forward declartion ~~~~~~~~~~~~~~~~~ */
+static void PrintMsg(const char* _msg);
+
 
 int main(int argc, char *argv[])
 {
-	struct sockaddr_in addr;
-	int fd, nbytes,addrlen;
-	struct ip_mreq mreq;
-	char msgbuf[MSG_BUF_SIZE];
+	int nbytes;
 	int port;
 	char ip[16];
-	char groupName[64];
-	u_int yes=1;
+	char groupName[MAX_GROUP_NAME];
+	char msgbuf[MSG_BUF_SIZE];
 
 	if (argc == 4)
 	{
 		strcpy(ip, argv[1] );
 		port = atoi(argv[2]);
-		strcpy(groupName, argv[3] );
+		strncpy(groupName, argv[3] , MAX_GROUP_NAME);
 	}
 	else
 	{
 		strcpy(ip, "225.225.225.225" );
 		port = 2255;
-		strcpy(groupName, "Unknown" );
+		strncpy(groupName, "Unknown" , MAX_GROUP_NAME);
 	}
 
-	/* create what looks like an ordinary UDP socket */
-	if ((fd=socket(AF_INET,SOCK_DGRAM,0)) < 0) {
-		perror("socket");
-		return(1);
-	}
-
-	/* allow multiple sockets to use the same PORT number */
-	if (setsockopt(fd,SOL_SOCKET,SO_REUSEADDR,&yes,sizeof(yes)) < 0)
+	UDP_MultiCast_t* readerClient;
+	readerClient = UDP_MultiCast_Reciver_Create(ip, port);
+	if (!readerClient)
 	{
-		perror("Reusing ADDR failed");
-		return(1);
-	}
-
-	/* set up destination address */
-	memset(&addr,0,sizeof(addr));
-	addr.sin_family=AF_INET;
-	addr.sin_addr.s_addr=inet_addr(ip); /* N.B.: differs from sender */
-	addr.sin_port=htons(port);
-
-	/* bind to receive address */
-	if (bind(fd,(struct sockaddr *) &addr,sizeof(addr)) < 0)
-	{
-		perror("bind");
-		return(1);
-	}
-
-	/* use setsockopt() to request that the kernel join a multicast group */
-//	memset( &mreq , 0 , sizeof(struct ip_mreq));
-	mreq.imr_multiaddr.s_addr=inet_addr(ip);
-	mreq.imr_interface.s_addr=htonl(INADDR_ANY);
-	if (setsockopt(fd,IPPROTO_IP,IP_ADD_MEMBERSHIP,&mreq,sizeof(mreq)) < 0) /* mybe yuval = IP_MULTICAST_IF*/
-	{
-		perror("setsockopt failed");
-		return(3);
+		printf("allocation fail\n");
+		return 5;
 	}
 
 	/* now just enter a read-print loop */
-	printf("reader group:%s (%s)\n-------------\n",groupName, ip);
-	while (1)
+	printf("reader group:%s (%s)\n-----------------------------------------\n\n",groupName, ip);
+	while (TRUE)
 	{
-		addrlen=sizeof(addr);
-		if ((nbytes=recvfrom(fd,msgbuf,MSG_BUF_SIZE,0,
-				(struct sockaddr *) &addr,&addrlen)) < 0)
+		if ((nbytes = UDP_MultiCast_Recive( readerClient, msgbuf, MSG_BUF_SIZE) ) < 0)
 		{
-			perror("recvfrom");
-			return(2);
+			printf("Fail to read incoming msg.\n");
 		}
-		puts(msgbuf);
+		else
+		{
+			PrintMsg(msgbuf);
+		}
 	}
 	return 0;
 }
+
+/* ~~~ Internal function ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+static void PrintMsg(const char* _msg)
+{
+	int i;
+
+	printf("%s", GO_UP_LINE_TERMINAL);
+	for (i = 0; i < strlen(_msg) - 5 ; ++i)
+		{
+			putchar('-');
+		}
+		putchar('\n');
+
+	printf( "| %s |\n" , _msg);
+
+	for (i = 0; i < strlen(_msg) - 5 ; ++i)
+	{
+		putchar('-');
+	}
+	putchar('\n');
+
+	return;
+}
+
+
 
 

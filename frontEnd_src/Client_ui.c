@@ -246,14 +246,10 @@ int LoginFunction(Client_UI* _ui)
 
 	} while(!strlen(userName) || !strlen(password));
 
-	/* TODO
-	statusServer = LogicFE_Signup(_ui->m_logicFE, userName, password);
+	/* tunr to login */
+	statusServer = LogicFE_Login(_ui->m_logicFE, userName, password);
 	PrintBackEndResponse(statusServer);
 	return (statusServer == BackEnd_SUCCESS) ? TRUE : FALSE;
-	 */
-	printf("ok!\n");
-	return TRUE;
-
 }
 
 void LogoutFunction(Client_UI* _ui)
@@ -319,7 +315,6 @@ void GetAllGruopFunction(Client_UI* _ui)
 {
 	char groupName[1024]= {0};
 	uint numOfGroups;
-	int result;
 	uint i , k;
 	BackEndStatus statusServer;
 
@@ -359,7 +354,7 @@ static int GetUserInput(char* _buffer , uint _maxLength)
 		_buffer[strcspn(_buffer, "\n")] = 0; 		/* remove trailing \n */
 	} while (_buffer[0] == '\0');
 
-	sanity_check(_buffer, _maxLength, '_'); 	/* remove illegal unsafe char */
+	sanity_check(_buffer, _maxLength, '_'); 		/* remove illegal unsafe char */
 
 	return strlen(_buffer);
 }

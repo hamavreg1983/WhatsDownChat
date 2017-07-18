@@ -28,6 +28,8 @@ int LogicFE_ReciveDataFunc(void* _data, size_t _sizeData, uint _socketNum, void*
 
 int LogicFE_Signup(Logic_FE_t* _logic, const char* _username, const char* _password);
 
+int LogicFE_Login(Logic_FE_t* _logic, const char* _username, const char* _password);
+
 int LogicFE_CreateGroup(Logic_FE_t* _logic, const char* _groupName);
 
 int LogicFE_JoinGroup(Logic_FE_t* _logic, const char* _groupName);

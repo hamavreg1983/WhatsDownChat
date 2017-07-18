@@ -14,7 +14,7 @@
 #include "tcp_client.h"
 
 #define MAX_MSG_SIZE 1024
-
+#define NDBUG /* remove for debug */
 
 
 int main(int argc, char* argv[])
@@ -76,9 +76,9 @@ int main(int argc, char* argv[])
 
 			ClientReceiveMessage_t recivebuf;
 			Protocol_DecodeClient(buffer, recv_bytes, &recivebuf);
-
+#ifndef NDBUG
 			printf("Msg Type:%d. status:%d\n", recivebuf.m_messageType , recivebuf.m_status);
-
+#endif
 		}
 	}
 

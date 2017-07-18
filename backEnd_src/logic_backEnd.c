@@ -242,6 +242,18 @@ static bool LogIN(Logic_BE_t* _logicBE, ServerReceiveMessage_t* m_decodedMsg, ui
 {
 	/* TODO do this function */
 
+	if (! UsersHandle_IsUserExist(_logicBE->m_usersHandel, m_decodedMsg->m_userName) )
+	{
+		LogicBE_Send(_logicBE, _socketNum, MESSAGETYPE_LOGIN, BackEnd_USER_NOT_FOUND, "",  0);
+		return FALSE;
+	}
+
+	if (! UsersHandle_IsUserPasswordMatch(_logicBE->m_usersHandel, m_decodedMsg->m_userName, m_decodedMsg->m_password) )
+	{
+		LogicBE_Send(_logicBE, _socketNum, MESSAGETYPE_LOGIN, BackEnd_PASSWORD_INVALID, "",  0);
+		return FALSE;
+	}
+
 	LogicBE_Send(_logicBE, _socketNum, MESSAGETYPE_LOGIN, BackEnd_SUCCESS, "",  0);
 
 	return TRUE;

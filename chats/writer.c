@@ -7,6 +7,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include "defines.h"
+
+#include "netUDP_MultiCast.h"
 
 #define MSG_BUF_SIZE 1024
 
@@ -36,33 +39,33 @@ int main(int argc, char *argv[])
 		strcpy(groupName, "unknown");
 	}
 
+	printf("Writer group:%s (%s)\n------------------\n(type text and press enter to send. 0000 would exit.\n", groupName, ip);
 
-	/* create what looks like an ordinary UDP socket */
-	if ((fd=socket(AF_INET,SOCK_DGRAM,0)) < 0)
+	UDP_MultiCast_t* net;
+	net = UDP_MultiCast_Sender_Create(ip, port);
+	if (!net)
 	{
-		perror("socket");
-		exit(4);
+		printf("fail to create.\n");
+		return 1;
 	}
 
-	/* set up destination address */
-	memset(&addr,0,sizeof(addr));
-	addr.sin_family=AF_INET;
-	addr.sin_addr.s_addr=inet_addr(ip);
-	addr.sin_port=htons(port);
-
-	printf("Writer group:%s (%s)\n--------------\n", groupName, ip);
-
 	/* now just sendto() our destination! */
-	while (1) {
-		n = sprintf(message, "%s%s", nickName, ": ");
+	while (TRUE) {
+		n = sprintf(message, KCYN "%s%s" KNRM, nickName, ": ");
 		fgets(message + n, MSG_BUF_SIZE - n, stdin);
 		message[strcspn(message, "\n")] = 0;
 
-		if (sendto(fd,message,sizeof(message),0,(struct sockaddr *) &addr, sizeof(addr)) < 0)
+		if (0 == (strcmp( message + n, "0000" ) ) )
 		{
-			perror("sendto");
+			return 0;
+		}
+
+		if ( UDP_MultiCast_Send(net, message, strlen(message)+1 ) < 0)
+		{
+			perror("sendto fail");
 			return 1;
 		}
 	}
+
 	return 0;
 }

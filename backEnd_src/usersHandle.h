@@ -30,5 +30,7 @@ int UsersHandle_CountUsers(UsersHandle_t* _usersHandel);
 
 bool UsersHandle_IsUserExist(UsersHandle_t* _usersHandel, char* _userName);
 
+bool UsersHandle_IsUserPasswordMatch(UsersHandle_t* _usersHandel, const char* _userName, const char* _password);
+
 
 #endif /* USERSHANDLE_H_ */

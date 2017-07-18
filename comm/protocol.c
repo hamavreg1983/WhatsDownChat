@@ -99,7 +99,7 @@ int Protocol_EncodeLogIn(const char* _userName, const char* _password, void* _bu
 
 	length = sprintf(tempMsg, "%s%s%s%s", _userName, DELIMITER, _password, DELIMITER);
 
-	result = TLV_encoder(tempMsg, (char) MESSAGETYPE_SIGNUP, length, _buffer, &tlvLength);
+	result = TLV_encoder(tempMsg, (char) MESSAGETYPE_LOGIN, length, _buffer, &tlvLength);
 	if (!(result == TLV_SUCCESS || result == TLV_MORE_TLVS_TO_DECODE))
 	{
 		return GEN_ERROR;
