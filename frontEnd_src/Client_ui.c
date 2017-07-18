@@ -79,13 +79,15 @@ void Ui_Run(Client_UI* _ui)
 	printf("                                                        |_|   |_|    \n\n");
 
 
-
-	rslt = MenuUser();
-	MenuLogic(_ui, rslt);
-
-	if (rslt == 0)
+	while (rslt == 0)
 	{
-		return;
+		rslt = MenuUser();
+		if (rslt == 0)
+		{
+			return;
+		}
+
+		rslt = MenuLogic(_ui, rslt);
 	}
 
 	while (TRUE)
