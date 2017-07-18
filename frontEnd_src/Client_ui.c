@@ -20,8 +20,9 @@ struct Client_UI
 
 /*********************************************/
 static int Menu();
-void SignupFunction(Client_UI* _ui);
-void LoginFunction(Client_UI* _ui);
+static int MenuUser();
+int SignupFunction(Client_UI* _ui);
+int LoginFunction(Client_UI* _ui);
 void LogoutFunction(Client_UI* _ui);
 void DisconnectFunction(Client_UI* _ui);
 void DeleteUserFunction(Client_UI* _ui);
@@ -29,6 +30,7 @@ void CreateNewGroupFunction(Client_UI* _ui);
 void JoinGruopFunction(Client_UI* _ui);
 void LeaveGroupFunction(Client_UI* _ui);
 void GetAllGruopFunction(Client_UI* _ui);
+static int MenuLogic(Client_UI* _ui, int _userSelected);
 
 static int GetUserInput(char* _buffer , uint _maxLength);
 static bool PrintBackEndResponse(BackEndStatus _statusServer);
@@ -52,73 +54,68 @@ Client_UI* UI_Create(Logic_FE_t* _frontEnd)
 
 void Ui_Run(Client_UI* _ui)
 {
-	int res = TRUE; /* set to 1 so would enter the loop */
-	    system("clear");
-	    printf("Program start \n ");
-	    printf("The program is initialized \n");
-	while(res)
-	{
+	int rslt = FALSE;
 
-		res = Menu();
-		switch (res)
+	system("clear");
+	printf("Program start \n ");
+	printf("The program is initialized \n");
+
+	rslt = MenuUser();
+	MenuLogic(_ui, rslt);
+
+	if (rslt == 0)
+	{
+		return;
+	}
+
+	while (TRUE)
+	{
+		rslt = Menu();
+		rslt = MenuLogic(_ui, rslt);
+
+		if (rslt == 0)
 		{
-	        case 0:
-	                printf("Exiting The Program\n");
-	                break;
-	        case 1:
-	        		SignupFunction(_ui);
-	                break;
-	        case 2:
-					LoginFunction(_ui);
-					break;
-	        case 3:
-	        		LogoutFunction(_ui);
-	        		break;
-	        case 4:
-	        		DisconnectFunction(_ui);
-	        		break;
-	        case 5:
-	        		DeleteUserFunction(_ui);
-	        		break;
-	        case 6:
-	        		CreateNewGroupFunction(_ui);
-	        		break;
-	        case 7:
-	        		JoinGruopFunction(_ui);
-	        		break;
-	        case 8:
-	        		LeaveGroupFunction(_ui);
-	        		break;
-	        case 9:
-	        		GetAllGruopFunction(_ui);
-					break;
-	        default:
-	                    printf("Wrong Selection Please Select Again\n");
-	                    system("clear");
-	                    break;
+			return;
 		}
 	}
 
+	return;
 }
 /*
-void Ui_Destroy(Client_Ui);
+TODO ? void Ui_Destroy(Client_Ui);
 */
+static int MenuUser()
+{
+	char choose[2];
+	size_t sel = 1;
+
+	do {
+		printf("\n Please select option \n");
+		printf(" Sign up to server --------------------> 1  \n");
+		printf(" Login to server ----------------------> 2  \n");
+		printf(" To Exit Press-------------------------> 0  \n");
+
+		GetUserInput(choose, 2);
+		sel = atoi(choose);
+		system("clear");
+	} while (sel < 0 || sel > 2);
+
+	return sel;
+}
 
 static int Menu()
 {
 	char choose[2];
 	size_t sel = 1;
 	printf("\n Please select option \n");
-	printf("\n Sign up to server --------------------> 1  \n");
-	printf("\n Login to server ----------------------> 2  \n");
-	printf("\n Log out from server ------------------> 3  \n");
-	printf("\n Disconnect from server ---------------> 4  \n");
-	printf("\n Delete user --------------------------> 5  \n");
-	printf("\n Create new group ---------------------> 6  \n");
-	printf("\n Join to group ------------------------> 7  \n");
-	printf("\n Leave group --------------------------> 8  \n");
-	printf("\n Show all groups ----------------------> 9  \n");
-	printf("\n To Exit Press-------------------------> 0  \n");
+	printf(" Log out from server ------------------> 3  \n");
+	printf(" Disconnect from server ---------------> 4  \n");
+	printf(" Delete user --------------------------> 5  \n");
+	printf(" Create new group ---------------------> 6  \n");
+	printf(" Join to group ------------------------> 7  \n");
+	printf(" Leave group --------------------------> 8  \n");
+	printf(" Show all groups ----------------------> 9  \n");
+	printf(" To Exit Press-------------------------> 0  \n");
 	GetUserInput(choose, 2);
 	sel = atoi(choose);
 	system("clear");
@@ -126,7 +123,58 @@ static int Menu()
 return sel;
 }
 
-void SignupFunction(Client_UI* _ui)
+static int MenuLogic(Client_UI* _ui, int _userSelected)
+{
+	int res = TRUE; /* set to 1 so would enter the loop */
+	system("clear");
+	printf("Program start \n ");
+	printf("The program is initialized \n");
+
+		switch (_userSelected)
+		{
+			case 0:
+				printf("Exiting The Program\n");
+				res = 0;
+				break;
+
+			case 1:
+				res = SignupFunction(_ui);
+				break;
+
+			case 2:
+				res = LoginFunction(_ui);
+				break;
+
+			case 3:
+				LogoutFunction(_ui);
+				break;
+			case 4:
+				DisconnectFunction(_ui);
+				break;
+			case 5:
+				DeleteUserFunction(_ui);
+				break;
+			case 6:
+				CreateNewGroupFunction(_ui);
+				break;
+			case 7:
+				JoinGruopFunction(_ui);
+				break;
+			case 8:
+				LeaveGroupFunction(_ui);
+				break;
+			case 9:
+				GetAllGruopFunction(_ui);
+				break;
+			default:
+				printf("Wrong Selection Please Select Again\n");
+				system("clear");
+				break;
+		}
+	return res;
+}
+
+int SignupFunction(Client_UI* _ui)
 {
 	char userName[MAX_GROUP_NAME]= {0};
 	char password[MAX_GROUP_NAME]= {0};
@@ -152,16 +200,45 @@ void SignupFunction(Client_UI* _ui)
 	statusServer = LogicFE_Signup(_ui->m_logicFE, userName, password);
 	PrintBackEndResponse(statusServer);
 
-	return;
+	return (statusServer == BackEnd_SUCCESS) ? TRUE : FALSE;
 }
 
-void LoginFunction(Client_UI* _ui)
+int LoginFunction(Client_UI* _ui)
 {
+	char userName[MAX_GROUP_NAME]= {0};
+	char password[MAX_GROUP_NAME]= {0};
+	int result;
+	BackEndStatus statusServer;
+
+	system("clear");
+	do
+	{
+		printf("Welcome to login screen for whatsDown Chat app \n");
+		do {
+			printf("please insert username \n");
+			result = GetUserInput(userName, MAX_USERNAME);
+		} while ( result <= 0 );
+
+		do {
+			printf("please insert password \n");
+			result = GetUserInput(password, MAX_PASSWORD);
+		} while ( result <= 0  );
+
+	} while(!strlen(userName) || !strlen(password));
+
+	/* TODO
+	statusServer = LogicFE_Signup(_ui->m_logicFE, userName, password);
+	PrintBackEndResponse(statusServer);
+	return (statusServer == BackEnd_SUCCESS) ? TRUE : FALSE;
+	 */
+	printf("ok!\n");
+	return TRUE;
 
 }
+
 void LogoutFunction(Client_UI* _ui)
 {
-
+	printf("\nNot implemented.\n");
 }
 void DisconnectFunction(Client_UI* _ui)
 {

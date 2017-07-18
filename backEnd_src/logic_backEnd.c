@@ -40,6 +40,7 @@ struct Logic_BE
 static int LogicBE_Send(Logic_BE_t* _logic, uint _socketNum, MessageType _msgType, BackEndStatus _responseResult, void* _msg,  uint _msgLength);
 
 static bool SignUp(Logic_BE_t* _logicBE, ServerReceiveMessage_t* m_decodedMsg, uint _socketNum);
+static bool LogIN(Logic_BE_t* _logicBE, ServerReceiveMessage_t* m_decodedMsg, uint _socketNum);
 static bool CreateGroup(Logic_BE_t* _logicBE, ServerReceiveMessage_t* _decodedMsg, uint _socketNum);
 static bool JoinGroup(Logic_BE_t* _logicBE, ServerReceiveMessage_t* _decodedMsg, uint _socketNum);
 static bool GetAllGroups(Logic_BE_t* _logicBE, ServerReceiveMessage_t* _decodedMsg, uint _socketNum);
@@ -130,7 +131,7 @@ int LogicBE_ReciveDataFunc(void* _data, size_t _sizeData, uint _socketNum, void*
 			break;
 
 		case MESSAGETYPE_LOGIN:
-
+			LogIN(_contex, ((Logic_BE_t*)_contex)->m_decodedMsg, _socketNum);
 			break;
 		case MESSAGETYPE_LOGOUT:
 
@@ -166,15 +167,26 @@ int LogicBE_ReciveDataFunc(void* _data, size_t _sizeData, uint _socketNum, void*
 
 int LogicBE_NewClientFunc(uint _socketNum, void* _contex)
 {
-
+#ifndef NDBUG
+	printf("Client Connected thru socket %d.\n" , _socketNum);
+#endif
+	return -1;
 }
 int LogicBE_ClientDissconnectedFunc(uint _socketNum, void* _contex)
 {
+#ifndef NDBUG
+	printf("Client Disconnected thru socket %d.\n" , _socketNum);
+#endif
 
+	return -1;
 }
 int LogicBE_ErrorFunc(TCP_SERVER_USER_ERROR _status, uint _socketNum, void* _contex)
 {
+#ifndef NDBUG
+	printf("Error! server detected a problem of TCP_SERVER_USER_ERROR #%d possibly related to socket %d.\n" , _status, _socketNum);
+#endif
 
+	return -1;
 }
 
 /* ~~~ Internal function ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
@@ -222,6 +234,15 @@ static bool SignUp(Logic_BE_t* _logicBE, ServerReceiveMessage_t* _decodedMsg, ui
 	}
 
 	LogicBE_Send(_logicBE, _socketNum, MESSAGETYPE_SIGNUP, BackEnd_SUCCESS, "",  0);
+
+	return TRUE;
+}
+
+static bool LogIN(Logic_BE_t* _logicBE, ServerReceiveMessage_t* m_decodedMsg, uint _socketNum)
+{
+	/* TODO do this function */
+
+	LogicBE_Send(_logicBE, _socketNum, MESSAGETYPE_LOGIN, BackEnd_SUCCESS, "",  0);
 
 	return TRUE;
 }
@@ -339,6 +360,7 @@ static bool GetAllGroups(Logic_BE_t* _logicBE, ServerReceiveMessage_t* _decodedM
 	memcpy(buffer + length, DELIMITER, DELIMITER_LENGHT);
 	length += DELIMITER_LENGHT;
 
+
 	LogicBE_Send(_logicBE, _socketNum, MESSAGETYPE_GET_ALL_GROUPS, BackEnd_SUCCESS, buffer, groupsLength );
 
 	return TRUE;
@@ -360,7 +382,7 @@ static int LogicBE_Send(Logic_BE_t* _logic, uint _socketNum, MessageType _msgTyp
 			break;
 
 		case MESSAGETYPE_LOGIN:
-
+			length = Protocol_EncodeLogIn_Response(_responseResult, buffer);
 			break;
 		case MESSAGETYPE_LOGOUT:
 

@@ -86,6 +86,7 @@ void GroupsHandel_Destroy(GroupHandel_t* _groupsHndl)
 
 	/* TODO free the address left in group. this is one option to free them */
 /*	ds_hashmap_foreach_value(_groupsHndl->m_groupContiner , DestoryAddres); */
+//	DestoyValue
 
 	ds_hashmap_free(_groupsHndl->m_groupContiner, 1, 1); /* TODO might cause free core */
 
@@ -190,6 +191,13 @@ sockaddr_in_t* GroupsHandel_GetGroupAddres(GroupHandel_t* _groupsHndl, const cha
 	return grp2join->m_groupAddrs;
 }
 
+char* GetGroupNameToStr(void* _value, void* _buffer, uint* _num)
+{
+	strcpy(_buffer, ((GroupUnit_t*)_value)->m_groupName);
+	(*_num)++;
+	return _buffer;
+}
+
 int GroupsHandel_GetGroupsName(GroupHandel_t* _groupsHndl, char* _groupsNames_out, size_t _bufferSize, size_t* _groupsLength_out)
 {
 	int groupNum = 0;
@@ -205,6 +213,9 @@ int GroupsHandel_GetGroupsName(GroupHandel_t* _groupsHndl, char* _groupsNames_ou
 
 	/* TODO stop copy if bigger than _bufferSize */
 
+	if (1)
+	{
+
 	strcpy(_groupsNames_out, "Example GroupName");
 	itr += strlen("Example GroupName") + 1;
 	groupNum++;
@@ -212,6 +223,11 @@ int GroupsHandel_GetGroupsName(GroupHandel_t* _groupsHndl, char* _groupsNames_ou
 	strcpy(_groupsNames_out + itr, "Grp_stuff");
 	itr += strlen("Grp_stuff") + 1;
 	groupNum++;
+	}
+	else
+	{
+		groupNum = ds_hashmap_foreach_valueAction(_groupsHndl->m_groupContiner, _groupsNames_out, GetGroupNameToStr) ;
+	}
 
 	*_groupsLength_out = itr;
 
@@ -239,6 +255,7 @@ static GroupUnit_t* CreateValue(const char* _groupName, struct sockaddr_in* _gro
 
 	return group;
 }
+
 
 /* TODO use in delete geoup */
 static void DestoyValue(GroupUnit_t* _group)

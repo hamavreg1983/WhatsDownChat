@@ -53,7 +53,7 @@ int Protocol_EncodeSignUp(const char* _newUserName, const char* _password, void*
 	length = sprintf(tempMsg, "%s%s%s%s", _newUserName, DELIMITER, _password, DELIMITER);
 
 	result = TLV_encoder(tempMsg, (char) MESSAGETYPE_SIGNUP, length, _buffer, &tlvLength);
-	if (result != TLV_SUCCESS)
+	if (!(result == TLV_SUCCESS || result == TLV_MORE_TLVS_TO_DECODE))
 	{
 		return GEN_ERROR;
 	}
@@ -77,7 +77,7 @@ int Protocol_EncodeSignUp_Response(BackEndStatus _responseStatus, void* _buffer)
 	length = sprintf(tempMsg, "%c%s", _responseStatus, DELIMITER);
 
 	result = TLV_encoder(tempMsg, (char) MESSAGETYPE_SIGNUP, length, _buffer, &tlvLength);
-	if (result != TLV_SUCCESS)
+	if (!(result == TLV_SUCCESS || result == TLV_MORE_TLVS_TO_DECODE))
 	{
 		return GEN_ERROR;
 	}
@@ -85,6 +85,51 @@ int Protocol_EncodeSignUp_Response(BackEndStatus _responseStatus, void* _buffer)
 	return tlvLength;
 }
 
+int Protocol_EncodeLogIn(const char* _userName, const char* _password, void* _buffer)
+{
+	char tempMsg[MAX_MESSAGE_LENGTH];
+	int length = 0;
+	uint tlvLength;
+	TLV_Result result;
+
+	if (NULL == _userName || NULL == _password || NULL == _buffer)
+	{
+		return GEN_ERROR;
+	}
+
+	length = sprintf(tempMsg, "%s%s%s%s", _userName, DELIMITER, _password, DELIMITER);
+
+	result = TLV_encoder(tempMsg, (char) MESSAGETYPE_SIGNUP, length, _buffer, &tlvLength);
+	if (!(result == TLV_SUCCESS || result == TLV_MORE_TLVS_TO_DECODE))
+	{
+		return GEN_ERROR;
+	}
+
+	return tlvLength;
+}
+
+int Protocol_EncodeLogIn_Response(BackEndStatus _responseStatus, void* _buffer)
+{
+	char tempMsg[MAX_MESSAGE_LENGTH];
+	int length = 0;
+	uint tlvLength;
+	TLV_Result result;
+
+	if (NULL == _buffer)
+	{
+		return GEN_ERROR;
+	}
+
+	length = sprintf(tempMsg, "%c%s", _responseStatus, DELIMITER);
+
+	result = TLV_encoder(tempMsg, (char) MESSAGETYPE_LOGIN, length, _buffer, &tlvLength);
+	if (!(result == TLV_SUCCESS || result == TLV_MORE_TLVS_TO_DECODE))
+	{
+		return GEN_ERROR;
+	}
+
+	return tlvLength;
+}
 
 int Protocol_DecodeClient(void* _dataToDecode, size_t _lenght, ClientReceiveMessage_t* _message )
 {
@@ -103,7 +148,7 @@ int Protocol_DecodeClient(void* _dataToDecode, size_t _lenght, ClientReceiveMess
 	}
 
 	result = TLV_decode(_dataToDecode, _lenght, decodedStr, &decodedStrLength, &datatypeFound, &nextTLV_Ptr, &nextTLV_Lenth);
-	if (result != TLV_SUCCESS)
+	if (!(result == TLV_SUCCESS || result == TLV_MORE_TLVS_TO_DECODE))
 	{
 		return GEN_ERROR;
 	}
@@ -176,7 +221,7 @@ bool Protocol_DecodeServer(void* _dataToDecode, size_t _lenght, ServerReceiveMes
 	}
 
 	result = TLV_decode(_dataToDecode, _lenght, decodedStr, &decodedStrLength, &datatypeFound, &nextTLV_Ptr, &nextTLV_Lenth);
-	if (result != TLV_SUCCESS)
+	if (!(result == TLV_SUCCESS || result == TLV_MORE_TLVS_TO_DECODE))
 	{
 		return GEN_ERROR;
 	}
@@ -239,7 +284,7 @@ int Protocol_EncodeNewGroup(const char* _groupName, void* _buffer)
 	length = sprintf(tempMsg, "%s%s", _groupName, DELIMITER);
 
 	result = TLV_encoder(tempMsg, (char) MESSAGETYPE_CREATE_GROUP, length, _buffer, &tlvLength);
-	if (result != TLV_SUCCESS)
+	if (!(result == TLV_SUCCESS || result == TLV_MORE_TLVS_TO_DECODE))
 	{
 		return GEN_ERROR;
 	}
@@ -262,7 +307,7 @@ int Protocol_EncodeNewGroup_Response(BackEndStatus _responseStatus, sockaddr_in_
 	length = sprintf(tempMsg, "%c%s%s%s%u%s", _responseStatus, DELIMITER, inet_ntoa(m_groupAdrres.sin_addr) , DELIMITER, ntohs(m_groupAdrres.sin_port ), DELIMITER);
 
 	result = TLV_encoder(tempMsg, (char) MESSAGETYPE_CREATE_GROUP, length, _buffer, &tlvLength);
-	if (result != TLV_SUCCESS)
+	if (!(result == TLV_SUCCESS || result == TLV_MORE_TLVS_TO_DECODE))
 	{
 		return GEN_ERROR;
 	}
@@ -285,7 +330,7 @@ int Protocol_EncodeJoinGroup(const char* _groupNameToJoin, void* _buffer)
 	length = sprintf(tempMsg, "%s%s", _groupNameToJoin, DELIMITER);
 
 	result = TLV_encoder(tempMsg, (char) MESSAGETYPE_JOIN_GROUP, length, _buffer, &tlvLength);
-	if (result != TLV_SUCCESS)
+	if (!(result == TLV_SUCCESS || result == TLV_MORE_TLVS_TO_DECODE))
 	{
 		return GEN_ERROR;
 	}
@@ -308,7 +353,7 @@ int Protocol_EncodeJoinGroup_Response(BackEndStatus _responseStatus, sockaddr_in
 	length = sprintf(tempMsg, "%c%s%s%s%u%s", _responseStatus, DELIMITER, inet_ntoa(m_groupAdrres.sin_addr) , DELIMITER, ntohs(m_groupAdrres.sin_port ), DELIMITER);
 
 	result = TLV_encoder(tempMsg, (char) MESSAGETYPE_JOIN_GROUP, length, _buffer, &tlvLength);
-	if (result != TLV_SUCCESS)
+	if (!(result == TLV_SUCCESS || result == TLV_MORE_TLVS_TO_DECODE))
 	{
 		return GEN_ERROR;
 	}
@@ -331,7 +376,7 @@ int Protocol_EncodeGetAllGroups(void* _buffer)
 	length = sprintf(tempMsg, "%s", DELIMITER);
 
 	result = TLV_encoder(tempMsg, (char) MESSAGETYPE_GET_ALL_GROUPS, length, _buffer, &tlvLength);
-	if (result != TLV_SUCCESS)
+	if (!(result == TLV_SUCCESS || result == TLV_MORE_TLVS_TO_DECODE))
 	{
 		return GEN_ERROR;
 	}
@@ -354,7 +399,7 @@ int Protocol_EncodeGetAllGroups_Response(BackEndStatus _responseStatus, const ch
 	length = sprintf(tempMsg, "%c%s%.*s%s", _responseStatus, DELIMITER, (int)_numGroups, _groupsNames , DELIMITER);
 
 	result = TLV_encoder(tempMsg, (char) MESSAGETYPE_GET_ALL_GROUPS, length, _buffer, &tlvLength);
-	if (result != TLV_SUCCESS)
+	if (!(result == TLV_SUCCESS || result == TLV_MORE_TLVS_TO_DECODE))
 	{
 		return GEN_ERROR;
 	}
