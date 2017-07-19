@@ -1,0 +1,164 @@
+\hypertarget{ClientWhatDownApp_8h}{}\section{front\+End\+\_\+src/\+Client\+What\+Down\+App.h File Reference}
+\label{ClientWhatDownApp_8h}\index{front\+End\+\_\+src/\+Client\+What\+Down\+App.\+h@{front\+End\+\_\+src/\+Client\+What\+Down\+App.\+h}}
+
+
+the front file for What\+Down Chat App front end (client side).  
+
+
+{\ttfamily \#include \char`\"{}defines.\+h\char`\"{}}\\*
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structWhatDownClientApp}{What\+Down\+Client\+App} \hyperlink{ClientWhatDownApp_8h_ae6173979dac087b358b363ccf068bf46}{What\+Down\+Client\+App\+\_\+t}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{ClientWhatDownApp_8c_a429138b0d329f6eab4d1560186d17245}{What\+Down\+Client\+App\+\_\+t} $\ast$ \hyperlink{ClientWhatDownApp_8h_a38745052fc0195d05dcd1095ea21ad16}{What\+Down\+Client\+App\+\_\+\+Create} (const char $\ast$\+\_\+server\+IP, \hyperlink{tcp_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint} \+\_\+server\+Port)
+\begin{DoxyCompactList}\small\item\em create and setup the module \end{DoxyCompactList}\item 
+void \hyperlink{ClientWhatDownApp_8h_a6e670d4909a00ee1e0ab0fb95fae1ae8}{What\+Down\+Client\+App\+\_\+\+Destroy} (\hyperlink{ClientWhatDownApp_8c_a429138b0d329f6eab4d1560186d17245}{What\+Down\+Client\+App\+\_\+t} $\ast$\+\_\+app\+BE)
+\begin{DoxyCompactList}\small\item\em clean up after the processing \end{DoxyCompactList}\item 
+\hyperlink{whatDownBackEndApp_8c_a1062901a7428fdd9c7f180f5e01ea056}{bool} \hyperlink{ClientWhatDownApp_8h_a57bfc4bbb763e1cc76092a31801bffc9}{What\+Down\+Client\+App\+\_\+\+Run} (\hyperlink{ClientWhatDownApp_8c_a429138b0d329f6eab4d1560186d17245}{What\+Down\+Client\+App\+\_\+t} $\ast$\+\_\+app\+BE)
+\begin{DoxyCompactList}\small\item\em activate the components of the client. for example the ui. \end{DoxyCompactList}\item 
+\hyperlink{whatDownBackEndApp_8c_a1062901a7428fdd9c7f180f5e01ea056}{bool} \hyperlink{ClientWhatDownApp_8h_a017a543c395d64453b908a8799af2e13}{What\+Down\+Client\+App\+\_\+\+Stop} (\hyperlink{ClientWhatDownApp_8c_a429138b0d329f6eab4d1560186d17245}{What\+Down\+Client\+App\+\_\+t} $\ast$\+\_\+app\+BE)
+\begin{DoxyCompactList}\small\item\em stops the client run. does not disconnect. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+the front file for What\+Down Chat App front end (client side). 
+
+\begin{DoxyDate}{Date}
+Jul 16, 2017 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Yuval Hamberg 
+\end{DoxyAuthor}
+
+
+\subsection{Typedef Documentation}
+\index{Client\+What\+Down\+App.\+h@{Client\+What\+Down\+App.\+h}!What\+Down\+Client\+App\+\_\+t@{What\+Down\+Client\+App\+\_\+t}}
+\index{What\+Down\+Client\+App\+\_\+t@{What\+Down\+Client\+App\+\_\+t}!Client\+What\+Down\+App.\+h@{Client\+What\+Down\+App.\+h}}
+\subsubsection[{\texorpdfstring{What\+Down\+Client\+App\+\_\+t}{WhatDownClientApp_t}}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf What\+Down\+Client\+App} {\bf What\+Down\+Client\+App\+\_\+t}}\hypertarget{ClientWhatDownApp_8h_ae6173979dac087b358b363ccf068bf46}{}\label{ClientWhatDownApp_8h_ae6173979dac087b358b363ccf068bf46}
+
+
+Definition at line 21 of file Client\+What\+Down\+App.\+h.
+
+
+
+\subsection{Function Documentation}
+\index{Client\+What\+Down\+App.\+h@{Client\+What\+Down\+App.\+h}!What\+Down\+Client\+App\+\_\+\+Create@{What\+Down\+Client\+App\+\_\+\+Create}}
+\index{What\+Down\+Client\+App\+\_\+\+Create@{What\+Down\+Client\+App\+\_\+\+Create}!Client\+What\+Down\+App.\+h@{Client\+What\+Down\+App.\+h}}
+\subsubsection[{\texorpdfstring{What\+Down\+Client\+App\+\_\+\+Create(const char $\ast$\+\_\+server\+I\+P, uint \+\_\+server\+Port)}{WhatDownClientApp_Create(const char *_serverIP, uint _serverPort)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf What\+Down\+Client\+App\+\_\+t}$\ast$ What\+Down\+Client\+App\+\_\+\+Create (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{\+\_\+server\+IP, }
+\item[{{\bf uint}}]{\+\_\+server\+Port}
+\end{DoxyParamCaption}
+)}\hypertarget{ClientWhatDownApp_8h_a38745052fc0195d05dcd1095ea21ad16}{}\label{ClientWhatDownApp_8h_a38745052fc0195d05dcd1095ea21ad16}
+
+
+create and setup the module 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+server\+IP} & the server address to connect to. format of X\+X\+X.\+X\+X\+X.\+X\+X\+X.\+X\+XX \\
+\hline
+{\em \+\_\+server\+Port} & the server port to connect to. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a pointer to the module struct 
+\end{DoxyReturn}
+
+
+Definition at line 36 of file Client\+What\+Down\+App.\+c.
+
+
+
+References Logic\+F\+E\+\_\+\+Create(), What\+Down\+Client\+App\+::m\+\_\+logic\+FE, What\+Down\+Client\+App\+::m\+\_\+magic\+Number, What\+Down\+Client\+App\+::m\+\_\+server, What\+Down\+Client\+App\+::m\+\_\+\+UI, M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+A\+L\+I\+V\+E\+\_\+\+C\+L\+I\+E\+N\+T\+\_\+\+A\+PP, T\+C\+P\+\_\+\+Create\+Client(), and U\+I\+\_\+\+Create().
+
+
+
+Referenced by main().
+
+\index{Client\+What\+Down\+App.\+h@{Client\+What\+Down\+App.\+h}!What\+Down\+Client\+App\+\_\+\+Destroy@{What\+Down\+Client\+App\+\_\+\+Destroy}}
+\index{What\+Down\+Client\+App\+\_\+\+Destroy@{What\+Down\+Client\+App\+\_\+\+Destroy}!Client\+What\+Down\+App.\+h@{Client\+What\+Down\+App.\+h}}
+\subsubsection[{\texorpdfstring{What\+Down\+Client\+App\+\_\+\+Destroy(\+What\+Down\+Client\+App\+\_\+t $\ast$\+\_\+app\+B\+E)}{WhatDownClientApp_Destroy(WhatDownClientApp_t *_appBE)}}]{\setlength{\rightskip}{0pt plus 5cm}void What\+Down\+Client\+App\+\_\+\+Destroy (
+\begin{DoxyParamCaption}
+\item[{{\bf What\+Down\+Client\+App\+\_\+t} $\ast$}]{\+\_\+app\+BE}
+\end{DoxyParamCaption}
+)}\hypertarget{ClientWhatDownApp_8h_a6e670d4909a00ee1e0ab0fb95fae1ae8}{}\label{ClientWhatDownApp_8h_a6e670d4909a00ee1e0ab0fb95fae1ae8}
+
+
+clean up after the processing 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+app\+BE} & the pointer to the struct \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 71 of file Client\+What\+Down\+App.\+c.
+
+
+
+Referenced by main().
+
+\index{Client\+What\+Down\+App.\+h@{Client\+What\+Down\+App.\+h}!What\+Down\+Client\+App\+\_\+\+Run@{What\+Down\+Client\+App\+\_\+\+Run}}
+\index{What\+Down\+Client\+App\+\_\+\+Run@{What\+Down\+Client\+App\+\_\+\+Run}!Client\+What\+Down\+App.\+h@{Client\+What\+Down\+App.\+h}}
+\subsubsection[{\texorpdfstring{What\+Down\+Client\+App\+\_\+\+Run(\+What\+Down\+Client\+App\+\_\+t $\ast$\+\_\+app\+B\+E)}{WhatDownClientApp_Run(WhatDownClientApp_t *_appBE)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} What\+Down\+Client\+App\+\_\+\+Run (
+\begin{DoxyParamCaption}
+\item[{{\bf What\+Down\+Client\+App\+\_\+t} $\ast$}]{\+\_\+app\+BE}
+\end{DoxyParamCaption}
+)}\hypertarget{ClientWhatDownApp_8h_a57bfc4bbb763e1cc76092a31801bffc9}{}\label{ClientWhatDownApp_8h_a57bfc4bbb763e1cc76092a31801bffc9}
+
+
+activate the components of the client. for example the ui. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+app\+BE} & the pointer to the struct \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+T\+R\+UE for success. F\+A\+L\+SE for error return. 
+\end{DoxyReturn}
+
+
+Definition at line 76 of file Client\+What\+Down\+App.\+c.
+
+
+
+References What\+Down\+Client\+App\+::m\+\_\+\+UI, T\+R\+UE, and Ui\+\_\+\+Run().
+
+
+
+Referenced by main().
+
+\index{Client\+What\+Down\+App.\+h@{Client\+What\+Down\+App.\+h}!What\+Down\+Client\+App\+\_\+\+Stop@{What\+Down\+Client\+App\+\_\+\+Stop}}
+\index{What\+Down\+Client\+App\+\_\+\+Stop@{What\+Down\+Client\+App\+\_\+\+Stop}!Client\+What\+Down\+App.\+h@{Client\+What\+Down\+App.\+h}}
+\subsubsection[{\texorpdfstring{What\+Down\+Client\+App\+\_\+\+Stop(\+What\+Down\+Client\+App\+\_\+t $\ast$\+\_\+app\+B\+E)}{WhatDownClientApp_Stop(WhatDownClientApp_t *_appBE)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} What\+Down\+Client\+App\+\_\+\+Stop (
+\begin{DoxyParamCaption}
+\item[{{\bf What\+Down\+Client\+App\+\_\+t} $\ast$}]{\+\_\+app\+BE}
+\end{DoxyParamCaption}
+)}\hypertarget{ClientWhatDownApp_8h_a017a543c395d64453b908a8799af2e13}{}\label{ClientWhatDownApp_8h_a017a543c395d64453b908a8799af2e13}
+
+
+stops the client run. does not disconnect. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+app\+BE} & the pointer to the struct \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+T\+R\+UE for success. F\+A\+L\+SE for error return. 
+\end{DoxyReturn}
+
+
+Definition at line 85 of file Client\+What\+Down\+App.\+c.
+
+
+
+References F\+A\+L\+SE.
+

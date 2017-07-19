@@ -1,0 +1,89 @@
+\hypertarget{structClientReceiveMessage}{}\section{Client\+Receive\+Message Struct Reference}
+\label{structClientReceiveMessage}\index{Client\+Receive\+Message@{Client\+Receive\+Message}}
+
+
+{\ttfamily \#include $<$Protocol.\+h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{Protocol_8h_ac6606ebe91c8ac66a2c314c79f5ab013}{Message\+Type} \hyperlink{structClientReceiveMessage_a9e16d9d8c949b34fe62b61907ed2a009}{m\+\_\+message\+Type}
+\item 
+\hyperlink{Protocol_8h_a4947063aa4bf9e1f8a563cc89f98f716}{Back\+End\+Status} \hyperlink{structClientReceiveMessage_a3f5eb262b68916035c8268e906a4ee32}{m\+\_\+status}
+\item 
+\hyperlink{groupsHandle_8h_a833d9365af0fc2308a2172dea4a18094}{sockaddr\+\_\+in\+\_\+t} \hyperlink{structClientReceiveMessage_aab3b16d0d269ab80b4511c8aa0e70b2d}{m\+\_\+group\+Adrres}
+\item 
+char \hyperlink{structClientReceiveMessage_a5515f09efee781b16d62940a8ece5cd7}{m\+\_\+\+Group\+Name} \mbox{[}\hyperlink{Protocol_8h_ab234d1358562b66925fb7223c087556b}{M\+A\+X\+\_\+\+M\+E\+S\+S\+A\+G\+E\+\_\+\+L\+E\+N\+G\+TH}\mbox{]}
+\item 
+size\+\_\+t \hyperlink{structClientReceiveMessage_ac7c80fba616c9836a1dc043838b0b4ed}{m\+\_\+number\+Of\+Groups}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 88 of file Protocol.\+h.
+
+
+
+\subsection{Field Documentation}
+\index{Client\+Receive\+Message@{Client\+Receive\+Message}!m\+\_\+group\+Adrres@{m\+\_\+group\+Adrres}}
+\index{m\+\_\+group\+Adrres@{m\+\_\+group\+Adrres}!Client\+Receive\+Message@{Client\+Receive\+Message}}
+\subsubsection[{\texorpdfstring{m\+\_\+group\+Adrres}{m_groupAdrres}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf sockaddr\+\_\+in\+\_\+t} Client\+Receive\+Message\+::m\+\_\+group\+Adrres}\hypertarget{structClientReceiveMessage_aab3b16d0d269ab80b4511c8aa0e70b2d}{}\label{structClientReceiveMessage_aab3b16d0d269ab80b4511c8aa0e70b2d}
+
+
+Definition at line 92 of file Protocol.\+h.
+
+
+
+Referenced by Logic\+F\+E\+\_\+\+Create\+Group(), Logic\+F\+E\+\_\+\+Join\+Group(), and Protocol\+\_\+\+Encode\+Get\+All\+Groups\+\_\+\+Response().
+
+\index{Client\+Receive\+Message@{Client\+Receive\+Message}!m\+\_\+\+Group\+Name@{m\+\_\+\+Group\+Name}}
+\index{m\+\_\+\+Group\+Name@{m\+\_\+\+Group\+Name}!Client\+Receive\+Message@{Client\+Receive\+Message}}
+\subsubsection[{\texorpdfstring{m\+\_\+\+Group\+Name}{m_GroupName}}]{\setlength{\rightskip}{0pt plus 5cm}char Client\+Receive\+Message\+::m\+\_\+\+Group\+Name\mbox{[}{\bf M\+A\+X\+\_\+\+M\+E\+S\+S\+A\+G\+E\+\_\+\+L\+E\+N\+G\+TH}\mbox{]}}\hypertarget{structClientReceiveMessage_a5515f09efee781b16d62940a8ece5cd7}{}\label{structClientReceiveMessage_a5515f09efee781b16d62940a8ece5cd7}
+
+
+Definition at line 93 of file Protocol.\+h.
+
+
+
+Referenced by Logic\+F\+E\+\_\+\+Get\+All\+Groups\+Name(), and Protocol\+\_\+\+Encode\+Get\+All\+Groups\+\_\+\+Response().
+
+\index{Client\+Receive\+Message@{Client\+Receive\+Message}!m\+\_\+message\+Type@{m\+\_\+message\+Type}}
+\index{m\+\_\+message\+Type@{m\+\_\+message\+Type}!Client\+Receive\+Message@{Client\+Receive\+Message}}
+\subsubsection[{\texorpdfstring{m\+\_\+message\+Type}{m_messageType}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Message\+Type} Client\+Receive\+Message\+::m\+\_\+message\+Type}\hypertarget{structClientReceiveMessage_a9e16d9d8c949b34fe62b61907ed2a009}{}\label{structClientReceiveMessage_a9e16d9d8c949b34fe62b61907ed2a009}
+
+
+Definition at line 90 of file Protocol.\+h.
+
+
+
+Referenced by Logic\+F\+E\+\_\+\+Get\+All\+Groups\+Name(), main(), and Protocol\+\_\+\+Decode\+Client().
+
+\index{Client\+Receive\+Message@{Client\+Receive\+Message}!m\+\_\+number\+Of\+Groups@{m\+\_\+number\+Of\+Groups}}
+\index{m\+\_\+number\+Of\+Groups@{m\+\_\+number\+Of\+Groups}!Client\+Receive\+Message@{Client\+Receive\+Message}}
+\subsubsection[{\texorpdfstring{m\+\_\+number\+Of\+Groups}{m_numberOfGroups}}]{\setlength{\rightskip}{0pt plus 5cm}size\+\_\+t Client\+Receive\+Message\+::m\+\_\+number\+Of\+Groups}\hypertarget{structClientReceiveMessage_ac7c80fba616c9836a1dc043838b0b4ed}{}\label{structClientReceiveMessage_ac7c80fba616c9836a1dc043838b0b4ed}
+
+
+Definition at line 94 of file Protocol.\+h.
+
+
+
+Referenced by Logic\+F\+E\+\_\+\+Get\+All\+Groups\+Name(), and Protocol\+\_\+\+Encode\+Get\+All\+Groups\+\_\+\+Response().
+
+\index{Client\+Receive\+Message@{Client\+Receive\+Message}!m\+\_\+status@{m\+\_\+status}}
+\index{m\+\_\+status@{m\+\_\+status}!Client\+Receive\+Message@{Client\+Receive\+Message}}
+\subsubsection[{\texorpdfstring{m\+\_\+status}{m_status}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Back\+End\+Status} Client\+Receive\+Message\+::m\+\_\+status}\hypertarget{structClientReceiveMessage_a3f5eb262b68916035c8268e906a4ee32}{}\label{structClientReceiveMessage_a3f5eb262b68916035c8268e906a4ee32}
+
+
+Definition at line 91 of file Protocol.\+h.
+
+
+
+Referenced by Logic\+F\+E\+\_\+\+Get\+All\+Groups\+Name(), main(), and Protocol\+\_\+\+Decode\+Client().
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+comm/\hyperlink{Protocol_8h}{Protocol.\+h}\end{DoxyCompactItemize}

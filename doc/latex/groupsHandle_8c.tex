@@ -1,0 +1,261 @@
+\hypertarget{groupsHandle_8c}{}\section{back\+End\+\_\+src/groups\+Handle.c File Reference}
+\label{groupsHandle_8c}\index{back\+End\+\_\+src/groups\+Handle.\+c@{back\+End\+\_\+src/groups\+Handle.\+c}}
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}groups\+Handle.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hashmap.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Protocol.\+h\char`\"{}}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structGroupHandel}{Group\+Handel}
+\item 
+struct \hyperlink{structGroupUnit}{Group\+Unit}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{groupsHandle_8c_ac3deb57c870aaac75b67ddbb029f7648}{M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+G\+R\+P\+\_\+\+H\+N\+DL}~0xdeadface
+\item 
+\#define \hyperlink{groupsHandle_8c_a251b53598358788064b226e190630a1a}{M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+G\+R\+P\+\_\+\+U\+NT}~0xdeadbaac
+\item 
+\#define \hyperlink{groupsHandle_8c_a4369ed57d4c3779df5b0f11389ecee66}{M\+A\+X\+\_\+\+U\+S\+E\+R\+S\+\_\+\+I\+N\+\_\+\+G\+R\+O\+UP}~1024
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structGroupUnit}{Group\+Unit} \hyperlink{groupsHandle_8c_afca83913b2c7e3b45d7e707e1a1d26e8}{Group\+Unit\+\_\+t}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{groupsHandle_8h_a7763a5cfe578f64684989a97379e4899}{Group\+Handel\+\_\+t} $\ast$ \hyperlink{groupsHandle_8c_a602cf1b1779043eb8c6734f6bb208620}{Groups\+Handel\+\_\+\+Create} ()
+\item 
+char $\ast$ \hyperlink{groupsHandle_8c_af8e3a810f3f94e42fefbeafd4bad3fa8}{Destory\+Addres} (\hyperlink{groupsHandle_8c_afca83913b2c7e3b45d7e707e1a1d26e8}{Group\+Unit\+\_\+t} $\ast$\+\_\+value)
+\item 
+void \hyperlink{groupsHandle_8c_a996e3b85e012ac747dbde463eb6e0cd4}{Groups\+Handel\+\_\+\+Destroy} (\hyperlink{groupsHandle_8h_a7763a5cfe578f64684989a97379e4899}{Group\+Handel\+\_\+t} $\ast$\+\_\+groups\+Hndl)
+\item 
+int \hyperlink{groupsHandle_8c_a097e87adcc8129fb6523e1b6a00cda17}{Groups\+Handel\+\_\+\+New\+Group} (\hyperlink{groupsHandle_8h_a7763a5cfe578f64684989a97379e4899}{Group\+Handel\+\_\+t} $\ast$\+\_\+groups\+Hndl, const char $\ast$\+\_\+group\+Name, \hyperlink{tcp_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint} \+\_\+socket, \hyperlink{groupsHandle_8h_a833d9365af0fc2308a2172dea4a18094}{sockaddr\+\_\+in\+\_\+t} $\ast$\+\_\+addrs)
+\item 
+int \hyperlink{groupsHandle_8c_acf8b516289100f0624259177b2fb1e55}{Groups\+Handel\+\_\+\+Join\+Group} (\hyperlink{groupsHandle_8h_a7763a5cfe578f64684989a97379e4899}{Group\+Handel\+\_\+t} $\ast$\+\_\+groups\+Hndl, const char $\ast$\+\_\+group\+Name, \hyperlink{tcp_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint} \+\_\+socket, \hyperlink{groupsHandle_8h_a833d9365af0fc2308a2172dea4a18094}{sockaddr\+\_\+in\+\_\+t} $\ast$$\ast$\+\_\+addrs\+O\+UT)
+\item 
+int \hyperlink{groupsHandle_8c_a25674f7eb4a41fad51eb016f5b18af64}{Groups\+Handel\+\_\+\+Is\+Group\+Exist} (\hyperlink{groupsHandle_8h_a7763a5cfe578f64684989a97379e4899}{Group\+Handel\+\_\+t} $\ast$\+\_\+groups\+Hndl, const char $\ast$\+\_\+group\+Name)
+\item 
+\hyperlink{groupsHandle_8h_a833d9365af0fc2308a2172dea4a18094}{sockaddr\+\_\+in\+\_\+t} $\ast$ \hyperlink{groupsHandle_8c_ae2f04a6a33f1060cbd3c0b128d3964e8}{Groups\+Handel\+\_\+\+Get\+Group\+Addres} (\hyperlink{groupsHandle_8h_a7763a5cfe578f64684989a97379e4899}{Group\+Handel\+\_\+t} $\ast$\+\_\+groups\+Hndl, const char $\ast$\+\_\+group\+Name)
+\item 
+char $\ast$ \hyperlink{groupsHandle_8c_a6c8f89c50ad925b6e128c8adca4d280e}{Get\+Group\+Name\+To\+Str} (void $\ast$\+\_\+value, void $\ast$\+\_\+buffer, \hyperlink{tcp_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint} $\ast$\+\_\+num)
+\item 
+int \hyperlink{groupsHandle_8c_a5d876d50f90ae720fb166b0fca2d2356}{Groups\+Handel\+\_\+\+Get\+Groups\+Name} (\hyperlink{groupsHandle_8h_a7763a5cfe578f64684989a97379e4899}{Group\+Handel\+\_\+t} $\ast$\+\_\+groups\+Hndl, char $\ast$\+\_\+groups\+Names\+\_\+out, size\+\_\+t \+\_\+buffer\+Size, size\+\_\+t $\ast$\+\_\+groups\+Length\+\_\+out)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\index{groups\+Handle.\+c@{groups\+Handle.\+c}!M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+G\+R\+P\+\_\+\+H\+N\+DL@{M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+G\+R\+P\+\_\+\+H\+N\+DL}}
+\index{M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+G\+R\+P\+\_\+\+H\+N\+DL@{M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+G\+R\+P\+\_\+\+H\+N\+DL}!groups\+Handle.\+c@{groups\+Handle.\+c}}
+\subsubsection[{\texorpdfstring{M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+G\+R\+P\+\_\+\+H\+N\+DL}{MAGIC_NUMBER_GRP_HNDL}}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+G\+R\+P\+\_\+\+H\+N\+DL~0xdeadface}\hypertarget{groupsHandle_8c_ac3deb57c870aaac75b67ddbb029f7648}{}\label{groupsHandle_8c_ac3deb57c870aaac75b67ddbb029f7648}
+
+
+Definition at line 14 of file groups\+Handle.\+c.
+
+
+
+Referenced by Groups\+Handel\+\_\+\+Create(), and Groups\+Handel\+\_\+\+Get\+Groups\+Name().
+
+\index{groups\+Handle.\+c@{groups\+Handle.\+c}!M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+G\+R\+P\+\_\+\+U\+NT@{M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+G\+R\+P\+\_\+\+U\+NT}}
+\index{M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+G\+R\+P\+\_\+\+U\+NT@{M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+G\+R\+P\+\_\+\+U\+NT}!groups\+Handle.\+c@{groups\+Handle.\+c}}
+\subsubsection[{\texorpdfstring{M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+G\+R\+P\+\_\+\+U\+NT}{MAGIC_NUMBER_GRP_UNT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+G\+R\+P\+\_\+\+U\+NT~0xdeadbaac}\hypertarget{groupsHandle_8c_a251b53598358788064b226e190630a1a}{}\label{groupsHandle_8c_a251b53598358788064b226e190630a1a}
+
+
+Definition at line 15 of file groups\+Handle.\+c.
+
+
+
+Referenced by Groups\+Handel\+\_\+\+Get\+Groups\+Name().
+
+\index{groups\+Handle.\+c@{groups\+Handle.\+c}!M\+A\+X\+\_\+\+U\+S\+E\+R\+S\+\_\+\+I\+N\+\_\+\+G\+R\+O\+UP@{M\+A\+X\+\_\+\+U\+S\+E\+R\+S\+\_\+\+I\+N\+\_\+\+G\+R\+O\+UP}}
+\index{M\+A\+X\+\_\+\+U\+S\+E\+R\+S\+\_\+\+I\+N\+\_\+\+G\+R\+O\+UP@{M\+A\+X\+\_\+\+U\+S\+E\+R\+S\+\_\+\+I\+N\+\_\+\+G\+R\+O\+UP}!groups\+Handle.\+c@{groups\+Handle.\+c}}
+\subsubsection[{\texorpdfstring{M\+A\+X\+\_\+\+U\+S\+E\+R\+S\+\_\+\+I\+N\+\_\+\+G\+R\+O\+UP}{MAX_USERS_IN_GROUP}}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+A\+X\+\_\+\+U\+S\+E\+R\+S\+\_\+\+I\+N\+\_\+\+G\+R\+O\+UP~1024}\hypertarget{groupsHandle_8c_a4369ed57d4c3779df5b0f11389ecee66}{}\label{groupsHandle_8c_a4369ed57d4c3779df5b0f11389ecee66}
+
+
+Definition at line 17 of file groups\+Handle.\+c.
+
+
+
+\subsection{Typedef Documentation}
+\index{groups\+Handle.\+c@{groups\+Handle.\+c}!Group\+Unit\+\_\+t@{Group\+Unit\+\_\+t}}
+\index{Group\+Unit\+\_\+t@{Group\+Unit\+\_\+t}!groups\+Handle.\+c@{groups\+Handle.\+c}}
+\subsubsection[{\texorpdfstring{Group\+Unit\+\_\+t}{GroupUnit_t}}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf Group\+Unit}  {\bf Group\+Unit\+\_\+t}}\hypertarget{groupsHandle_8c_afca83913b2c7e3b45d7e707e1a1d26e8}{}\label{groupsHandle_8c_afca83913b2c7e3b45d7e707e1a1d26e8}
+
+
+\subsection{Function Documentation}
+\index{groups\+Handle.\+c@{groups\+Handle.\+c}!Destory\+Addres@{Destory\+Addres}}
+\index{Destory\+Addres@{Destory\+Addres}!groups\+Handle.\+c@{groups\+Handle.\+c}}
+\subsubsection[{\texorpdfstring{Destory\+Addres(\+Group\+Unit\+\_\+t $\ast$\+\_\+value)}{DestoryAddres(GroupUnit_t *_value)}}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ Destory\+Addres (
+\begin{DoxyParamCaption}
+\item[{{\bf Group\+Unit\+\_\+t} $\ast$}]{\+\_\+value}
+\end{DoxyParamCaption}
+)}\hypertarget{groupsHandle_8c_af8e3a810f3f94e42fefbeafd4bad3fa8}{}\label{groupsHandle_8c_af8e3a810f3f94e42fefbeafd4bad3fa8}
+
+
+Definition at line 72 of file groups\+Handle.\+c.
+
+
+
+References Group\+Unit\+::m\+\_\+group\+Addrs.
+
+\index{groups\+Handle.\+c@{groups\+Handle.\+c}!Get\+Group\+Name\+To\+Str@{Get\+Group\+Name\+To\+Str}}
+\index{Get\+Group\+Name\+To\+Str@{Get\+Group\+Name\+To\+Str}!groups\+Handle.\+c@{groups\+Handle.\+c}}
+\subsubsection[{\texorpdfstring{Get\+Group\+Name\+To\+Str(void $\ast$\+\_\+value, void $\ast$\+\_\+buffer, uint $\ast$\+\_\+num)}{GetGroupNameToStr(void *_value, void *_buffer, uint *_num)}}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ Get\+Group\+Name\+To\+Str (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{\+\_\+value, }
+\item[{void $\ast$}]{\+\_\+buffer, }
+\item[{{\bf uint} $\ast$}]{\+\_\+num}
+\end{DoxyParamCaption}
+)}\hypertarget{groupsHandle_8c_a6c8f89c50ad925b6e128c8adca4d280e}{}\label{groupsHandle_8c_a6c8f89c50ad925b6e128c8adca4d280e}
+
+
+Definition at line 194 of file groups\+Handle.\+c.
+
+
+
+Referenced by Groups\+Handel\+\_\+\+Get\+Groups\+Name().
+
+\index{groups\+Handle.\+c@{groups\+Handle.\+c}!Groups\+Handel\+\_\+\+Create@{Groups\+Handel\+\_\+\+Create}}
+\index{Groups\+Handel\+\_\+\+Create@{Groups\+Handel\+\_\+\+Create}!groups\+Handle.\+c@{groups\+Handle.\+c}}
+\subsubsection[{\texorpdfstring{Groups\+Handel\+\_\+\+Create()}{GroupsHandel_Create()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Group\+Handel\+\_\+t}$\ast$ Groups\+Handel\+\_\+\+Create (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{groupsHandle_8c_a602cf1b1779043eb8c6734f6bb208620}{}\label{groupsHandle_8c_a602cf1b1779043eb8c6734f6bb208620}
+
+
+Definition at line 51 of file groups\+Handle.\+c.
+
+
+
+References ds\+\_\+hashmap\+\_\+create(), Group\+Handel\+::m\+\_\+group\+Continer, Group\+Handel\+::m\+\_\+magic\+Number, and M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+G\+R\+P\+\_\+\+H\+N\+DL.
+
+
+
+Referenced by What\+Down\+Back\+End\+App\+\_\+\+Create().
+
+\index{groups\+Handle.\+c@{groups\+Handle.\+c}!Groups\+Handel\+\_\+\+Destroy@{Groups\+Handel\+\_\+\+Destroy}}
+\index{Groups\+Handel\+\_\+\+Destroy@{Groups\+Handel\+\_\+\+Destroy}!groups\+Handle.\+c@{groups\+Handle.\+c}}
+\subsubsection[{\texorpdfstring{Groups\+Handel\+\_\+\+Destroy(\+Group\+Handel\+\_\+t $\ast$\+\_\+groups\+Hndl)}{GroupsHandel_Destroy(GroupHandel_t *_groupsHndl)}}]{\setlength{\rightskip}{0pt plus 5cm}void Groups\+Handel\+\_\+\+Destroy (
+\begin{DoxyParamCaption}
+\item[{{\bf Group\+Handel\+\_\+t} $\ast$}]{\+\_\+groups\+Hndl}
+\end{DoxyParamCaption}
+)}\hypertarget{groupsHandle_8c_a996e3b85e012ac747dbde463eb6e0cd4}{}\label{groupsHandle_8c_a996e3b85e012ac747dbde463eb6e0cd4}
+
+
+Definition at line 78 of file groups\+Handle.\+c.
+
+
+
+References ds\+\_\+hashmap\+\_\+free(), Is\+Struct\+Valid(), Group\+Handel\+::m\+\_\+group\+Continer, and Group\+Handel\+::m\+\_\+magic\+Number.
+
+
+
+Referenced by What\+Down\+Back\+End\+App\+\_\+\+Create(), and What\+Down\+Back\+End\+App\+\_\+\+Destroy().
+
+\index{groups\+Handle.\+c@{groups\+Handle.\+c}!Groups\+Handel\+\_\+\+Get\+Group\+Addres@{Groups\+Handel\+\_\+\+Get\+Group\+Addres}}
+\index{Groups\+Handel\+\_\+\+Get\+Group\+Addres@{Groups\+Handel\+\_\+\+Get\+Group\+Addres}!groups\+Handle.\+c@{groups\+Handle.\+c}}
+\subsubsection[{\texorpdfstring{Groups\+Handel\+\_\+\+Get\+Group\+Addres(\+Group\+Handel\+\_\+t $\ast$\+\_\+groups\+Hndl, const char $\ast$\+\_\+group\+Name)}{GroupsHandel_GetGroupAddres(GroupHandel_t *_groupsHndl, const char *_groupName)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf sockaddr\+\_\+in\+\_\+t}$\ast$ Groups\+Handel\+\_\+\+Get\+Group\+Addres (
+\begin{DoxyParamCaption}
+\item[{{\bf Group\+Handel\+\_\+t} $\ast$}]{\+\_\+groups\+Hndl, }
+\item[{const char $\ast$}]{\+\_\+group\+Name}
+\end{DoxyParamCaption}
+)}\hypertarget{groupsHandle_8c_ae2f04a6a33f1060cbd3c0b128d3964e8}{}\label{groupsHandle_8c_ae2f04a6a33f1060cbd3c0b128d3964e8}
+
+
+Definition at line 175 of file groups\+Handle.\+c.
+
+
+
+References F\+A\+L\+SE, Is\+Struct\+Valid(), and Group\+Unit\+::m\+\_\+group\+Addrs.
+
+\index{groups\+Handle.\+c@{groups\+Handle.\+c}!Groups\+Handel\+\_\+\+Get\+Groups\+Name@{Groups\+Handel\+\_\+\+Get\+Groups\+Name}}
+\index{Groups\+Handel\+\_\+\+Get\+Groups\+Name@{Groups\+Handel\+\_\+\+Get\+Groups\+Name}!groups\+Handle.\+c@{groups\+Handle.\+c}}
+\subsubsection[{\texorpdfstring{Groups\+Handel\+\_\+\+Get\+Groups\+Name(\+Group\+Handel\+\_\+t $\ast$\+\_\+groups\+Hndl, char $\ast$\+\_\+groups\+Names\+\_\+out, size\+\_\+t \+\_\+buffer\+Size, size\+\_\+t $\ast$\+\_\+groups\+Length\+\_\+out)}{GroupsHandel_GetGroupsName(GroupHandel_t *_groupsHndl, char *_groupsNames_out, size_t _bufferSize, size_t *_groupsLength_out)}}]{\setlength{\rightskip}{0pt plus 5cm}int Groups\+Handel\+\_\+\+Get\+Groups\+Name (
+\begin{DoxyParamCaption}
+\item[{{\bf Group\+Handel\+\_\+t} $\ast$}]{\+\_\+groups\+Hndl, }
+\item[{char $\ast$}]{\+\_\+groups\+Names\+\_\+out, }
+\item[{size\+\_\+t}]{\+\_\+buffer\+Size, }
+\item[{size\+\_\+t $\ast$}]{\+\_\+groups\+Length\+\_\+out}
+\end{DoxyParamCaption}
+)}\hypertarget{groupsHandle_8c_a5d876d50f90ae720fb166b0fca2d2356}{}\label{groupsHandle_8c_a5d876d50f90ae720fb166b0fca2d2356}
+
+
+Definition at line 201 of file groups\+Handle.\+c.
+
+
+
+References Create\+Value(), ds\+\_\+hashmap\+\_\+foreach\+\_\+value\+Action(), ds\+\_\+hashmap\+\_\+get\+\_\+str(), F\+A\+L\+SE, G\+E\+N\+\_\+\+E\+R\+R\+OR, Get\+Group\+Name\+To\+Str(), Is\+Struct\+Valid(), Group\+Unit\+::m\+\_\+group\+Addrs, Group\+Handel\+::m\+\_\+group\+Continer, Group\+Unit\+::m\+\_\+group\+Name, Group\+Handel\+::m\+\_\+magic\+Number, Group\+Unit\+::m\+\_\+magic\+Number, Group\+Unit\+::m\+\_\+user\+In\+Group\+Num, Group\+Unit\+::m\+\_\+users\+Sockets, M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+G\+R\+P\+\_\+\+H\+N\+DL, M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+G\+R\+P\+\_\+\+U\+NT, and T\+R\+UE.
+
+
+
+Referenced by Logic\+B\+E\+\_\+\+Error\+Func().
+
+\index{groups\+Handle.\+c@{groups\+Handle.\+c}!Groups\+Handel\+\_\+\+Is\+Group\+Exist@{Groups\+Handel\+\_\+\+Is\+Group\+Exist}}
+\index{Groups\+Handel\+\_\+\+Is\+Group\+Exist@{Groups\+Handel\+\_\+\+Is\+Group\+Exist}!groups\+Handle.\+c@{groups\+Handle.\+c}}
+\subsubsection[{\texorpdfstring{Groups\+Handel\+\_\+\+Is\+Group\+Exist(\+Group\+Handel\+\_\+t $\ast$\+\_\+groups\+Hndl, const char $\ast$\+\_\+group\+Name)}{GroupsHandel_IsGroupExist(GroupHandel_t *_groupsHndl, const char *_groupName)}}]{\setlength{\rightskip}{0pt plus 5cm}int Groups\+Handel\+\_\+\+Is\+Group\+Exist (
+\begin{DoxyParamCaption}
+\item[{{\bf Group\+Handel\+\_\+t} $\ast$}]{\+\_\+groups\+Hndl, }
+\item[{const char $\ast$}]{\+\_\+group\+Name}
+\end{DoxyParamCaption}
+)}\hypertarget{groupsHandle_8c_a25674f7eb4a41fad51eb016f5b18af64}{}\label{groupsHandle_8c_a25674f7eb4a41fad51eb016f5b18af64}
+
+
+Definition at line 159 of file groups\+Handle.\+c.
+
+
+
+References ds\+\_\+hashmap\+\_\+get\+\_\+str(), F\+A\+L\+SE, Is\+Struct\+Valid(), Group\+Handel\+::m\+\_\+group\+Continer, and T\+R\+UE.
+
+
+
+Referenced by Groups\+Handel\+\_\+\+New\+Group(), and Logic\+B\+E\+\_\+\+Error\+Func().
+
+\index{groups\+Handle.\+c@{groups\+Handle.\+c}!Groups\+Handel\+\_\+\+Join\+Group@{Groups\+Handel\+\_\+\+Join\+Group}}
+\index{Groups\+Handel\+\_\+\+Join\+Group@{Groups\+Handel\+\_\+\+Join\+Group}!groups\+Handle.\+c@{groups\+Handle.\+c}}
+\subsubsection[{\texorpdfstring{Groups\+Handel\+\_\+\+Join\+Group(\+Group\+Handel\+\_\+t $\ast$\+\_\+groups\+Hndl, const char $\ast$\+\_\+group\+Name, uint \+\_\+socket, sockaddr\+\_\+in\+\_\+t $\ast$$\ast$\+\_\+addrs\+O\+U\+T)}{GroupsHandel_JoinGroup(GroupHandel_t *_groupsHndl, const char *_groupName, uint _socket, sockaddr_in_t **_addrsOUT)}}]{\setlength{\rightskip}{0pt plus 5cm}int Groups\+Handel\+\_\+\+Join\+Group (
+\begin{DoxyParamCaption}
+\item[{{\bf Group\+Handel\+\_\+t} $\ast$}]{\+\_\+groups\+Hndl, }
+\item[{const char $\ast$}]{\+\_\+group\+Name, }
+\item[{{\bf uint}}]{\+\_\+socket, }
+\item[{{\bf sockaddr\+\_\+in\+\_\+t} $\ast$$\ast$}]{\+\_\+addrs\+O\+UT}
+\end{DoxyParamCaption}
+)}\hypertarget{groupsHandle_8c_acf8b516289100f0624259177b2fb1e55}{}\label{groupsHandle_8c_acf8b516289100f0624259177b2fb1e55}
+
+
+Definition at line 126 of file groups\+Handle.\+c.
+
+
+
+References F\+A\+L\+SE, Is\+Struct\+Valid(), Group\+Unit\+::m\+\_\+group\+Addrs, and T\+R\+UE.
+
+
+
+Referenced by Logic\+B\+E\+\_\+\+Error\+Func().
+
+\index{groups\+Handle.\+c@{groups\+Handle.\+c}!Groups\+Handel\+\_\+\+New\+Group@{Groups\+Handel\+\_\+\+New\+Group}}
+\index{Groups\+Handel\+\_\+\+New\+Group@{Groups\+Handel\+\_\+\+New\+Group}!groups\+Handle.\+c@{groups\+Handle.\+c}}
+\subsubsection[{\texorpdfstring{Groups\+Handel\+\_\+\+New\+Group(\+Group\+Handel\+\_\+t $\ast$\+\_\+groups\+Hndl, const char $\ast$\+\_\+group\+Name, uint \+\_\+socket, sockaddr\+\_\+in\+\_\+t $\ast$\+\_\+addrs)}{GroupsHandel_NewGroup(GroupHandel_t *_groupsHndl, const char *_groupName, uint _socket, sockaddr_in_t *_addrs)}}]{\setlength{\rightskip}{0pt plus 5cm}int Groups\+Handel\+\_\+\+New\+Group (
+\begin{DoxyParamCaption}
+\item[{{\bf Group\+Handel\+\_\+t} $\ast$}]{\+\_\+groups\+Hndl, }
+\item[{const char $\ast$}]{\+\_\+group\+Name, }
+\item[{{\bf uint}}]{\+\_\+socket, }
+\item[{{\bf sockaddr\+\_\+in\+\_\+t} $\ast$}]{\+\_\+addrs}
+\end{DoxyParamCaption}
+)}\hypertarget{groupsHandle_8c_a097e87adcc8129fb6523e1b6a00cda17}{}\label{groupsHandle_8c_a097e87adcc8129fb6523e1b6a00cda17}
+
+
+Definition at line 99 of file groups\+Handle.\+c.
+
+
+
+References Create\+Value(), ds\+\_\+hashmap\+\_\+put\+\_\+str(), F\+A\+L\+SE, Groups\+Handel\+\_\+\+Is\+Group\+Exist(), Is\+Struct\+Valid(), Group\+Handel\+::m\+\_\+group\+Continer, and T\+R\+UE.
+
+
+
+Referenced by Logic\+B\+E\+\_\+\+Error\+Func().
+

@@ -15,14 +15,17 @@
 #include "ClientWhatDownApp.h"
 
 #define MAX_MSG_SIZE 1024
+#define IP_LENGTH 16
+#define PORT_LENGTH 6
 
-
+static int GetUserInput(char* _buffer , uint _maxLength);
 
 int main(int argc, char* argv[])
 {
 	int user;
 	uint serverPort = 0;
-	char serverIP[16] = "0";
+	char serverIP[IP_LENGTH] = { 0 };
+	char portString[PORT_LENGTH] = { 0 };
 
 	if (argc == 3)
 	{
@@ -32,15 +35,20 @@ int main(int argc, char* argv[])
 	else
 	{
 		printf("\n please select user to conect: \n");
-		printf("1 for T is in the house tomer \n");
-		printf("2 for the man whit 100 ids guy \n");
-		printf("3 for Manager Manager yuval \n");
-		printf("4 for Pavel  \n");
-		printf("5 for loopBack  \n");
+		printf("0 Exit \n");
+		printf("1 Tomer \n");
+		printf("2 Guy \n");
+		printf("3 Yuval \n");
+		printf("4 Pavel  \n");
+		printf("5 loopBack  \n");
+		printf("9 type an address  \n");
 		scanf("%d",&user);
 
 			switch(user)
 			{
+			case 0:
+				return(0);
+				break;
 			case 1:
 				strcpy(serverIP , "192.168.0.37");
 				serverPort = 3000 ;
@@ -61,6 +69,13 @@ int main(int argc, char* argv[])
 			case 5:
 				strcpy(serverIP , "127.0.0.1");
 				serverPort = 4848 ;
+				break;
+			case 9:
+				printf("Type IP: ");
+				GetUserInput(serverIP , IP_LENGTH);
+				printf("Type port: ");
+				GetUserInput(portString , PORT_LENGTH);
+				serverPort = atoi(portString) ;
 				break;
 			default:
 				printf("wrong choose");
@@ -84,3 +99,19 @@ int main(int argc, char* argv[])
 }
 
 
+static int GetUserInput(char* _buffer , uint _maxLength)
+{
+	if (!_buffer)
+	{
+		return 0;
+	}
+
+	do {
+		fgets(_buffer, _maxLength , stdin); 		/* safer. no overflow */
+		_buffer[strcspn(_buffer, "\n")] = 0; 		/* remove trailing \n */
+	} while (_buffer[0] == '\0');
+
+	sanity_check(_buffer, _maxLength, '_'); 		/* remove illegal unsafe char */
+
+	return strlen(_buffer);
+}

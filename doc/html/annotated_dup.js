@@ -1,0 +1,27 @@
+var annotated_dup =
+[
+    [ "Client_UI", "structClient__UI.html", "structClient__UI" ],
+    [ "ClientReceiveMessage", "structClientReceiveMessage.html", "structClientReceiveMessage" ],
+    [ "DSHashItem", "structDSHashItem.html", "structDSHashItem" ],
+    [ "DSHashKey", "structDSHashKey.html", "structDSHashKey" ],
+    [ "DSHashMap", "structDSHashMap.html", "structDSHashMap" ],
+    [ "DSQueue", "structDSQueue.html", "structDSQueue" ],
+    [ "DSVector", "structDSVector.html", "structDSVector" ],
+    [ "GroupHandel", "structGroupHandel.html", "structGroupHandel" ],
+    [ "GroupUnit", "structGroupUnit.html", "structGroupUnit" ],
+    [ "IP_Handle", "structIP__Handle.html", "structIP__Handle" ],
+    [ "list_iterator_t", "structlist__iterator__t.html", "structlist__iterator__t" ],
+    [ "list_node", "structlist__node.html", "structlist__node" ],
+    [ "list_t", "structlist__t.html", "structlist__t" ],
+    [ "Logic_BE", "structLogic__BE.html", "structLogic__BE" ],
+    [ "Logic_FE", "structLogic__FE.html", "structLogic__FE" ],
+    [ "ServerReceiveMessage", "structServerReceiveMessage.html", "structServerReceiveMessage" ],
+    [ "SocketInfo", "structSocketInfo.html", "structSocketInfo" ],
+    [ "TCP_C", "structTCP__C.html", "structTCP__C" ],
+    [ "TCP_S", "structTCP__S.html", "structTCP__S" ],
+    [ "UDP_MultiCast", "structUDP__MultiCast.html", "structUDP__MultiCast" ],
+    [ "User", "structUser.html", "structUser" ],
+    [ "UsersHandle", "structUsersHandle.html", "structUsersHandle" ],
+    [ "WhatDownBackEndApp", "structWhatDownBackEndApp.html", "structWhatDownBackEndApp" ],
+    [ "WhatDownClientApp", "structWhatDownClientApp.html", "structWhatDownClientApp" ]
+];

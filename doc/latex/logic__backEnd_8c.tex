@@ -1,0 +1,302 @@
+\hypertarget{logic__backEnd_8c}{}\section{back\+End\+\_\+src/logic\+\_\+back\+End.c File Reference}
+\label{logic__backEnd_8c}\index{back\+End\+\_\+src/logic\+\_\+back\+End.\+c@{back\+End\+\_\+src/logic\+\_\+back\+End.\+c}}
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include $<$err.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}logic\+\_\+back\+End.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Protocol.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}users\+Handle.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}ip\+Handle.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}groups\+Handle.\+h\char`\"{}}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structLogic__BE}{Logic\+\_\+\+BE}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{logic__backEnd_8c_a6851a935a2a658a8f4a874f30a4be17e}{M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+B\+E\+\_\+\+L\+O\+G\+IC}~0xfacebaad
+\item 
+\#define \hyperlink{logic__backEnd_8c_ac2e54baaed0df35f4944e6715046c15c}{M\+I\+N\+I\+M\+A\+L\+\_\+\+U\+S\+E\+R\+\_\+\+P\+A\+S\+S\+W\+O\+RD}~3
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{logic__backEnd_8h_a3d470643313450e901076473552495b6}{Logic\+\_\+\+B\+E\+\_\+t} $\ast$ \hyperlink{logic__backEnd_8c_acd172243f5f7450ab6b0844200ac25d2}{Logic\+B\+E\+\_\+\+Create} (void $\ast$\+\_\+users\+Handel, void $\ast$\+\_\+group\+Handle, void $\ast$\+\_\+\+I\+P\+\_\+handle)
+\begin{DoxyCompactList}\small\item\em create and setup for the process \end{DoxyCompactList}\item 
+int \hyperlink{logic__backEnd_8c_a4f9b18a1c66e55c2e6a4fb4d3d658d19}{Logic\+B\+E\+\_\+\+Set\+Server\+P\+TR} (\hyperlink{logic__backEnd_8h_a3d470643313450e901076473552495b6}{Logic\+\_\+\+B\+E\+\_\+t} $\ast$\+\_\+logic\+BE, \hyperlink{tcp_8h_a03d44ed4c82d8938cc484f7d14284b24}{T\+C\+P\+\_\+\+S\+\_\+t} $\ast$\+\_\+server)
+\begin{DoxyCompactList}\small\item\em add to the logic the pointer to the T\+CP server. as both modules in to be setup at the same time, the pointer is added just after create. \end{DoxyCompactList}\item 
+void \hyperlink{logic__backEnd_8c_ab6507ca1a2ae73dc72e8544e58ba342a}{Logic\+B\+E\+\_\+\+Destroy} (\hyperlink{logic__backEnd_8h_a3d470643313450e901076473552495b6}{Logic\+\_\+\+B\+E\+\_\+t} $\ast$\+\_\+logic\+BE)
+\begin{DoxyCompactList}\small\item\em cleans up after the processing \end{DoxyCompactList}\item 
+int \hyperlink{logic__backEnd_8c_a6b4d518e8c76532a9226211f839548c4}{Logic\+B\+E\+\_\+\+Recive\+Data\+Func} (void $\ast$\+\_\+data, size\+\_\+t \+\_\+size\+Data, \hyperlink{tcp_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint} \+\_\+socket\+Num, void $\ast$\+\_\+contex)
+\begin{DoxyCompactList}\small\item\em call back function when T\+CP server get a msg. \end{DoxyCompactList}\item 
+int \hyperlink{logic__backEnd_8c_a934f27e2ae1ce832f88161d21fac53b6}{Logic\+B\+E\+\_\+\+New\+Client\+Func} (\hyperlink{tcp_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint} \+\_\+socket\+Num, void $\ast$\+\_\+contex)
+\begin{DoxyCompactList}\small\item\em call bacl function when T\+CP server get a new client connected to . \end{DoxyCompactList}\item 
+int \hyperlink{logic__backEnd_8c_abcfbd71f4199a83af84ffa5554b0870d}{Logic\+B\+E\+\_\+\+Client\+Dissconnected\+Func} (\hyperlink{tcp_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint} \+\_\+socket\+Num, void $\ast$\+\_\+contex)
+\begin{DoxyCompactList}\small\item\em call bacl function when T\+CP server get a client disconnect to . \end{DoxyCompactList}\item 
+int \hyperlink{logic__backEnd_8c_a4e10d0a3295c64db5ae08126d367f3f1}{Logic\+B\+E\+\_\+\+Error\+Func} (int \+\_\+status, \hyperlink{tcp_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint} \+\_\+socket\+Num, void $\ast$\+\_\+contex)
+\begin{DoxyCompactList}\small\item\em call bacl function when T\+CP server get an error. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\index{logic\+\_\+back\+End.\+c@{logic\+\_\+back\+End.\+c}!M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+B\+E\+\_\+\+L\+O\+G\+IC@{M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+B\+E\+\_\+\+L\+O\+G\+IC}}
+\index{M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+B\+E\+\_\+\+L\+O\+G\+IC@{M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+B\+E\+\_\+\+L\+O\+G\+IC}!logic\+\_\+back\+End.\+c@{logic\+\_\+back\+End.\+c}}
+\subsubsection[{\texorpdfstring{M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+B\+E\+\_\+\+L\+O\+G\+IC}{MAGIC_NUMBER_BE_LOGIC}}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+B\+E\+\_\+\+L\+O\+G\+IC~0xfacebaad}\hypertarget{logic__backEnd_8c_a6851a935a2a658a8f4a874f30a4be17e}{}\label{logic__backEnd_8c_a6851a935a2a658a8f4a874f30a4be17e}
+
+
+Definition at line 18 of file logic\+\_\+back\+End.\+c.
+
+
+
+Referenced by Logic\+B\+E\+\_\+\+Create(), and Logic\+B\+E\+\_\+\+Error\+Func().
+
+\index{logic\+\_\+back\+End.\+c@{logic\+\_\+back\+End.\+c}!M\+I\+N\+I\+M\+A\+L\+\_\+\+U\+S\+E\+R\+\_\+\+P\+A\+S\+S\+W\+O\+RD@{M\+I\+N\+I\+M\+A\+L\+\_\+\+U\+S\+E\+R\+\_\+\+P\+A\+S\+S\+W\+O\+RD}}
+\index{M\+I\+N\+I\+M\+A\+L\+\_\+\+U\+S\+E\+R\+\_\+\+P\+A\+S\+S\+W\+O\+RD@{M\+I\+N\+I\+M\+A\+L\+\_\+\+U\+S\+E\+R\+\_\+\+P\+A\+S\+S\+W\+O\+RD}!logic\+\_\+back\+End.\+c@{logic\+\_\+back\+End.\+c}}
+\subsubsection[{\texorpdfstring{M\+I\+N\+I\+M\+A\+L\+\_\+\+U\+S\+E\+R\+\_\+\+P\+A\+S\+S\+W\+O\+RD}{MINIMAL_USER_PASSWORD}}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+I\+N\+I\+M\+A\+L\+\_\+\+U\+S\+E\+R\+\_\+\+P\+A\+S\+S\+W\+O\+RD~3}\hypertarget{logic__backEnd_8c_ac2e54baaed0df35f4944e6715046c15c}{}\label{logic__backEnd_8c_ac2e54baaed0df35f4944e6715046c15c}
+
+
+Definition at line 20 of file logic\+\_\+back\+End.\+c.
+
+
+
+Referenced by Logic\+B\+E\+\_\+\+Error\+Func().
+
+
+
+\subsection{Function Documentation}
+\index{logic\+\_\+back\+End.\+c@{logic\+\_\+back\+End.\+c}!Logic\+B\+E\+\_\+\+Client\+Dissconnected\+Func@{Logic\+B\+E\+\_\+\+Client\+Dissconnected\+Func}}
+\index{Logic\+B\+E\+\_\+\+Client\+Dissconnected\+Func@{Logic\+B\+E\+\_\+\+Client\+Dissconnected\+Func}!logic\+\_\+back\+End.\+c@{logic\+\_\+back\+End.\+c}}
+\subsubsection[{\texorpdfstring{Logic\+B\+E\+\_\+\+Client\+Dissconnected\+Func(uint \+\_\+socket\+Num, void $\ast$\+\_\+contex)}{LogicBE_ClientDissconnectedFunc(uint _socketNum, void *_contex)}}]{\setlength{\rightskip}{0pt plus 5cm}int Logic\+B\+E\+\_\+\+Client\+Dissconnected\+Func (
+\begin{DoxyParamCaption}
+\item[{{\bf uint}}]{\+\_\+socket\+Num, }
+\item[{void $\ast$}]{\+\_\+contex}
+\end{DoxyParamCaption}
+)}\hypertarget{logic__backEnd_8c_abcfbd71f4199a83af84ffa5554b0870d}{}\label{logic__backEnd_8c_abcfbd71f4199a83af84ffa5554b0870d}
+
+
+call bacl function when T\+CP server get a client disconnect to . 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+socket\+Num} & file descriptor of the incoming data originated from. \\
+\hline
+{\em \+\_\+contex} & was given to the T\+CP server at create. usually the pointer to \hyperlink{structLogic__BE}{Logic\+\_\+\+BE}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+T\+R\+UE for success and F\+A\+L\+SE for errors 
+\end{DoxyReturn}
+
+
+Definition at line 175 of file logic\+\_\+back\+End.\+c.
+
+
+
+Referenced by What\+Down\+Back\+End\+App\+\_\+\+Create().
+
+\index{logic\+\_\+back\+End.\+c@{logic\+\_\+back\+End.\+c}!Logic\+B\+E\+\_\+\+Create@{Logic\+B\+E\+\_\+\+Create}}
+\index{Logic\+B\+E\+\_\+\+Create@{Logic\+B\+E\+\_\+\+Create}!logic\+\_\+back\+End.\+c@{logic\+\_\+back\+End.\+c}}
+\subsubsection[{\texorpdfstring{Logic\+B\+E\+\_\+\+Create(void $\ast$\+\_\+users\+Handel, void $\ast$\+\_\+group\+Handle, void $\ast$\+\_\+\+I\+P\+\_\+handle)}{LogicBE_Create(void *_usersHandel, void *_groupHandle, void *_IP_handle)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Logic\+\_\+\+B\+E\+\_\+t}$\ast$ Logic\+B\+E\+\_\+\+Create (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{\+\_\+users\+Handel, }
+\item[{void $\ast$}]{\+\_\+group\+Handle, }
+\item[{void $\ast$}]{\+\_\+\+I\+P\+\_\+handle}
+\end{DoxyParamCaption}
+)}\hypertarget{logic__backEnd_8c_acd172243f5f7450ab6b0844200ac25d2}{}\label{logic__backEnd_8c_acd172243f5f7450ab6b0844200ac25d2}
+
+
+create and setup for the process 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+users\+Handel} & a pointer the the module the deals with Users. \\
+\hline
+{\em \+\_\+group\+Handle} & a pointer the the module the deals with chat groups. \\
+\hline
+{\em \+\_\+\+I\+P\+\_\+handle} & a pointer the the module the deals with allocatin IP address. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a pointer to the struct 
+\end{DoxyReturn}
+
+
+Definition at line 53 of file logic\+\_\+back\+End.\+c.
+
+
+
+References Logic\+\_\+\+B\+E\+::m\+\_\+decoded\+Msg, Logic\+\_\+\+B\+E\+::m\+\_\+group\+Handle, Logic\+\_\+\+B\+E\+::m\+\_\+\+I\+P\+\_\+handle, Logic\+\_\+\+B\+E\+::m\+\_\+magic\+Number, Logic\+\_\+\+B\+E\+::m\+\_\+users\+Handel, and M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+B\+E\+\_\+\+L\+O\+G\+IC.
+
+
+
+Referenced by What\+Down\+Back\+End\+App\+\_\+\+Create().
+
+\index{logic\+\_\+back\+End.\+c@{logic\+\_\+back\+End.\+c}!Logic\+B\+E\+\_\+\+Destroy@{Logic\+B\+E\+\_\+\+Destroy}}
+\index{Logic\+B\+E\+\_\+\+Destroy@{Logic\+B\+E\+\_\+\+Destroy}!logic\+\_\+back\+End.\+c@{logic\+\_\+back\+End.\+c}}
+\subsubsection[{\texorpdfstring{Logic\+B\+E\+\_\+\+Destroy(\+Logic\+\_\+\+B\+E\+\_\+t $\ast$\+\_\+logic\+B\+E)}{LogicBE_Destroy(Logic_BE_t *_logicBE)}}]{\setlength{\rightskip}{0pt plus 5cm}void Logic\+B\+E\+\_\+\+Destroy (
+\begin{DoxyParamCaption}
+\item[{{\bf Logic\+\_\+\+B\+E\+\_\+t} $\ast$}]{\+\_\+logic}
+\end{DoxyParamCaption}
+)}\hypertarget{logic__backEnd_8c_ab6507ca1a2ae73dc72e8544e58ba342a}{}\label{logic__backEnd_8c_ab6507ca1a2ae73dc72e8544e58ba342a}
+
+
+cleans up after the processing 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+logic} & a pointer to the T\+CP server \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 95 of file logic\+\_\+back\+End.\+c.
+
+
+
+References Is\+Struct\+Valid(), Logic\+\_\+\+B\+E\+::m\+\_\+decoded\+Msg, Logic\+\_\+\+B\+E\+::m\+\_\+magic\+Number, Logic\+\_\+\+B\+E\+::m\+\_\+net, and T\+C\+P\+\_\+\+Destroy\+Server().
+
+
+
+Referenced by What\+Down\+Back\+End\+App\+\_\+\+Create(), and What\+Down\+Back\+End\+App\+\_\+\+Destroy().
+
+\index{logic\+\_\+back\+End.\+c@{logic\+\_\+back\+End.\+c}!Logic\+B\+E\+\_\+\+Error\+Func@{Logic\+B\+E\+\_\+\+Error\+Func}}
+\index{Logic\+B\+E\+\_\+\+Error\+Func@{Logic\+B\+E\+\_\+\+Error\+Func}!logic\+\_\+back\+End.\+c@{logic\+\_\+back\+End.\+c}}
+\subsubsection[{\texorpdfstring{Logic\+B\+E\+\_\+\+Error\+Func(int \+\_\+status, uint \+\_\+socket\+Num, void $\ast$\+\_\+contex)}{LogicBE_ErrorFunc(int _status, uint _socketNum, void *_contex)}}]{\setlength{\rightskip}{0pt plus 5cm}int Logic\+B\+E\+\_\+\+Error\+Func (
+\begin{DoxyParamCaption}
+\item[{int}]{\+\_\+status, }
+\item[{{\bf uint}}]{\+\_\+socket\+Num, }
+\item[{void $\ast$}]{\+\_\+contex}
+\end{DoxyParamCaption}
+)}\hypertarget{logic__backEnd_8c_a4e10d0a3295c64db5ae08126d367f3f1}{}\label{logic__backEnd_8c_a4e10d0a3295c64db5ae08126d367f3f1}
+
+
+call bacl function when T\+CP server get an error. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+status} & represnt the error. \\
+\hline
+{\em \+\_\+socket\+Num} & file descriptor of the incoming data originated from. \\
+\hline
+{\em \+\_\+contex} & was given to the T\+CP server at create. usually the pointer to \hyperlink{structLogic__BE}{Logic\+\_\+\+BE}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+T\+R\+UE for success and F\+A\+L\+SE for errors 
+\end{DoxyReturn}
+
+
+Definition at line 183 of file logic\+\_\+back\+End.\+c.
+
+
+
+References Back\+End\+\_\+\+G\+R\+O\+U\+P\+\_\+\+D\+O\+\_\+\+N\+O\+T\+\_\+\+E\+X\+I\+ST, Back\+End\+\_\+\+G\+R\+O\+U\+P\+\_\+\+N\+A\+M\+E\+\_\+\+I\+N\+V\+A\+L\+ID, Back\+End\+\_\+\+G\+R\+O\+U\+P\+\_\+\+N\+A\+M\+E\+\_\+\+T\+A\+K\+EN, Back\+End\+\_\+\+N\+O\+\_\+\+F\+R\+E\+E\+\_\+\+IP, Back\+End\+\_\+\+P\+A\+S\+S\+W\+O\+R\+D\+\_\+\+I\+N\+V\+A\+L\+ID, Back\+End\+\_\+\+S\+U\+C\+C\+E\+SS, Back\+End\+\_\+\+S\+Y\+S\+T\+E\+M\+\_\+\+F\+A\+IL, Back\+End\+\_\+\+U\+S\+E\+R\+\_\+\+N\+A\+M\+E\+\_\+\+I\+N\+V\+A\+L\+ID, Back\+End\+\_\+\+U\+S\+E\+R\+\_\+\+N\+A\+M\+E\+\_\+\+T\+A\+K\+EN, Back\+End\+\_\+\+U\+S\+E\+R\+\_\+\+N\+O\+T\+\_\+\+F\+O\+U\+ND, D\+E\+L\+I\+M\+I\+T\+ER, D\+E\+L\+I\+M\+I\+T\+E\+R\+\_\+\+L\+E\+N\+G\+HT, F\+A\+L\+SE, Groups\+Handel\+\_\+\+Get\+Groups\+Name(), Groups\+Handel\+\_\+\+Is\+Group\+Exist(), Groups\+Handel\+\_\+\+Join\+Group(), Groups\+Handel\+\_\+\+New\+Group(), I\+P\+\_\+\+Handle\+\_\+\+Get\+Free\+I\+P(), Is\+Struct\+Valid(), Logic\+\_\+\+B\+E\+::m\+\_\+decoded\+Msg, Logic\+\_\+\+B\+E\+::m\+\_\+group\+Handle, Server\+Receive\+Message\+::m\+\_\+group\+Name, Logic\+\_\+\+B\+E\+::m\+\_\+\+I\+P\+\_\+handle, Logic\+\_\+\+B\+E\+::m\+\_\+magic\+Number, Server\+Receive\+Message\+::m\+\_\+password, Server\+Receive\+Message\+::m\+\_\+user\+Name, Logic\+\_\+\+B\+E\+::m\+\_\+users\+Handel, M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+B\+E\+\_\+\+L\+O\+G\+IC, M\+A\+X\+\_\+\+G\+R\+O\+U\+P\+\_\+\+N\+A\+ME, M\+A\+X\+\_\+\+M\+E\+S\+S\+A\+G\+E\+\_\+\+L\+E\+N\+G\+TH, M\+A\+X\+\_\+\+P\+A\+S\+S\+W\+O\+RD, M\+A\+X\+\_\+\+U\+S\+E\+R\+N\+A\+ME, M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+C\+R\+E\+A\+T\+E\+\_\+\+G\+R\+O\+UP, M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+D\+E\+L\+E\+T\+E\+\_\+\+U\+S\+ER, M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+G\+E\+T\+\_\+\+A\+L\+L\+\_\+\+G\+R\+O\+U\+PS, M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+J\+O\+I\+N\+\_\+\+G\+R\+O\+UP, M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+L\+E\+A\+V\+E\+\_\+\+G\+R\+O\+UP, M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+L\+O\+G\+IN, M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+L\+O\+G\+O\+UT, M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+S\+I\+G\+N\+UP, M\+I\+N\+I\+M\+A\+L\+\_\+\+U\+S\+E\+R\+\_\+\+P\+A\+S\+S\+W\+O\+RD, Protocol\+\_\+\+Encode\+Get\+All\+Groups\+\_\+\+Response(), Protocol\+\_\+\+Encode\+Join\+Group\+\_\+\+Response(), Protocol\+\_\+\+Encode\+Log\+In\+\_\+\+Response(), Protocol\+\_\+\+Encode\+New\+Group\+\_\+\+Response(), Protocol\+\_\+\+Encode\+Sign\+Up\+\_\+\+Response(), T\+C\+P\+\_\+\+Send(), T\+R\+UE, Users\+Handle\+\_\+\+Add\+New\+User(), Users\+Handle\+\_\+\+Is\+User\+Exist(), and Users\+Handle\+\_\+\+Is\+User\+Password\+Match().
+
+
+
+Referenced by What\+Down\+Back\+End\+App\+\_\+\+Create().
+
+\index{logic\+\_\+back\+End.\+c@{logic\+\_\+back\+End.\+c}!Logic\+B\+E\+\_\+\+New\+Client\+Func@{Logic\+B\+E\+\_\+\+New\+Client\+Func}}
+\index{Logic\+B\+E\+\_\+\+New\+Client\+Func@{Logic\+B\+E\+\_\+\+New\+Client\+Func}!logic\+\_\+back\+End.\+c@{logic\+\_\+back\+End.\+c}}
+\subsubsection[{\texorpdfstring{Logic\+B\+E\+\_\+\+New\+Client\+Func(uint \+\_\+socket\+Num, void $\ast$\+\_\+contex)}{LogicBE_NewClientFunc(uint _socketNum, void *_contex)}}]{\setlength{\rightskip}{0pt plus 5cm}int Logic\+B\+E\+\_\+\+New\+Client\+Func (
+\begin{DoxyParamCaption}
+\item[{{\bf uint}}]{\+\_\+socket\+Num, }
+\item[{void $\ast$}]{\+\_\+contex}
+\end{DoxyParamCaption}
+)}\hypertarget{logic__backEnd_8c_a934f27e2ae1ce832f88161d21fac53b6}{}\label{logic__backEnd_8c_a934f27e2ae1ce832f88161d21fac53b6}
+
+
+call bacl function when T\+CP server get a new client connected to . 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+socket\+Num} & file descriptor of the incoming data originated from. \\
+\hline
+{\em \+\_\+contex} & was given to the T\+CP server at create. usually the pointer to \hyperlink{structLogic__BE}{Logic\+\_\+\+BE}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+T\+R\+UE for success and F\+A\+L\+SE for errors 
+\end{DoxyReturn}
+
+
+Definition at line 168 of file logic\+\_\+back\+End.\+c.
+
+
+
+Referenced by What\+Down\+Back\+End\+App\+\_\+\+Create().
+
+\index{logic\+\_\+back\+End.\+c@{logic\+\_\+back\+End.\+c}!Logic\+B\+E\+\_\+\+Recive\+Data\+Func@{Logic\+B\+E\+\_\+\+Recive\+Data\+Func}}
+\index{Logic\+B\+E\+\_\+\+Recive\+Data\+Func@{Logic\+B\+E\+\_\+\+Recive\+Data\+Func}!logic\+\_\+back\+End.\+c@{logic\+\_\+back\+End.\+c}}
+\subsubsection[{\texorpdfstring{Logic\+B\+E\+\_\+\+Recive\+Data\+Func(void $\ast$\+\_\+data, size\+\_\+t \+\_\+size\+Data, uint \+\_\+socket\+Num, void $\ast$\+\_\+contex)}{LogicBE_ReciveDataFunc(void *_data, size_t _sizeData, uint _socketNum, void *_contex)}}]{\setlength{\rightskip}{0pt plus 5cm}int Logic\+B\+E\+\_\+\+Recive\+Data\+Func (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{\+\_\+data, }
+\item[{size\+\_\+t}]{\+\_\+size\+Data, }
+\item[{{\bf uint}}]{\+\_\+socket\+Num, }
+\item[{void $\ast$}]{\+\_\+contex}
+\end{DoxyParamCaption}
+)}\hypertarget{logic__backEnd_8c_a6b4d518e8c76532a9226211f839548c4}{}\label{logic__backEnd_8c_a6b4d518e8c76532a9226211f839548c4}
+
+
+call back function when T\+CP server get a msg. 
+
+call back functions (from the T\+CP server) 
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+data} & the information received \\
+\hline
+{\em \+\_\+size\+Data} & the number of bytes received \\
+\hline
+{\em \+\_\+socket\+Num} & file descriptor of the incoming data originated from. \\
+\hline
+{\em \+\_\+contex} & was given to the T\+CP server at create. usually the pointer to \hyperlink{structLogic__BE}{Logic\+\_\+\+BE}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+T\+R\+UE for success and F\+A\+L\+SE for errors 
+\end{DoxyReturn}
+
+
+Definition at line 112 of file logic\+\_\+back\+End.\+c.
+
+
+
+References G\+E\+N\+\_\+\+E\+R\+R\+OR, Is\+Struct\+Valid(), Logic\+\_\+\+B\+E\+::m\+\_\+decoded\+Msg, Server\+Receive\+Message\+::m\+\_\+\+Message\+Type, M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+C\+R\+E\+A\+T\+E\+\_\+\+G\+R\+O\+UP, M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+D\+E\+L\+E\+T\+E\+\_\+\+U\+S\+ER, M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+G\+E\+T\+\_\+\+A\+L\+L\+\_\+\+G\+R\+O\+U\+PS, M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+J\+O\+I\+N\+\_\+\+G\+R\+O\+UP, M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+L\+E\+A\+V\+E\+\_\+\+G\+R\+O\+UP, M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+L\+O\+G\+IN, M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+L\+O\+G\+O\+UT, M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+S\+I\+G\+N\+UP, Protocol\+\_\+\+Decode\+Server(), and T\+R\+UE.
+
+
+
+Referenced by What\+Down\+Back\+End\+App\+\_\+\+Create().
+
+\index{logic\+\_\+back\+End.\+c@{logic\+\_\+back\+End.\+c}!Logic\+B\+E\+\_\+\+Set\+Server\+P\+TR@{Logic\+B\+E\+\_\+\+Set\+Server\+P\+TR}}
+\index{Logic\+B\+E\+\_\+\+Set\+Server\+P\+TR@{Logic\+B\+E\+\_\+\+Set\+Server\+P\+TR}!logic\+\_\+back\+End.\+c@{logic\+\_\+back\+End.\+c}}
+\subsubsection[{\texorpdfstring{Logic\+B\+E\+\_\+\+Set\+Server\+P\+T\+R(\+Logic\+\_\+\+B\+E\+\_\+t $\ast$\+\_\+logic\+B\+E, T\+C\+P\+\_\+\+S\+\_\+t $\ast$\+\_\+server)}{LogicBE_SetServerPTR(Logic_BE_t *_logicBE, TCP_S_t *_server)}}]{\setlength{\rightskip}{0pt plus 5cm}int Logic\+B\+E\+\_\+\+Set\+Server\+P\+TR (
+\begin{DoxyParamCaption}
+\item[{{\bf Logic\+\_\+\+B\+E\+\_\+t} $\ast$}]{\+\_\+logic\+BE, }
+\item[{{\bf T\+C\+P\+\_\+\+S\+\_\+t} $\ast$}]{\+\_\+server}
+\end{DoxyParamCaption}
+)}\hypertarget{logic__backEnd_8c_a4f9b18a1c66e55c2e6a4fb4d3d658d19}{}\label{logic__backEnd_8c_a4f9b18a1c66e55c2e6a4fb4d3d658d19}
+
+
+add to the logic the pointer to the T\+CP server. as both modules in to be setup at the same time, the pointer is added just after create. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+logic\+BE} & the pointer to the struct \\
+\hline
+{\em \+\_\+server} & a pointer to the T\+CP server \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+T\+R\+UE for succses and F\+A\+L\+SE if one of the parameters is wrong 
+\end{DoxyReturn}
+
+
+Definition at line 83 of file logic\+\_\+back\+End.\+c.
+
+
+
+References F\+A\+L\+SE, Is\+Struct\+Valid(), Logic\+\_\+\+B\+E\+::m\+\_\+net, and T\+R\+UE.
+
+
+
+Referenced by What\+Down\+Back\+End\+App\+\_\+\+Create().
+

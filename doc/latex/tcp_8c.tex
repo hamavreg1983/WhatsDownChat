@@ -1,0 +1,366 @@
+\hypertarget{tcp_8c}{}\section{comm/tcp/src/tcp.c File Reference}
+\label{tcp_8c}\index{comm/tcp/src/tcp.\+c@{comm/tcp/src/tcp.\+c}}
+{\ttfamily \#include $<$netinet/in.\+h$>$}\\*
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$sys/socket.\+h$>$}\\*
+{\ttfamily \#include $<$sys/types.\+h$>$}\\*
+{\ttfamily \#include $<$sys/time.\+h$>$}\\*
+{\ttfamily \#include $<$sys/select.\+h$>$}\\*
+{\ttfamily \#include $<$arpa/inet.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include $<$fcntl.\+h$>$}\\*
+{\ttfamily \#include $<$errno.\+h$>$}\\*
+{\ttfamily \#include $<$unistd.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}defines.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}list.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}tcp.\+h\char`\"{}}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structTCP__S}{T\+C\+P\+\_\+S}
+\item 
+struct \hyperlink{structSocketInfo}{Socket\+Info}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{tcp_8c_a48276ee4f49838e7bbdfe1b006b45574}{A\+L\+I\+V\+E\+\_\+\+M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+ER}~0xfadeface
+\item 
+\#define \hyperlink{tcp_8c_aa11cce9fb70acb2e03c9229a245cd47a}{D\+E\+A\+D\+\_\+\+M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+ER}~0xdeadface
+\item 
+\#define \hyperlink{tcp_8c_a0709bba95f20208ffd54582938ab4a70}{S\+I\+\_\+\+M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+ER}~0xdeaddead
+\item 
+\#define \hyperlink{tcp_8c_addb19d3cad828ef25e991e3d0747aa27}{G\+E\+N\+E\+R\+A\+L\+\_\+\+E\+R\+R\+OR}~-\/9
+\item 
+\#define \hyperlink{tcp_8c_a79069c343d84db050c5a5ffb1a8dded6}{B\+A\+C\+K\+\_\+\+L\+O\+G\+\_\+\+C\+A\+P\+A\+C\+I\+TY}~128
+\item 
+\#define \hyperlink{tcp_8c_ae7320d600a770509e3991ff5a7f8d669}{I\+S\+\_\+\+N\+O\+N\+\_\+\+B\+L\+O\+C\+K\+I\+N\+G\+\_\+\+M\+E\+T\+H\+OD}~\hyperlink{defines_8h_aa93f0eb578d23995850d61f7d61c55c1}{F\+A\+L\+SE}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct timeval \hyperlink{tcp_8c_aeba0d8f51eb0a83c2b01ecf27e0b3260}{timeval\+\_\+t}
+\item 
+typedef struct \hyperlink{structSocketInfo}{Socket\+Info} \hyperlink{tcp_8c_ad9099d62ab3b732488b83ca705b0b850}{Socket\+Info\+\_\+t}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{tcp_8h_a03d44ed4c82d8938cc484f7d14284b24}{T\+C\+P\+\_\+\+S\+\_\+t} $\ast$ \hyperlink{tcp_8c_a0294f84faa4c3b34c67906450247a4bd}{T\+C\+P\+\_\+\+Create\+Server} (\hyperlink{tcp_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint} \+\_\+port, const char $\ast$\+\_\+server\+IP, \hyperlink{tcp_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint} \+\_\+max\+Connections, \hyperlink{tcp_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint} \+\_\+timeout\+MS, \hyperlink{tcp_8h_a03acbb6cbffc391f3be83fa353e5f89c}{user\+Action\+Func} \+\_\+recive\+Data\+Func, \hyperlink{tcp_8h_a12b172b17797d0f66fd06ef346b5bf30}{client\+Connection\+Change\+Func} \+\_\+new\+Client\+Connected, \hyperlink{tcp_8h_a12b172b17797d0f66fd06ef346b5bf30}{client\+Connection\+Change\+Func} \+\_\+client\+Dissconected, \hyperlink{tcp_8h_a6abfbec9c242e3862442d5d899d8a3bd}{error\+Func} \+\_\+error\+Func, void $\ast$\+\_\+contex)
+\begin{DoxyCompactList}\small\item\em Create the server and setup all is needed of work. \end{DoxyCompactList}\item 
+void \hyperlink{tcp_8c_a499da7918e4333e56eb591be71b2ec14}{T\+C\+P\+\_\+\+Destroy\+Server} (\hyperlink{tcp_8h_a03d44ed4c82d8938cc484f7d14284b24}{T\+C\+P\+\_\+\+S\+\_\+t} $\ast$\+\_\+\+T\+CP)
+\begin{DoxyCompactList}\small\item\em Cleans up and free after the program. \end{DoxyCompactList}\item 
+\hyperlink{whatDownBackEndApp_8c_a1062901a7428fdd9c7f180f5e01ea056}{bool} \hyperlink{tcp_8c_ace34ff46cc71a97ab0f30ac7727dbfc3}{T\+C\+P\+\_\+\+Run\+Server} (\hyperlink{tcp_8h_a03d44ed4c82d8938cc484f7d14284b24}{T\+C\+P\+\_\+\+S\+\_\+t} $\ast$\+\_\+\+T\+CP)
+\begin{DoxyCompactList}\small\item\em start the server. it will loop around waiting for information to arrive or new connection request. When such occures, the user\textquotesingle{}s user\+Action\+Func \+\_\+recive\+Data\+Func is actived. Iternal loop until Server\+Stop is called. \end{DoxyCompactList}\item 
+\hyperlink{whatDownBackEndApp_8c_a1062901a7428fdd9c7f180f5e01ea056}{bool} \hyperlink{tcp_8c_ab9075bfb419ca9db165b783bf8faab2a}{T\+C\+P\+\_\+\+Stop\+Server} (\hyperlink{tcp_8h_a03d44ed4c82d8938cc484f7d14284b24}{T\+C\+P\+\_\+\+S\+\_\+t} $\ast$\+\_\+\+T\+CP)
+\begin{DoxyCompactList}\small\item\em stop the T\+C\+P\+\_\+\+Run\+Server loop. \end{DoxyCompactList}\item 
+int \hyperlink{tcp_8c_a996eca798340dfe7798fc927793a304e}{T\+C\+P\+\_\+\+Send} (\hyperlink{tcp_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint} \+\_\+socket\+Num, void $\ast$\+\_\+msg, \hyperlink{tcp_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint} \+\_\+msg\+Length)
+\begin{DoxyCompactList}\small\item\em Function to send data (back?) to a client. \end{DoxyCompactList}\item 
+int \hyperlink{tcp_8c_ad932e4b3c8a4596efd09760f4377f24b}{T\+C\+P\+\_\+\+Recive} (\hyperlink{tcp_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint} \+\_\+socket\+Num, void $\ast$\+\_\+buffer, \hyperlink{tcp_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint} \+\_\+buffer\+Max\+Length)
+\begin{DoxyCompactList}\small\item\em Function to invoke data read from clients without looping. just a singal read. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\index{tcp.\+c@{tcp.\+c}!A\+L\+I\+V\+E\+\_\+\+M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+ER@{A\+L\+I\+V\+E\+\_\+\+M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+ER}}
+\index{A\+L\+I\+V\+E\+\_\+\+M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+ER@{A\+L\+I\+V\+E\+\_\+\+M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+ER}!tcp.\+c@{tcp.\+c}}
+\subsubsection[{\texorpdfstring{A\+L\+I\+V\+E\+\_\+\+M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+ER}{ALIVE_MAGIC_NUMBER}}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\+L\+I\+V\+E\+\_\+\+M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+ER~0xfadeface}\hypertarget{tcp_8c_a48276ee4f49838e7bbdfe1b006b45574}{}\label{tcp_8c_a48276ee4f49838e7bbdfe1b006b45574}
+
+
+Definition at line 27 of file tcp.\+c.
+
+
+
+Referenced by T\+C\+P\+\_\+\+Create\+Server(), and T\+C\+P\+\_\+\+Recive().
+
+\index{tcp.\+c@{tcp.\+c}!B\+A\+C\+K\+\_\+\+L\+O\+G\+\_\+\+C\+A\+P\+A\+C\+I\+TY@{B\+A\+C\+K\+\_\+\+L\+O\+G\+\_\+\+C\+A\+P\+A\+C\+I\+TY}}
+\index{B\+A\+C\+K\+\_\+\+L\+O\+G\+\_\+\+C\+A\+P\+A\+C\+I\+TY@{B\+A\+C\+K\+\_\+\+L\+O\+G\+\_\+\+C\+A\+P\+A\+C\+I\+TY}!tcp.\+c@{tcp.\+c}}
+\subsubsection[{\texorpdfstring{B\+A\+C\+K\+\_\+\+L\+O\+G\+\_\+\+C\+A\+P\+A\+C\+I\+TY}{BACK_LOG_CAPACITY}}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+A\+C\+K\+\_\+\+L\+O\+G\+\_\+\+C\+A\+P\+A\+C\+I\+TY~128}\hypertarget{tcp_8c_a79069c343d84db050c5a5ffb1a8dded6}{}\label{tcp_8c_a79069c343d84db050c5a5ffb1a8dded6}
+
+
+Definition at line 32 of file tcp.\+c.
+
+
+
+Referenced by T\+C\+P\+\_\+\+Recive().
+
+\index{tcp.\+c@{tcp.\+c}!D\+E\+A\+D\+\_\+\+M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+ER@{D\+E\+A\+D\+\_\+\+M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+ER}}
+\index{D\+E\+A\+D\+\_\+\+M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+ER@{D\+E\+A\+D\+\_\+\+M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+ER}!tcp.\+c@{tcp.\+c}}
+\subsubsection[{\texorpdfstring{D\+E\+A\+D\+\_\+\+M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+ER}{DEAD_MAGIC_NUMBER}}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\+E\+A\+D\+\_\+\+M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+ER~0xdeadface}\hypertarget{tcp_8c_aa11cce9fb70acb2e03c9229a245cd47a}{}\label{tcp_8c_aa11cce9fb70acb2e03c9229a245cd47a}
+
+
+Definition at line 28 of file tcp.\+c.
+
+
+
+Referenced by T\+C\+P\+\_\+\+Destroy\+Server().
+
+\index{tcp.\+c@{tcp.\+c}!G\+E\+N\+E\+R\+A\+L\+\_\+\+E\+R\+R\+OR@{G\+E\+N\+E\+R\+A\+L\+\_\+\+E\+R\+R\+OR}}
+\index{G\+E\+N\+E\+R\+A\+L\+\_\+\+E\+R\+R\+OR@{G\+E\+N\+E\+R\+A\+L\+\_\+\+E\+R\+R\+OR}!tcp.\+c@{tcp.\+c}}
+\subsubsection[{\texorpdfstring{G\+E\+N\+E\+R\+A\+L\+\_\+\+E\+R\+R\+OR}{GENERAL_ERROR}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+E\+N\+E\+R\+A\+L\+\_\+\+E\+R\+R\+OR~-\/9}\hypertarget{tcp_8c_addb19d3cad828ef25e991e3d0747aa27}{}\label{tcp_8c_addb19d3cad828ef25e991e3d0747aa27}
+
+
+Definition at line 31 of file tcp.\+c.
+
+
+
+Referenced by T\+C\+P\+\_\+\+Recive(), and T\+C\+P\+\_\+\+Send().
+
+\index{tcp.\+c@{tcp.\+c}!I\+S\+\_\+\+N\+O\+N\+\_\+\+B\+L\+O\+C\+K\+I\+N\+G\+\_\+\+M\+E\+T\+H\+OD@{I\+S\+\_\+\+N\+O\+N\+\_\+\+B\+L\+O\+C\+K\+I\+N\+G\+\_\+\+M\+E\+T\+H\+OD}}
+\index{I\+S\+\_\+\+N\+O\+N\+\_\+\+B\+L\+O\+C\+K\+I\+N\+G\+\_\+\+M\+E\+T\+H\+OD@{I\+S\+\_\+\+N\+O\+N\+\_\+\+B\+L\+O\+C\+K\+I\+N\+G\+\_\+\+M\+E\+T\+H\+OD}!tcp.\+c@{tcp.\+c}}
+\subsubsection[{\texorpdfstring{I\+S\+\_\+\+N\+O\+N\+\_\+\+B\+L\+O\+C\+K\+I\+N\+G\+\_\+\+M\+E\+T\+H\+OD}{IS_NON_BLOCKING_METHOD}}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\+S\+\_\+\+N\+O\+N\+\_\+\+B\+L\+O\+C\+K\+I\+N\+G\+\_\+\+M\+E\+T\+H\+OD~{\bf F\+A\+L\+SE}}\hypertarget{tcp_8c_ae7320d600a770509e3991ff5a7f8d669}{}\label{tcp_8c_ae7320d600a770509e3991ff5a7f8d669}
+
+
+Definition at line 35 of file tcp.\+c.
+
+
+
+Referenced by T\+C\+P\+\_\+\+Recive(), and T\+C\+P\+\_\+\+Run\+Server().
+
+\index{tcp.\+c@{tcp.\+c}!S\+I\+\_\+\+M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+ER@{S\+I\+\_\+\+M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+ER}}
+\index{S\+I\+\_\+\+M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+ER@{S\+I\+\_\+\+M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+ER}!tcp.\+c@{tcp.\+c}}
+\subsubsection[{\texorpdfstring{S\+I\+\_\+\+M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+ER}{SI_MAGIC_NUMBER}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+I\+\_\+\+M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+ER~0xdeaddead}\hypertarget{tcp_8c_a0709bba95f20208ffd54582938ab4a70}{}\label{tcp_8c_a0709bba95f20208ffd54582938ab4a70}
+
+
+Definition at line 29 of file tcp.\+c.
+
+
+
+Referenced by T\+C\+P\+\_\+\+Recive().
+
+
+
+\subsection{Typedef Documentation}
+\index{tcp.\+c@{tcp.\+c}!Socket\+Info\+\_\+t@{Socket\+Info\+\_\+t}}
+\index{Socket\+Info\+\_\+t@{Socket\+Info\+\_\+t}!tcp.\+c@{tcp.\+c}}
+\subsubsection[{\texorpdfstring{Socket\+Info\+\_\+t}{SocketInfo_t}}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf Socket\+Info}  {\bf Socket\+Info\+\_\+t}}\hypertarget{tcp_8c_ad9099d62ab3b732488b83ca705b0b850}{}\label{tcp_8c_ad9099d62ab3b732488b83ca705b0b850}
+\index{tcp.\+c@{tcp.\+c}!timeval\+\_\+t@{timeval\+\_\+t}}
+\index{timeval\+\_\+t@{timeval\+\_\+t}!tcp.\+c@{tcp.\+c}}
+\subsubsection[{\texorpdfstring{timeval\+\_\+t}{timeval_t}}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct timeval {\bf timeval\+\_\+t}}\hypertarget{tcp_8c_aeba0d8f51eb0a83c2b01ecf27e0b3260}{}\label{tcp_8c_aeba0d8f51eb0a83c2b01ecf27e0b3260}
+
+
+Definition at line 37 of file tcp.\+c.
+
+
+
+\subsection{Function Documentation}
+\index{tcp.\+c@{tcp.\+c}!T\+C\+P\+\_\+\+Create\+Server@{T\+C\+P\+\_\+\+Create\+Server}}
+\index{T\+C\+P\+\_\+\+Create\+Server@{T\+C\+P\+\_\+\+Create\+Server}!tcp.\+c@{tcp.\+c}}
+\subsubsection[{\texorpdfstring{T\+C\+P\+\_\+\+Create\+Server(uint \+\_\+port, const char $\ast$\+\_\+server\+I\+P, uint \+\_\+max\+Connections, uint \+\_\+timeout\+M\+S, user\+Action\+Func \+\_\+recive\+Data\+Func, client\+Connection\+Change\+Func \+\_\+new\+Client\+Connected, client\+Connection\+Change\+Func \+\_\+client\+Dissconected, error\+Func \+\_\+error\+Func, void $\ast$\+\_\+contex)}{TCP_CreateServer(uint _port, const char *_serverIP, uint _maxConnections, uint _timeoutMS, userActionFunc _reciveDataFunc, clientConnectionChangeFunc _newClientConnected, clientConnectionChangeFunc _clientDissconected, errorFunc _errorFunc, void *_contex)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\+C\+P\+\_\+\+S\+\_\+t}$\ast$ T\+C\+P\+\_\+\+Create\+Server (
+\begin{DoxyParamCaption}
+\item[{{\bf uint}}]{\+\_\+port, }
+\item[{const char $\ast$}]{\+\_\+server\+IP, }
+\item[{{\bf uint}}]{\+\_\+max\+Connections, }
+\item[{{\bf uint}}]{\+\_\+timeout\+MS, }
+\item[{{\bf user\+Action\+Func}}]{\+\_\+recive\+Data\+Func, }
+\item[{{\bf client\+Connection\+Change\+Func}}]{\+\_\+new\+Client\+Connected, }
+\item[{{\bf client\+Connection\+Change\+Func}}]{\+\_\+client\+Dissconected, }
+\item[{{\bf error\+Func}}]{\+\_\+error\+Func, }
+\item[{void $\ast$}]{\+\_\+contex}
+\end{DoxyParamCaption}
+)}\hypertarget{tcp_8c_a0294f84faa4c3b34c67906450247a4bd}{}\label{tcp_8c_a0294f84faa4c3b34c67906450247a4bd}
+
+
+Create the server and setup all is needed of work. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+port} & the server listing port for new client connections. \\
+\hline
+{\em \+\_\+server\+IP} & The server IP address in case of a few interfaces for the same computer. Can be left N\+U\+LL for defualt ip selected. \\
+\hline
+{\em \+\_\+max\+Connections} & if more connection than this number are simultansly try to connect, clients would be dealt and probably droped. \\
+\hline
+{\em \+\_\+timeout\+MS} & any connection not used for this amount of time (mili\+Seconds) would be droped \\
+\hline
+{\em \+\_\+recive\+Data\+Func} & user function to invoke when data is recived at server \\
+\hline
+{\em \+\_\+new\+Client\+Connected} & user function to invoke when new client is connected. can be left N\+U\+LL. \\
+\hline
+{\em \+\_\+client\+Dissconected} & user function to invoke when client is disconnected, either because of server of client induces. can be left N\+U\+LL. \\
+\hline
+{\em \+\_\+error\+Func} & user function to invoke when errors occur in server. can be left N\+U\+LL. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a pointer to the struct. N\+U\+LL if failed. 
+\end{DoxyReturn}
+
+
+Definition at line 121 of file tcp.\+c.
+
+
+
+References A\+L\+I\+V\+E\+\_\+\+M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+ER, list\+\_\+new(), T\+C\+P\+\_\+\+S\+::m\+\_\+closed\+Connection\+Func, T\+C\+P\+\_\+\+S\+::m\+\_\+connected\+Num, T\+C\+P\+\_\+\+S\+::m\+\_\+connection\+Capacity, T\+C\+P\+\_\+\+S\+::m\+\_\+contex, T\+C\+P\+\_\+\+S\+::m\+\_\+error\+Func, T\+C\+P\+\_\+\+S\+::m\+\_\+listen\+Socket, T\+C\+P\+\_\+\+S\+::m\+\_\+magic\+Number, T\+C\+P\+\_\+\+S\+::m\+\_\+new\+Connection\+Func, T\+C\+P\+\_\+\+S\+::m\+\_\+recive\+Data\+Func, T\+C\+P\+\_\+\+S\+::m\+\_\+server\+IP, T\+C\+P\+\_\+\+S\+::m\+\_\+server\+Port, T\+C\+P\+\_\+\+S\+::m\+\_\+sockets, and T\+C\+P\+\_\+\+S\+::m\+\_\+timeout\+MS.
+
+
+
+Referenced by Activate\+Server(), and What\+Down\+Back\+End\+App\+\_\+\+Create().
+
+\index{tcp.\+c@{tcp.\+c}!T\+C\+P\+\_\+\+Destroy\+Server@{T\+C\+P\+\_\+\+Destroy\+Server}}
+\index{T\+C\+P\+\_\+\+Destroy\+Server@{T\+C\+P\+\_\+\+Destroy\+Server}!tcp.\+c@{tcp.\+c}}
+\subsubsection[{\texorpdfstring{T\+C\+P\+\_\+\+Destroy\+Server(\+T\+C\+P\+\_\+\+S\+\_\+t $\ast$\+\_\+\+T\+C\+P)}{TCP_DestroyServer(TCP_S_t *_TCP)}}]{\setlength{\rightskip}{0pt plus 5cm}void T\+C\+P\+\_\+\+Destroy\+Server (
+\begin{DoxyParamCaption}
+\item[{{\bf T\+C\+P\+\_\+\+S\+\_\+t} $\ast$}]{\+\_\+\+T\+CP}
+\end{DoxyParamCaption}
+)}\hypertarget{tcp_8c_a499da7918e4333e56eb591be71b2ec14}{}\label{tcp_8c_a499da7918e4333e56eb591be71b2ec14}
+
+
+Cleans up and free after the program. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+\+T\+CP} & pointer to the struct \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void. silent fail. 
+\end{DoxyReturn}
+
+
+Definition at line 184 of file tcp.\+c.
+
+
+
+References D\+E\+A\+D\+\_\+\+M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+ER, Is\+Struct\+Valid(), list\+\_\+destroy(), L\+I\+S\+T\+\_\+\+H\+E\+AD, list\+\_\+iterator\+\_\+new(), list\+\_\+iterator\+\_\+next(), T\+C\+P\+\_\+\+S\+::m\+\_\+listen\+Socket, T\+C\+P\+\_\+\+S\+::m\+\_\+magic\+Number, and T\+C\+P\+\_\+\+S\+::m\+\_\+sockets.
+
+
+
+Referenced by Activate\+Server(), Logic\+B\+E\+\_\+\+Destroy(), and What\+Down\+Back\+End\+App\+\_\+\+Destroy().
+
+\index{tcp.\+c@{tcp.\+c}!T\+C\+P\+\_\+\+Recive@{T\+C\+P\+\_\+\+Recive}}
+\index{T\+C\+P\+\_\+\+Recive@{T\+C\+P\+\_\+\+Recive}!tcp.\+c@{tcp.\+c}}
+\subsubsection[{\texorpdfstring{T\+C\+P\+\_\+\+Recive(uint \+\_\+socket\+Num, void $\ast$\+\_\+buffer, uint \+\_\+buffer\+Max\+Length)}{TCP_Recive(uint _socketNum, void *_buffer, uint _bufferMaxLength)}}]{\setlength{\rightskip}{0pt plus 5cm}int T\+C\+P\+\_\+\+Recive (
+\begin{DoxyParamCaption}
+\item[{{\bf uint}}]{\+\_\+socket\+Num, }
+\item[{void $\ast$}]{\+\_\+buffer, }
+\item[{{\bf uint}}]{\+\_\+buffer\+Max\+Length}
+\end{DoxyParamCaption}
+)}\hypertarget{tcp_8c_ad932e4b3c8a4596efd09760f4377f24b}{}\label{tcp_8c_ad932e4b3c8a4596efd09760f4377f24b}
+
+
+Function to invoke data read from clients without looping. just a singal read. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+socket\+Num} & a number representing the client the information would be read from. \\
+\hline
+{\em \+\_\+buffer} & the data buffer to be read to. up to B\+U\+F\+F\+E\+R\+\_\+\+M\+A\+X\+\_\+\+S\+I\+ZE bytes. \\
+\hline
+{\em \+\_\+buffer\+Max\+Length} & the data buffer max size. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+positive number represent the number of bytes read. negative number represent error. 
+\end{DoxyReturn}
+
+
+Definition at line 295 of file tcp.\+c.
+
+
+
+References A\+L\+I\+V\+E\+\_\+\+M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+ER, B\+A\+C\+K\+\_\+\+L\+O\+G\+\_\+\+C\+A\+P\+A\+C\+I\+TY, B\+U\+F\+F\+E\+R\+\_\+\+M\+A\+X\+\_\+\+S\+I\+ZE, F\+A\+L\+SE, G\+E\+N\+E\+R\+A\+L\+\_\+\+E\+R\+R\+OR, I\+S\+\_\+\+N\+O\+N\+\_\+\+B\+L\+O\+C\+K\+I\+N\+G\+\_\+\+M\+E\+T\+H\+OD, Is\+Struct\+Valid(), list\+\_\+at(), L\+I\+S\+T\+\_\+\+H\+E\+AD, list\+\_\+iterator\+\_\+new(), list\+\_\+iterator\+\_\+next(), list\+\_\+lpush(), list\+\_\+node\+\_\+new(), list\+\_\+remove(), list\+\_\+rpush(), T\+C\+P\+\_\+\+S\+::m\+\_\+closed\+Connection\+Func, T\+C\+P\+\_\+\+S\+::m\+\_\+connected\+Num, T\+C\+P\+\_\+\+S\+::m\+\_\+connection\+Capacity, T\+C\+P\+\_\+\+S\+::m\+\_\+contex, T\+C\+P\+\_\+\+S\+::m\+\_\+error\+Func, T\+C\+P\+\_\+\+S\+::m\+\_\+is\+Server\+Run, T\+C\+P\+\_\+\+S\+::m\+\_\+listen\+Socket, T\+C\+P\+\_\+\+S\+::m\+\_\+magic\+Number, Socket\+Info\+::m\+\_\+magic\+Number, T\+C\+P\+\_\+\+S\+::m\+\_\+new\+Connection\+Func, T\+C\+P\+\_\+\+S\+::m\+\_\+recive\+Data\+Func, T\+C\+P\+\_\+\+S\+::m\+\_\+server\+IP, T\+C\+P\+\_\+\+S\+::m\+\_\+server\+Port, Socket\+Info\+::m\+\_\+socket\+FD, T\+C\+P\+\_\+\+S\+::m\+\_\+sockets, T\+C\+P\+\_\+\+S\+::m\+\_\+timeout\+MS, Socket\+Info\+::m\+\_\+time\+To\+Die, sanity\+\_\+check(), S\+I\+\_\+\+M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+ER, T\+C\+P\+\_\+\+Recive(), T\+O\+O\+\_\+\+M\+A\+N\+Y\+\_\+\+C\+O\+N\+N\+E\+C\+T\+I\+ON, T\+R\+UE, and list\+\_\+node\+::val.
+
+
+
+Referenced by T\+C\+P\+\_\+\+Recive(), and T\+C\+P\+\_\+\+Run\+Server().
+
+\index{tcp.\+c@{tcp.\+c}!T\+C\+P\+\_\+\+Run\+Server@{T\+C\+P\+\_\+\+Run\+Server}}
+\index{T\+C\+P\+\_\+\+Run\+Server@{T\+C\+P\+\_\+\+Run\+Server}!tcp.\+c@{tcp.\+c}}
+\subsubsection[{\texorpdfstring{T\+C\+P\+\_\+\+Run\+Server(\+T\+C\+P\+\_\+\+S\+\_\+t $\ast$\+\_\+\+T\+C\+P)}{TCP_RunServer(TCP_S_t *_TCP)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} T\+C\+P\+\_\+\+Run\+Server (
+\begin{DoxyParamCaption}
+\item[{{\bf T\+C\+P\+\_\+\+S\+\_\+t} $\ast$}]{\+\_\+\+T\+CP}
+\end{DoxyParamCaption}
+)}\hypertarget{tcp_8c_ace34ff46cc71a97ab0f30ac7727dbfc3}{}\label{tcp_8c_ace34ff46cc71a97ab0f30ac7727dbfc3}
+
+
+start the server. it will loop around waiting for information to arrive or new connection request. When such occures, the user\textquotesingle{}s user\+Action\+Func \+\_\+recive\+Data\+Func is actived. Iternal loop until Server\+Stop is called. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+\+T\+CP} & pointer to the struct \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the status of return. T\+R\+UE when stopped normally or F\+A\+L\+SE when failed to run. 
+\end{DoxyReturn}
+
+
+Definition at line 212 of file tcp.\+c.
+
+
+
+References B\+U\+F\+F\+E\+R\+\_\+\+M\+A\+X\+\_\+\+S\+I\+ZE, F\+A\+L\+SE, I\+S\+\_\+\+N\+O\+N\+\_\+\+B\+L\+O\+C\+K\+I\+N\+G\+\_\+\+M\+E\+T\+H\+OD, Is\+Struct\+Valid(), L\+I\+S\+T\+\_\+\+H\+E\+AD, list\+\_\+iterator\+\_\+new(), list\+\_\+iterator\+\_\+next(), T\+C\+P\+\_\+\+S\+::m\+\_\+contex, T\+C\+P\+\_\+\+S\+::m\+\_\+is\+Server\+Run, T\+C\+P\+\_\+\+S\+::m\+\_\+recive\+Data\+Func, T\+C\+P\+\_\+\+S\+::m\+\_\+sockets, T\+C\+P\+\_\+\+Recive(), and T\+R\+UE.
+
+
+
+Referenced by Activate\+Server(), and What\+Down\+Back\+End\+App\+\_\+\+Run().
+
+\index{tcp.\+c@{tcp.\+c}!T\+C\+P\+\_\+\+Send@{T\+C\+P\+\_\+\+Send}}
+\index{T\+C\+P\+\_\+\+Send@{T\+C\+P\+\_\+\+Send}!tcp.\+c@{tcp.\+c}}
+\subsubsection[{\texorpdfstring{T\+C\+P\+\_\+\+Send(uint \+\_\+socket\+Num, void $\ast$\+\_\+msg, uint \+\_\+msg\+Length)}{TCP_Send(uint _socketNum, void *_msg, uint _msgLength)}}]{\setlength{\rightskip}{0pt plus 5cm}int T\+C\+P\+\_\+\+Send (
+\begin{DoxyParamCaption}
+\item[{{\bf uint}}]{\+\_\+socket\+Num, }
+\item[{void $\ast$}]{\+\_\+msg, }
+\item[{{\bf uint}}]{\+\_\+msg\+Length}
+\end{DoxyParamCaption}
+)}\hypertarget{tcp_8c_a996eca798340dfe7798fc927793a304e}{}\label{tcp_8c_a996eca798340dfe7798fc927793a304e}
+
+
+Function to send data (back?) to a client. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+socket\+Num} & a number representing the client the information would be send to. \\
+\hline
+{\em \+\_\+msg} & the data to be send. up to B\+U\+F\+F\+E\+R\+\_\+\+M\+A\+X\+\_\+\+S\+I\+ZE bytes. \\
+\hline
+{\em \+\_\+msg\+Length} & the data send size. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+positive number represent the number of bytes send. negative number represent error. 
+\end{DoxyReturn}
+
+
+Definition at line 275 of file tcp.\+c.
+
+
+
+References G\+E\+N\+E\+R\+A\+L\+\_\+\+E\+R\+R\+OR.
+
+
+
+Referenced by Logic\+B\+E\+\_\+\+Error\+Func(), and My\+Func().
+
+\index{tcp.\+c@{tcp.\+c}!T\+C\+P\+\_\+\+Stop\+Server@{T\+C\+P\+\_\+\+Stop\+Server}}
+\index{T\+C\+P\+\_\+\+Stop\+Server@{T\+C\+P\+\_\+\+Stop\+Server}!tcp.\+c@{tcp.\+c}}
+\subsubsection[{\texorpdfstring{T\+C\+P\+\_\+\+Stop\+Server(\+T\+C\+P\+\_\+\+S\+\_\+t $\ast$\+\_\+\+T\+C\+P)}{TCP_StopServer(TCP_S_t *_TCP)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} T\+C\+P\+\_\+\+Stop\+Server (
+\begin{DoxyParamCaption}
+\item[{{\bf T\+C\+P\+\_\+\+S\+\_\+t} $\ast$}]{\+\_\+\+T\+CP}
+\end{DoxyParamCaption}
+)}\hypertarget{tcp_8c_ab9075bfb419ca9db165b783bf8faab2a}{}\label{tcp_8c_ab9075bfb419ca9db165b783bf8faab2a}
+
+
+stop the T\+C\+P\+\_\+\+Run\+Server loop. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+\+T\+CP} & a pointer to the T\+CP server struct \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool T\+R\+UE 1 is success or F\+A\+L\+SE 0 if failed. 
+\end{DoxyReturn}
+
+
+Definition at line 265 of file tcp.\+c.
+
+
+
+References F\+A\+L\+SE, Is\+Struct\+Valid(), T\+C\+P\+\_\+\+S\+::m\+\_\+is\+Server\+Run, and T\+R\+UE.
+
+
+
+Referenced by sig\+Abort\+Handler(), and What\+Down\+Back\+End\+App\+\_\+\+Stop().
+

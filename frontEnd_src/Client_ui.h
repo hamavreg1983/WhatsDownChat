@@ -1,5 +1,5 @@
 /**
- * @file client_ui.h
+ *  @file client_ui.h
  *
  *  @date Jul 13, 2017
  *  @author Yuval Hamberg
@@ -29,7 +29,7 @@ Client_UI* UI_Create(Logic_FE_t* _frontEnd);
 
 /**
  * @brief destroy and clean up after
- * @param the pointer to the struct
+ * @param _ui the pointer to the struct
  */
 void Ui_Destroy(Client_UI* _ui);
 

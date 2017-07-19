@@ -1,0 +1,23 @@
+var searchData=
+[
+  ['magic_5fnumber_5falive_5fbe_5fapp',['MAGIC_NUMBER_ALIVE_BE_APP',['../whatDownBackEndApp_8c.html#a78161ef231ae8e9b562aeaf06a385618',1,'whatDownBackEndApp.c']]],
+  ['magic_5fnumber_5falive_5fclient_5fapp',['MAGIC_NUMBER_ALIVE_CLIENT_APP',['../ClientWhatDownApp_8c.html#a6507cc392e1e1a43575a0df8c7b5df09',1,'ClientWhatDownApp.c']]],
+  ['magic_5fnumber_5falive_5fip_5fhandle',['MAGIC_NUMBER_ALIVE_IP_HANDLE',['../ipHandle_8c.html#aa7d0531c7a51fada46a6004850068b84',1,'ipHandle.c']]],
+  ['magic_5fnumber_5falive_5flogic_5ffe',['MAGIC_NUMBER_ALIVE_LOGIC_FE',['../logic__FE_8c.html#af53fac9368f4ad7442758cf09a3af1dc',1,'logic_FE.c']]],
+  ['magic_5fnumber_5falive_5frecv',['MAGIC_NUMBER_ALIVE_RECV',['../netUDP__MultiCast_8c.html#a7d404cb0046e68884d1f116176e6cb8c',1,'netUDP_MultiCast.c']]],
+  ['magic_5fnumber_5falive_5fsender',['MAGIC_NUMBER_ALIVE_SENDER',['../netUDP__MultiCast_8c.html#a6c895b5be2a287102ff80a1c688cfab0',1,'netUDP_MultiCast.c']]],
+  ['magic_5fnumber_5fbe_5flogic',['MAGIC_NUMBER_BE_LOGIC',['../logic__backEnd_8c.html#a6851a935a2a658a8f4a874f30a4be17e',1,'logic_backEnd.c']]],
+  ['magic_5fnumber_5fgrp_5fhndl',['MAGIC_NUMBER_GRP_HNDL',['../groupsHandle_8c.html#ac3deb57c870aaac75b67ddbb029f7648',1,'groupsHandle.c']]],
+  ['magic_5fnumber_5fgrp_5funt',['MAGIC_NUMBER_GRP_UNT',['../groupsHandle_8c.html#a251b53598358788064b226e190630a1a',1,'groupsHandle.c']]],
+  ['max_5fclients_5fnum',['MAX_CLIENTS_NUM',['../tcp_8h.html#ad8d50de6be25343050ccc2acab04af0c',1,'tcp.h']]],
+  ['max_5fconnections_5fallwaed',['MAX_CONNECTIONS_ALLWAED',['../server_8c.html#af32f09b348c4fb98e1a014f93fb3e487',1,'server.c']]],
+  ['max_5fgroup_5fname',['MAX_GROUP_NAME',['../reader_8c.html#adc4e6fd253319f9ad9e2d019d4ac021d',1,'MAX_GROUP_NAME():&#160;reader.c'],['../Protocol_8h.html#adc4e6fd253319f9ad9e2d019d4ac021d',1,'MAX_GROUP_NAME():&#160;Protocol.h']]],
+  ['max_5fmessage_5flength',['MAX_MESSAGE_LENGTH',['../Protocol_8h.html#ab234d1358562b66925fb7223c087556b',1,'Protocol.h']]],
+  ['max_5fmsg_5fsize',['MAX_MSG_SIZE',['../client__userInput_8c.html#a17e333794ae761cd55ec6fd6fc0f1bac',1,'MAX_MSG_SIZE():&#160;client_userInput.c'],['../client__WhatDownApp__main_8c.html#a17e333794ae761cd55ec6fd6fc0f1bac',1,'MAX_MSG_SIZE():&#160;client_WhatDownApp_main.c']]],
+  ['max_5fpassword',['MAX_PASSWORD',['../Protocol_8h.html#ac39f75a2a532f10f6fb237e96c530dcb',1,'Protocol.h']]],
+  ['max_5fusername',['MAX_USERNAME',['../Protocol_8h.html#a2d9316e742860ef57fe46a27e67d5efe',1,'Protocol.h']]],
+  ['max_5fusers_5fin_5fgroup',['MAX_USERS_IN_GROUP',['../groupsHandle_8c.html#a4369ed57d4c3779df5b0f11389ecee66',1,'groupsHandle.c']]],
+  ['minimal_5fuser_5fpassword',['MINIMAL_USER_PASSWORD',['../logic__backEnd_8c.html#ac2e54baaed0df35f4944e6715046c15c',1,'logic_backEnd.c']]],
+  ['msg_5fbuf_5fsize',['MSG_BUF_SIZE',['../reader_8c.html#a8b8af8bedcac87c0d3c68634448b94a7',1,'MSG_BUF_SIZE():&#160;reader.c'],['../writer_8c.html#a8b8af8bedcac87c0d3c68634448b94a7',1,'MSG_BUF_SIZE():&#160;writer.c']]],
+  ['msg_5fmax_5fsize',['MSG_MAX_SIZE',['../netUDP__MultiCast_8h.html#aa5a2da7fe0739dc631b4f9bc25ca1001',1,'netUDP_MultiCast.h']]]
+];

@@ -1,5 +1,5 @@
 /**
- * @file writer.c
+ *  @file writer.c
  *
  *  @date Jul 18, 2017
  *  @author Yuval Hamberg

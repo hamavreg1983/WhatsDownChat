@@ -1,0 +1,27 @@
+var searchData=
+[
+  ['whatdownchatapp',['WhatDownChatApp',['../md_README.html',1,'']]],
+  ['warn_5fif_5fequal',['WARN_IF_EQUAL',['../defines_8h.html#a7c7272a1bad628cb934eecd48c986cbb',1,'defines.h']]],
+  ['whatdownapp_2ec',['whatdownApp.c',['../whatdownApp_8c.html',1,'']]],
+  ['whatdownbackendapp',['WhatDownBackEndApp',['../structWhatDownBackEndApp.html',1,'']]],
+  ['whatdownbackendapp_2ec',['whatDownBackEndApp.c',['../whatDownBackEndApp_8c.html',1,'']]],
+  ['whatdownbackendapp_2eh',['whatDownBackEndApp.h',['../whatDownBackEndApp_8h.html',1,'']]],
+  ['whatdownbackendapp_5fcreate',['WhatDownBackEndApp_Create',['../whatDownBackEndApp_8c.html#a4e344f9eee062e6fded6a8987e21a64e',1,'WhatDownBackEndApp_Create():&#160;whatDownBackEndApp.c'],['../whatDownBackEndApp_8h.html#a4e344f9eee062e6fded6a8987e21a64e',1,'WhatDownBackEndApp_Create():&#160;whatDownBackEndApp.c']]],
+  ['whatdownbackendapp_5fdestroy',['WhatDownBackEndApp_Destroy',['../whatDownBackEndApp_8c.html#a4c878371a61ce2e982328b964e2bd055',1,'WhatDownBackEndApp_Destroy(WhatDownBackEndApp_t *_appBE):&#160;whatDownBackEndApp.c'],['../whatDownBackEndApp_8h.html#a4c878371a61ce2e982328b964e2bd055',1,'WhatDownBackEndApp_Destroy(WhatDownBackEndApp_t *_appBE):&#160;whatDownBackEndApp.c']]],
+  ['whatdownbackendapp_5frun',['WhatDownBackEndApp_Run',['../whatDownBackEndApp_8c.html#a4aa40afed5ff36e3a3352f4be0904fe2',1,'WhatDownBackEndApp_Run(WhatDownBackEndApp_t *_appBE):&#160;whatDownBackEndApp.c'],['../whatDownBackEndApp_8h.html#a4aa40afed5ff36e3a3352f4be0904fe2',1,'WhatDownBackEndApp_Run(WhatDownBackEndApp_t *_appBE):&#160;whatDownBackEndApp.c']]],
+  ['whatdownbackendapp_5fstop',['WhatDownBackEndApp_Stop',['../whatDownBackEndApp_8c.html#a40596ff1fb8d209afe56adf0cb8b7714',1,'WhatDownBackEndApp_Stop(WhatDownBackEndApp_t *_appBE):&#160;whatDownBackEndApp.c'],['../whatDownBackEndApp_8h.html#a40596ff1fb8d209afe56adf0cb8b7714',1,'WhatDownBackEndApp_Stop(WhatDownBackEndApp_t *_appBE):&#160;whatDownBackEndApp.c']]],
+  ['whatdownbackendapp_5ft',['WhatDownBackEndApp_t',['../whatDownBackEndApp_8h.html#ab2b13456be792e1932d6c846681d9f29',1,'whatDownBackEndApp.h']]],
+  ['whatdownclientapp',['WhatDownClientApp',['../structWhatDownClientApp.html',1,'']]],
+  ['whatdownclientapp_5fcreate',['WhatDownClientApp_Create',['../ClientWhatDownApp_8c.html#a38745052fc0195d05dcd1095ea21ad16',1,'WhatDownClientApp_Create(const char *_serverIP, uint _serverPort):&#160;ClientWhatDownApp.c'],['../ClientWhatDownApp_8h.html#a38745052fc0195d05dcd1095ea21ad16',1,'WhatDownClientApp_Create(const char *_serverIP, uint _serverPort):&#160;ClientWhatDownApp.c']]],
+  ['whatdownclientapp_5fdestroy',['WhatDownClientApp_Destroy',['../ClientWhatDownApp_8c.html#a6e670d4909a00ee1e0ab0fb95fae1ae8',1,'WhatDownClientApp_Destroy(WhatDownClientApp_t *_appBE):&#160;ClientWhatDownApp.c'],['../ClientWhatDownApp_8h.html#a6e670d4909a00ee1e0ab0fb95fae1ae8',1,'WhatDownClientApp_Destroy(WhatDownClientApp_t *_appBE):&#160;ClientWhatDownApp.c']]],
+  ['whatdownclientapp_5frun',['WhatDownClientApp_Run',['../ClientWhatDownApp_8c.html#a57bfc4bbb763e1cc76092a31801bffc9',1,'WhatDownClientApp_Run(WhatDownClientApp_t *_appBE):&#160;ClientWhatDownApp.c'],['../ClientWhatDownApp_8h.html#a57bfc4bbb763e1cc76092a31801bffc9',1,'WhatDownClientApp_Run(WhatDownClientApp_t *_appBE):&#160;ClientWhatDownApp.c']]],
+  ['whatdownclientapp_5fstop',['WhatDownClientApp_Stop',['../ClientWhatDownApp_8c.html#a017a543c395d64453b908a8799af2e13',1,'WhatDownClientApp_Stop(WhatDownClientApp_t *_appBE):&#160;ClientWhatDownApp.c'],['../ClientWhatDownApp_8h.html#a017a543c395d64453b908a8799af2e13',1,'WhatDownClientApp_Stop(WhatDownClientApp_t *_appBE):&#160;ClientWhatDownApp.c']]],
+  ['whatdownclientapp_5ft',['WhatDownClientApp_t',['../ClientWhatDownApp_8c.html#a429138b0d329f6eab4d1560186d17245',1,'WhatDownClientApp_t():&#160;ClientWhatDownApp.c'],['../ClientWhatDownApp_8h.html#ae6173979dac087b358b363ccf068bf46',1,'WhatDownClientApp_t():&#160;ClientWhatDownApp.h']]],
+  ['window_5fhight_5freader',['WINDOW_HIGHT_READER',['../logic__FE_8c.html#a1846be5e979d3ccb7834baf48bd6df35',1,'logic_FE.c']]],
+  ['window_5fhight_5fwriter',['WINDOW_HIGHT_WRITER',['../logic__FE_8c.html#a71b743ff35bdb862dd14c0cc196e4633',1,'logic_FE.c']]],
+  ['window_5fwidth',['WINDOW_WIDTH',['../logic__FE_8c.html#a498d9f026138406895e9a34b504ac6a6',1,'logic_FE.c']]],
+  ['window_5fx_5fpos',['WINDOW_X_POS',['../logic__FE_8c.html#a93c424291ba4db937d9017a296e7d98d',1,'logic_FE.c']]],
+  ['window_5fy_5fpos_5freader',['WINDOW_Y_POS_READER',['../logic__FE_8c.html#a7eb945620c854994d33432123a0417b8',1,'logic_FE.c']]],
+  ['window_5fy_5fpos_5fwriter',['WINDOW_Y_POS_WRITER',['../logic__FE_8c.html#af0b0347ae64eb7b7dc5754bf24c773cc',1,'logic_FE.c']]],
+  ['writer_2ec',['writer.c',['../writer_8c.html',1,'']]]
+];

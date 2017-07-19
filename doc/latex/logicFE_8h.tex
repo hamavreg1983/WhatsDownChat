@@ -1,0 +1,284 @@
+\hypertarget{logicFE_8h}{}\section{front\+End\+\_\+src/logic\+FE.h File Reference}
+\label{logicFE_8h}\index{front\+End\+\_\+src/logic\+F\+E.\+h@{front\+End\+\_\+src/logic\+F\+E.\+h}}
+
+
+handle the logic and decision making for the Front End (client side) of what\+Down char app.  
+
+
+{\ttfamily \#include \char`\"{}defines.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}tcp\+\_\+client.\+h\char`\"{}}\\*
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structLogic__FE}{Logic\+\_\+\+FE} \hyperlink{logicFE_8h_adc22b842bed5c7e594f04d5f5a110b2c}{Logic\+\_\+\+F\+E\+\_\+t}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{Client__ui_8h_adc22b842bed5c7e594f04d5f5a110b2c}{Logic\+\_\+\+F\+E\+\_\+t} $\ast$ \hyperlink{logicFE_8h_a897aed64a236cb1c9f8088549322eda0}{Logic\+F\+E\+\_\+\+Create} (\hyperlink{tcp__client_8h_a3db7b57ed8c85377051fea41ecaf4ff9}{T\+C\+P\+\_\+\+C\+\_\+t} $\ast$net\+Client)
+\begin{DoxyCompactList}\small\item\em create and setup \end{DoxyCompactList}\item 
+void \hyperlink{logicFE_8h_ac2f0d3d07b7703402b7c3edfaee47f0b}{Logic\+F\+E\+\_\+\+Destroy} (\hyperlink{Client__ui_8h_adc22b842bed5c7e594f04d5f5a110b2c}{Logic\+\_\+\+F\+E\+\_\+t} $\ast$\+\_\+logic)
+\begin{DoxyCompactList}\small\item\em cleans up after the processing \end{DoxyCompactList}\item 
+int \hyperlink{logicFE_8h_aaaf2bdc4ead7693a32be3715ca78f1ea}{Logic\+F\+E\+\_\+\+Signup} (\hyperlink{Client__ui_8h_adc22b842bed5c7e594f04d5f5a110b2c}{Logic\+\_\+\+F\+E\+\_\+t} $\ast$\+\_\+logic, const char $\ast$\+\_\+username, const char $\ast$\+\_\+password)
+\begin{DoxyCompactList}\small\item\em Handle the send and receive of Signup request and answer to the server. \end{DoxyCompactList}\item 
+\hyperlink{whatDownBackEndApp_8c_a1062901a7428fdd9c7f180f5e01ea056}{bool} \hyperlink{logicFE_8h_a1d72c6f6615cc7a3d45b023227eef810}{Logic\+F\+E\+\_\+\+Login} (\hyperlink{Client__ui_8h_adc22b842bed5c7e594f04d5f5a110b2c}{Logic\+\_\+\+F\+E\+\_\+t} $\ast$\+\_\+logic, const char $\ast$\+\_\+username, const char $\ast$\+\_\+password)
+\begin{DoxyCompactList}\small\item\em Handle the send and receive of login request and answer to the server. \end{DoxyCompactList}\item 
+int \hyperlink{logicFE_8h_af7404fce9b394415c5eb5d89bc51502f}{Logic\+F\+E\+\_\+\+Create\+Group} (\hyperlink{Client__ui_8h_adc22b842bed5c7e594f04d5f5a110b2c}{Logic\+\_\+\+F\+E\+\_\+t} $\ast$\+\_\+logic, const char $\ast$\+\_\+group\+Name)
+\begin{DoxyCompactList}\small\item\em Handle the send and receive of login request and answer to the server. \end{DoxyCompactList}\item 
+int \hyperlink{logicFE_8h_a4d7b352ee598d5b629fa59c52e355b68}{Logic\+F\+E\+\_\+\+Join\+Group} (\hyperlink{Client__ui_8h_adc22b842bed5c7e594f04d5f5a110b2c}{Logic\+\_\+\+F\+E\+\_\+t} $\ast$\+\_\+logic, const char $\ast$\+\_\+group\+Name)
+\begin{DoxyCompactList}\small\item\em Handle the send and receive of join an existing group request and answer to the server. \end{DoxyCompactList}\item 
+int \hyperlink{logicFE_8h_abca6f34926855185c6ce6d84cb073f75}{Logic\+F\+E\+\_\+\+Get\+All\+Groups\+Name} (\hyperlink{Client__ui_8h_adc22b842bed5c7e594f04d5f5a110b2c}{Logic\+\_\+\+F\+E\+\_\+t} $\ast$\+\_\+logic, char $\ast$\+\_\+\+Groups\+Name\+\_\+out, \hyperlink{tcp_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint} $\ast$\+\_\+num\+Of\+Groups\+\_\+out, \hyperlink{tcp_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint} \+\_\+buffer\+Size)
+\begin{DoxyCompactList}\small\item\em Handle the send and receive of join an existing group request and answer to the server. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+handle the logic and decision making for the Front End (client side) of what\+Down char app. 
+
+\begin{DoxyDate}{Date}
+Jul 16, 2017 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Yuval Hamberg 
+\end{DoxyAuthor}
+
+
+\subsection{Typedef Documentation}
+\index{logic\+F\+E.\+h@{logic\+F\+E.\+h}!Logic\+\_\+\+F\+E\+\_\+t@{Logic\+\_\+\+F\+E\+\_\+t}}
+\index{Logic\+\_\+\+F\+E\+\_\+t@{Logic\+\_\+\+F\+E\+\_\+t}!logic\+F\+E.\+h@{logic\+F\+E.\+h}}
+\subsubsection[{\texorpdfstring{Logic\+\_\+\+F\+E\+\_\+t}{Logic_FE_t}}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf Logic\+\_\+\+FE} {\bf Logic\+\_\+\+F\+E\+\_\+t}}\hypertarget{logicFE_8h_adc22b842bed5c7e594f04d5f5a110b2c}{}\label{logicFE_8h_adc22b842bed5c7e594f04d5f5a110b2c}
+
+
+Definition at line 21 of file logic\+F\+E.\+h.
+
+
+
+\subsection{Function Documentation}
+\index{logic\+F\+E.\+h@{logic\+F\+E.\+h}!Logic\+F\+E\+\_\+\+Create@{Logic\+F\+E\+\_\+\+Create}}
+\index{Logic\+F\+E\+\_\+\+Create@{Logic\+F\+E\+\_\+\+Create}!logic\+F\+E.\+h@{logic\+F\+E.\+h}}
+\subsubsection[{\texorpdfstring{Logic\+F\+E\+\_\+\+Create(\+T\+C\+P\+\_\+\+C\+\_\+t $\ast$net\+Client)}{LogicFE_Create(TCP_C_t *netClient)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Logic\+\_\+\+F\+E\+\_\+t}$\ast$ Logic\+F\+E\+\_\+\+Create (
+\begin{DoxyParamCaption}
+\item[{{\bf T\+C\+P\+\_\+\+C\+\_\+t} $\ast$}]{net\+Client}
+\end{DoxyParamCaption}
+)}\hypertarget{logicFE_8h_a897aed64a236cb1c9f8088549322eda0}{}\label{logicFE_8h_a897aed64a236cb1c9f8088549322eda0}
+
+
+create and setup 
+
+
+\begin{DoxyParams}{Parameters}
+{\em net\+Client} & a pointer to the T\+CP net for client connection \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the pointer to the struct 
+\end{DoxyReturn}
+
+
+Definition at line 52 of file logic\+\_\+\+F\+E.\+c.
+
+
+
+References Logic\+\_\+\+F\+E\+::m\+\_\+magic\+Numer, Logic\+\_\+\+F\+E\+::m\+\_\+net\+Client, Logic\+\_\+\+F\+E\+::m\+\_\+recivebuf, Logic\+\_\+\+F\+E\+::m\+\_\+user\+Name, and M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+A\+L\+I\+V\+E\+\_\+\+L\+O\+G\+I\+C\+\_\+\+FE.
+
+
+
+Referenced by What\+Down\+Client\+App\+\_\+\+Create().
+
+\index{logic\+F\+E.\+h@{logic\+F\+E.\+h}!Logic\+F\+E\+\_\+\+Create\+Group@{Logic\+F\+E\+\_\+\+Create\+Group}}
+\index{Logic\+F\+E\+\_\+\+Create\+Group@{Logic\+F\+E\+\_\+\+Create\+Group}!logic\+F\+E.\+h@{logic\+F\+E.\+h}}
+\subsubsection[{\texorpdfstring{Logic\+F\+E\+\_\+\+Create\+Group(\+Logic\+\_\+\+F\+E\+\_\+t $\ast$\+\_\+logic, const char $\ast$\+\_\+group\+Name)}{LogicFE_CreateGroup(Logic_FE_t *_logic, const char *_groupName)}}]{\setlength{\rightskip}{0pt plus 5cm}int Logic\+F\+E\+\_\+\+Create\+Group (
+\begin{DoxyParamCaption}
+\item[{{\bf Logic\+\_\+\+F\+E\+\_\+t} $\ast$}]{\+\_\+logic, }
+\item[{const char $\ast$}]{\+\_\+group\+Name}
+\end{DoxyParamCaption}
+)}\hypertarget{logicFE_8h_af7404fce9b394415c5eb5d89bc51502f}{}\label{logicFE_8h_af7404fce9b394415c5eb5d89bc51502f}
+
+
+Handle the send and receive of login request and answer to the server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+logic} & the pointer to the module struct. \\
+\hline
+{\em \+\_\+group\+Name} & char$\ast$ the group name to be created. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+T\+R\+UE for success. F\+A\+L\+SE for fail 
+\end{DoxyReturn}
+
+
+Definition at line 163 of file logic\+\_\+\+F\+E.\+c.
+
+
+
+References Back\+End\+\_\+\+S\+U\+C\+C\+E\+SS, Is\+Struct\+Valid(), Client\+Receive\+Message\+::m\+\_\+group\+Adrres, Logic\+\_\+\+F\+E\+::m\+\_\+net\+Client, Logic\+\_\+\+F\+E\+::m\+\_\+recivebuf, Logic\+\_\+\+F\+E\+::m\+\_\+user\+Name, M\+A\+X\+\_\+\+M\+E\+S\+S\+A\+G\+E\+\_\+\+L\+E\+N\+G\+TH, and Protocol\+\_\+\+Encode\+New\+Group().
+
+
+
+Referenced by Create\+New\+Group\+Function().
+
+\index{logic\+F\+E.\+h@{logic\+F\+E.\+h}!Logic\+F\+E\+\_\+\+Destroy@{Logic\+F\+E\+\_\+\+Destroy}}
+\index{Logic\+F\+E\+\_\+\+Destroy@{Logic\+F\+E\+\_\+\+Destroy}!logic\+F\+E.\+h@{logic\+F\+E.\+h}}
+\subsubsection[{\texorpdfstring{Logic\+F\+E\+\_\+\+Destroy(\+Logic\+\_\+\+F\+E\+\_\+t $\ast$\+\_\+logic)}{LogicFE_Destroy(Logic_FE_t *_logic)}}]{\setlength{\rightskip}{0pt plus 5cm}void Logic\+F\+E\+\_\+\+Destroy (
+\begin{DoxyParamCaption}
+\item[{{\bf Logic\+\_\+\+F\+E\+\_\+t} $\ast$}]{\+\_\+logic}
+\end{DoxyParamCaption}
+)}\hypertarget{logicFE_8h_ac2f0d3d07b7703402b7c3edfaee47f0b}{}\label{logicFE_8h_ac2f0d3d07b7703402b7c3edfaee47f0b}
+
+
+cleans up after the processing 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+logic} & \\
+\hline
+\end{DoxyParams}
+\index{logic\+F\+E.\+h@{logic\+F\+E.\+h}!Logic\+F\+E\+\_\+\+Get\+All\+Groups\+Name@{Logic\+F\+E\+\_\+\+Get\+All\+Groups\+Name}}
+\index{Logic\+F\+E\+\_\+\+Get\+All\+Groups\+Name@{Logic\+F\+E\+\_\+\+Get\+All\+Groups\+Name}!logic\+F\+E.\+h@{logic\+F\+E.\+h}}
+\subsubsection[{\texorpdfstring{Logic\+F\+E\+\_\+\+Get\+All\+Groups\+Name(\+Logic\+\_\+\+F\+E\+\_\+t $\ast$\+\_\+logic, char $\ast$\+\_\+\+Groups\+Name\+\_\+out, uint $\ast$\+\_\+num\+Of\+Groups\+\_\+out, uint \+\_\+buffer\+Size)}{LogicFE_GetAllGroupsName(Logic_FE_t *_logic, char *_GroupsName_out, uint *_numOfGroups_out, uint _bufferSize)}}]{\setlength{\rightskip}{0pt plus 5cm}int Logic\+F\+E\+\_\+\+Get\+All\+Groups\+Name (
+\begin{DoxyParamCaption}
+\item[{{\bf Logic\+\_\+\+F\+E\+\_\+t} $\ast$}]{\+\_\+logic, }
+\item[{char $\ast$}]{\+\_\+\+Groups\+Name\+\_\+out, }
+\item[{{\bf uint} $\ast$}]{\+\_\+num\+Of\+Groups\+\_\+out, }
+\item[{{\bf uint}}]{\+\_\+buffer\+Size}
+\end{DoxyParamCaption}
+)}\hypertarget{logicFE_8h_abca6f34926855185c6ce6d84cb073f75}{}\label{logicFE_8h_abca6f34926855185c6ce6d84cb073f75}
+
+
+Handle the send and receive of join an existing group request and answer to the server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+logic} & the pointer to the module struct. \\
+\hline
+{\em \+\_\+\+Groups\+Name\+\_\+out} & a string with all the groups name. divided by delimiter \\
+\hline
+{\em \+\_\+num\+Of\+Groups\+\_\+out} & how many group have been read. \\
+\hline
+{\em \+\_\+buffer\+Size} & the max size of buffer to be copied to. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 252 of file logic\+\_\+\+F\+E.\+c.
+
+
+
+References Back\+End\+\_\+\+S\+U\+C\+C\+E\+SS, Back\+End\+\_\+\+S\+Y\+S\+T\+E\+M\+\_\+\+F\+A\+IL, F\+A\+L\+SE, Is\+Struct\+Valid(), Client\+Receive\+Message\+::m\+\_\+\+Group\+Name, Logic\+\_\+\+F\+E\+::m\+\_\+magic\+Numer, Client\+Receive\+Message\+::m\+\_\+message\+Type, Logic\+\_\+\+F\+E\+::m\+\_\+net\+Client, Client\+Receive\+Message\+::m\+\_\+number\+Of\+Groups, Logic\+\_\+\+F\+E\+::m\+\_\+recivebuf, Client\+Receive\+Message\+::m\+\_\+status, M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+A\+L\+I\+V\+E\+\_\+\+L\+O\+G\+I\+C\+\_\+\+FE, M\+A\+X\+\_\+\+M\+E\+S\+S\+A\+G\+E\+\_\+\+L\+E\+N\+G\+TH, Protocol\+\_\+\+Decode\+Client(), Protocol\+\_\+\+Encode\+Get\+All\+Groups(), T\+C\+P\+\_\+\+Client\+Recive(), T\+C\+P\+\_\+\+Client\+Send(), and T\+R\+UE.
+
+
+
+Referenced by Get\+All\+Gruop\+Function().
+
+\index{logic\+F\+E.\+h@{logic\+F\+E.\+h}!Logic\+F\+E\+\_\+\+Join\+Group@{Logic\+F\+E\+\_\+\+Join\+Group}}
+\index{Logic\+F\+E\+\_\+\+Join\+Group@{Logic\+F\+E\+\_\+\+Join\+Group}!logic\+F\+E.\+h@{logic\+F\+E.\+h}}
+\subsubsection[{\texorpdfstring{Logic\+F\+E\+\_\+\+Join\+Group(\+Logic\+\_\+\+F\+E\+\_\+t $\ast$\+\_\+logic, const char $\ast$\+\_\+group\+Name)}{LogicFE_JoinGroup(Logic_FE_t *_logic, const char *_groupName)}}]{\setlength{\rightskip}{0pt plus 5cm}int Logic\+F\+E\+\_\+\+Join\+Group (
+\begin{DoxyParamCaption}
+\item[{{\bf Logic\+\_\+\+F\+E\+\_\+t} $\ast$}]{\+\_\+logic, }
+\item[{const char $\ast$}]{\+\_\+group\+Name}
+\end{DoxyParamCaption}
+)}\hypertarget{logicFE_8h_a4d7b352ee598d5b629fa59c52e355b68}{}\label{logicFE_8h_a4d7b352ee598d5b629fa59c52e355b68}
+
+
+Handle the send and receive of join an existing group request and answer to the server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+logic} & the pointer to the module struct. \\
+\hline
+{\em \+\_\+group\+Name} & char$\ast$ the group name to be created. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+T\+R\+UE for success. F\+A\+L\+SE for fail 
+\end{DoxyReturn}
+
+
+Definition at line 207 of file logic\+\_\+\+F\+E.\+c.
+
+
+
+References Back\+End\+\_\+\+S\+U\+C\+C\+E\+SS, Is\+Struct\+Valid(), Client\+Receive\+Message\+::m\+\_\+group\+Adrres, Logic\+\_\+\+F\+E\+::m\+\_\+net\+Client, Logic\+\_\+\+F\+E\+::m\+\_\+recivebuf, Logic\+\_\+\+F\+E\+::m\+\_\+user\+Name, M\+A\+X\+\_\+\+M\+E\+S\+S\+A\+G\+E\+\_\+\+L\+E\+N\+G\+TH, and Protocol\+\_\+\+Encode\+Join\+Group().
+
+
+
+Referenced by Join\+Gruop\+Function().
+
+\index{logic\+F\+E.\+h@{logic\+F\+E.\+h}!Logic\+F\+E\+\_\+\+Login@{Logic\+F\+E\+\_\+\+Login}}
+\index{Logic\+F\+E\+\_\+\+Login@{Logic\+F\+E\+\_\+\+Login}!logic\+F\+E.\+h@{logic\+F\+E.\+h}}
+\subsubsection[{\texorpdfstring{Logic\+F\+E\+\_\+\+Login(\+Logic\+\_\+\+F\+E\+\_\+t $\ast$\+\_\+logic, const char $\ast$\+\_\+username, const char $\ast$\+\_\+password)}{LogicFE_Login(Logic_FE_t *_logic, const char *_username, const char *_password)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} Logic\+F\+E\+\_\+\+Login (
+\begin{DoxyParamCaption}
+\item[{{\bf Logic\+\_\+\+F\+E\+\_\+t} $\ast$}]{\+\_\+logic, }
+\item[{const char $\ast$}]{\+\_\+username, }
+\item[{const char $\ast$}]{\+\_\+password}
+\end{DoxyParamCaption}
+)}\hypertarget{logicFE_8h_a1d72c6f6615cc7a3d45b023227eef810}{}\label{logicFE_8h_a1d72c6f6615cc7a3d45b023227eef810}
+
+
+Handle the send and receive of login request and answer to the server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+logic} & the pointer to the module struct. \\
+\hline
+{\em \+\_\+username} & char$\ast$ msg \\
+\hline
+{\em \+\_\+password} & char$\ast$ msg \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+T\+R\+UE for success. F\+A\+L\+SE for fail 
+\end{DoxyReturn}
+
+
+Definition at line 122 of file logic\+\_\+\+F\+E.\+c.
+
+
+
+References Back\+End\+\_\+\+S\+U\+C\+C\+E\+SS, G\+E\+N\+\_\+\+E\+R\+R\+OR, Is\+Struct\+Valid(), Logic\+\_\+\+F\+E\+::m\+\_\+net\+Client, Logic\+\_\+\+F\+E\+::m\+\_\+recivebuf, Logic\+\_\+\+F\+E\+::m\+\_\+user\+Name, M\+A\+X\+\_\+\+M\+E\+S\+S\+A\+G\+E\+\_\+\+L\+E\+N\+G\+TH, and Protocol\+\_\+\+Encode\+Log\+In().
+
+
+
+Referenced by Login\+Function().
+
+\index{logic\+F\+E.\+h@{logic\+F\+E.\+h}!Logic\+F\+E\+\_\+\+Signup@{Logic\+F\+E\+\_\+\+Signup}}
+\index{Logic\+F\+E\+\_\+\+Signup@{Logic\+F\+E\+\_\+\+Signup}!logic\+F\+E.\+h@{logic\+F\+E.\+h}}
+\subsubsection[{\texorpdfstring{Logic\+F\+E\+\_\+\+Signup(\+Logic\+\_\+\+F\+E\+\_\+t $\ast$\+\_\+logic, const char $\ast$\+\_\+username, const char $\ast$\+\_\+password)}{LogicFE_Signup(Logic_FE_t *_logic, const char *_username, const char *_password)}}]{\setlength{\rightskip}{0pt plus 5cm}int Logic\+F\+E\+\_\+\+Signup (
+\begin{DoxyParamCaption}
+\item[{{\bf Logic\+\_\+\+F\+E\+\_\+t} $\ast$}]{\+\_\+logic, }
+\item[{const char $\ast$}]{\+\_\+username, }
+\item[{const char $\ast$}]{\+\_\+password}
+\end{DoxyParamCaption}
+)}\hypertarget{logicFE_8h_aaaf2bdc4ead7693a32be3715ca78f1ea}{}\label{logicFE_8h_aaaf2bdc4ead7693a32be3715ca78f1ea}
+
+
+Handle the send and receive of Signup request and answer to the server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+logic} & the pointer to the module struct. \\
+\hline
+{\em \+\_\+username} & char$\ast$ msg \\
+\hline
+{\em \+\_\+password} & char$\ast$ msg \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+T\+R\+UE for success. F\+A\+L\+SE for fail 
+\end{DoxyReturn}
+
+
+Definition at line 82 of file logic\+\_\+\+F\+E.\+c.
+
+
+
+References Back\+End\+\_\+\+S\+U\+C\+C\+E\+SS, G\+E\+N\+\_\+\+E\+R\+R\+OR, Is\+Struct\+Valid(), Logic\+\_\+\+F\+E\+::m\+\_\+net\+Client, Logic\+\_\+\+F\+E\+::m\+\_\+recivebuf, Logic\+\_\+\+F\+E\+::m\+\_\+user\+Name, M\+A\+X\+\_\+\+M\+E\+S\+S\+A\+G\+E\+\_\+\+L\+E\+N\+G\+TH, and Protocol\+\_\+\+Encode\+Sign\+Up().
+
+
+
+Referenced by Signup\+Function().
+

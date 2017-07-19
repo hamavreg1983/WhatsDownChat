@@ -1,0 +1,60 @@
+\hypertarget{client__userInput_8c}{}\section{front\+End\+\_\+src/client\+\_\+user\+Input.c File Reference}
+\label{client__userInput_8c}\index{front\+End\+\_\+src/client\+\_\+user\+Input.\+c@{front\+End\+\_\+src/client\+\_\+user\+Input.\+c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}defines.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Protocol.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}tcp\+\_\+client.\+h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{client__userInput_8c_a17e333794ae761cd55ec6fd6fc0f1bac}{M\+A\+X\+\_\+\+M\+S\+G\+\_\+\+S\+I\+ZE}~1024
+\item 
+\#define \hyperlink{client__userInput_8c_ab9f5b30d33c2cf2507381b694b186a8e}{N\+D\+B\+UG}~/$\ast$ remove for debug $\ast$/
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{client__userInput_8c_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\index{client\+\_\+user\+Input.\+c@{client\+\_\+user\+Input.\+c}!M\+A\+X\+\_\+\+M\+S\+G\+\_\+\+S\+I\+ZE@{M\+A\+X\+\_\+\+M\+S\+G\+\_\+\+S\+I\+ZE}}
+\index{M\+A\+X\+\_\+\+M\+S\+G\+\_\+\+S\+I\+ZE@{M\+A\+X\+\_\+\+M\+S\+G\+\_\+\+S\+I\+ZE}!client\+\_\+user\+Input.\+c@{client\+\_\+user\+Input.\+c}}
+\subsubsection[{\texorpdfstring{M\+A\+X\+\_\+\+M\+S\+G\+\_\+\+S\+I\+ZE}{MAX_MSG_SIZE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+A\+X\+\_\+\+M\+S\+G\+\_\+\+S\+I\+ZE~1024}\hypertarget{client__userInput_8c_a17e333794ae761cd55ec6fd6fc0f1bac}{}\label{client__userInput_8c_a17e333794ae761cd55ec6fd6fc0f1bac}
+
+
+Definition at line 16 of file client\+\_\+user\+Input.\+c.
+
+
+
+Referenced by main().
+
+\index{client\+\_\+user\+Input.\+c@{client\+\_\+user\+Input.\+c}!N\+D\+B\+UG@{N\+D\+B\+UG}}
+\index{N\+D\+B\+UG@{N\+D\+B\+UG}!client\+\_\+user\+Input.\+c@{client\+\_\+user\+Input.\+c}}
+\subsubsection[{\texorpdfstring{N\+D\+B\+UG}{NDBUG}}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\+D\+B\+UG~/$\ast$ remove for debug $\ast$/}\hypertarget{client__userInput_8c_ab9f5b30d33c2cf2507381b694b186a8e}{}\label{client__userInput_8c_ab9f5b30d33c2cf2507381b694b186a8e}
+
+
+Definition at line 17 of file client\+\_\+user\+Input.\+c.
+
+
+
+\subsection{Function Documentation}
+\index{client\+\_\+user\+Input.\+c@{client\+\_\+user\+Input.\+c}!main@{main}}
+\index{main@{main}!client\+\_\+user\+Input.\+c@{client\+\_\+user\+Input.\+c}}
+\subsubsection[{\texorpdfstring{main(int argc, char $\ast$argv[])}{main(int argc, char *argv[])}}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}\hypertarget{client__userInput_8c_a0ddf1224851353fc92bfbff6f499fa97}{}\label{client__userInput_8c_a0ddf1224851353fc92bfbff6f499fa97}
+
+
+Definition at line 20 of file client\+\_\+user\+Input.\+c.
+
+
+
+References Client\+Receive\+Message\+::m\+\_\+message\+Type, Client\+Receive\+Message\+::m\+\_\+status, M\+A\+X\+\_\+\+M\+S\+G\+\_\+\+S\+I\+ZE, Protocol\+\_\+\+Decode\+Client(), Protocol\+\_\+\+Encode\+Sign\+Up(), sanity\+\_\+check(), T\+C\+P\+\_\+\+Client\+Recive(), T\+C\+P\+\_\+\+Client\+Send(), T\+C\+P\+\_\+\+Create\+Client(), T\+C\+P\+\_\+\+Destroy\+Client(), and T\+R\+UE.
+

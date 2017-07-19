@@ -1,0 +1,102 @@
+\hypertarget{tlv_8c}{}\section{comm/tlv.c File Reference}
+\label{tlv_8c}\index{comm/tlv.\+c@{comm/tlv.\+c}}
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$err.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}tlv.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}defines.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{tlv_8h_ae18a348386ce12478f6b5774e0ae7dff}{T\+L\+V\+\_\+\+Result} \hyperlink{tlv_8c_a02a4e2ac79455417af196c96af4830c2}{T\+L\+V\+\_\+encoder} (char $\ast$\+\_\+input\+Str, char \+\_\+datatype, \hyperlink{defines_8h_a4840c4503b7d10cea5e08416eb3716f1}{Uint} data\+Lenght, char $\ast$\+\_\+tlved\+String, \hyperlink{defines_8h_a4840c4503b7d10cea5e08416eb3716f1}{Uint} $\ast$\+\_\+tlved\+String\+Length)
+\begin{DoxyCompactList}\small\item\em T\+L\+V\+\_\+encoder. \end{DoxyCompactList}\item 
+\hyperlink{tlv_8h_ae18a348386ce12478f6b5774e0ae7dff}{T\+L\+V\+\_\+\+Result} \hyperlink{tlv_8c_a28e7d81a75f997e6e15b818be6b6a789}{T\+L\+V\+\_\+decode} (char $\ast$\+\_\+\+T\+L\+V\+\_\+\+String, \hyperlink{defines_8h_a4840c4503b7d10cea5e08416eb3716f1}{Uint} \+\_\+\+T\+L\+V\+\_\+\+String\+Length, char $\ast$\+\_\+decoded\+Str, \hyperlink{defines_8h_a4840c4503b7d10cea5e08416eb3716f1}{Uint} $\ast$\+\_\+decoded\+Str\+Length, char $\ast$\+\_\+datatype\+Found, char $\ast$$\ast$\+\_\+next\+T\+L\+V\+\_\+\+Ptr, \hyperlink{defines_8h_a4840c4503b7d10cea5e08416eb3716f1}{Uint} $\ast$\+\_\+next\+T\+L\+V\+\_\+\+Lenth)
+\begin{DoxyCompactList}\small\item\em T\+L\+V\+\_\+decode. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\index{tlv.\+c@{tlv.\+c}!T\+L\+V\+\_\+decode@{T\+L\+V\+\_\+decode}}
+\index{T\+L\+V\+\_\+decode@{T\+L\+V\+\_\+decode}!tlv.\+c@{tlv.\+c}}
+\subsubsection[{\texorpdfstring{T\+L\+V\+\_\+decode(char $\ast$\+\_\+\+T\+L\+V\+\_\+\+String, Uint \+\_\+\+T\+L\+V\+\_\+\+String\+Length, char $\ast$\+\_\+decoded\+Str, Uint $\ast$\+\_\+decoded\+Str\+Length, char $\ast$\+\_\+datatype\+Found, char $\ast$$\ast$\+\_\+next\+T\+L\+V\+\_\+\+Ptr, Uint $\ast$\+\_\+next\+T\+L\+V\+\_\+\+Lenth)}{TLV_decode(char *_TLV_String, Uint _TLV_StringLength, char *_decodedStr, Uint *_decodedStrLength, char *_datatypeFound, char **_nextTLV_Ptr, Uint *_nextTLV_Lenth)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\+L\+V\+\_\+\+Result} T\+L\+V\+\_\+decode (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{\+\_\+\+T\+L\+V\+\_\+\+String, }
+\item[{{\bf Uint}}]{\+\_\+\+T\+L\+V\+\_\+\+String\+Length, }
+\item[{char $\ast$}]{\+\_\+decoded\+Str, }
+\item[{{\bf Uint} $\ast$}]{\+\_\+decoded\+Str\+Length, }
+\item[{char $\ast$}]{\+\_\+datatype\+Found, }
+\item[{char $\ast$$\ast$}]{\+\_\+next\+T\+L\+V\+\_\+\+Ptr, }
+\item[{{\bf Uint} $\ast$}]{\+\_\+next\+T\+L\+V\+\_\+\+Lenth}
+\end{DoxyParamCaption}
+)}\hypertarget{tlv_8c_a28e7d81a75f997e6e15b818be6b6a789}{}\label{tlv_8c_a28e7d81a75f997e6e15b818be6b6a789}
+
+
+T\+L\+V\+\_\+decode. 
+
+decode a stream of information.
+
+\mbox{[}in\mbox{]} char$\ast$ \+\_\+\+T\+L\+V\+\_\+\+String\+: the stream of information. \mbox{[}in\mbox{]} Uint \+\_\+\+T\+L\+V\+\_\+\+String\+Length\+: the stream of information length in bytes.
+
+\mbox{[}out\mbox{]} char$\ast$ \+\_\+decoded\+Str\+: the information inside the stream. \mbox{[}out\mbox{]} Uint$\ast$ \+\_\+decoded\+Str\+Length\+: the information inside the stream length in bytes.. \mbox{[}out\mbox{]} char$\ast$ \+\_\+datatype\+Found\+: data type reprentation. \mbox{[}out\mbox{]} char$\ast$$\ast$ \+\_\+next\+T\+L\+V\+\_\+\+Ptr\+: pointer to the next call if user wants. \mbox{[}out\mbox{]} Uint$\ast$ \+\_\+next\+T\+L\+V\+\_\+\+Lenth\+: the length in bytes of the next call.
+
+\begin{DoxyReturn}{Returns}
+check retuen values in above T\+L\+V\+\_\+\+Result enum. 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em T\+L\+V\+\_\+\+Result} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 53 of file tlv.\+c.
+
+
+
+References T\+L\+V\+\_\+\+I\+N\+P\+U\+T\+\_\+\+E\+R\+R\+OR, T\+L\+V\+\_\+\+L\+E\+N\+G\+T\+H\+\_\+\+L\+E\+N\+G\+TH, T\+L\+V\+\_\+\+M\+O\+R\+E\+\_\+\+T\+L\+V\+S\+\_\+\+T\+O\+\_\+\+D\+E\+C\+O\+DE, T\+L\+V\+\_\+\+S\+U\+C\+C\+E\+SS, T\+L\+V\+\_\+\+T\+R\+A\+N\+C\+A\+T\+E\+D\+\_\+\+T\+LV, and T\+L\+V\+\_\+\+T\+Y\+P\+E\+\_\+\+L\+E\+N\+G\+TH.
+
+
+
+Referenced by Protocol\+\_\+\+Decode\+Client(), and Protocol\+\_\+\+Decode\+Server().
+
+\index{tlv.\+c@{tlv.\+c}!T\+L\+V\+\_\+encoder@{T\+L\+V\+\_\+encoder}}
+\index{T\+L\+V\+\_\+encoder@{T\+L\+V\+\_\+encoder}!tlv.\+c@{tlv.\+c}}
+\subsubsection[{\texorpdfstring{T\+L\+V\+\_\+encoder(char $\ast$\+\_\+input\+Str, char \+\_\+datatype, Uint data\+Lenght, char $\ast$\+\_\+tlved\+String, Uint $\ast$\+\_\+tlved\+String\+Length)}{TLV_encoder(char *_inputStr, char _datatype, Uint dataLenght, char *_tlvedString, Uint *_tlvedStringLength)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\+L\+V\+\_\+\+Result} T\+L\+V\+\_\+encoder (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{\+\_\+input\+Str, }
+\item[{char}]{\+\_\+data\+Type, }
+\item[{{\bf Uint}}]{data\+Lenght, }
+\item[{char $\ast$}]{\+\_\+tlved\+String, }
+\item[{{\bf Uint} $\ast$}]{\+\_\+tlved\+String\+Length}
+\end{DoxyParamCaption}
+)}\hypertarget{tlv_8c_a02a4e2ac79455417af196c96af4830c2}{}\label{tlv_8c_a02a4e2ac79455417af196c96af4830c2}
+
+
+T\+L\+V\+\_\+encoder. 
+
+encode a stream of information.
+
+\mbox{[}in\mbox{]} char$\ast$ \+\_\+input\+Str\+: information to be encoded \mbox{[}in\mbox{]} char \+\_\+data\+Type\+: the type of information encoded \mbox{[}in\mbox{]} Uint data\+Lenght\+: the length of information in bytes.
+
+\mbox{[}out\mbox{]} char$\ast$ \+\_\+tlved\+String\+: the encoded information \mbox{[}out\mbox{]} Uint$\ast$ \+\_\+tlved\+String\+Length\+: the encoded information length in bytes.
+
+\begin{DoxyReturn}{Returns}
+check retuen values in above T\+L\+V\+\_\+\+Result enum. 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em T\+L\+V\+\_\+\+Result} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 26 of file tlv.\+c.
+
+
+
+References T\+L\+V\+\_\+\+I\+N\+P\+U\+T\+\_\+\+E\+R\+R\+OR, T\+L\+V\+\_\+\+L\+E\+N\+G\+T\+H\+\_\+\+L\+E\+N\+G\+TH, T\+L\+V\+\_\+\+S\+U\+C\+C\+E\+SS, and T\+L\+V\+\_\+\+U\+N\+K\+N\+O\+W\+N\+\_\+\+E\+R\+R\+OR.
+
+
+
+Referenced by Protocol\+\_\+\+Encode\+Get\+All\+Groups(), Protocol\+\_\+\+Encode\+Get\+All\+Groups\+\_\+\+Response(), Protocol\+\_\+\+Encode\+Join\+Group(), Protocol\+\_\+\+Encode\+Join\+Group\+\_\+\+Response(), Protocol\+\_\+\+Encode\+Log\+In(), Protocol\+\_\+\+Encode\+Log\+In\+\_\+\+Response(), Protocol\+\_\+\+Encode\+New\+Group(), Protocol\+\_\+\+Encode\+New\+Group\+\_\+\+Response(), Protocol\+\_\+\+Encode\+Sign\+Up(), and Protocol\+\_\+\+Encode\+Sign\+Up\+\_\+\+Response().
+

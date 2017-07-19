@@ -1,0 +1,202 @@
+\hypertarget{structTCP__S}{}\section{T\+C\+P\+\_\+S Struct Reference}
+\label{structTCP__S}\index{T\+C\+P\+\_\+S@{T\+C\+P\+\_\+S}}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{structTCP__S_affe8822a76f550fd7011539d9c2ce155}{m\+\_\+magic\+Number}
+\item 
+int \hyperlink{structTCP__S_a77a2c693cfe0dcb321ae26f6cf347ab9}{m\+\_\+connection\+Capacity}
+\item 
+int \hyperlink{structTCP__S_a0022d3a92a532a6f37c10db899d6cd47}{m\+\_\+connected\+Num}
+\item 
+int \hyperlink{structTCP__S_a4f0bcd2854168cda93a59f669862ca55}{m\+\_\+listen\+Socket}
+\item 
+\hyperlink{structlist__t}{list\+\_\+t} $\ast$ \hyperlink{structTCP__S_afb801954f53bf1fb313f029d88652983}{m\+\_\+sockets}
+\item 
+\hyperlink{tcp_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint} \hyperlink{structTCP__S_ac536669390573b25c18bc10e6c26e574}{m\+\_\+server\+Port}
+\item 
+char \hyperlink{structTCP__S_a138ef40bec23d2e437f836991c85bf4b}{m\+\_\+server\+IP} \mbox{[}I\+N\+E\+T6\+\_\+\+A\+D\+D\+R\+S\+T\+R\+L\+EN\mbox{]}
+\item 
+\hyperlink{tcp_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint} \hyperlink{structTCP__S_afc87ad30c304937fd494aa6c93f39801}{m\+\_\+timeout\+MS}
+\item 
+\hyperlink{whatDownBackEndApp_8c_a1062901a7428fdd9c7f180f5e01ea056}{bool} \hyperlink{structTCP__S_a5f5f617932576fbab6f37206c233145c}{m\+\_\+is\+Server\+Run}
+\item 
+\hyperlink{tcp_8h_a03acbb6cbffc391f3be83fa353e5f89c}{user\+Action\+Func} \hyperlink{structTCP__S_ab10be5833a35a4ae1a6e3a96547d5c2b}{m\+\_\+recive\+Data\+Func}
+\item 
+\hyperlink{tcp_8h_a12b172b17797d0f66fd06ef346b5bf30}{client\+Connection\+Change\+Func} \hyperlink{structTCP__S_a56336f3f871b6a2ed804c7d788bc1990}{m\+\_\+new\+Connection\+Func}
+\item 
+\hyperlink{tcp_8h_a12b172b17797d0f66fd06ef346b5bf30}{client\+Connection\+Change\+Func} \hyperlink{structTCP__S_a31a864e5f7dc9f1c70aee2dd4be25601}{m\+\_\+closed\+Connection\+Func}
+\item 
+\hyperlink{tcp_8h_a6abfbec9c242e3862442d5d899d8a3bd}{error\+Func} \hyperlink{structTCP__S_ad047d75ba90917949677d9f6af69c017}{m\+\_\+error\+Func}
+\item 
+void $\ast$ \hyperlink{structTCP__S_a998879b4718153a64a41bc2e4c4e97b8}{m\+\_\+contex}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 44 of file tcp.\+c.
+
+
+
+\subsection{Field Documentation}
+\index{T\+C\+P\+\_\+S@{T\+C\+P\+\_\+S}!m\+\_\+closed\+Connection\+Func@{m\+\_\+closed\+Connection\+Func}}
+\index{m\+\_\+closed\+Connection\+Func@{m\+\_\+closed\+Connection\+Func}!T\+C\+P\+\_\+S@{T\+C\+P\+\_\+S}}
+\subsubsection[{\texorpdfstring{m\+\_\+closed\+Connection\+Func}{m_closedConnectionFunc}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf client\+Connection\+Change\+Func} T\+C\+P\+\_\+\+S\+::m\+\_\+closed\+Connection\+Func}\hypertarget{structTCP__S_a31a864e5f7dc9f1c70aee2dd4be25601}{}\label{structTCP__S_a31a864e5f7dc9f1c70aee2dd4be25601}
+
+
+Definition at line 62 of file tcp.\+c.
+
+
+
+Referenced by T\+C\+P\+\_\+\+Create\+Server(), and T\+C\+P\+\_\+\+Recive().
+
+\index{T\+C\+P\+\_\+S@{T\+C\+P\+\_\+S}!m\+\_\+connected\+Num@{m\+\_\+connected\+Num}}
+\index{m\+\_\+connected\+Num@{m\+\_\+connected\+Num}!T\+C\+P\+\_\+S@{T\+C\+P\+\_\+S}}
+\subsubsection[{\texorpdfstring{m\+\_\+connected\+Num}{m_connectedNum}}]{\setlength{\rightskip}{0pt plus 5cm}int T\+C\+P\+\_\+\+S\+::m\+\_\+connected\+Num}\hypertarget{structTCP__S_a0022d3a92a532a6f37c10db899d6cd47}{}\label{structTCP__S_a0022d3a92a532a6f37c10db899d6cd47}
+
+
+Definition at line 49 of file tcp.\+c.
+
+
+
+Referenced by T\+C\+P\+\_\+\+Create\+Server(), and T\+C\+P\+\_\+\+Recive().
+
+\index{T\+C\+P\+\_\+S@{T\+C\+P\+\_\+S}!m\+\_\+connection\+Capacity@{m\+\_\+connection\+Capacity}}
+\index{m\+\_\+connection\+Capacity@{m\+\_\+connection\+Capacity}!T\+C\+P\+\_\+S@{T\+C\+P\+\_\+S}}
+\subsubsection[{\texorpdfstring{m\+\_\+connection\+Capacity}{m_connectionCapacity}}]{\setlength{\rightskip}{0pt plus 5cm}int T\+C\+P\+\_\+\+S\+::m\+\_\+connection\+Capacity}\hypertarget{structTCP__S_a77a2c693cfe0dcb321ae26f6cf347ab9}{}\label{structTCP__S_a77a2c693cfe0dcb321ae26f6cf347ab9}
+
+
+Definition at line 48 of file tcp.\+c.
+
+
+
+Referenced by T\+C\+P\+\_\+\+Create\+Server(), and T\+C\+P\+\_\+\+Recive().
+
+\index{T\+C\+P\+\_\+S@{T\+C\+P\+\_\+S}!m\+\_\+contex@{m\+\_\+contex}}
+\index{m\+\_\+contex@{m\+\_\+contex}!T\+C\+P\+\_\+S@{T\+C\+P\+\_\+S}}
+\subsubsection[{\texorpdfstring{m\+\_\+contex}{m_contex}}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ T\+C\+P\+\_\+\+S\+::m\+\_\+contex}\hypertarget{structTCP__S_a998879b4718153a64a41bc2e4c4e97b8}{}\label{structTCP__S_a998879b4718153a64a41bc2e4c4e97b8}
+
+
+Definition at line 65 of file tcp.\+c.
+
+
+
+Referenced by T\+C\+P\+\_\+\+Create\+Server(), T\+C\+P\+\_\+\+Recive(), and T\+C\+P\+\_\+\+Run\+Server().
+
+\index{T\+C\+P\+\_\+S@{T\+C\+P\+\_\+S}!m\+\_\+error\+Func@{m\+\_\+error\+Func}}
+\index{m\+\_\+error\+Func@{m\+\_\+error\+Func}!T\+C\+P\+\_\+S@{T\+C\+P\+\_\+S}}
+\subsubsection[{\texorpdfstring{m\+\_\+error\+Func}{m_errorFunc}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf error\+Func} T\+C\+P\+\_\+\+S\+::m\+\_\+error\+Func}\hypertarget{structTCP__S_ad047d75ba90917949677d9f6af69c017}{}\label{structTCP__S_ad047d75ba90917949677d9f6af69c017}
+
+
+Definition at line 63 of file tcp.\+c.
+
+
+
+Referenced by T\+C\+P\+\_\+\+Create\+Server(), and T\+C\+P\+\_\+\+Recive().
+
+\index{T\+C\+P\+\_\+S@{T\+C\+P\+\_\+S}!m\+\_\+is\+Server\+Run@{m\+\_\+is\+Server\+Run}}
+\index{m\+\_\+is\+Server\+Run@{m\+\_\+is\+Server\+Run}!T\+C\+P\+\_\+S@{T\+C\+P\+\_\+S}}
+\subsubsection[{\texorpdfstring{m\+\_\+is\+Server\+Run}{m_isServerRun}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} T\+C\+P\+\_\+\+S\+::m\+\_\+is\+Server\+Run}\hypertarget{structTCP__S_a5f5f617932576fbab6f37206c233145c}{}\label{structTCP__S_a5f5f617932576fbab6f37206c233145c}
+
+
+Definition at line 58 of file tcp.\+c.
+
+
+
+Referenced by T\+C\+P\+\_\+\+Recive(), T\+C\+P\+\_\+\+Run\+Server(), and T\+C\+P\+\_\+\+Stop\+Server().
+
+\index{T\+C\+P\+\_\+S@{T\+C\+P\+\_\+S}!m\+\_\+listen\+Socket@{m\+\_\+listen\+Socket}}
+\index{m\+\_\+listen\+Socket@{m\+\_\+listen\+Socket}!T\+C\+P\+\_\+S@{T\+C\+P\+\_\+S}}
+\subsubsection[{\texorpdfstring{m\+\_\+listen\+Socket}{m_listenSocket}}]{\setlength{\rightskip}{0pt plus 5cm}int T\+C\+P\+\_\+\+S\+::m\+\_\+listen\+Socket}\hypertarget{structTCP__S_a4f0bcd2854168cda93a59f669862ca55}{}\label{structTCP__S_a4f0bcd2854168cda93a59f669862ca55}
+
+
+Definition at line 50 of file tcp.\+c.
+
+
+
+Referenced by T\+C\+P\+\_\+\+Create\+Server(), T\+C\+P\+\_\+\+Destroy\+Server(), and T\+C\+P\+\_\+\+Recive().
+
+\index{T\+C\+P\+\_\+S@{T\+C\+P\+\_\+S}!m\+\_\+magic\+Number@{m\+\_\+magic\+Number}}
+\index{m\+\_\+magic\+Number@{m\+\_\+magic\+Number}!T\+C\+P\+\_\+S@{T\+C\+P\+\_\+S}}
+\subsubsection[{\texorpdfstring{m\+\_\+magic\+Number}{m_magicNumber}}]{\setlength{\rightskip}{0pt plus 5cm}int T\+C\+P\+\_\+\+S\+::m\+\_\+magic\+Number}\hypertarget{structTCP__S_affe8822a76f550fd7011539d9c2ce155}{}\label{structTCP__S_affe8822a76f550fd7011539d9c2ce155}
+
+
+Definition at line 46 of file tcp.\+c.
+
+
+
+Referenced by T\+C\+P\+\_\+\+Create\+Server(), T\+C\+P\+\_\+\+Destroy\+Server(), and T\+C\+P\+\_\+\+Recive().
+
+\index{T\+C\+P\+\_\+S@{T\+C\+P\+\_\+S}!m\+\_\+new\+Connection\+Func@{m\+\_\+new\+Connection\+Func}}
+\index{m\+\_\+new\+Connection\+Func@{m\+\_\+new\+Connection\+Func}!T\+C\+P\+\_\+S@{T\+C\+P\+\_\+S}}
+\subsubsection[{\texorpdfstring{m\+\_\+new\+Connection\+Func}{m_newConnectionFunc}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf client\+Connection\+Change\+Func} T\+C\+P\+\_\+\+S\+::m\+\_\+new\+Connection\+Func}\hypertarget{structTCP__S_a56336f3f871b6a2ed804c7d788bc1990}{}\label{structTCP__S_a56336f3f871b6a2ed804c7d788bc1990}
+
+
+Definition at line 61 of file tcp.\+c.
+
+
+
+Referenced by T\+C\+P\+\_\+\+Create\+Server(), and T\+C\+P\+\_\+\+Recive().
+
+\index{T\+C\+P\+\_\+S@{T\+C\+P\+\_\+S}!m\+\_\+recive\+Data\+Func@{m\+\_\+recive\+Data\+Func}}
+\index{m\+\_\+recive\+Data\+Func@{m\+\_\+recive\+Data\+Func}!T\+C\+P\+\_\+S@{T\+C\+P\+\_\+S}}
+\subsubsection[{\texorpdfstring{m\+\_\+recive\+Data\+Func}{m_reciveDataFunc}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf user\+Action\+Func} T\+C\+P\+\_\+\+S\+::m\+\_\+recive\+Data\+Func}\hypertarget{structTCP__S_ab10be5833a35a4ae1a6e3a96547d5c2b}{}\label{structTCP__S_ab10be5833a35a4ae1a6e3a96547d5c2b}
+
+
+Definition at line 60 of file tcp.\+c.
+
+
+
+Referenced by T\+C\+P\+\_\+\+Create\+Server(), T\+C\+P\+\_\+\+Recive(), and T\+C\+P\+\_\+\+Run\+Server().
+
+\index{T\+C\+P\+\_\+S@{T\+C\+P\+\_\+S}!m\+\_\+server\+IP@{m\+\_\+server\+IP}}
+\index{m\+\_\+server\+IP@{m\+\_\+server\+IP}!T\+C\+P\+\_\+S@{T\+C\+P\+\_\+S}}
+\subsubsection[{\texorpdfstring{m\+\_\+server\+IP}{m_serverIP}}]{\setlength{\rightskip}{0pt plus 5cm}char T\+C\+P\+\_\+\+S\+::m\+\_\+server\+IP\mbox{[}I\+N\+E\+T6\+\_\+\+A\+D\+D\+R\+S\+T\+R\+L\+EN\mbox{]}}\hypertarget{structTCP__S_a138ef40bec23d2e437f836991c85bf4b}{}\label{structTCP__S_a138ef40bec23d2e437f836991c85bf4b}
+
+
+Definition at line 54 of file tcp.\+c.
+
+
+
+Referenced by T\+C\+P\+\_\+\+Create\+Server(), and T\+C\+P\+\_\+\+Recive().
+
+\index{T\+C\+P\+\_\+S@{T\+C\+P\+\_\+S}!m\+\_\+server\+Port@{m\+\_\+server\+Port}}
+\index{m\+\_\+server\+Port@{m\+\_\+server\+Port}!T\+C\+P\+\_\+S@{T\+C\+P\+\_\+S}}
+\subsubsection[{\texorpdfstring{m\+\_\+server\+Port}{m_serverPort}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint} T\+C\+P\+\_\+\+S\+::m\+\_\+server\+Port}\hypertarget{structTCP__S_ac536669390573b25c18bc10e6c26e574}{}\label{structTCP__S_ac536669390573b25c18bc10e6c26e574}
+
+
+Definition at line 53 of file tcp.\+c.
+
+
+
+Referenced by T\+C\+P\+\_\+\+Create\+Server(), and T\+C\+P\+\_\+\+Recive().
+
+\index{T\+C\+P\+\_\+S@{T\+C\+P\+\_\+S}!m\+\_\+sockets@{m\+\_\+sockets}}
+\index{m\+\_\+sockets@{m\+\_\+sockets}!T\+C\+P\+\_\+S@{T\+C\+P\+\_\+S}}
+\subsubsection[{\texorpdfstring{m\+\_\+sockets}{m_sockets}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf list\+\_\+t}$\ast$ T\+C\+P\+\_\+\+S\+::m\+\_\+sockets}\hypertarget{structTCP__S_afb801954f53bf1fb313f029d88652983}{}\label{structTCP__S_afb801954f53bf1fb313f029d88652983}
+
+
+Definition at line 51 of file tcp.\+c.
+
+
+
+Referenced by T\+C\+P\+\_\+\+Create\+Server(), T\+C\+P\+\_\+\+Destroy\+Server(), T\+C\+P\+\_\+\+Recive(), and T\+C\+P\+\_\+\+Run\+Server().
+
+\index{T\+C\+P\+\_\+S@{T\+C\+P\+\_\+S}!m\+\_\+timeout\+MS@{m\+\_\+timeout\+MS}}
+\index{m\+\_\+timeout\+MS@{m\+\_\+timeout\+MS}!T\+C\+P\+\_\+S@{T\+C\+P\+\_\+S}}
+\subsubsection[{\texorpdfstring{m\+\_\+timeout\+MS}{m_timeoutMS}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint} T\+C\+P\+\_\+\+S\+::m\+\_\+timeout\+MS}\hypertarget{structTCP__S_afc87ad30c304937fd494aa6c93f39801}{}\label{structTCP__S_afc87ad30c304937fd494aa6c93f39801}
+
+
+Definition at line 56 of file tcp.\+c.
+
+
+
+Referenced by T\+C\+P\+\_\+\+Create\+Server(), and T\+C\+P\+\_\+\+Recive().
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+comm/tcp/src/\hyperlink{tcp_8c}{tcp.\+c}\end{DoxyCompactItemize}

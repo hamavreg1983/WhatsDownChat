@@ -6,11 +6,6 @@
 C_SRCS += \
 ../chats/netUDP_MultiCast.c 
 
-O_SRCS += \
-../chats/netUDP_MultiCast.o \
-../chats/reader.o \
-../chats/writer.o 
-
 OBJS += \
 ./chats/netUDP_MultiCast.o 
 

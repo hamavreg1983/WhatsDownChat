@@ -1,7 +1,9 @@
-# WhatsDownChat
+# WhatDownChatApp
 
 Yuval Hamberg
 yuval.hamberg@gmail.com
 
-A simple instance message application.
-Writen in C as a learning exsersise in networking.
+July 2017
+
+A simple message chat application.
+Writen in C as a learning exercise in networking.

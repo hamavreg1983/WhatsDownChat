@@ -1,0 +1,401 @@
+\hypertarget{hashmap_8c}{}\section{ds/hashmap.c File Reference}
+\label{hashmap_8c}\index{ds/hashmap.\+c@{ds/hashmap.\+c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}hashmap.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structDSHashMap}{D\+S\+Hash\+Map} $\ast$ \hyperlink{hashmap_8c_ae9c15e8fc0f24cf917646f196991cfa1}{ds\+\_\+hashmap\+\_\+create} ()
+\item 
+void \hyperlink{hashmap_8c_ad06744baff9735140d18fd139626d89d}{ds\+\_\+hashmap\+\_\+free} (struct \hyperlink{structDSHashMap}{D\+S\+Hash\+Map} $\ast$hash, \hyperlink{whatDownBackEndApp_8c_a1062901a7428fdd9c7f180f5e01ea056}{bool} free\+\_\+data, \hyperlink{whatDownBackEndApp_8c_a1062901a7428fdd9c7f180f5e01ea056}{bool} free\+\_\+string\+\_\+keys)
+\item 
+void \hyperlink{hashmap_8c_a90d324bed1f61755daa61c8ed704e2aa}{ds\+\_\+puts} (struct \hyperlink{structDSHashMap}{D\+S\+Hash\+Map} $\ast$hash, char $\ast$key, void $\ast$data)
+\item 
+void \hyperlink{hashmap_8c_a6f2e38dda1a43b9ba155ade2a006c04b}{ds\+\_\+hashmap\+\_\+put\+\_\+str} (struct \hyperlink{structDSHashMap}{D\+S\+Hash\+Map} $\ast$hash, char $\ast$key, void $\ast$data)
+\item 
+void \hyperlink{hashmap_8c_af1830907bb683f38298098182dbb47cb}{ds\+\_\+puti} (struct \hyperlink{structDSHashMap}{D\+S\+Hash\+Map} $\ast$hash, int32\+\_\+t key, void $\ast$data)
+\item 
+void \hyperlink{hashmap_8c_aae9bab088ca264aae8b39e0096e9bd2c}{ds\+\_\+hashmap\+\_\+put\+\_\+int} (struct \hyperlink{structDSHashMap}{D\+S\+Hash\+Map} $\ast$hash, int32\+\_\+t key, void $\ast$data)
+\item 
+void \hyperlink{hashmap_8c_a2df6e46c781d0cbcfb4bfa1bad6b171c}{ds\+\_\+hashmap\+\_\+remove\+\_\+str} (struct \hyperlink{structDSHashMap}{D\+S\+Hash\+Map} $\ast$hash, char $\ast$key, \hyperlink{whatDownBackEndApp_8c_a1062901a7428fdd9c7f180f5e01ea056}{bool} free\+\_\+data, \hyperlink{whatDownBackEndApp_8c_a1062901a7428fdd9c7f180f5e01ea056}{bool} free\+\_\+string\+\_\+keys)
+\item 
+void \hyperlink{hashmap_8c_acb56a65f55fc65e54db4bed80a48675f}{ds\+\_\+hashmap\+\_\+remove\+\_\+int} (struct \hyperlink{structDSHashMap}{D\+S\+Hash\+Map} $\ast$hash, int32\+\_\+t key, \hyperlink{whatDownBackEndApp_8c_a1062901a7428fdd9c7f180f5e01ea056}{bool} free\+\_\+data)
+\item 
+void $\ast$ \hyperlink{hashmap_8c_aa7eab016106a044ded6907ebabce9768}{ds\+\_\+hashmap\+\_\+get\+\_\+key} (struct \hyperlink{structDSHashKey}{D\+S\+Hash\+Key} $\ast$key)
+\item 
+void $\ast$ \hyperlink{hashmap_8c_a482bb1a196953d68fb9add6be3c1e37c}{ds\+\_\+gets} (struct \hyperlink{structDSHashMap}{D\+S\+Hash\+Map} $\ast$hash, char $\ast$key)
+\item 
+void $\ast$ \hyperlink{hashmap_8c_afcb186c6e7283ad5e09e0e41db0a4584}{ds\+\_\+hashmap\+\_\+get\+\_\+str} (struct \hyperlink{structDSHashMap}{D\+S\+Hash\+Map} $\ast$hash, char $\ast$key)
+\item 
+void $\ast$ \hyperlink{hashmap_8c_adb090787838a564e912a38922dc3fdee}{ds\+\_\+geti} (struct \hyperlink{structDSHashMap}{D\+S\+Hash\+Map} $\ast$hash, int32\+\_\+t key)
+\item 
+void $\ast$ \hyperlink{hashmap_8c_a3ddeaf5147c2a5ca32d59354180caaba}{ds\+\_\+hashmap\+\_\+get\+\_\+int} (struct \hyperlink{structDSHashMap}{D\+S\+Hash\+Map} $\ast$hash, int32\+\_\+t key)
+\item 
+void \hyperlink{hashmap_8c_a28f2fda68eb914356380378da246c3b5}{ds\+\_\+hashmap\+\_\+print\+\_\+keys} (struct \hyperlink{structDSHashMap}{D\+S\+Hash\+Map} $\ast$hash)
+\item 
+void \hyperlink{hashmap_8c_a197959ddf6ae8fdaed4d8dde848e11ad}{ds\+\_\+hashmap\+\_\+print\+\_\+keyvals} (struct \hyperlink{structDSHashMap}{D\+S\+Hash\+Map} $\ast$hash, char $\ast$(tostring)(void $\ast$))
+\item 
+void \hyperlink{hashmap_8c_ac451f86cddc9e8f49952a11c68b8d94e}{ds\+\_\+hashmap\+\_\+foreach\+\_\+value} (struct \hyperlink{structDSHashMap}{D\+S\+Hash\+Map} $\ast$hash, char $\ast$(tostring)(void $\ast$))
+\item 
+int \hyperlink{hashmap_8c_ac92734e9c5d4783d2eebd24ffdf9d527}{ds\+\_\+hashmap\+\_\+foreach\+\_\+value\+Action} (struct \hyperlink{structDSHashMap}{D\+S\+Hash\+Map} $\ast$hash, void $\ast$\+\_\+contex, char $\ast$(value\+Act\+Func)(void $\ast$, void $\ast$\+\_\+buffer, \hyperlink{tcp_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint} $\ast$\+\_\+num))
+\item 
+void \hyperlink{hashmap_8c_a236f5b7164b85ab765524f8e8337983d}{ds\+\_\+hashmap\+\_\+sort\+\_\+keys} (struct \hyperlink{structDSHashMap}{D\+S\+Hash\+Map} $\ast$hash)
+\item 
+void \hyperlink{hashmap_8c_a09a189458543317f9dc1325e7b0a69d0}{ds\+\_\+hashmap\+\_\+sort\+\_\+by} (struct \hyperlink{structDSHashMap}{D\+S\+Hash\+Map} $\ast$hash, int32\+\_\+t(compare)(void $\ast$, void $\ast$))
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\index{hashmap.\+c@{hashmap.\+c}!ds\+\_\+geti@{ds\+\_\+geti}}
+\index{ds\+\_\+geti@{ds\+\_\+geti}!hashmap.\+c@{hashmap.\+c}}
+\subsubsection[{\texorpdfstring{ds\+\_\+geti(struct D\+S\+Hash\+Map $\ast$hash, int32\+\_\+t key)}{ds_geti(struct DSHashMap *hash, int32_t key)}}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ ds\+\_\+geti (
+\begin{DoxyParamCaption}
+\item[{struct {\bf D\+S\+Hash\+Map} $\ast$}]{hash, }
+\item[{int32\+\_\+t}]{key}
+\end{DoxyParamCaption}
+)}\hypertarget{hashmap_8c_adb090787838a564e912a38922dc3fdee}{}\label{hashmap_8c_adb090787838a564e912a38922dc3fdee}
+
+
+Definition at line 250 of file hashmap.\+c.
+
+
+
+References ds\+\_\+hashmap\+\_\+get\+\_\+int().
+
+
+
+Referenced by ds\+\_\+hashmap\+\_\+foreach\+\_\+value(), ds\+\_\+hashmap\+\_\+get\+\_\+key(), and ds\+\_\+hashmap\+\_\+print\+\_\+keyvals().
+
+\index{hashmap.\+c@{hashmap.\+c}!ds\+\_\+gets@{ds\+\_\+gets}}
+\index{ds\+\_\+gets@{ds\+\_\+gets}!hashmap.\+c@{hashmap.\+c}}
+\subsubsection[{\texorpdfstring{ds\+\_\+gets(struct D\+S\+Hash\+Map $\ast$hash, char $\ast$key)}{ds_gets(struct DSHashMap *hash, char *key)}}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ ds\+\_\+gets (
+\begin{DoxyParamCaption}
+\item[{struct {\bf D\+S\+Hash\+Map} $\ast$}]{hash, }
+\item[{char $\ast$}]{key}
+\end{DoxyParamCaption}
+)}\hypertarget{hashmap_8c_a482bb1a196953d68fb9add6be3c1e37c}{}\label{hashmap_8c_a482bb1a196953d68fb9add6be3c1e37c}
+
+
+Definition at line 238 of file hashmap.\+c.
+
+
+
+References ds\+\_\+hashmap\+\_\+get\+\_\+str().
+
+
+
+Referenced by ds\+\_\+hashmap\+\_\+foreach\+\_\+value(), ds\+\_\+hashmap\+\_\+foreach\+\_\+value\+Action(), ds\+\_\+hashmap\+\_\+get\+\_\+key(), and ds\+\_\+hashmap\+\_\+print\+\_\+keyvals().
+
+\index{hashmap.\+c@{hashmap.\+c}!ds\+\_\+hashmap\+\_\+create@{ds\+\_\+hashmap\+\_\+create}}
+\index{ds\+\_\+hashmap\+\_\+create@{ds\+\_\+hashmap\+\_\+create}!hashmap.\+c@{hashmap.\+c}}
+\subsubsection[{\texorpdfstring{ds\+\_\+hashmap\+\_\+create()}{ds_hashmap_create()}}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf D\+S\+Hash\+Map}$\ast$ ds\+\_\+hashmap\+\_\+create (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{hashmap_8c_ae9c15e8fc0f24cf917646f196991cfa1}{}\label{hashmap_8c_ae9c15e8fc0f24cf917646f196991cfa1}
+Initializes a Hash\+Map. 
+
+Definition at line 38 of file hashmap.\+c.
+
+
+
+References D\+S\+Hash\+Map\+::buckets, ds\+\_\+vector\+\_\+create(), and D\+S\+Hash\+Map\+::keys.
+
+
+
+Referenced by Groups\+Handel\+\_\+\+Create(), and Users\+Handle\+\_\+\+Create().
+
+\index{hashmap.\+c@{hashmap.\+c}!ds\+\_\+hashmap\+\_\+foreach\+\_\+value@{ds\+\_\+hashmap\+\_\+foreach\+\_\+value}}
+\index{ds\+\_\+hashmap\+\_\+foreach\+\_\+value@{ds\+\_\+hashmap\+\_\+foreach\+\_\+value}!hashmap.\+c@{hashmap.\+c}}
+\subsubsection[{\texorpdfstring{ds\+\_\+hashmap\+\_\+foreach\+\_\+value(struct D\+S\+Hash\+Map $\ast$hash, char $\ast$(tostring)(void $\ast$))}{ds_hashmap_foreach_value(struct DSHashMap *hash, char *(tostring)(void *))}}]{\setlength{\rightskip}{0pt plus 5cm}void ds\+\_\+hashmap\+\_\+foreach\+\_\+value (
+\begin{DoxyParamCaption}
+\item[{struct {\bf D\+S\+Hash\+Map} $\ast$}]{hash, }
+\item[{char $\ast$}]{tostring)(void $\ast$}
+\end{DoxyParamCaption}
+)}\hypertarget{hashmap_8c_ac451f86cddc9e8f49952a11c68b8d94e}{}\label{hashmap_8c_ac451f86cddc9e8f49952a11c68b8d94e}
+
+
+Definition at line 341 of file hashmap.\+c.
+
+
+
+References ds\+\_\+geti(), ds\+\_\+gets(), D\+S\+\_\+\+H\+A\+S\+H\+M\+A\+P\+\_\+\+K\+E\+Y\+\_\+\+I\+NT, D\+S\+\_\+\+H\+A\+S\+H\+M\+A\+P\+\_\+\+K\+E\+Y\+\_\+\+S\+T\+R\+I\+NG, ds\+\_\+vector\+\_\+get(), D\+S\+Hash\+Key\+::i, D\+S\+Hash\+Key\+::key, D\+S\+Hash\+Map\+::keys, D\+S\+Hash\+Key\+::keytype, D\+S\+Hash\+Key\+::s, and D\+S\+Vector\+::size.
+
+\index{hashmap.\+c@{hashmap.\+c}!ds\+\_\+hashmap\+\_\+foreach\+\_\+value\+Action@{ds\+\_\+hashmap\+\_\+foreach\+\_\+value\+Action}}
+\index{ds\+\_\+hashmap\+\_\+foreach\+\_\+value\+Action@{ds\+\_\+hashmap\+\_\+foreach\+\_\+value\+Action}!hashmap.\+c@{hashmap.\+c}}
+\subsubsection[{\texorpdfstring{ds\+\_\+hashmap\+\_\+foreach\+\_\+value\+Action(struct D\+S\+Hash\+Map $\ast$hash, void $\ast$\+\_\+contex, char $\ast$(value\+Act\+Func)(void $\ast$, void $\ast$\+\_\+buffer, uint $\ast$\+\_\+num))}{ds_hashmap_foreach_valueAction(struct DSHashMap *hash, void *_contex, char *(valueActFunc)(void *, void *_buffer, uint *_num))}}]{\setlength{\rightskip}{0pt plus 5cm}int ds\+\_\+hashmap\+\_\+foreach\+\_\+value\+Action (
+\begin{DoxyParamCaption}
+\item[{struct {\bf D\+S\+Hash\+Map} $\ast$}]{hash, }
+\item[{void $\ast$}]{\+\_\+contex, }
+\item[{char $\ast$}]{value\+Act\+Func)(void $\ast$, void $\ast$\+\_\+buffer, uint $\ast$\+\_\+num}
+\end{DoxyParamCaption}
+)}\hypertarget{hashmap_8c_ac92734e9c5d4783d2eebd24ffdf9d527}{}\label{hashmap_8c_ac92734e9c5d4783d2eebd24ffdf9d527}
+
+
+Definition at line 362 of file hashmap.\+c.
+
+
+
+References ds\+\_\+gets(), D\+S\+\_\+\+H\+A\+S\+H\+M\+A\+P\+\_\+\+K\+E\+Y\+\_\+\+I\+NT, D\+S\+\_\+\+H\+A\+S\+H\+M\+A\+P\+\_\+\+K\+E\+Y\+\_\+\+S\+T\+R\+I\+NG, ds\+\_\+vector\+\_\+get(), D\+S\+Hash\+Key\+::i, D\+S\+Hash\+Key\+::key, D\+S\+Hash\+Map\+::keys, D\+S\+Hash\+Key\+::keytype, D\+S\+Hash\+Key\+::s, and D\+S\+Vector\+::size.
+
+
+
+Referenced by Groups\+Handel\+\_\+\+Get\+Groups\+Name().
+
+\index{hashmap.\+c@{hashmap.\+c}!ds\+\_\+hashmap\+\_\+free@{ds\+\_\+hashmap\+\_\+free}}
+\index{ds\+\_\+hashmap\+\_\+free@{ds\+\_\+hashmap\+\_\+free}!hashmap.\+c@{hashmap.\+c}}
+\subsubsection[{\texorpdfstring{ds\+\_\+hashmap\+\_\+free(struct D\+S\+Hash\+Map $\ast$hash, bool free\+\_\+data, bool free\+\_\+string\+\_\+keys)}{ds_hashmap_free(struct DSHashMap *hash, bool free_data, bool free_string_keys)}}]{\setlength{\rightskip}{0pt plus 5cm}void ds\+\_\+hashmap\+\_\+free (
+\begin{DoxyParamCaption}
+\item[{struct {\bf D\+S\+Hash\+Map} $\ast$}]{hash, }
+\item[{{\bf bool}}]{free\+\_\+data, }
+\item[{{\bf bool}}]{free\+\_\+string\+\_\+keys}
+\end{DoxyParamCaption}
+)}\hypertarget{hashmap_8c_ad06744baff9735140d18fd139626d89d}{}\label{hashmap_8c_ad06744baff9735140d18fd139626d89d}
+Frees all memory associated with the hash map. If \textquotesingle{}free\+\_\+data\textquotesingle{} is true, user data will be freed too. If \textquotesingle{}free\+\_\+string\+\_\+keys\textquotesingle{} is true, then string keys will be freed too. 
+
+Definition at line 57 of file hashmap.\+c.
+
+
+
+References D\+S\+Hash\+Map\+::buckets, D\+S\+Hash\+Item\+::data, D\+S\+\_\+\+H\+A\+S\+H\+M\+A\+P\+\_\+\+K\+E\+Y\+\_\+\+S\+T\+R\+I\+NG, ds\+\_\+vector\+\_\+free\+\_\+no\+\_\+data(), D\+S\+Hash\+Item\+::key, D\+S\+Hash\+Key\+::key, D\+S\+Hash\+Map\+::keys, D\+S\+Hash\+Key\+::keytype, D\+S\+Hash\+Item\+::next, and D\+S\+Hash\+Key\+::s.
+
+
+
+Referenced by Groups\+Handel\+\_\+\+Destroy(), and Users\+Handle\+\_\+\+Destroy().
+
+\index{hashmap.\+c@{hashmap.\+c}!ds\+\_\+hashmap\+\_\+get\+\_\+int@{ds\+\_\+hashmap\+\_\+get\+\_\+int}}
+\index{ds\+\_\+hashmap\+\_\+get\+\_\+int@{ds\+\_\+hashmap\+\_\+get\+\_\+int}!hashmap.\+c@{hashmap.\+c}}
+\subsubsection[{\texorpdfstring{ds\+\_\+hashmap\+\_\+get\+\_\+int(struct D\+S\+Hash\+Map $\ast$hash, int32\+\_\+t key)}{ds_hashmap_get_int(struct DSHashMap *hash, int32_t key)}}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ ds\+\_\+hashmap\+\_\+get\+\_\+int (
+\begin{DoxyParamCaption}
+\item[{struct {\bf D\+S\+Hash\+Map} $\ast$}]{hash, }
+\item[{int32\+\_\+t}]{key}
+\end{DoxyParamCaption}
+)}\hypertarget{hashmap_8c_a3ddeaf5147c2a5ca32d59354180caaba}{}\label{hashmap_8c_a3ddeaf5147c2a5ca32d59354180caaba}
+Gets an element with integer key from hash map. 
+
+Definition at line 256 of file hashmap.\+c.
+
+
+
+References D\+S\+Hash\+Map\+::buckets, D\+S\+Hash\+Item\+::data, D\+S\+\_\+\+H\+A\+S\+H\+M\+A\+P\+\_\+\+K\+E\+Y\+\_\+\+I\+NT, D\+S\+\_\+\+H\+A\+S\+H\+M\+A\+P\+\_\+\+K\+E\+Y\+\_\+\+S\+T\+R\+I\+NG, D\+S\+Hash\+Item\+::key, and D\+S\+Hash\+Item\+::next.
+
+
+
+Referenced by ds\+\_\+geti().
+
+\index{hashmap.\+c@{hashmap.\+c}!ds\+\_\+hashmap\+\_\+get\+\_\+key@{ds\+\_\+hashmap\+\_\+get\+\_\+key}}
+\index{ds\+\_\+hashmap\+\_\+get\+\_\+key@{ds\+\_\+hashmap\+\_\+get\+\_\+key}!hashmap.\+c@{hashmap.\+c}}
+\subsubsection[{\texorpdfstring{ds\+\_\+hashmap\+\_\+get\+\_\+key(struct D\+S\+Hash\+Key $\ast$key)}{ds_hashmap_get_key(struct DSHashKey *key)}}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ ds\+\_\+hashmap\+\_\+get\+\_\+key (
+\begin{DoxyParamCaption}
+\item[{struct {\bf D\+S\+Hash\+Key} $\ast$}]{key}
+\end{DoxyParamCaption}
+)}\hypertarget{hashmap_8c_aa7eab016106a044ded6907ebabce9768}{}\label{hashmap_8c_aa7eab016106a044ded6907ebabce9768}
+Gets an element if you have a \hyperlink{structDSHashKey}{D\+S\+Hash\+Key} struct. 
+
+Definition at line 224 of file hashmap.\+c.
+
+
+
+References ds\+\_\+geti(), ds\+\_\+gets(), D\+S\+\_\+\+H\+A\+S\+H\+M\+A\+P\+\_\+\+K\+E\+Y\+\_\+\+I\+NT, D\+S\+\_\+\+H\+A\+S\+H\+M\+A\+P\+\_\+\+K\+E\+Y\+\_\+\+S\+T\+R\+I\+NG, D\+S\+Hash\+Key\+::hash, D\+S\+Hash\+Key\+::i, D\+S\+Hash\+Key\+::key, D\+S\+Hash\+Key\+::keytype, and D\+S\+Hash\+Key\+::s.
+
+\index{hashmap.\+c@{hashmap.\+c}!ds\+\_\+hashmap\+\_\+get\+\_\+str@{ds\+\_\+hashmap\+\_\+get\+\_\+str}}
+\index{ds\+\_\+hashmap\+\_\+get\+\_\+str@{ds\+\_\+hashmap\+\_\+get\+\_\+str}!hashmap.\+c@{hashmap.\+c}}
+\subsubsection[{\texorpdfstring{ds\+\_\+hashmap\+\_\+get\+\_\+str(struct D\+S\+Hash\+Map $\ast$hash, char $\ast$key)}{ds_hashmap_get_str(struct DSHashMap *hash, char *key)}}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ ds\+\_\+hashmap\+\_\+get\+\_\+str (
+\begin{DoxyParamCaption}
+\item[{struct {\bf D\+S\+Hash\+Map} $\ast$}]{hash, }
+\item[{char $\ast$}]{key}
+\end{DoxyParamCaption}
+)}\hypertarget{hashmap_8c_afcb186c6e7283ad5e09e0e41db0a4584}{}\label{hashmap_8c_afcb186c6e7283ad5e09e0e41db0a4584}
+Gets an element with string key from hash map. 
+
+Definition at line 244 of file hashmap.\+c.
+
+
+
+References D\+S\+\_\+\+H\+A\+S\+H\+M\+A\+P\+\_\+\+K\+E\+Y\+\_\+\+S\+T\+R\+I\+NG.
+
+
+
+Referenced by ds\+\_\+gets(), Groups\+Handel\+\_\+\+Get\+Groups\+Name(), Groups\+Handel\+\_\+\+Is\+Group\+Exist(), Users\+Handle\+\_\+\+Is\+User\+Exist(), and Users\+Handle\+\_\+\+Is\+User\+Password\+Match().
+
+\index{hashmap.\+c@{hashmap.\+c}!ds\+\_\+hashmap\+\_\+print\+\_\+keys@{ds\+\_\+hashmap\+\_\+print\+\_\+keys}}
+\index{ds\+\_\+hashmap\+\_\+print\+\_\+keys@{ds\+\_\+hashmap\+\_\+print\+\_\+keys}!hashmap.\+c@{hashmap.\+c}}
+\subsubsection[{\texorpdfstring{ds\+\_\+hashmap\+\_\+print\+\_\+keys(struct D\+S\+Hash\+Map $\ast$hash)}{ds_hashmap_print_keys(struct DSHashMap *hash)}}]{\setlength{\rightskip}{0pt plus 5cm}void ds\+\_\+hashmap\+\_\+print\+\_\+keys (
+\begin{DoxyParamCaption}
+\item[{struct {\bf D\+S\+Hash\+Map} $\ast$}]{hash}
+\end{DoxyParamCaption}
+)}\hypertarget{hashmap_8c_a28f2fda68eb914356380378da246c3b5}{}\label{hashmap_8c_a28f2fda68eb914356380378da246c3b5}
+Prints a list of key names/numbers for debugging purposes. 
+
+Definition at line 296 of file hashmap.\+c.
+
+
+
+References D\+S\+\_\+\+H\+A\+S\+H\+M\+A\+P\+\_\+\+K\+E\+Y\+\_\+\+I\+NT, D\+S\+\_\+\+H\+A\+S\+H\+M\+A\+P\+\_\+\+K\+E\+Y\+\_\+\+S\+T\+R\+I\+NG, ds\+\_\+vector\+\_\+get(), D\+S\+Hash\+Key\+::i, D\+S\+Hash\+Key\+::key, D\+S\+Hash\+Map\+::keys, D\+S\+Hash\+Key\+::keytype, D\+S\+Hash\+Key\+::s, and D\+S\+Vector\+::size.
+
+\index{hashmap.\+c@{hashmap.\+c}!ds\+\_\+hashmap\+\_\+print\+\_\+keyvals@{ds\+\_\+hashmap\+\_\+print\+\_\+keyvals}}
+\index{ds\+\_\+hashmap\+\_\+print\+\_\+keyvals@{ds\+\_\+hashmap\+\_\+print\+\_\+keyvals}!hashmap.\+c@{hashmap.\+c}}
+\subsubsection[{\texorpdfstring{ds\+\_\+hashmap\+\_\+print\+\_\+keyvals(struct D\+S\+Hash\+Map $\ast$hash, char $\ast$(tostring)(void $\ast$))}{ds_hashmap_print_keyvals(struct DSHashMap *hash, char *(tostring)(void *))}}]{\setlength{\rightskip}{0pt plus 5cm}void ds\+\_\+hashmap\+\_\+print\+\_\+keyvals (
+\begin{DoxyParamCaption}
+\item[{struct {\bf D\+S\+Hash\+Map} $\ast$}]{hash, }
+\item[{char $\ast$}]{tostring)(void $\ast$}
+\end{DoxyParamCaption}
+)}\hypertarget{hashmap_8c_a197959ddf6ae8fdaed4d8dde848e11ad}{}\label{hashmap_8c_a197959ddf6ae8fdaed4d8dde848e11ad}
+Prints a list of key,value pairs for debugging purposes. This needs a function that turns values into strings. 
+
+Definition at line 317 of file hashmap.\+c.
+
+
+
+References ds\+\_\+geti(), ds\+\_\+gets(), D\+S\+\_\+\+H\+A\+S\+H\+M\+A\+P\+\_\+\+K\+E\+Y\+\_\+\+I\+NT, D\+S\+\_\+\+H\+A\+S\+H\+M\+A\+P\+\_\+\+K\+E\+Y\+\_\+\+S\+T\+R\+I\+NG, ds\+\_\+vector\+\_\+get(), D\+S\+Hash\+Key\+::i, D\+S\+Hash\+Key\+::key, D\+S\+Hash\+Map\+::keys, D\+S\+Hash\+Key\+::keytype, D\+S\+Hash\+Key\+::s, and D\+S\+Vector\+::size.
+
+\index{hashmap.\+c@{hashmap.\+c}!ds\+\_\+hashmap\+\_\+put\+\_\+int@{ds\+\_\+hashmap\+\_\+put\+\_\+int}}
+\index{ds\+\_\+hashmap\+\_\+put\+\_\+int@{ds\+\_\+hashmap\+\_\+put\+\_\+int}!hashmap.\+c@{hashmap.\+c}}
+\subsubsection[{\texorpdfstring{ds\+\_\+hashmap\+\_\+put\+\_\+int(struct D\+S\+Hash\+Map $\ast$hash, int32\+\_\+t key, void $\ast$data)}{ds_hashmap_put_int(struct DSHashMap *hash, int32_t key, void *data)}}]{\setlength{\rightskip}{0pt plus 5cm}void ds\+\_\+hashmap\+\_\+put\+\_\+int (
+\begin{DoxyParamCaption}
+\item[{struct {\bf D\+S\+Hash\+Map} $\ast$}]{hash, }
+\item[{int32\+\_\+t}]{key, }
+\item[{void $\ast$}]{data}
+\end{DoxyParamCaption}
+)}\hypertarget{hashmap_8c_aae9bab088ca264aae8b39e0096e9bd2c}{}\label{hashmap_8c_aae9bab088ca264aae8b39e0096e9bd2c}
+Adds an element with integer key to hash map. 
+
+Definition at line 103 of file hashmap.\+c.
+
+
+
+References D\+S\+Hash\+Map\+::buckets, D\+S\+Hash\+Item\+::data, D\+S\+\_\+\+H\+A\+S\+H\+M\+A\+P\+\_\+\+K\+E\+Y\+\_\+\+I\+NT, D\+S\+\_\+\+H\+A\+S\+H\+M\+A\+P\+\_\+\+K\+E\+Y\+\_\+\+S\+T\+R\+I\+NG, ds\+\_\+vector\+\_\+append(), D\+S\+Hash\+Key\+::hash, D\+S\+Hash\+Key\+::i, D\+S\+Hash\+Item\+::key, D\+S\+Hash\+Key\+::key, D\+S\+Hash\+Map\+::keys, D\+S\+Hash\+Key\+::keytype, D\+S\+Hash\+Item\+::next, and D\+S\+Hash\+Key\+::s.
+
+
+
+Referenced by ds\+\_\+puti().
+
+\index{hashmap.\+c@{hashmap.\+c}!ds\+\_\+hashmap\+\_\+put\+\_\+str@{ds\+\_\+hashmap\+\_\+put\+\_\+str}}
+\index{ds\+\_\+hashmap\+\_\+put\+\_\+str@{ds\+\_\+hashmap\+\_\+put\+\_\+str}!hashmap.\+c@{hashmap.\+c}}
+\subsubsection[{\texorpdfstring{ds\+\_\+hashmap\+\_\+put\+\_\+str(struct D\+S\+Hash\+Map $\ast$hash, char $\ast$key, void $\ast$data)}{ds_hashmap_put_str(struct DSHashMap *hash, char *key, void *data)}}]{\setlength{\rightskip}{0pt plus 5cm}void ds\+\_\+hashmap\+\_\+put\+\_\+str (
+\begin{DoxyParamCaption}
+\item[{struct {\bf D\+S\+Hash\+Map} $\ast$}]{hash, }
+\item[{char $\ast$}]{key, }
+\item[{void $\ast$}]{data}
+\end{DoxyParamCaption}
+)}\hypertarget{hashmap_8c_a6f2e38dda1a43b9ba155ade2a006c04b}{}\label{hashmap_8c_a6f2e38dda1a43b9ba155ade2a006c04b}
+Adds an element with string key to hash map. 
+
+Definition at line 91 of file hashmap.\+c.
+
+
+
+References D\+S\+\_\+\+H\+A\+S\+H\+M\+A\+P\+\_\+\+K\+E\+Y\+\_\+\+S\+T\+R\+I\+NG.
+
+
+
+Referenced by ds\+\_\+puts(), Groups\+Handel\+\_\+\+New\+Group(), and Users\+Handle\+\_\+\+Add\+New\+User().
+
+\index{hashmap.\+c@{hashmap.\+c}!ds\+\_\+hashmap\+\_\+remove\+\_\+int@{ds\+\_\+hashmap\+\_\+remove\+\_\+int}}
+\index{ds\+\_\+hashmap\+\_\+remove\+\_\+int@{ds\+\_\+hashmap\+\_\+remove\+\_\+int}!hashmap.\+c@{hashmap.\+c}}
+\subsubsection[{\texorpdfstring{ds\+\_\+hashmap\+\_\+remove\+\_\+int(struct D\+S\+Hash\+Map $\ast$hash, int32\+\_\+t key, bool free\+\_\+data)}{ds_hashmap_remove_int(struct DSHashMap *hash, int32_t key, bool free_data)}}]{\setlength{\rightskip}{0pt plus 5cm}void ds\+\_\+hashmap\+\_\+remove\+\_\+int (
+\begin{DoxyParamCaption}
+\item[{struct {\bf D\+S\+Hash\+Map} $\ast$}]{hash, }
+\item[{int32\+\_\+t}]{key, }
+\item[{{\bf bool}}]{free\+\_\+data}
+\end{DoxyParamCaption}
+)}\hypertarget{hashmap_8c_acb56a65f55fc65e54db4bed80a48675f}{}\label{hashmap_8c_acb56a65f55fc65e54db4bed80a48675f}
+Similarly as \textquotesingle{}ds\+\_\+hashmap\+\_\+remove\+\_\+str\textquotesingle{} but with an integer as a key. Since an integer is a key, there is never a need to free a string key. 
+
+Definition at line 171 of file hashmap.\+c.
+
+
+
+References D\+S\+Hash\+Map\+::buckets, D\+S\+Hash\+Item\+::data, D\+S\+\_\+\+H\+A\+S\+H\+M\+A\+P\+\_\+\+K\+E\+Y\+\_\+\+I\+NT, D\+S\+\_\+\+H\+A\+S\+H\+M\+A\+P\+\_\+\+K\+E\+Y\+\_\+\+S\+T\+R\+I\+NG, ds\+\_\+vector\+\_\+get(), ds\+\_\+vector\+\_\+remove(), D\+S\+Hash\+Item\+::key, D\+S\+Hash\+Key\+::key, D\+S\+Hash\+Map\+::keys, D\+S\+Hash\+Item\+::next, D\+S\+Hash\+Key\+::s, and D\+S\+Vector\+::size.
+
+\index{hashmap.\+c@{hashmap.\+c}!ds\+\_\+hashmap\+\_\+remove\+\_\+str@{ds\+\_\+hashmap\+\_\+remove\+\_\+str}}
+\index{ds\+\_\+hashmap\+\_\+remove\+\_\+str@{ds\+\_\+hashmap\+\_\+remove\+\_\+str}!hashmap.\+c@{hashmap.\+c}}
+\subsubsection[{\texorpdfstring{ds\+\_\+hashmap\+\_\+remove\+\_\+str(struct D\+S\+Hash\+Map $\ast$hash, char $\ast$key, bool free\+\_\+data, bool free\+\_\+string\+\_\+keys)}{ds_hashmap_remove_str(struct DSHashMap *hash, char *key, bool free_data, bool free_string_keys)}}]{\setlength{\rightskip}{0pt plus 5cm}void ds\+\_\+hashmap\+\_\+remove\+\_\+str (
+\begin{DoxyParamCaption}
+\item[{struct {\bf D\+S\+Hash\+Map} $\ast$}]{hash, }
+\item[{char $\ast$}]{key, }
+\item[{{\bf bool}}]{free\+\_\+data, }
+\item[{{\bf bool}}]{free\+\_\+string\+\_\+keys}
+\end{DoxyParamCaption}
+)}\hypertarget{hashmap_8c_a2df6e46c781d0cbcfb4bfa1bad6b171c}{}\label{hashmap_8c_a2df6e46c781d0cbcfb4bfa1bad6b171c}
+Removes an element using a string key. If \textquotesingle{}free\+\_\+data\textquotesingle{} is true, then all user data will be freed. If \textquotesingle{}free\+\_\+string\+\_\+keys\textquotesingle{} is true, then all string will be freed. 
+
+Definition at line 163 of file hashmap.\+c.
+
+
+
+References D\+S\+\_\+\+H\+A\+S\+H\+M\+A\+P\+\_\+\+K\+E\+Y\+\_\+\+S\+T\+R\+I\+NG.
+
+\index{hashmap.\+c@{hashmap.\+c}!ds\+\_\+hashmap\+\_\+sort\+\_\+by@{ds\+\_\+hashmap\+\_\+sort\+\_\+by}}
+\index{ds\+\_\+hashmap\+\_\+sort\+\_\+by@{ds\+\_\+hashmap\+\_\+sort\+\_\+by}!hashmap.\+c@{hashmap.\+c}}
+\subsubsection[{\texorpdfstring{ds\+\_\+hashmap\+\_\+sort\+\_\+by(struct D\+S\+Hash\+Map $\ast$hash, int32\+\_\+t(compare)(void $\ast$, void $\ast$))}{ds_hashmap_sort_by(struct DSHashMap *hash, int32_t(compare)(void *, void *))}}]{\setlength{\rightskip}{0pt plus 5cm}void ds\+\_\+hashmap\+\_\+sort\+\_\+by (
+\begin{DoxyParamCaption}
+\item[{struct {\bf D\+S\+Hash\+Map} $\ast$}]{hash, }
+\item[{int32\+\_\+t(compare)(void $\ast$, void $\ast$)}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{hashmap_8c_a09a189458543317f9dc1325e7b0a69d0}{}\label{hashmap_8c_a09a189458543317f9dc1325e7b0a69d0}
+Sorts the keys using the provided compare function. The compare function is defined as follows\+: compare(k1, k2) $<$ 0 when k1 $<$ k2 compare(k1, k2) = 0 when k1 = k2 compare(k1, k2) $>$ 0 when k1 $>$ k2
+
+N\+O\+TE\+: The comparison doesn\textquotesingle{}t have to be on the keys directly. One could use ds\+\_\+get and compare those values. 
+
+Definition at line 391 of file hashmap.\+c.
+
+
+
+References D\+S\+\_\+\+H\+A\+S\+H\+M\+A\+P\+\_\+\+K\+E\+Y\+\_\+\+I\+NT, D\+S\+\_\+\+H\+A\+S\+H\+M\+A\+P\+\_\+\+K\+E\+Y\+\_\+\+S\+T\+R\+I\+NG, ds\+\_\+vector\+\_\+sort(), D\+S\+Hash\+Key\+::i, D\+S\+Hash\+Key\+::key, D\+S\+Hash\+Map\+::keys, D\+S\+Hash\+Key\+::keytype, and D\+S\+Hash\+Key\+::s.
+
+
+
+Referenced by ds\+\_\+hashmap\+\_\+sort\+\_\+keys().
+
+\index{hashmap.\+c@{hashmap.\+c}!ds\+\_\+hashmap\+\_\+sort\+\_\+keys@{ds\+\_\+hashmap\+\_\+sort\+\_\+keys}}
+\index{ds\+\_\+hashmap\+\_\+sort\+\_\+keys@{ds\+\_\+hashmap\+\_\+sort\+\_\+keys}!hashmap.\+c@{hashmap.\+c}}
+\subsubsection[{\texorpdfstring{ds\+\_\+hashmap\+\_\+sort\+\_\+keys(struct D\+S\+Hash\+Map $\ast$hash)}{ds_hashmap_sort_keys(struct DSHashMap *hash)}}]{\setlength{\rightskip}{0pt plus 5cm}void ds\+\_\+hashmap\+\_\+sort\+\_\+keys (
+\begin{DoxyParamCaption}
+\item[{struct {\bf D\+S\+Hash\+Map} $\ast$}]{hash}
+\end{DoxyParamCaption}
+)}\hypertarget{hashmap_8c_a236f5b7164b85ab765524f8e8337983d}{}\label{hashmap_8c_a236f5b7164b85ab765524f8e8337983d}
+Sorts the keys in alphanumeric order. 
+
+Definition at line 385 of file hashmap.\+c.
+
+
+
+References ds\+\_\+hashmap\+\_\+sort\+\_\+by().
+
+\index{hashmap.\+c@{hashmap.\+c}!ds\+\_\+puti@{ds\+\_\+puti}}
+\index{ds\+\_\+puti@{ds\+\_\+puti}!hashmap.\+c@{hashmap.\+c}}
+\subsubsection[{\texorpdfstring{ds\+\_\+puti(struct D\+S\+Hash\+Map $\ast$hash, int32\+\_\+t key, void $\ast$data)}{ds_puti(struct DSHashMap *hash, int32_t key, void *data)}}]{\setlength{\rightskip}{0pt plus 5cm}void ds\+\_\+puti (
+\begin{DoxyParamCaption}
+\item[{struct {\bf D\+S\+Hash\+Map} $\ast$}]{hash, }
+\item[{int32\+\_\+t}]{key, }
+\item[{void $\ast$}]{data}
+\end{DoxyParamCaption}
+)}\hypertarget{hashmap_8c_af1830907bb683f38298098182dbb47cb}{}\label{hashmap_8c_af1830907bb683f38298098182dbb47cb}
+
+
+Definition at line 97 of file hashmap.\+c.
+
+
+
+References ds\+\_\+hashmap\+\_\+put\+\_\+int().
+
+\index{hashmap.\+c@{hashmap.\+c}!ds\+\_\+puts@{ds\+\_\+puts}}
+\index{ds\+\_\+puts@{ds\+\_\+puts}!hashmap.\+c@{hashmap.\+c}}
+\subsubsection[{\texorpdfstring{ds\+\_\+puts(struct D\+S\+Hash\+Map $\ast$hash, char $\ast$key, void $\ast$data)}{ds_puts(struct DSHashMap *hash, char *key, void *data)}}]{\setlength{\rightskip}{0pt plus 5cm}void ds\+\_\+puts (
+\begin{DoxyParamCaption}
+\item[{struct {\bf D\+S\+Hash\+Map} $\ast$}]{hash, }
+\item[{char $\ast$}]{key, }
+\item[{void $\ast$}]{data}
+\end{DoxyParamCaption}
+)}\hypertarget{hashmap_8c_a90d324bed1f61755daa61c8ed704e2aa}{}\label{hashmap_8c_a90d324bed1f61755daa61c8ed704e2aa}
+Some shortcut functions\+: ds\+\_\+puts -\/$>$ ds\+\_\+hashmap\+\_\+put\+\_\+str ds\+\_\+puti -\/$>$ ds\+\_\+hashmap\+\_\+put\+\_\+int ds\+\_\+gets -\/$>$ ds\+\_\+hashmap\+\_\+get\+\_\+str ds\+\_\+geti -\/$>$ ds\+\_\+hashmap\+\_\+get\+\_\+int 
+
+Definition at line 85 of file hashmap.\+c.
+
+
+
+References ds\+\_\+hashmap\+\_\+put\+\_\+str().
+

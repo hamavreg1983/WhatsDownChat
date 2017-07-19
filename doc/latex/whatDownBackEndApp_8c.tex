@@ -1,0 +1,172 @@
+\hypertarget{whatDownBackEndApp_8c}{}\section{back\+End\+\_\+src/what\+Down\+Back\+End\+App.c File Reference}
+\label{whatDownBackEndApp_8c}\index{back\+End\+\_\+src/what\+Down\+Back\+End\+App.\+c@{back\+End\+\_\+src/what\+Down\+Back\+End\+App.\+c}}
+{\ttfamily \#include \char`\"{}what\+Down\+Back\+End\+App.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}logic\+\_\+back\+End.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}users\+Handle.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}ip\+Handle.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}groups\+Handle.\+h\char`\"{}}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structWhatDownBackEndApp}{What\+Down\+Back\+End\+App}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{whatDownBackEndApp_8c_a78161ef231ae8e9b562aeaf06a385618}{M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+A\+L\+I\+V\+E\+\_\+\+B\+E\+\_\+\+A\+PP}~0xfadefade
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef int \hyperlink{whatDownBackEndApp_8c_a1062901a7428fdd9c7f180f5e01ea056}{bool}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{whatDownBackEndApp_8h_ab2b13456be792e1932d6c846681d9f29}{What\+Down\+Back\+End\+App\+\_\+t} $\ast$ \hyperlink{whatDownBackEndApp_8c_a4e344f9eee062e6fded6a8987e21a64e}{What\+Down\+Back\+End\+App\+\_\+\+Create} ()
+\begin{DoxyCompactList}\small\item\em create and setup the app server \end{DoxyCompactList}\item 
+void \hyperlink{whatDownBackEndApp_8c_a4c878371a61ce2e982328b964e2bd055}{What\+Down\+Back\+End\+App\+\_\+\+Destroy} (\hyperlink{whatDownBackEndApp_8h_ab2b13456be792e1932d6c846681d9f29}{What\+Down\+Back\+End\+App\+\_\+t} $\ast$\+\_\+app\+BE)
+\begin{DoxyCompactList}\small\item\em cleans up after the app \end{DoxyCompactList}\item 
+\hyperlink{whatDownBackEndApp_8c_a1062901a7428fdd9c7f180f5e01ea056}{bool} \hyperlink{whatDownBackEndApp_8c_a4aa40afed5ff36e3a3352f4be0904fe2}{What\+Down\+Back\+End\+App\+\_\+\+Run} (\hyperlink{whatDownBackEndApp_8h_ab2b13456be792e1932d6c846681d9f29}{What\+Down\+Back\+End\+App\+\_\+t} $\ast$\+\_\+app\+BE)
+\begin{DoxyCompactList}\small\item\em activate the server and start waiting for request. run a infinite loop until stop is called. \end{DoxyCompactList}\item 
+\hyperlink{whatDownBackEndApp_8c_a1062901a7428fdd9c7f180f5e01ea056}{bool} \hyperlink{whatDownBackEndApp_8c_a40596ff1fb8d209afe56adf0cb8b7714}{What\+Down\+Back\+End\+App\+\_\+\+Stop} (\hyperlink{whatDownBackEndApp_8h_ab2b13456be792e1932d6c846681d9f29}{What\+Down\+Back\+End\+App\+\_\+t} $\ast$\+\_\+app\+BE)
+\begin{DoxyCompactList}\small\item\em ask to stop the server. there might be a delay between request to full stop/ \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\index{what\+Down\+Back\+End\+App.\+c@{what\+Down\+Back\+End\+App.\+c}!M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+A\+L\+I\+V\+E\+\_\+\+B\+E\+\_\+\+A\+PP@{M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+A\+L\+I\+V\+E\+\_\+\+B\+E\+\_\+\+A\+PP}}
+\index{M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+A\+L\+I\+V\+E\+\_\+\+B\+E\+\_\+\+A\+PP@{M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+A\+L\+I\+V\+E\+\_\+\+B\+E\+\_\+\+A\+PP}!what\+Down\+Back\+End\+App.\+c@{what\+Down\+Back\+End\+App.\+c}}
+\subsubsection[{\texorpdfstring{M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+A\+L\+I\+V\+E\+\_\+\+B\+E\+\_\+\+A\+PP}{MAGIC_NUMBER_ALIVE_BE_APP}}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+A\+L\+I\+V\+E\+\_\+\+B\+E\+\_\+\+A\+PP~0xfadefade}\hypertarget{whatDownBackEndApp_8c_a78161ef231ae8e9b562aeaf06a385618}{}\label{whatDownBackEndApp_8c_a78161ef231ae8e9b562aeaf06a385618}
+
+
+Definition at line 16 of file what\+Down\+Back\+End\+App.\+c.
+
+
+
+Referenced by What\+Down\+Back\+End\+App\+\_\+\+Create(), and What\+Down\+Back\+End\+App\+\_\+\+Stop().
+
+
+
+\subsection{Typedef Documentation}
+\index{what\+Down\+Back\+End\+App.\+c@{what\+Down\+Back\+End\+App.\+c}!bool@{bool}}
+\index{bool@{bool}!what\+Down\+Back\+End\+App.\+c@{what\+Down\+Back\+End\+App.\+c}}
+\subsubsection[{\texorpdfstring{bool}{bool}}]{\setlength{\rightskip}{0pt plus 5cm}typedef int {\bf bool}}\hypertarget{whatDownBackEndApp_8c_a1062901a7428fdd9c7f180f5e01ea056}{}\label{whatDownBackEndApp_8c_a1062901a7428fdd9c7f180f5e01ea056}
+
+
+Definition at line 18 of file what\+Down\+Back\+End\+App.\+c.
+
+
+
+\subsection{Function Documentation}
+\index{what\+Down\+Back\+End\+App.\+c@{what\+Down\+Back\+End\+App.\+c}!What\+Down\+Back\+End\+App\+\_\+\+Create@{What\+Down\+Back\+End\+App\+\_\+\+Create}}
+\index{What\+Down\+Back\+End\+App\+\_\+\+Create@{What\+Down\+Back\+End\+App\+\_\+\+Create}!what\+Down\+Back\+End\+App.\+c@{what\+Down\+Back\+End\+App.\+c}}
+\subsubsection[{\texorpdfstring{What\+Down\+Back\+End\+App\+\_\+\+Create()}{WhatDownBackEndApp_Create()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf What\+Down\+Back\+End\+App\+\_\+t}$\ast$ What\+Down\+Back\+End\+App\+\_\+\+Create (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{whatDownBackEndApp_8c_a4e344f9eee062e6fded6a8987e21a64e}{}\label{whatDownBackEndApp_8c_a4e344f9eee062e6fded6a8987e21a64e}
+
+
+create and setup the app server 
+
+\begin{DoxyReturn}{Returns}
+pointer to the struct created 
+\end{DoxyReturn}
+
+
+Definition at line 41 of file what\+Down\+Back\+End\+App.\+c.
+
+
+
+References C\+H\+A\+T\+\_\+\+F\+I\+R\+S\+E\+T\+\_\+\+IP, C\+H\+A\+T\+\_\+\+M\+A\+X\+\_\+\+N\+U\+M\+\_\+\+IP, C\+H\+A\+T\+\_\+\+P\+O\+RT, Groups\+Handel\+\_\+\+Create(), Groups\+Handel\+\_\+\+Destroy(), I\+P\+\_\+\+Handle\+\_\+\+Create(), I\+P\+\_\+\+Handle\+\_\+\+Destory(), Logic\+B\+E\+\_\+\+Client\+Dissconnected\+Func(), Logic\+B\+E\+\_\+\+Create(), Logic\+B\+E\+\_\+\+Destroy(), Logic\+B\+E\+\_\+\+Error\+Func(), Logic\+B\+E\+\_\+\+New\+Client\+Func(), Logic\+B\+E\+\_\+\+Recive\+Data\+Func(), Logic\+B\+E\+\_\+\+Set\+Server\+P\+T\+R(), What\+Down\+Back\+End\+App\+::m\+\_\+\+B\+Elogic\+Ptr, What\+Down\+Back\+End\+App\+::m\+\_\+groups\+Hndl\+Ptr, What\+Down\+Back\+End\+App\+::m\+\_\+ip\+Hndl\+Ptr, What\+Down\+Back\+End\+App\+::m\+\_\+magic\+Number, What\+Down\+Back\+End\+App\+::m\+\_\+\+T\+C\+Pnet, What\+Down\+Back\+End\+App\+::m\+\_\+users\+Handle\+Ptr, M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+A\+L\+I\+V\+E\+\_\+\+B\+E\+\_\+\+A\+PP, S\+E\+R\+V\+E\+R\+\_\+\+IP, S\+E\+R\+V\+E\+R\+\_\+\+M\+A\+X\+\_\+\+C\+O\+N\+N\+E\+C\+T\+I\+ON, S\+E\+R\+V\+E\+R\+\_\+\+P\+O\+RT, S\+E\+R\+V\+E\+R\+\_\+\+T\+I\+M\+O\+U\+T\+\_\+\+MS, T\+C\+P\+\_\+\+Create\+Server(), Users\+Handle\+\_\+\+Create(), and Users\+Handle\+\_\+\+Destroy().
+
+
+
+Referenced by main().
+
+\index{what\+Down\+Back\+End\+App.\+c@{what\+Down\+Back\+End\+App.\+c}!What\+Down\+Back\+End\+App\+\_\+\+Destroy@{What\+Down\+Back\+End\+App\+\_\+\+Destroy}}
+\index{What\+Down\+Back\+End\+App\+\_\+\+Destroy@{What\+Down\+Back\+End\+App\+\_\+\+Destroy}!what\+Down\+Back\+End\+App.\+c@{what\+Down\+Back\+End\+App.\+c}}
+\subsubsection[{\texorpdfstring{What\+Down\+Back\+End\+App\+\_\+\+Destroy(\+What\+Down\+Back\+End\+App\+\_\+t $\ast$\+\_\+app\+B\+E)}{WhatDownBackEndApp_Destroy(WhatDownBackEndApp_t *_appBE)}}]{\setlength{\rightskip}{0pt plus 5cm}void What\+Down\+Back\+End\+App\+\_\+\+Destroy (
+\begin{DoxyParamCaption}
+\item[{{\bf What\+Down\+Back\+End\+App\+\_\+t} $\ast$}]{\+\_\+app\+BE}
+\end{DoxyParamCaption}
+)}\hypertarget{whatDownBackEndApp_8c_a4c878371a61ce2e982328b964e2bd055}{}\label{whatDownBackEndApp_8c_a4c878371a61ce2e982328b964e2bd055}
+
+
+cleans up after the app 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+app\+BE} & the struct \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 108 of file what\+Down\+Back\+End\+App.\+c.
+
+
+
+References Groups\+Handel\+\_\+\+Destroy(), I\+P\+\_\+\+Handle\+\_\+\+Destory(), Is\+Struct\+Valid(), Logic\+B\+E\+\_\+\+Destroy(), What\+Down\+Back\+End\+App\+::m\+\_\+\+B\+Elogic\+Ptr, What\+Down\+Back\+End\+App\+::m\+\_\+groups\+Hndl\+Ptr, What\+Down\+Back\+End\+App\+::m\+\_\+ip\+Hndl\+Ptr, What\+Down\+Back\+End\+App\+::m\+\_\+magic\+Number, What\+Down\+Back\+End\+App\+::m\+\_\+\+T\+C\+Pnet, What\+Down\+Back\+End\+App\+::m\+\_\+users\+Handle\+Ptr, T\+C\+P\+\_\+\+Destroy\+Server(), and Users\+Handle\+\_\+\+Destroy().
+
+
+
+Referenced by main().
+
+\index{what\+Down\+Back\+End\+App.\+c@{what\+Down\+Back\+End\+App.\+c}!What\+Down\+Back\+End\+App\+\_\+\+Run@{What\+Down\+Back\+End\+App\+\_\+\+Run}}
+\index{What\+Down\+Back\+End\+App\+\_\+\+Run@{What\+Down\+Back\+End\+App\+\_\+\+Run}!what\+Down\+Back\+End\+App.\+c@{what\+Down\+Back\+End\+App.\+c}}
+\subsubsection[{\texorpdfstring{What\+Down\+Back\+End\+App\+\_\+\+Run(\+What\+Down\+Back\+End\+App\+\_\+t $\ast$\+\_\+app\+B\+E)}{WhatDownBackEndApp_Run(WhatDownBackEndApp_t *_appBE)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} What\+Down\+Back\+End\+App\+\_\+\+Run (
+\begin{DoxyParamCaption}
+\item[{{\bf What\+Down\+Back\+End\+App\+\_\+t} $\ast$}]{\+\_\+app\+BE}
+\end{DoxyParamCaption}
+)}\hypertarget{whatDownBackEndApp_8c_a4aa40afed5ff36e3a3352f4be0904fe2}{}\label{whatDownBackEndApp_8c_a4aa40afed5ff36e3a3352f4be0904fe2}
+
+
+activate the server and start waiting for request. run a infinite loop until stop is called. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+app\+BE} & the struct \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+T\+R\+UE when asked to stop and return. F\+A\+L\+SE when returned out of error. 
+\end{DoxyReturn}
+
+
+Definition at line 128 of file what\+Down\+Back\+End\+App.\+c.
+
+
+
+References F\+A\+L\+SE, Is\+Struct\+Valid(), What\+Down\+Back\+End\+App\+::m\+\_\+\+T\+C\+Pnet, and T\+C\+P\+\_\+\+Run\+Server().
+
+
+
+Referenced by main().
+
+\index{what\+Down\+Back\+End\+App.\+c@{what\+Down\+Back\+End\+App.\+c}!What\+Down\+Back\+End\+App\+\_\+\+Stop@{What\+Down\+Back\+End\+App\+\_\+\+Stop}}
+\index{What\+Down\+Back\+End\+App\+\_\+\+Stop@{What\+Down\+Back\+End\+App\+\_\+\+Stop}!what\+Down\+Back\+End\+App.\+c@{what\+Down\+Back\+End\+App.\+c}}
+\subsubsection[{\texorpdfstring{What\+Down\+Back\+End\+App\+\_\+\+Stop(\+What\+Down\+Back\+End\+App\+\_\+t $\ast$\+\_\+app\+B\+E)}{WhatDownBackEndApp_Stop(WhatDownBackEndApp_t *_appBE)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} What\+Down\+Back\+End\+App\+\_\+\+Stop (
+\begin{DoxyParamCaption}
+\item[{{\bf What\+Down\+Back\+End\+App\+\_\+t} $\ast$}]{\+\_\+app\+BE}
+\end{DoxyParamCaption}
+)}\hypertarget{whatDownBackEndApp_8c_a40596ff1fb8d209afe56adf0cb8b7714}{}\label{whatDownBackEndApp_8c_a40596ff1fb8d209afe56adf0cb8b7714}
+
+
+ask to stop the server. there might be a delay between request to full stop/ 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+app\+BE} & the struct \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+T\+R\+UE when asked to stop and return. F\+A\+L\+SE when returned out of error. 
+\end{DoxyReturn}
+
+
+Definition at line 138 of file what\+Down\+Back\+End\+App.\+c.
+
+
+
+References F\+A\+L\+SE, Is\+Struct\+Valid(), What\+Down\+Back\+End\+App\+::m\+\_\+magic\+Number, What\+Down\+Back\+End\+App\+::m\+\_\+\+T\+C\+Pnet, M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+A\+L\+I\+V\+E\+\_\+\+B\+E\+\_\+\+A\+PP, and T\+C\+P\+\_\+\+Stop\+Server().
+

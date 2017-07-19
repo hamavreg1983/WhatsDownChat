@@ -1,8 +1,10 @@
-/*
- * groupsHandle.h
+/**
+ *  @file groupsHandle.h
  *
- *  @dateJul 16, 2017
- *  @authoruv
+ *  @date Jul 16, 2017
+ *  @author Yuval Hamberg
+ *
+ *  @brief handle the groups of chats information. the groups that exist, their address, their members and so on.
  */
 
 #ifndef GROUPSHANDLE_H_

@@ -1,0 +1,120 @@
+\hypertarget{ipHandle_8c}{}\section{back\+End\+\_\+src/ip\+Handle.c File Reference}
+\label{ipHandle_8c}\index{back\+End\+\_\+src/ip\+Handle.\+c@{back\+End\+\_\+src/ip\+Handle.\+c}}
+{\ttfamily \#include $<$netinet/in.\+h$>$}\\*
+{\ttfamily \#include $<$sys/socket.\+h$>$}\\*
+{\ttfamily \#include $<$arpa/inet.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}ip\+Handle.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}queue.\+h\char`\"{}}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structIP__Handle}{I\+P\+\_\+\+Handle}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{ipHandle_8c_aa7d0531c7a51fada46a6004850068b84}{M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+A\+L\+I\+V\+E\+\_\+\+I\+P\+\_\+\+H\+A\+N\+D\+LE}~0xeeccface
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{ipHandle_8h_add91812b3634709f7dfe7d00713c83d1}{I\+P\+\_\+\+Handle\+\_\+t} $\ast$ \hyperlink{ipHandle_8c_aa7167158774647218169056976d42a0e}{I\+P\+\_\+\+Handle\+\_\+\+Create} (const char $\ast$\+\_\+firest\+IP, \hyperlink{tcp_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint} \+\_\+max\+Num\+Of\+I\+Ps, \hyperlink{tcp_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint} \+\_\+port\+Num)
+\item 
+void \hyperlink{ipHandle_8c_a1752c6ea61e24e672244bf103229414b}{I\+P\+\_\+\+Handle\+\_\+\+Destory} (\hyperlink{ipHandle_8h_add91812b3634709f7dfe7d00713c83d1}{I\+P\+\_\+\+Handle\+\_\+t} $\ast$\+\_\+ip\+Hndl)
+\item 
+\hyperlink{groupsHandle_8h_a833d9365af0fc2308a2172dea4a18094}{sockaddr\+\_\+in\+\_\+t} $\ast$ \hyperlink{ipHandle_8c_aa0bea26f65367b88585ef7412e18479b}{I\+P\+\_\+\+Handle\+\_\+\+Get\+Free\+IP} (\hyperlink{ipHandle_8h_add91812b3634709f7dfe7d00713c83d1}{I\+P\+\_\+\+Handle\+\_\+t} $\ast$\+\_\+ip\+Hndl)
+\item 
+\hyperlink{whatDownBackEndApp_8c_a1062901a7428fdd9c7f180f5e01ea056}{bool} \hyperlink{ipHandle_8c_a8a0cd1ca9d559cc937dc650361c6dd1c}{I\+P\+\_\+\+Handle\+\_\+\+Release} (\hyperlink{ipHandle_8h_add91812b3634709f7dfe7d00713c83d1}{I\+P\+\_\+\+Handle\+\_\+t} $\ast$\+\_\+ip\+Hndl, \hyperlink{groupsHandle_8h_a833d9365af0fc2308a2172dea4a18094}{sockaddr\+\_\+in\+\_\+t} $\ast$\+\_\+address\+To\+Release)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\index{ip\+Handle.\+c@{ip\+Handle.\+c}!M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+A\+L\+I\+V\+E\+\_\+\+I\+P\+\_\+\+H\+A\+N\+D\+LE@{M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+A\+L\+I\+V\+E\+\_\+\+I\+P\+\_\+\+H\+A\+N\+D\+LE}}
+\index{M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+A\+L\+I\+V\+E\+\_\+\+I\+P\+\_\+\+H\+A\+N\+D\+LE@{M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+A\+L\+I\+V\+E\+\_\+\+I\+P\+\_\+\+H\+A\+N\+D\+LE}!ip\+Handle.\+c@{ip\+Handle.\+c}}
+\subsubsection[{\texorpdfstring{M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+A\+L\+I\+V\+E\+\_\+\+I\+P\+\_\+\+H\+A\+N\+D\+LE}{MAGIC_NUMBER_ALIVE_IP_HANDLE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+A\+L\+I\+V\+E\+\_\+\+I\+P\+\_\+\+H\+A\+N\+D\+LE~0xeeccface}\hypertarget{ipHandle_8c_aa7d0531c7a51fada46a6004850068b84}{}\label{ipHandle_8c_aa7d0531c7a51fada46a6004850068b84}
+
+
+Definition at line 17 of file ip\+Handle.\+c.
+
+
+
+Referenced by I\+P\+\_\+\+Handle\+\_\+\+Create(), and I\+P\+\_\+\+Handle\+\_\+\+Release().
+
+
+
+\subsection{Function Documentation}
+\index{ip\+Handle.\+c@{ip\+Handle.\+c}!I\+P\+\_\+\+Handle\+\_\+\+Create@{I\+P\+\_\+\+Handle\+\_\+\+Create}}
+\index{I\+P\+\_\+\+Handle\+\_\+\+Create@{I\+P\+\_\+\+Handle\+\_\+\+Create}!ip\+Handle.\+c@{ip\+Handle.\+c}}
+\subsubsection[{\texorpdfstring{I\+P\+\_\+\+Handle\+\_\+\+Create(const char $\ast$\+\_\+firest\+I\+P, uint \+\_\+max\+Num\+Of\+I\+Ps, uint \+\_\+port\+Num)}{IP_Handle_Create(const char *_firestIP, uint _maxNumOfIPs, uint _portNum)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf I\+P\+\_\+\+Handle\+\_\+t}$\ast$ I\+P\+\_\+\+Handle\+\_\+\+Create (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{\+\_\+firest\+IP, }
+\item[{{\bf uint}}]{\+\_\+max\+Num\+Of\+I\+Ps, }
+\item[{{\bf uint}}]{\+\_\+port\+Num}
+\end{DoxyParamCaption}
+)}\hypertarget{ipHandle_8c_aa7167158774647218169056976d42a0e}{}\label{ipHandle_8c_aa7167158774647218169056976d42a0e}
+
+
+Definition at line 37 of file ip\+Handle.\+c.
+
+
+
+References ds\+\_\+queue\+\_\+create(), I\+P\+\_\+\+Handle\+::m\+\_\+ip\+Continer, I\+P\+\_\+\+Handle\+::m\+\_\+magic\+Number, and M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+A\+L\+I\+V\+E\+\_\+\+I\+P\+\_\+\+H\+A\+N\+D\+LE.
+
+
+
+Referenced by What\+Down\+Back\+End\+App\+\_\+\+Create().
+
+\index{ip\+Handle.\+c@{ip\+Handle.\+c}!I\+P\+\_\+\+Handle\+\_\+\+Destory@{I\+P\+\_\+\+Handle\+\_\+\+Destory}}
+\index{I\+P\+\_\+\+Handle\+\_\+\+Destory@{I\+P\+\_\+\+Handle\+\_\+\+Destory}!ip\+Handle.\+c@{ip\+Handle.\+c}}
+\subsubsection[{\texorpdfstring{I\+P\+\_\+\+Handle\+\_\+\+Destory(\+I\+P\+\_\+\+Handle\+\_\+t $\ast$\+\_\+ip\+Hndl)}{IP_Handle_Destory(IP_Handle_t *_ipHndl)}}]{\setlength{\rightskip}{0pt plus 5cm}void I\+P\+\_\+\+Handle\+\_\+\+Destory (
+\begin{DoxyParamCaption}
+\item[{{\bf I\+P\+\_\+\+Handle\+\_\+t} $\ast$}]{\+\_\+ip\+Hndl}
+\end{DoxyParamCaption}
+)}\hypertarget{ipHandle_8c_a1752c6ea61e24e672244bf103229414b}{}\label{ipHandle_8c_a1752c6ea61e24e672244bf103229414b}
+
+
+Definition at line 66 of file ip\+Handle.\+c.
+
+
+
+References ds\+\_\+queue\+\_\+free(), ds\+\_\+queue\+\_\+get(), ds\+\_\+queue\+\_\+length(), Is\+Struct\+Valid(), I\+P\+\_\+\+Handle\+::m\+\_\+ip\+Continer, and I\+P\+\_\+\+Handle\+::m\+\_\+magic\+Number.
+
+
+
+Referenced by What\+Down\+Back\+End\+App\+\_\+\+Create(), and What\+Down\+Back\+End\+App\+\_\+\+Destroy().
+
+\index{ip\+Handle.\+c@{ip\+Handle.\+c}!I\+P\+\_\+\+Handle\+\_\+\+Get\+Free\+IP@{I\+P\+\_\+\+Handle\+\_\+\+Get\+Free\+IP}}
+\index{I\+P\+\_\+\+Handle\+\_\+\+Get\+Free\+IP@{I\+P\+\_\+\+Handle\+\_\+\+Get\+Free\+IP}!ip\+Handle.\+c@{ip\+Handle.\+c}}
+\subsubsection[{\texorpdfstring{I\+P\+\_\+\+Handle\+\_\+\+Get\+Free\+I\+P(\+I\+P\+\_\+\+Handle\+\_\+t $\ast$\+\_\+ip\+Hndl)}{IP_Handle_GetFreeIP(IP_Handle_t *_ipHndl)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf sockaddr\+\_\+in\+\_\+t}$\ast$ I\+P\+\_\+\+Handle\+\_\+\+Get\+Free\+IP (
+\begin{DoxyParamCaption}
+\item[{{\bf I\+P\+\_\+\+Handle\+\_\+t} $\ast$}]{\+\_\+ip\+Hndl}
+\end{DoxyParamCaption}
+)}\hypertarget{ipHandle_8c_aa0bea26f65367b88585ef7412e18479b}{}\label{ipHandle_8c_aa0bea26f65367b88585ef7412e18479b}
+
+
+Definition at line 91 of file ip\+Handle.\+c.
+
+
+
+References ds\+\_\+queue\+\_\+get(), ds\+\_\+queue\+\_\+length(), Is\+Struct\+Valid(), and I\+P\+\_\+\+Handle\+::m\+\_\+ip\+Continer.
+
+
+
+Referenced by Logic\+B\+E\+\_\+\+Error\+Func().
+
+\index{ip\+Handle.\+c@{ip\+Handle.\+c}!I\+P\+\_\+\+Handle\+\_\+\+Release@{I\+P\+\_\+\+Handle\+\_\+\+Release}}
+\index{I\+P\+\_\+\+Handle\+\_\+\+Release@{I\+P\+\_\+\+Handle\+\_\+\+Release}!ip\+Handle.\+c@{ip\+Handle.\+c}}
+\subsubsection[{\texorpdfstring{I\+P\+\_\+\+Handle\+\_\+\+Release(\+I\+P\+\_\+\+Handle\+\_\+t $\ast$\+\_\+ip\+Hndl, sockaddr\+\_\+in\+\_\+t $\ast$\+\_\+address\+To\+Release)}{IP_Handle_Release(IP_Handle_t *_ipHndl, sockaddr_in_t *_addressToRelease)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} I\+P\+\_\+\+Handle\+\_\+\+Release (
+\begin{DoxyParamCaption}
+\item[{{\bf I\+P\+\_\+\+Handle\+\_\+t} $\ast$}]{\+\_\+ip\+Hndl, }
+\item[{{\bf sockaddr\+\_\+in\+\_\+t} $\ast$}]{\+\_\+address\+To\+Release}
+\end{DoxyParamCaption}
+)}\hypertarget{ipHandle_8c_a8a0cd1ca9d559cc937dc650361c6dd1c}{}\label{ipHandle_8c_a8a0cd1ca9d559cc937dc650361c6dd1c}
+
+
+Definition at line 107 of file ip\+Handle.\+c.
+
+
+
+References ds\+\_\+queue\+\_\+capacity(), ds\+\_\+queue\+\_\+length(), ds\+\_\+queue\+\_\+put(), F\+A\+L\+SE, Is\+Struct\+Valid(), I\+P\+\_\+\+Handle\+::m\+\_\+ip\+Continer, I\+P\+\_\+\+Handle\+::m\+\_\+magic\+Number, M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+A\+L\+I\+V\+E\+\_\+\+I\+P\+\_\+\+H\+A\+N\+D\+LE, and T\+R\+UE.
+

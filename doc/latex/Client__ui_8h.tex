@@ -1,0 +1,132 @@
+\hypertarget{Client__ui_8h}{}\section{front\+End\+\_\+src/\+Client\+\_\+ui.h File Reference}
+\label{Client__ui_8h}\index{front\+End\+\_\+src/\+Client\+\_\+ui.\+h@{front\+End\+\_\+src/\+Client\+\_\+ui.\+h}}
+{\ttfamily \#include \char`\"{}defines.\+h\char`\"{}}\\*
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structClient__UI}{Client\+\_\+\+UI} \hyperlink{Client__ui_8h_abff828096ca464a60e2f49b3e798fd2e}{Client\+\_\+\+UI}
+\item 
+typedef struct \hyperlink{structLogic__FE}{Logic\+\_\+\+FE} \hyperlink{Client__ui_8h_adc22b842bed5c7e594f04d5f5a110b2c}{Logic\+\_\+\+F\+E\+\_\+t}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structClient__UI}{Client\+\_\+\+UI} $\ast$ \hyperlink{Client__ui_8h_ad809f543a97dd6f1694b3c5f96cfeaef}{U\+I\+\_\+\+Create} (\hyperlink{Client__ui_8h_adc22b842bed5c7e594f04d5f5a110b2c}{Logic\+\_\+\+F\+E\+\_\+t} $\ast$\+\_\+front\+End)
+\begin{DoxyCompactList}\small\item\em create and setup the ui \end{DoxyCompactList}\item 
+void \hyperlink{Client__ui_8h_ae27cce71718558730aa8ed7c03b98826}{Ui\+\_\+\+Destroy} (\hyperlink{structClient__UI}{Client\+\_\+\+UI} $\ast$\+\_\+ui)
+\begin{DoxyCompactList}\small\item\em destroy and clean up after \end{DoxyCompactList}\item 
+void \hyperlink{Client__ui_8h_ac87703d06309f077ca5e18d347eae42c}{Ui\+\_\+\+Run} (\hyperlink{structClient__UI}{Client\+\_\+\+UI} $\ast$\+\_\+ui)
+\begin{DoxyCompactList}\small\item\em start the loop of the UI \end{DoxyCompactList}\item 
+void \hyperlink{Client__ui_8h_ac4f814e0d8cc9b1b403f4da5a3bd5cac}{Ui\+\_\+\+Stop} (\hyperlink{structClient__UI}{Client\+\_\+\+UI} $\ast$\+\_\+ui)
+\begin{DoxyCompactList}\small\item\em stop the loop of the UI. wont happen immediately. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Typedef Documentation}
+\index{Client\+\_\+ui.\+h@{Client\+\_\+ui.\+h}!Client\+\_\+\+UI@{Client\+\_\+\+UI}}
+\index{Client\+\_\+\+UI@{Client\+\_\+\+UI}!Client\+\_\+ui.\+h@{Client\+\_\+ui.\+h}}
+\subsubsection[{\texorpdfstring{Client\+\_\+\+UI}{Client_UI}}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf Client\+\_\+\+UI} {\bf Client\+\_\+\+UI}}\hypertarget{Client__ui_8h_abff828096ca464a60e2f49b3e798fd2e}{}\label{Client__ui_8h_abff828096ca464a60e2f49b3e798fd2e}
+
+
+Definition at line 17 of file Client\+\_\+ui.\+h.
+
+\index{Client\+\_\+ui.\+h@{Client\+\_\+ui.\+h}!Logic\+\_\+\+F\+E\+\_\+t@{Logic\+\_\+\+F\+E\+\_\+t}}
+\index{Logic\+\_\+\+F\+E\+\_\+t@{Logic\+\_\+\+F\+E\+\_\+t}!Client\+\_\+ui.\+h@{Client\+\_\+ui.\+h}}
+\subsubsection[{\texorpdfstring{Logic\+\_\+\+F\+E\+\_\+t}{Logic_FE_t}}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf Logic\+\_\+\+FE} {\bf Logic\+\_\+\+F\+E\+\_\+t}}\hypertarget{Client__ui_8h_adc22b842bed5c7e594f04d5f5a110b2c}{}\label{Client__ui_8h_adc22b842bed5c7e594f04d5f5a110b2c}
+
+
+Definition at line 18 of file Client\+\_\+ui.\+h.
+
+
+
+\subsection{Function Documentation}
+\index{Client\+\_\+ui.\+h@{Client\+\_\+ui.\+h}!U\+I\+\_\+\+Create@{U\+I\+\_\+\+Create}}
+\index{U\+I\+\_\+\+Create@{U\+I\+\_\+\+Create}!Client\+\_\+ui.\+h@{Client\+\_\+ui.\+h}}
+\subsubsection[{\texorpdfstring{U\+I\+\_\+\+Create(\+Logic\+\_\+\+F\+E\+\_\+t $\ast$\+\_\+front\+End)}{UI_Create(Logic_FE_t *_frontEnd)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Client\+\_\+\+UI}$\ast$ U\+I\+\_\+\+Create (
+\begin{DoxyParamCaption}
+\item[{{\bf Logic\+\_\+\+F\+E\+\_\+t} $\ast$}]{\+\_\+front\+End}
+\end{DoxyParamCaption}
+)}\hypertarget{Client__ui_8h_ad809f543a97dd6f1694b3c5f96cfeaef}{}\label{Client__ui_8h_ad809f543a97dd6f1694b3c5f96cfeaef}
+
+
+create and setup the ui 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+front\+End} & a pointer to the Front\+End-\/logic. in order to send requsts to. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a pointer to the new struct 
+\end{DoxyReturn}
+
+
+Definition at line 39 of file Client\+\_\+ui.\+c.
+
+
+
+References Client\+\_\+\+U\+I\+::m\+\_\+logic\+FE.
+
+
+
+Referenced by What\+Down\+Client\+App\+\_\+\+Create().
+
+\index{Client\+\_\+ui.\+h@{Client\+\_\+ui.\+h}!Ui\+\_\+\+Destroy@{Ui\+\_\+\+Destroy}}
+\index{Ui\+\_\+\+Destroy@{Ui\+\_\+\+Destroy}!Client\+\_\+ui.\+h@{Client\+\_\+ui.\+h}}
+\subsubsection[{\texorpdfstring{Ui\+\_\+\+Destroy(\+Client\+\_\+\+U\+I $\ast$\+\_\+ui)}{Ui_Destroy(Client_UI *_ui)}}]{\setlength{\rightskip}{0pt plus 5cm}void Ui\+\_\+\+Destroy (
+\begin{DoxyParamCaption}
+\item[{{\bf Client\+\_\+\+UI} $\ast$}]{\+\_\+ui}
+\end{DoxyParamCaption}
+)}\hypertarget{Client__ui_8h_ae27cce71718558730aa8ed7c03b98826}{}\label{Client__ui_8h_ae27cce71718558730aa8ed7c03b98826}
+
+
+destroy and clean up after 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+ui} & the pointer to the struct \\
+\hline
+\end{DoxyParams}
+\index{Client\+\_\+ui.\+h@{Client\+\_\+ui.\+h}!Ui\+\_\+\+Run@{Ui\+\_\+\+Run}}
+\index{Ui\+\_\+\+Run@{Ui\+\_\+\+Run}!Client\+\_\+ui.\+h@{Client\+\_\+ui.\+h}}
+\subsubsection[{\texorpdfstring{Ui\+\_\+\+Run(\+Client\+\_\+\+U\+I $\ast$\+\_\+ui)}{Ui_Run(Client_UI *_ui)}}]{\setlength{\rightskip}{0pt plus 5cm}void Ui\+\_\+\+Run (
+\begin{DoxyParamCaption}
+\item[{{\bf Client\+\_\+\+UI} $\ast$}]{\+\_\+ui}
+\end{DoxyParamCaption}
+)}\hypertarget{Client__ui_8h_ac87703d06309f077ca5e18d347eae42c}{}\label{Client__ui_8h_ac87703d06309f077ca5e18d347eae42c}
+
+
+start the loop of the UI 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+ui} & the pointer to the struct \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 55 of file Client\+\_\+ui.\+c.
+
+
+
+References Create\+New\+Group\+Function(), Delete\+User\+Function(), Disconnect\+Function(), F\+A\+L\+SE, Get\+All\+Gruop\+Function(), Join\+Gruop\+Function(), Leave\+Group\+Function(), Login\+Function(), Logout\+Function(), Signup\+Function(), and T\+R\+UE.
+
+
+
+Referenced by What\+Down\+Client\+App\+\_\+\+Run().
+
+\index{Client\+\_\+ui.\+h@{Client\+\_\+ui.\+h}!Ui\+\_\+\+Stop@{Ui\+\_\+\+Stop}}
+\index{Ui\+\_\+\+Stop@{Ui\+\_\+\+Stop}!Client\+\_\+ui.\+h@{Client\+\_\+ui.\+h}}
+\subsubsection[{\texorpdfstring{Ui\+\_\+\+Stop(\+Client\+\_\+\+U\+I $\ast$\+\_\+ui)}{Ui_Stop(Client_UI *_ui)}}]{\setlength{\rightskip}{0pt plus 5cm}void Ui\+\_\+\+Stop (
+\begin{DoxyParamCaption}
+\item[{{\bf Client\+\_\+\+UI} $\ast$}]{\+\_\+ui}
+\end{DoxyParamCaption}
+)}\hypertarget{Client__ui_8h_ac4f814e0d8cc9b1b403f4da5a3bd5cac}{}\label{Client__ui_8h_ac4f814e0d8cc9b1b403f4da5a3bd5cac}
+
+
+stop the loop of the UI. wont happen immediately. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+ui} & the pointer to the struct \\
+\hline
+\end{DoxyParams}

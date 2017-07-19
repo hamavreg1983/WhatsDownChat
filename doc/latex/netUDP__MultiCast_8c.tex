@@ -1,0 +1,257 @@
+\hypertarget{netUDP__MultiCast_8c}{}\section{chats/net\+U\+D\+P\+\_\+\+Multi\+Cast.c File Reference}
+\label{netUDP__MultiCast_8c}\index{chats/net\+U\+D\+P\+\_\+\+Multi\+Cast.\+c@{chats/net\+U\+D\+P\+\_\+\+Multi\+Cast.\+c}}
+{\ttfamily \#include \char`\"{}net\+U\+D\+P\+\_\+\+Multi\+Cast.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$sys/types.\+h$>$}\\*
+{\ttfamily \#include $<$sys/socket.\+h$>$}\\*
+{\ttfamily \#include $<$netinet/in.\+h$>$}\\*
+{\ttfamily \#include $<$arpa/inet.\+h$>$}\\*
+{\ttfamily \#include $<$time.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$unistd.\+h$>$}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structUDP__MultiCast}{U\+D\+P\+\_\+\+Multi\+Cast}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{netUDP__MultiCast_8c_a6c895b5be2a287102ff80a1c688cfab0}{M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+A\+L\+I\+V\+E\+\_\+\+S\+E\+N\+D\+ER}~0xfacefedc
+\item 
+\#define \hyperlink{netUDP__MultiCast_8c_a7d404cb0046e68884d1f116176e6cb8c}{M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+A\+L\+I\+V\+E\+\_\+\+R\+E\+CV}~0xfaceabcd
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{netUDP__MultiCast_8h_a24ba8d48a19433ba8530f01d52c8657e}{U\+D\+P\+\_\+\+Multi\+Cast\+\_\+t} $\ast$ \hyperlink{netUDP__MultiCast_8c_a4d65d191d6af1612fba3ada17375f002}{U\+D\+P\+\_\+\+Multi\+Cast\+\_\+\+Sender\+\_\+\+Create} (const char $\ast$\+\_\+ip, \hyperlink{tcp_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint} \+\_\+port)
+\begin{DoxyCompactList}\small\item\em create and setup for sending udp multi cast messages \end{DoxyCompactList}\item 
+void \hyperlink{netUDP__MultiCast_8c_ab481339a0f3963da36412b6cdc7c1985}{U\+D\+P\+\_\+\+Multi\+Cast\+\_\+\+Sender\+\_\+\+Destroy} (\hyperlink{netUDP__MultiCast_8h_a24ba8d48a19433ba8530f01d52c8657e}{U\+D\+P\+\_\+\+Multi\+Cast\+\_\+t} $\ast$\+\_\+net)
+\begin{DoxyCompactList}\small\item\em destroy and clean up \end{DoxyCompactList}\item 
+int \hyperlink{netUDP__MultiCast_8c_ae8d7e21602845c993988871e695da357}{U\+D\+P\+\_\+\+Multi\+Cast\+\_\+\+Send} (\hyperlink{netUDP__MultiCast_8h_a24ba8d48a19433ba8530f01d52c8657e}{U\+D\+P\+\_\+\+Multi\+Cast\+\_\+t} $\ast$\+\_\+net, void $\ast$\+\_\+msg, \hyperlink{tcp_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint} \+\_\+msg\+Length)
+\begin{DoxyCompactList}\small\item\em actually sending the caller message \end{DoxyCompactList}\item 
+\hyperlink{netUDP__MultiCast_8h_a24ba8d48a19433ba8530f01d52c8657e}{U\+D\+P\+\_\+\+Multi\+Cast\+\_\+t} $\ast$ \hyperlink{netUDP__MultiCast_8c_aded615afc00c9a7dddab91805f4ef34e}{U\+D\+P\+\_\+\+Multi\+Cast\+\_\+\+Reciver\+\_\+\+Create} (const char $\ast$\+\_\+ip, \hyperlink{tcp_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint} \+\_\+port)
+\begin{DoxyCompactList}\small\item\em create and setup for receiving udp multi cast messages \end{DoxyCompactList}\item 
+void \hyperlink{netUDP__MultiCast_8c_a19b7f1499bc84d3b67c3353d003014b3}{U\+D\+P\+\_\+\+Multi\+Cast\+\_\+\+Reciver\+\_\+\+Destroy} (\hyperlink{netUDP__MultiCast_8h_a24ba8d48a19433ba8530f01d52c8657e}{U\+D\+P\+\_\+\+Multi\+Cast\+\_\+t} $\ast$\+\_\+net\+Recive)
+\begin{DoxyCompactList}\small\item\em destroy and clean up \end{DoxyCompactList}\item 
+int \hyperlink{netUDP__MultiCast_8c_a9dee255f9a0f368179abdd165b5ccaf5}{U\+D\+P\+\_\+\+Multi\+Cast\+\_\+\+Recive} (\hyperlink{netUDP__MultiCast_8h_a24ba8d48a19433ba8530f01d52c8657e}{U\+D\+P\+\_\+\+Multi\+Cast\+\_\+t} $\ast$\+\_\+net\+Recive, void $\ast$\+\_\+buffer, size\+\_\+t \+\_\+buffer\+Size)
+\begin{DoxyCompactList}\small\item\em perform a read of the address given at create. if nothing to read, would go to block until there would. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\index{net\+U\+D\+P\+\_\+\+Multi\+Cast.\+c@{net\+U\+D\+P\+\_\+\+Multi\+Cast.\+c}!M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+A\+L\+I\+V\+E\+\_\+\+R\+E\+CV@{M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+A\+L\+I\+V\+E\+\_\+\+R\+E\+CV}}
+\index{M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+A\+L\+I\+V\+E\+\_\+\+R\+E\+CV@{M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+A\+L\+I\+V\+E\+\_\+\+R\+E\+CV}!net\+U\+D\+P\+\_\+\+Multi\+Cast.\+c@{net\+U\+D\+P\+\_\+\+Multi\+Cast.\+c}}
+\subsubsection[{\texorpdfstring{M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+A\+L\+I\+V\+E\+\_\+\+R\+E\+CV}{MAGIC_NUMBER_ALIVE_RECV}}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+A\+L\+I\+V\+E\+\_\+\+R\+E\+CV~0xfaceabcd}\hypertarget{netUDP__MultiCast_8c_a7d404cb0046e68884d1f116176e6cb8c}{}\label{netUDP__MultiCast_8c_a7d404cb0046e68884d1f116176e6cb8c}
+
+
+Definition at line 23 of file net\+U\+D\+P\+\_\+\+Multi\+Cast.\+c.
+
+
+
+Referenced by U\+D\+P\+\_\+\+Multi\+Cast\+\_\+\+Recive(), U\+D\+P\+\_\+\+Multi\+Cast\+\_\+\+Reciver\+\_\+\+Create(), and U\+D\+P\+\_\+\+Multi\+Cast\+\_\+\+Reciver\+\_\+\+Destroy().
+
+\index{net\+U\+D\+P\+\_\+\+Multi\+Cast.\+c@{net\+U\+D\+P\+\_\+\+Multi\+Cast.\+c}!M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+A\+L\+I\+V\+E\+\_\+\+S\+E\+N\+D\+ER@{M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+A\+L\+I\+V\+E\+\_\+\+S\+E\+N\+D\+ER}}
+\index{M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+A\+L\+I\+V\+E\+\_\+\+S\+E\+N\+D\+ER@{M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+A\+L\+I\+V\+E\+\_\+\+S\+E\+N\+D\+ER}!net\+U\+D\+P\+\_\+\+Multi\+Cast.\+c@{net\+U\+D\+P\+\_\+\+Multi\+Cast.\+c}}
+\subsubsection[{\texorpdfstring{M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+A\+L\+I\+V\+E\+\_\+\+S\+E\+N\+D\+ER}{MAGIC_NUMBER_ALIVE_SENDER}}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+A\+L\+I\+V\+E\+\_\+\+S\+E\+N\+D\+ER~0xfacefedc}\hypertarget{netUDP__MultiCast_8c_a6c895b5be2a287102ff80a1c688cfab0}{}\label{netUDP__MultiCast_8c_a6c895b5be2a287102ff80a1c688cfab0}
+
+
+Definition at line 22 of file net\+U\+D\+P\+\_\+\+Multi\+Cast.\+c.
+
+
+
+Referenced by U\+D\+P\+\_\+\+Multi\+Cast\+\_\+\+Send(), U\+D\+P\+\_\+\+Multi\+Cast\+\_\+\+Sender\+\_\+\+Create(), and U\+D\+P\+\_\+\+Multi\+Cast\+\_\+\+Sender\+\_\+\+Destroy().
+
+
+
+\subsection{Function Documentation}
+\index{net\+U\+D\+P\+\_\+\+Multi\+Cast.\+c@{net\+U\+D\+P\+\_\+\+Multi\+Cast.\+c}!U\+D\+P\+\_\+\+Multi\+Cast\+\_\+\+Recive@{U\+D\+P\+\_\+\+Multi\+Cast\+\_\+\+Recive}}
+\index{U\+D\+P\+\_\+\+Multi\+Cast\+\_\+\+Recive@{U\+D\+P\+\_\+\+Multi\+Cast\+\_\+\+Recive}!net\+U\+D\+P\+\_\+\+Multi\+Cast.\+c@{net\+U\+D\+P\+\_\+\+Multi\+Cast.\+c}}
+\subsubsection[{\texorpdfstring{U\+D\+P\+\_\+\+Multi\+Cast\+\_\+\+Recive(\+U\+D\+P\+\_\+\+Multi\+Cast\+\_\+t $\ast$\+\_\+net\+Recive, void $\ast$\+\_\+buffer, size\+\_\+t \+\_\+buffer\+Size)}{UDP_MultiCast_Recive(UDP_MultiCast_t *_netRecive, void *_buffer, size_t _bufferSize)}}]{\setlength{\rightskip}{0pt plus 5cm}int U\+D\+P\+\_\+\+Multi\+Cast\+\_\+\+Recive (
+\begin{DoxyParamCaption}
+\item[{{\bf U\+D\+P\+\_\+\+Multi\+Cast\+\_\+t} $\ast$}]{\+\_\+net\+Recive, }
+\item[{void $\ast$}]{\+\_\+buffer, }
+\item[{size\+\_\+t}]{\+\_\+buffer\+Size}
+\end{DoxyParamCaption}
+)}\hypertarget{netUDP__MultiCast_8c_a9dee255f9a0f368179abdd165b5ccaf5}{}\label{netUDP__MultiCast_8c_a9dee255f9a0f368179abdd165b5ccaf5}
+
+
+perform a read of the address given at create. if nothing to read, would go to block until there would. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+net\+Recive} & a pointer to the new struct \\
+\hline
+{\em \+\_\+buffer} & the read information would be writing to this buffer. \\
+\hline
+{\em \+\_\+buffer\+Size} & the length in bytes of the buffer. no overflow would ocuur. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the size in bytes read. negative values represent errors. 
+\end{DoxyReturn}
+
+
+Definition at line 204 of file net\+U\+D\+P\+\_\+\+Multi\+Cast.\+c.
+
+
+
+References G\+E\+N\+\_\+\+E\+R\+R\+OR, U\+D\+P\+\_\+\+Multi\+Cast\+::m\+\_\+fd\+\_\+socket, U\+D\+P\+\_\+\+Multi\+Cast\+::m\+\_\+magic\+Number, U\+D\+P\+\_\+\+Multi\+Cast\+::m\+\_\+sockaddr, and M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+A\+L\+I\+V\+E\+\_\+\+R\+E\+CV.
+
+
+
+Referenced by main().
+
+\index{net\+U\+D\+P\+\_\+\+Multi\+Cast.\+c@{net\+U\+D\+P\+\_\+\+Multi\+Cast.\+c}!U\+D\+P\+\_\+\+Multi\+Cast\+\_\+\+Reciver\+\_\+\+Create@{U\+D\+P\+\_\+\+Multi\+Cast\+\_\+\+Reciver\+\_\+\+Create}}
+\index{U\+D\+P\+\_\+\+Multi\+Cast\+\_\+\+Reciver\+\_\+\+Create@{U\+D\+P\+\_\+\+Multi\+Cast\+\_\+\+Reciver\+\_\+\+Create}!net\+U\+D\+P\+\_\+\+Multi\+Cast.\+c@{net\+U\+D\+P\+\_\+\+Multi\+Cast.\+c}}
+\subsubsection[{\texorpdfstring{U\+D\+P\+\_\+\+Multi\+Cast\+\_\+\+Reciver\+\_\+\+Create(const char $\ast$\+\_\+ip, uint \+\_\+port)}{UDP_MultiCast_Reciver_Create(const char *_ip, uint _port)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf U\+D\+P\+\_\+\+Multi\+Cast\+\_\+t}$\ast$ U\+D\+P\+\_\+\+Multi\+Cast\+\_\+\+Reciver\+\_\+\+Create (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{\+\_\+ip, }
+\item[{{\bf uint}}]{\+\_\+port}
+\end{DoxyParamCaption}
+)}\hypertarget{netUDP__MultiCast_8c_aded615afc00c9a7dddab91805f4ef34e}{}\label{netUDP__MultiCast_8c_aded615afc00c9a7dddab91805f4ef34e}
+
+
+create and setup for receiving udp multi cast messages 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+ip} & the address in a X\+X\+X.\+X\+X\+X.\+X\+X\+X.\+X\+XX fomat \\
+\hline
+{\em \+\_\+port} & port number to receive on \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a pointer to the new struct 
+\end{DoxyReturn}
+
+
+Definition at line 114 of file net\+U\+D\+P\+\_\+\+Multi\+Cast.\+c.
+
+
+
+References U\+D\+P\+\_\+\+Multi\+Cast\+::m\+\_\+fd\+\_\+socket, U\+D\+P\+\_\+\+Multi\+Cast\+::m\+\_\+magic\+Number, U\+D\+P\+\_\+\+Multi\+Cast\+::m\+\_\+sockaddr, M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+A\+L\+I\+V\+E\+\_\+\+R\+E\+CV, and T\+R\+UE.
+
+
+
+Referenced by main().
+
+\index{net\+U\+D\+P\+\_\+\+Multi\+Cast.\+c@{net\+U\+D\+P\+\_\+\+Multi\+Cast.\+c}!U\+D\+P\+\_\+\+Multi\+Cast\+\_\+\+Reciver\+\_\+\+Destroy@{U\+D\+P\+\_\+\+Multi\+Cast\+\_\+\+Reciver\+\_\+\+Destroy}}
+\index{U\+D\+P\+\_\+\+Multi\+Cast\+\_\+\+Reciver\+\_\+\+Destroy@{U\+D\+P\+\_\+\+Multi\+Cast\+\_\+\+Reciver\+\_\+\+Destroy}!net\+U\+D\+P\+\_\+\+Multi\+Cast.\+c@{net\+U\+D\+P\+\_\+\+Multi\+Cast.\+c}}
+\subsubsection[{\texorpdfstring{U\+D\+P\+\_\+\+Multi\+Cast\+\_\+\+Reciver\+\_\+\+Destroy(\+U\+D\+P\+\_\+\+Multi\+Cast\+\_\+t $\ast$\+\_\+net\+Recive)}{UDP_MultiCast_Reciver_Destroy(UDP_MultiCast_t *_netRecive)}}]{\setlength{\rightskip}{0pt plus 5cm}void U\+D\+P\+\_\+\+Multi\+Cast\+\_\+\+Reciver\+\_\+\+Destroy (
+\begin{DoxyParamCaption}
+\item[{{\bf U\+D\+P\+\_\+\+Multi\+Cast\+\_\+t} $\ast$}]{\+\_\+net}
+\end{DoxyParamCaption}
+)}\hypertarget{netUDP__MultiCast_8c_a19b7f1499bc84d3b67c3353d003014b3}{}\label{netUDP__MultiCast_8c_a19b7f1499bc84d3b67c3353d003014b3}
+
+
+destroy and clean up 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+net} & pointer to struct \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 188 of file net\+U\+D\+P\+\_\+\+Multi\+Cast.\+c.
+
+
+
+References U\+D\+P\+\_\+\+Multi\+Cast\+::m\+\_\+fd\+\_\+socket, U\+D\+P\+\_\+\+Multi\+Cast\+::m\+\_\+magic\+Number, U\+D\+P\+\_\+\+Multi\+Cast\+::m\+\_\+sockaddr, and M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+A\+L\+I\+V\+E\+\_\+\+R\+E\+CV.
+
+\index{net\+U\+D\+P\+\_\+\+Multi\+Cast.\+c@{net\+U\+D\+P\+\_\+\+Multi\+Cast.\+c}!U\+D\+P\+\_\+\+Multi\+Cast\+\_\+\+Send@{U\+D\+P\+\_\+\+Multi\+Cast\+\_\+\+Send}}
+\index{U\+D\+P\+\_\+\+Multi\+Cast\+\_\+\+Send@{U\+D\+P\+\_\+\+Multi\+Cast\+\_\+\+Send}!net\+U\+D\+P\+\_\+\+Multi\+Cast.\+c@{net\+U\+D\+P\+\_\+\+Multi\+Cast.\+c}}
+\subsubsection[{\texorpdfstring{U\+D\+P\+\_\+\+Multi\+Cast\+\_\+\+Send(\+U\+D\+P\+\_\+\+Multi\+Cast\+\_\+t $\ast$\+\_\+net, void $\ast$\+\_\+msg, uint \+\_\+msg\+Length)}{UDP_MultiCast_Send(UDP_MultiCast_t *_net, void *_msg, uint _msgLength)}}]{\setlength{\rightskip}{0pt plus 5cm}int U\+D\+P\+\_\+\+Multi\+Cast\+\_\+\+Send (
+\begin{DoxyParamCaption}
+\item[{{\bf U\+D\+P\+\_\+\+Multi\+Cast\+\_\+t} $\ast$}]{\+\_\+net, }
+\item[{void $\ast$}]{\+\_\+msg, }
+\item[{{\bf uint}}]{\+\_\+msg\+Length}
+\end{DoxyParamCaption}
+)}\hypertarget{netUDP__MultiCast_8c_ae8d7e21602845c993988871e695da357}{}\label{netUDP__MultiCast_8c_ae8d7e21602845c993988871e695da357}
+
+
+actually sending the caller message 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+net} & pointer to struct \\
+\hline
+{\em \+\_\+msg} & the message to send \\
+\hline
+{\em \+\_\+msg\+Length} & the length in bytes of the msg \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the length of bytes send. negative values represent errors. 
+\end{DoxyReturn}
+
+
+Definition at line 94 of file net\+U\+D\+P\+\_\+\+Multi\+Cast.\+c.
+
+
+
+References G\+E\+N\+\_\+\+E\+R\+R\+OR, U\+D\+P\+\_\+\+Multi\+Cast\+::m\+\_\+fd\+\_\+socket, U\+D\+P\+\_\+\+Multi\+Cast\+::m\+\_\+magic\+Number, U\+D\+P\+\_\+\+Multi\+Cast\+::m\+\_\+sockaddr, and M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+A\+L\+I\+V\+E\+\_\+\+S\+E\+N\+D\+ER.
+
+
+
+Referenced by main().
+
+\index{net\+U\+D\+P\+\_\+\+Multi\+Cast.\+c@{net\+U\+D\+P\+\_\+\+Multi\+Cast.\+c}!U\+D\+P\+\_\+\+Multi\+Cast\+\_\+\+Sender\+\_\+\+Create@{U\+D\+P\+\_\+\+Multi\+Cast\+\_\+\+Sender\+\_\+\+Create}}
+\index{U\+D\+P\+\_\+\+Multi\+Cast\+\_\+\+Sender\+\_\+\+Create@{U\+D\+P\+\_\+\+Multi\+Cast\+\_\+\+Sender\+\_\+\+Create}!net\+U\+D\+P\+\_\+\+Multi\+Cast.\+c@{net\+U\+D\+P\+\_\+\+Multi\+Cast.\+c}}
+\subsubsection[{\texorpdfstring{U\+D\+P\+\_\+\+Multi\+Cast\+\_\+\+Sender\+\_\+\+Create(const char $\ast$\+\_\+ip, uint \+\_\+port)}{UDP_MultiCast_Sender_Create(const char *_ip, uint _port)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf U\+D\+P\+\_\+\+Multi\+Cast\+\_\+t}$\ast$ U\+D\+P\+\_\+\+Multi\+Cast\+\_\+\+Sender\+\_\+\+Create (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{\+\_\+ip, }
+\item[{{\bf uint}}]{\+\_\+port}
+\end{DoxyParamCaption}
+)}\hypertarget{netUDP__MultiCast_8c_a4d65d191d6af1612fba3ada17375f002}{}\label{netUDP__MultiCast_8c_a4d65d191d6af1612fba3ada17375f002}
+
+
+create and setup for sending udp multi cast messages 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+ip} & the address in a X\+X\+X.\+X\+X\+X.\+X\+X\+X.\+X\+XX fomat \\
+\hline
+{\em \+\_\+port} & port number to communicate on \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a pointer to the new struct 
+\end{DoxyReturn}
+
+
+Definition at line 39 of file net\+U\+D\+P\+\_\+\+Multi\+Cast.\+c.
+
+
+
+References U\+D\+P\+\_\+\+Multi\+Cast\+::m\+\_\+fd\+\_\+socket, U\+D\+P\+\_\+\+Multi\+Cast\+::m\+\_\+magic\+Number, U\+D\+P\+\_\+\+Multi\+Cast\+::m\+\_\+sockaddr, and M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+A\+L\+I\+V\+E\+\_\+\+S\+E\+N\+D\+ER.
+
+
+
+Referenced by main().
+
+\index{net\+U\+D\+P\+\_\+\+Multi\+Cast.\+c@{net\+U\+D\+P\+\_\+\+Multi\+Cast.\+c}!U\+D\+P\+\_\+\+Multi\+Cast\+\_\+\+Sender\+\_\+\+Destroy@{U\+D\+P\+\_\+\+Multi\+Cast\+\_\+\+Sender\+\_\+\+Destroy}}
+\index{U\+D\+P\+\_\+\+Multi\+Cast\+\_\+\+Sender\+\_\+\+Destroy@{U\+D\+P\+\_\+\+Multi\+Cast\+\_\+\+Sender\+\_\+\+Destroy}!net\+U\+D\+P\+\_\+\+Multi\+Cast.\+c@{net\+U\+D\+P\+\_\+\+Multi\+Cast.\+c}}
+\subsubsection[{\texorpdfstring{U\+D\+P\+\_\+\+Multi\+Cast\+\_\+\+Sender\+\_\+\+Destroy(\+U\+D\+P\+\_\+\+Multi\+Cast\+\_\+t $\ast$\+\_\+net)}{UDP_MultiCast_Sender_Destroy(UDP_MultiCast_t *_net)}}]{\setlength{\rightskip}{0pt plus 5cm}void U\+D\+P\+\_\+\+Multi\+Cast\+\_\+\+Sender\+\_\+\+Destroy (
+\begin{DoxyParamCaption}
+\item[{{\bf U\+D\+P\+\_\+\+Multi\+Cast\+\_\+t} $\ast$}]{\+\_\+net}
+\end{DoxyParamCaption}
+)}\hypertarget{netUDP__MultiCast_8c_ab481339a0f3963da36412b6cdc7c1985}{}\label{netUDP__MultiCast_8c_ab481339a0f3963da36412b6cdc7c1985}
+
+
+destroy and clean up 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+net} & pointer to struct \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 78 of file net\+U\+D\+P\+\_\+\+Multi\+Cast.\+c.
+
+
+
+References U\+D\+P\+\_\+\+Multi\+Cast\+::m\+\_\+fd\+\_\+socket, U\+D\+P\+\_\+\+Multi\+Cast\+::m\+\_\+magic\+Number, U\+D\+P\+\_\+\+Multi\+Cast\+::m\+\_\+sockaddr, and M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+A\+L\+I\+V\+E\+\_\+\+S\+E\+N\+D\+ER.
+

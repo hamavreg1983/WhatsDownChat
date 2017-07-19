@@ -1,0 +1,224 @@
+\hypertarget{tcp__client_8h}{}\section{comm/tcp/src/tcp\+\_\+client.h File Reference}
+\label{tcp__client_8h}\index{comm/tcp/src/tcp\+\_\+client.\+h@{comm/tcp/src/tcp\+\_\+client.\+h}}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{tcp__client_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{T\+R\+UE}~1
+\item 
+\#define \hyperlink{tcp__client_8h_aa93f0eb578d23995850d61f7d61c55c1}{F\+A\+L\+SE}~0
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef unsigned int \hyperlink{tcp__client_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}
+\begin{DoxyCompactList}\small\item\em A T\+CP client A\+DT for future projects use. \end{DoxyCompactList}\item 
+typedef int \hyperlink{tcp__client_8h_a1062901a7428fdd9c7f180f5e01ea056}{bool}
+\item 
+typedef struct \hyperlink{structTCP__C}{T\+C\+P\+\_\+C} \hyperlink{tcp__client_8h_a3db7b57ed8c85377051fea41ecaf4ff9}{T\+C\+P\+\_\+\+C\+\_\+t}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{tcp__client_8h_a3db7b57ed8c85377051fea41ecaf4ff9}{T\+C\+P\+\_\+\+C\+\_\+t} $\ast$ \hyperlink{tcp__client_8h_a67c7bc3888c4bebf2a981f139c982176}{T\+C\+P\+\_\+\+Create\+Client} (char $\ast$\+\_\+\+Server\+IP, \hyperlink{tcp_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint} \+\_\+server\+Port)
+\begin{DoxyCompactList}\small\item\em Create all is needed for a T\+CP client to connect to the server. \end{DoxyCompactList}\item 
+void \hyperlink{tcp__client_8h_a2fa0319093d7e5b033bcd949506ad695}{T\+C\+P\+\_\+\+Destroy\+Client} (\hyperlink{tcp__client_8h_a3db7b57ed8c85377051fea41ecaf4ff9}{T\+C\+P\+\_\+\+C\+\_\+t} $\ast$\+\_\+\+T\+CP)
+\begin{DoxyCompactList}\small\item\em Cleans up and free after the program. This include the disconnect function inside it. \end{DoxyCompactList}\item 
+int \hyperlink{tcp__client_8h_a8682ec95ae1fa2a69a0f34c62d302139}{T\+C\+P\+\_\+\+Client\+Send} (\hyperlink{tcp__client_8h_a3db7b57ed8c85377051fea41ecaf4ff9}{T\+C\+P\+\_\+\+C\+\_\+t} $\ast$\+\_\+\+T\+CP, void $\ast$\+\_\+msg, \hyperlink{tcp_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint} \+\_\+msg\+Length)
+\begin{DoxyCompactList}\small\item\em Function to send data (back?) to a client. \end{DoxyCompactList}\item 
+int \hyperlink{tcp__client_8h_ab80e0b58d8bf2126d2d3d7fb6c9a8eba}{T\+C\+P\+\_\+\+Client\+Recive} (\hyperlink{tcp__client_8h_a3db7b57ed8c85377051fea41ecaf4ff9}{T\+C\+P\+\_\+\+C\+\_\+t} $\ast$\+\_\+\+T\+CP, void $\ast$\+\_\+buffer, \hyperlink{tcp_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint} \+\_\+buffer\+Max\+Length)
+\begin{DoxyCompactList}\small\item\em Function to invoke data read from clients without looping. just a singal read. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\index{tcp\+\_\+client.\+h@{tcp\+\_\+client.\+h}!F\+A\+L\+SE@{F\+A\+L\+SE}}
+\index{F\+A\+L\+SE@{F\+A\+L\+SE}!tcp\+\_\+client.\+h@{tcp\+\_\+client.\+h}}
+\subsubsection[{\texorpdfstring{F\+A\+L\+SE}{FALSE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+A\+L\+SE~0}\hypertarget{tcp__client_8h_aa93f0eb578d23995850d61f7d61c55c1}{}\label{tcp__client_8h_aa93f0eb578d23995850d61f7d61c55c1}
+
+
+Definition at line 16 of file tcp\+\_\+client.\+h.
+
+\index{tcp\+\_\+client.\+h@{tcp\+\_\+client.\+h}!T\+R\+UE@{T\+R\+UE}}
+\index{T\+R\+UE@{T\+R\+UE}!tcp\+\_\+client.\+h@{tcp\+\_\+client.\+h}}
+\subsubsection[{\texorpdfstring{T\+R\+UE}{TRUE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+R\+UE~1}\hypertarget{tcp__client_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{}\label{tcp__client_8h_aa8cecfc5c5c054d2875c03e77b7be15d}
+
+
+Definition at line 15 of file tcp\+\_\+client.\+h.
+
+
+
+\subsection{Typedef Documentation}
+\index{tcp\+\_\+client.\+h@{tcp\+\_\+client.\+h}!bool@{bool}}
+\index{bool@{bool}!tcp\+\_\+client.\+h@{tcp\+\_\+client.\+h}}
+\subsubsection[{\texorpdfstring{bool}{bool}}]{\setlength{\rightskip}{0pt plus 5cm}typedef int {\bf bool}}\hypertarget{tcp__client_8h_a1062901a7428fdd9c7f180f5e01ea056}{}\label{tcp__client_8h_a1062901a7428fdd9c7f180f5e01ea056}
+
+
+Definition at line 14 of file tcp\+\_\+client.\+h.
+
+\index{tcp\+\_\+client.\+h@{tcp\+\_\+client.\+h}!T\+C\+P\+\_\+\+C\+\_\+t@{T\+C\+P\+\_\+\+C\+\_\+t}}
+\index{T\+C\+P\+\_\+\+C\+\_\+t@{T\+C\+P\+\_\+\+C\+\_\+t}!tcp\+\_\+client.\+h@{tcp\+\_\+client.\+h}}
+\subsubsection[{\texorpdfstring{T\+C\+P\+\_\+\+C\+\_\+t}{TCP_C_t}}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf T\+C\+P\+\_\+C} {\bf T\+C\+P\+\_\+\+C\+\_\+t}}\hypertarget{tcp__client_8h_a3db7b57ed8c85377051fea41ecaf4ff9}{}\label{tcp__client_8h_a3db7b57ed8c85377051fea41ecaf4ff9}
+
+
+Definition at line 19 of file tcp\+\_\+client.\+h.
+
+\index{tcp\+\_\+client.\+h@{tcp\+\_\+client.\+h}!uint@{uint}}
+\index{uint@{uint}!tcp\+\_\+client.\+h@{tcp\+\_\+client.\+h}}
+\subsubsection[{\texorpdfstring{uint}{uint}}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned int {\bf uint}}\hypertarget{tcp__client_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{}\label{tcp__client_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}
+
+
+A T\+CP client A\+DT for future projects use. 
+
+\begin{DoxyAuthor}{Author}
+Yuval Hamberg 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+Jul 4, 2017
+\end{DoxyDate}
+\begin{DoxyRefDesc}{Bug}
+\item[\hyperlink{bug__bug000002}{Bug}]\end{DoxyRefDesc}
+
+
+Definition at line 13 of file tcp\+\_\+client.\+h.
+
+
+
+\subsection{Function Documentation}
+\index{tcp\+\_\+client.\+h@{tcp\+\_\+client.\+h}!T\+C\+P\+\_\+\+Client\+Recive@{T\+C\+P\+\_\+\+Client\+Recive}}
+\index{T\+C\+P\+\_\+\+Client\+Recive@{T\+C\+P\+\_\+\+Client\+Recive}!tcp\+\_\+client.\+h@{tcp\+\_\+client.\+h}}
+\subsubsection[{\texorpdfstring{T\+C\+P\+\_\+\+Client\+Recive(\+T\+C\+P\+\_\+\+C\+\_\+t $\ast$\+\_\+\+T\+C\+P, void $\ast$\+\_\+buffer, uint \+\_\+buffer\+Max\+Length)}{TCP_ClientRecive(TCP_C_t *_TCP, void *_buffer, uint _bufferMaxLength)}}]{\setlength{\rightskip}{0pt plus 5cm}int T\+C\+P\+\_\+\+Client\+Recive (
+\begin{DoxyParamCaption}
+\item[{{\bf T\+C\+P\+\_\+\+C\+\_\+t} $\ast$}]{\+\_\+\+T\+CP, }
+\item[{void $\ast$}]{\+\_\+buffer, }
+\item[{{\bf uint}}]{\+\_\+buffer\+Max\+Length}
+\end{DoxyParamCaption}
+)}\hypertarget{tcp__client_8h_ab80e0b58d8bf2126d2d3d7fb6c9a8eba}{}\label{tcp__client_8h_ab80e0b58d8bf2126d2d3d7fb6c9a8eba}
+
+
+Function to invoke data read from clients without looping. just a singal read. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+\+T\+CP} & a pointer to the T\+CP struct \\
+\hline
+{\em \+\_\+buffer} & the data buffer to be read to. up to B\+U\+F\+F\+E\+R\+\_\+\+M\+A\+X\+\_\+\+S\+I\+ZE bytes. \\
+\hline
+{\em \+\_\+buffer\+Max\+Length} & the data buffer max size. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+positive number represent the number of bytes read. negative number represent error. 
+\end{DoxyReturn}
+
+
+Definition at line 180 of file tcp\+\_\+client.\+c.
+
+
+
+References A\+L\+I\+V\+E\+\_\+\+M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+ER, G\+E\+N\+E\+R\+A\+L\+\_\+\+E\+R\+R\+OR, Is\+Struct\+Valid(), T\+C\+P\+\_\+\+C\+::m\+\_\+comm\+Socket, T\+C\+P\+\_\+\+C\+::m\+\_\+connected\+Num, T\+C\+P\+\_\+\+C\+::m\+\_\+magic\+Number, and sanity\+\_\+check().
+
+
+
+Referenced by Logic\+F\+E\+\_\+\+Get\+All\+Groups\+Name(), and main().
+
+\index{tcp\+\_\+client.\+h@{tcp\+\_\+client.\+h}!T\+C\+P\+\_\+\+Client\+Send@{T\+C\+P\+\_\+\+Client\+Send}}
+\index{T\+C\+P\+\_\+\+Client\+Send@{T\+C\+P\+\_\+\+Client\+Send}!tcp\+\_\+client.\+h@{tcp\+\_\+client.\+h}}
+\subsubsection[{\texorpdfstring{T\+C\+P\+\_\+\+Client\+Send(\+T\+C\+P\+\_\+\+C\+\_\+t $\ast$\+\_\+\+T\+C\+P, void $\ast$\+\_\+msg, uint \+\_\+msg\+Length)}{TCP_ClientSend(TCP_C_t *_TCP, void *_msg, uint _msgLength)}}]{\setlength{\rightskip}{0pt plus 5cm}int T\+C\+P\+\_\+\+Client\+Send (
+\begin{DoxyParamCaption}
+\item[{{\bf T\+C\+P\+\_\+\+C\+\_\+t} $\ast$}]{\+\_\+\+T\+CP, }
+\item[{void $\ast$}]{\+\_\+msg, }
+\item[{{\bf uint}}]{\+\_\+msg\+Length}
+\end{DoxyParamCaption}
+)}\hypertarget{tcp__client_8h_a8682ec95ae1fa2a69a0f34c62d302139}{}\label{tcp__client_8h_a8682ec95ae1fa2a69a0f34c62d302139}
+
+
+Function to send data (back?) to a client. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+\+T\+CP} & a pointer to the T\+CP struct \\
+\hline
+{\em \+\_\+msg} & the data to be send. up to B\+U\+F\+F\+E\+R\+\_\+\+M\+A\+X\+\_\+\+S\+I\+ZE bytes. \\
+\hline
+{\em \+\_\+msg\+Length} & the data send size. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+positive number represent the number of bytes send. negative number represent error. 
+\end{DoxyReturn}
+
+
+Definition at line 158 of file tcp\+\_\+client.\+c.
+
+
+
+References G\+E\+N\+E\+R\+A\+L\+\_\+\+E\+R\+R\+OR, Is\+Struct\+Valid(), and T\+C\+P\+\_\+\+C\+::m\+\_\+comm\+Socket.
+
+
+
+Referenced by Logic\+F\+E\+\_\+\+Get\+All\+Groups\+Name(), and main().
+
+\index{tcp\+\_\+client.\+h@{tcp\+\_\+client.\+h}!T\+C\+P\+\_\+\+Create\+Client@{T\+C\+P\+\_\+\+Create\+Client}}
+\index{T\+C\+P\+\_\+\+Create\+Client@{T\+C\+P\+\_\+\+Create\+Client}!tcp\+\_\+client.\+h@{tcp\+\_\+client.\+h}}
+\subsubsection[{\texorpdfstring{T\+C\+P\+\_\+\+Create\+Client(char $\ast$\+\_\+\+Server\+I\+P, uint \+\_\+server\+Port)}{TCP_CreateClient(char *_ServerIP, uint _serverPort)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\+C\+P\+\_\+\+C\+\_\+t}$\ast$ T\+C\+P\+\_\+\+Create\+Client (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{\+\_\+\+Server\+IP, }
+\item[{{\bf uint}}]{\+\_\+server\+Port}
+\end{DoxyParamCaption}
+)}\hypertarget{tcp__client_8h_a67c7bc3888c4bebf2a981f139c982176}{}\label{tcp__client_8h_a67c7bc3888c4bebf2a981f139c982176}
+
+
+Create all is needed for a T\+CP client to connect to the server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+\+Server\+IP} & the ip address (ipv4 or ipv6) of the server \\
+\hline
+{\em \+\_\+server\+Port} & the listning for new connection port on the server \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer to the newly create struct 
+\end{DoxyReturn}
+
+
+Definition at line 64 of file tcp\+\_\+client.\+c.
+
+
+
+References A\+L\+I\+V\+E\+\_\+\+M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+ER, F\+A\+L\+SE, T\+C\+P\+\_\+\+C\+::m\+\_\+comm\+Socket, T\+C\+P\+\_\+\+C\+::m\+\_\+connected\+Num, T\+C\+P\+\_\+\+C\+::m\+\_\+magic\+Number, T\+C\+P\+\_\+\+C\+::m\+\_\+server\+IP, T\+C\+P\+\_\+\+C\+::m\+\_\+server\+Port, and T\+C\+P\+\_\+\+Client\+Connect().
+
+
+
+Referenced by main(), and What\+Down\+Client\+App\+\_\+\+Create().
+
+\index{tcp\+\_\+client.\+h@{tcp\+\_\+client.\+h}!T\+C\+P\+\_\+\+Destroy\+Client@{T\+C\+P\+\_\+\+Destroy\+Client}}
+\index{T\+C\+P\+\_\+\+Destroy\+Client@{T\+C\+P\+\_\+\+Destroy\+Client}!tcp\+\_\+client.\+h@{tcp\+\_\+client.\+h}}
+\subsubsection[{\texorpdfstring{T\+C\+P\+\_\+\+Destroy\+Client(\+T\+C\+P\+\_\+\+C\+\_\+t $\ast$\+\_\+\+T\+C\+P)}{TCP_DestroyClient(TCP_C_t *_TCP)}}]{\setlength{\rightskip}{0pt plus 5cm}void T\+C\+P\+\_\+\+Destroy\+Client (
+\begin{DoxyParamCaption}
+\item[{{\bf T\+C\+P\+\_\+\+C\+\_\+t} $\ast$}]{\+\_\+\+T\+CP}
+\end{DoxyParamCaption}
+)}\hypertarget{tcp__client_8h_a2fa0319093d7e5b033bcd949506ad695}{}\label{tcp__client_8h_a2fa0319093d7e5b033bcd949506ad695}
+
+
+Cleans up and free after the program. This include the disconnect function inside it. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+\+T\+CP} & pointer to the struct \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void. silent fail. 
+\end{DoxyReturn}
+
+
+Definition at line 110 of file tcp\+\_\+client.\+c.
+
+
+
+References D\+E\+A\+D\+\_\+\+M\+A\+G\+I\+C\+\_\+\+N\+U\+M\+B\+ER, Is\+Struct\+Valid(), T\+C\+P\+\_\+\+C\+::m\+\_\+comm\+Socket, and T\+C\+P\+\_\+\+C\+::m\+\_\+magic\+Number.
+
+
+
+Referenced by main().
+

@@ -1,0 +1,97 @@
+\hypertarget{reader_8c}{}\section{chats/reader.c File Reference}
+\label{reader_8c}\index{chats/reader.\+c@{chats/reader.\+c}}
+
+
+joins a multicast group and echoes all data it receives from the group to its stdout  
+
+
+{\ttfamily \#include $<$sys/types.\+h$>$}\\*
+{\ttfamily \#include $<$sys/socket.\+h$>$}\\*
+{\ttfamily \#include $<$netinet/in.\+h$>$}\\*
+{\ttfamily \#include $<$arpa/inet.\+h$>$}\\*
+{\ttfamily \#include $<$time.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}defines.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}net\+U\+D\+P\+\_\+\+Multi\+Cast.\+h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{reader_8c_a8b8af8bedcac87c0d3c68634448b94a7}{M\+S\+G\+\_\+\+B\+U\+F\+\_\+\+S\+I\+ZE}~1024
+\item 
+\#define \hyperlink{reader_8c_adc4e6fd253319f9ad9e2d019d4ac021d}{M\+A\+X\+\_\+\+G\+R\+O\+U\+P\+\_\+\+N\+A\+ME}~64
+\item 
+\#define \hyperlink{reader_8c_ab1cc007c79923a8bf4df785d57d1895c}{G\+O\+\_\+\+U\+P\+\_\+\+L\+I\+N\+E\+\_\+\+T\+E\+R\+M\+I\+N\+AL}~\char`\"{}\textbackslash{}033\mbox{[}1\+A\char`\"{}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{reader_8c_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+joins a multicast group and echoes all data it receives from the group to its stdout 
+
+\begin{DoxyDate}{Date}
+Jul 18, 2017 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Yuval Hamberg 
+\end{DoxyAuthor}
+
+
+\subsection{Macro Definition Documentation}
+\index{reader.\+c@{reader.\+c}!G\+O\+\_\+\+U\+P\+\_\+\+L\+I\+N\+E\+\_\+\+T\+E\+R\+M\+I\+N\+AL@{G\+O\+\_\+\+U\+P\+\_\+\+L\+I\+N\+E\+\_\+\+T\+E\+R\+M\+I\+N\+AL}}
+\index{G\+O\+\_\+\+U\+P\+\_\+\+L\+I\+N\+E\+\_\+\+T\+E\+R\+M\+I\+N\+AL@{G\+O\+\_\+\+U\+P\+\_\+\+L\+I\+N\+E\+\_\+\+T\+E\+R\+M\+I\+N\+AL}!reader.\+c@{reader.\+c}}
+\subsubsection[{\texorpdfstring{G\+O\+\_\+\+U\+P\+\_\+\+L\+I\+N\+E\+\_\+\+T\+E\+R\+M\+I\+N\+AL}{GO_UP_LINE_TERMINAL}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+O\+\_\+\+U\+P\+\_\+\+L\+I\+N\+E\+\_\+\+T\+E\+R\+M\+I\+N\+AL~\char`\"{}\textbackslash{}033\mbox{[}1\+A\char`\"{}}\hypertarget{reader_8c_ab1cc007c79923a8bf4df785d57d1895c}{}\label{reader_8c_ab1cc007c79923a8bf4df785d57d1895c}
+
+
+Definition at line 27 of file reader.\+c.
+
+
+
+Referenced by main().
+
+\index{reader.\+c@{reader.\+c}!M\+A\+X\+\_\+\+G\+R\+O\+U\+P\+\_\+\+N\+A\+ME@{M\+A\+X\+\_\+\+G\+R\+O\+U\+P\+\_\+\+N\+A\+ME}}
+\index{M\+A\+X\+\_\+\+G\+R\+O\+U\+P\+\_\+\+N\+A\+ME@{M\+A\+X\+\_\+\+G\+R\+O\+U\+P\+\_\+\+N\+A\+ME}!reader.\+c@{reader.\+c}}
+\subsubsection[{\texorpdfstring{M\+A\+X\+\_\+\+G\+R\+O\+U\+P\+\_\+\+N\+A\+ME}{MAX_GROUP_NAME}}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+A\+X\+\_\+\+G\+R\+O\+U\+P\+\_\+\+N\+A\+ME~64}\hypertarget{reader_8c_adc4e6fd253319f9ad9e2d019d4ac021d}{}\label{reader_8c_adc4e6fd253319f9ad9e2d019d4ac021d}
+
+
+Definition at line 26 of file reader.\+c.
+
+
+
+Referenced by Create\+New\+Group\+Function(), Join\+Gruop\+Function(), Logic\+B\+E\+\_\+\+Error\+Func(), Login\+Function(), main(), and Signup\+Function().
+
+\index{reader.\+c@{reader.\+c}!M\+S\+G\+\_\+\+B\+U\+F\+\_\+\+S\+I\+ZE@{M\+S\+G\+\_\+\+B\+U\+F\+\_\+\+S\+I\+ZE}}
+\index{M\+S\+G\+\_\+\+B\+U\+F\+\_\+\+S\+I\+ZE@{M\+S\+G\+\_\+\+B\+U\+F\+\_\+\+S\+I\+ZE}!reader.\+c@{reader.\+c}}
+\subsubsection[{\texorpdfstring{M\+S\+G\+\_\+\+B\+U\+F\+\_\+\+S\+I\+ZE}{MSG_BUF_SIZE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+S\+G\+\_\+\+B\+U\+F\+\_\+\+S\+I\+ZE~1024}\hypertarget{reader_8c_a8b8af8bedcac87c0d3c68634448b94a7}{}\label{reader_8c_a8b8af8bedcac87c0d3c68634448b94a7}
+
+
+Definition at line 25 of file reader.\+c.
+
+
+
+Referenced by main().
+
+
+
+\subsection{Function Documentation}
+\index{reader.\+c@{reader.\+c}!main@{main}}
+\index{main@{main}!reader.\+c@{reader.\+c}}
+\subsubsection[{\texorpdfstring{main(int argc, char $\ast$argv[])}{main(int argc, char *argv[])}}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}\hypertarget{reader_8c_a0ddf1224851353fc92bfbff6f499fa97}{}\label{reader_8c_a0ddf1224851353fc92bfbff6f499fa97}
+
+
+Definition at line 33 of file reader.\+c.
+
+
+
+References G\+O\+\_\+\+U\+P\+\_\+\+L\+I\+N\+E\+\_\+\+T\+E\+R\+M\+I\+N\+AL, M\+A\+X\+\_\+\+G\+R\+O\+U\+P\+\_\+\+N\+A\+ME, M\+S\+G\+\_\+\+B\+U\+F\+\_\+\+S\+I\+ZE, T\+R\+UE, U\+D\+P\+\_\+\+Multi\+Cast\+\_\+\+Recive(), and U\+D\+P\+\_\+\+Multi\+Cast\+\_\+\+Reciver\+\_\+\+Create().
+

@@ -1,0 +1,892 @@
+\hypertarget{Protocol_8h}{}\section{comm/\+Protocol.h File Reference}
+\label{Protocol_8h}\index{comm/\+Protocol.\+h@{comm/\+Protocol.\+h}}
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$sys/types.\+h$>$}\\*
+{\ttfamily \#include $<$netinet/in.\+h$>$}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structServerReceiveMessage}{Server\+Receive\+Message}
+\item 
+struct \hyperlink{structClientReceiveMessage}{Client\+Receive\+Message}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{Protocol_8h_a6b20d41d6252e9871430c242cb1a56e7}{B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE}~1024
+\item 
+\#define \hyperlink{Protocol_8h_a3faa332b0cc68b45341e5454b601ec55}{T\+L\+V\+\_\+\+T\+Y\+P\+E\+\_\+\+L\+E\+N\+G\+TH}~1
+\item 
+\#define \hyperlink{Protocol_8h_ac36cf5d013d50b0770876b515cca9c4a}{T\+L\+V\+\_\+\+L\+E\+N\+G\+T\+H\+\_\+\+L\+E\+N\+G\+HT}~5
+\item 
+\#define \hyperlink{Protocol_8h_acaf400df9a74b3295697ca29cc9261cb}{H\+E\+A\+D\+E\+R\+\_\+\+L\+E\+N\+G\+TH}~6
+\item 
+\#define \hyperlink{Protocol_8h_ab234d1358562b66925fb7223c087556b}{M\+A\+X\+\_\+\+M\+E\+S\+S\+A\+G\+E\+\_\+\+L\+E\+N\+G\+TH}~1024
+\item 
+\#define \hyperlink{Protocol_8h_a2d9316e742860ef57fe46a27e67d5efe}{M\+A\+X\+\_\+\+U\+S\+E\+R\+N\+A\+ME}~32
+\item 
+\#define \hyperlink{Protocol_8h_ac39f75a2a532f10f6fb237e96c530dcb}{M\+A\+X\+\_\+\+P\+A\+S\+S\+W\+O\+RD}~32
+\item 
+\#define \hyperlink{Protocol_8h_adc4e6fd253319f9ad9e2d019d4ac021d}{M\+A\+X\+\_\+\+G\+R\+O\+U\+P\+\_\+\+N\+A\+ME}~32
+\item 
+\#define \hyperlink{Protocol_8h_ae75943ba9ad5a2ef2d7fe44317fe98fd}{N\+A\+X\+\_\+\+I\+P\+\_\+\+L\+E\+N\+G\+TH}~16
+\item 
+\#define \hyperlink{Protocol_8h_a1b4e5e52f7c96b216ba12126c7ad745c}{our\+Int}~32
+\item 
+\#define \hyperlink{Protocol_8h_a23195218eef2cf21e2beae685a041783}{D\+E\+L\+I\+M\+I\+T\+ER}~\char`\"{}@@@\char`\"{}
+\item 
+\#define \hyperlink{Protocol_8h_a6055f20bb33e0d54f18e7e2d335410d6}{D\+E\+L\+I\+M\+I\+T\+E\+R\+\_\+\+L\+E\+N\+G\+HT}~3
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct sockaddr\+\_\+in \hyperlink{Protocol_8h_a833d9365af0fc2308a2172dea4a18094}{sockaddr\+\_\+in\+\_\+t}
+\item 
+typedef enum \hyperlink{Protocol_8h_ac6606ebe91c8ac66a2c314c79f5ab013}{Message\+Type} \hyperlink{Protocol_8h_afef78e031412b3bd828c0b9a65e5f5de}{Message\+Type}
+\item 
+typedef enum \hyperlink{Protocol_8h_a4947063aa4bf9e1f8a563cc89f98f716}{Back\+End\+Status} \hyperlink{Protocol_8h_a078906713f48b14446b935e53a718dbf}{Back\+End\+Status}
+\item 
+typedef struct \hyperlink{structServerReceiveMessage}{Server\+Receive\+Message} \hyperlink{Protocol_8h_a2b69287f8af88d9e2f51d882b3ad4354}{Server\+Receive\+Message\+\_\+t}
+\item 
+typedef struct \hyperlink{structClientReceiveMessage}{Client\+Receive\+Message} \hyperlink{Protocol_8h_ae2f0907dd30e2cf75f61a8294018f702}{Client\+Receive\+Message\+\_\+t}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{Protocol_8h_ac6606ebe91c8ac66a2c314c79f5ab013}{Message\+Type} \{ \\*
+\hyperlink{Protocol_8h_ac6606ebe91c8ac66a2c314c79f5ab013a818a26527ed41fd262ae04a93d1cb835}{M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+R\+E\+S\+P\+O\+NS} = 65, 
+\hyperlink{Protocol_8h_ac6606ebe91c8ac66a2c314c79f5ab013a5f2a0a8dd047033a22d1b9cc71e6d7be}{M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+S\+I\+G\+N\+UP}, 
+\hyperlink{Protocol_8h_ac6606ebe91c8ac66a2c314c79f5ab013a5ac5c53dded8b884b051635a2d075c2f}{M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+L\+O\+G\+IN}, 
+\hyperlink{Protocol_8h_ac6606ebe91c8ac66a2c314c79f5ab013ace981ac10f6f7705d69fa2415e975f06}{M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+L\+O\+G\+O\+UT}, 
+\\*
+\hyperlink{Protocol_8h_ac6606ebe91c8ac66a2c314c79f5ab013a9d5e59d6b0e29f2afab0e581f40f4eec}{M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+D\+E\+L\+E\+T\+E\+\_\+\+U\+S\+ER}, 
+\hyperlink{Protocol_8h_ac6606ebe91c8ac66a2c314c79f5ab013adcbf90c96c68ecf2686914ff38304cb7}{M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+J\+O\+I\+N\+\_\+\+G\+R\+O\+UP}, 
+\hyperlink{Protocol_8h_ac6606ebe91c8ac66a2c314c79f5ab013a06c1ea62e284cf49cd6864b80bde0655}{M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+C\+R\+E\+A\+T\+E\+\_\+\+G\+R\+O\+UP}, 
+\hyperlink{Protocol_8h_ac6606ebe91c8ac66a2c314c79f5ab013a3c020031ae130b967153e43c05a55fd3}{M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+L\+E\+A\+V\+E\+\_\+\+G\+R\+O\+UP}, 
+\\*
+\hyperlink{Protocol_8h_ac6606ebe91c8ac66a2c314c79f5ab013a1009a2a839bdb551eaec6af12cd0699d}{M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+G\+E\+T\+\_\+\+A\+L\+L\+\_\+\+G\+R\+O\+U\+PS}
+ \}
+\item 
+enum \hyperlink{Protocol_8h_a4947063aa4bf9e1f8a563cc89f98f716}{Back\+End\+Status} \{ \\*
+\hyperlink{Protocol_8h_a4947063aa4bf9e1f8a563cc89f98f716af5a0a0dbb40cef75c93aa35a80fe58db}{Back\+End\+\_\+\+S\+U\+C\+C\+E\+SS} = 66, 
+\hyperlink{Protocol_8h_a4947063aa4bf9e1f8a563cc89f98f716af001777638917b48a02bd0e5c9a056ae}{Back\+End\+\_\+\+S\+Y\+S\+T\+E\+M\+\_\+\+F\+A\+IL}, 
+\hyperlink{Protocol_8h_a4947063aa4bf9e1f8a563cc89f98f716af241426fb07cef4d61a0318f453ba42c}{Back\+End\+\_\+\+U\+N\+K\+N\+O\+W\+N\+\_\+\+E\+R\+R\+OR}, 
+\hyperlink{Protocol_8h_a4947063aa4bf9e1f8a563cc89f98f716af0c1d740ae8f3cac7e54cba9b0f5fa73}{Back\+End\+\_\+\+U\+S\+E\+R\+\_\+\+N\+A\+M\+E\+\_\+\+T\+A\+K\+EN}, 
+\\*
+\hyperlink{Protocol_8h_a4947063aa4bf9e1f8a563cc89f98f716a133e65366a202025ad5a9968931bece8}{Back\+End\+\_\+\+U\+S\+E\+R\+\_\+\+N\+A\+M\+E\+\_\+\+I\+N\+V\+A\+L\+ID}, 
+\hyperlink{Protocol_8h_a4947063aa4bf9e1f8a563cc89f98f716a8ef09be1193707b89f552c7af2e2454e}{Back\+End\+\_\+\+U\+S\+E\+R\+\_\+\+N\+O\+T\+\_\+\+F\+O\+U\+ND}, 
+\hyperlink{Protocol_8h_a4947063aa4bf9e1f8a563cc89f98f716aabf70aba78f50b6b171607a427648971}{Back\+End\+\_\+\+P\+A\+S\+S\+W\+O\+R\+D\+\_\+\+I\+N\+V\+A\+L\+ID}, 
+\hyperlink{Protocol_8h_a4947063aa4bf9e1f8a563cc89f98f716aea6c1831700f72622946911e1bbfc464}{Back\+End\+\_\+\+G\+R\+O\+U\+P\+\_\+\+N\+A\+M\+E\+\_\+\+T\+A\+K\+EN}, 
+\\*
+\hyperlink{Protocol_8h_a4947063aa4bf9e1f8a563cc89f98f716a21e60ca70de7dd1d3351cffafbc58080}{Back\+End\+\_\+\+G\+R\+O\+U\+P\+\_\+\+N\+A\+M\+E\+\_\+\+I\+N\+V\+A\+L\+ID}, 
+\hyperlink{Protocol_8h_a4947063aa4bf9e1f8a563cc89f98f716ac88a49b951d163e5efa76857dd91c3f8}{Back\+End\+\_\+\+G\+R\+O\+U\+P\+\_\+\+D\+O\+\_\+\+N\+O\+T\+\_\+\+E\+X\+I\+ST}, 
+\hyperlink{Protocol_8h_a4947063aa4bf9e1f8a563cc89f98f716a8b0fd6f44f606e9238737c74b59c2ad6}{Back\+End\+\_\+\+M\+O\+R\+E\+\_\+\+I\+N\+F\+O\+\_\+\+I\+N\+C\+O\+M\+I\+NG}, 
+\hyperlink{Protocol_8h_a4947063aa4bf9e1f8a563cc89f98f716aa53366e0c918dd9b42f83d0944bf2f2c}{Back\+End\+\_\+\+N\+O\+\_\+\+F\+R\+E\+E\+\_\+\+IP}, 
+\\*
+\hyperlink{Protocol_8h_a4947063aa4bf9e1f8a563cc89f98f716a27625053433accfa0ad40e82c2cdb255}{Back\+End\+\_\+\+C\+L\+I\+E\+N\+T\+\_\+\+D\+I\+S\+C\+O\+N\+N\+E\+C\+T\+ED}, 
+\hyperlink{Protocol_8h_a4947063aa4bf9e1f8a563cc89f98f716adfcbf71ae9705ee576f1fb545550aa8b}{Back\+End\+\_\+\+R\+E\+Q\+U\+S\+T\+\_\+\+U\+N\+K\+N\+O\+WN}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{Protocol_8h_ac0c1bf52e5c372253b9b4a4633d2f061}{Protocol\+\_\+\+Encode\+New\+Group} (const char $\ast$\+\_\+group\+Name, void $\ast$\+\_\+buffer)
+\begin{DoxyCompactList}\small\item\em The function Encode Message to Protocol format. \end{DoxyCompactList}\item 
+int \hyperlink{Protocol_8h_a14d2c96c6791b08ce3d9b46c6df915b9}{Protocol\+\_\+\+Encode\+Get\+All\+Groups} (void $\ast$\+\_\+buffer)
+\begin{DoxyCompactList}\small\item\em The function Encode Message to Protocol format. \end{DoxyCompactList}\item 
+int \hyperlink{Protocol_8h_abf375004ce4ebfe0d51c5ca8806d495f}{Protocol\+\_\+\+Encode\+Join\+Group} (const char $\ast$\+\_\+group\+Name\+To\+Join, void $\ast$\+\_\+buffer)
+\begin{DoxyCompactList}\small\item\em The function Encode Message to Protocol format. \end{DoxyCompactList}\item 
+int \hyperlink{Protocol_8h_af5d614056d93783623f45ba7dc21a422}{Protocol\+\_\+\+Encode\+Leave\+Group} (const char $\ast$\+\_\+group\+Name\+To\+Leave, void $\ast$\+\_\+buffer)
+\begin{DoxyCompactList}\small\item\em The function Encode Message to Protocol format. \end{DoxyCompactList}\item 
+int \hyperlink{Protocol_8h_a66ec5653cba0946d9003c2ad67f7217a}{Protocol\+\_\+\+Encode\+Log\+In} (const char $\ast$\+\_\+user\+Name, const char $\ast$\+\_\+password, void $\ast$\+\_\+buffer)
+\begin{DoxyCompactList}\small\item\em The function Encode Message to Protocol format. \end{DoxyCompactList}\item 
+int \hyperlink{Protocol_8h_add7f07fbeadb88902d82f7397732cac4}{Protocol\+\_\+\+Encode\+Log\+Out} (void $\ast$\+\_\+buffer)
+\begin{DoxyCompactList}\small\item\em The function Encode Message to Protocol format. \end{DoxyCompactList}\item 
+int \hyperlink{Protocol_8h_a15569709a18ad5ad2372a9a216d522f6}{Protocol\+\_\+\+Encode\+Sign\+Up} (const char $\ast$\+\_\+new\+User\+Name, const char $\ast$\+\_\+password, void $\ast$\+\_\+buffer)
+\begin{DoxyCompactList}\small\item\em The function Encode Message to Protocol format. \end{DoxyCompactList}\item 
+int \hyperlink{Protocol_8h_af3b80522041d8cf828e8da4054ac7898}{Protocol\+\_\+\+Encode\+Delete\+User} (void $\ast$\+\_\+buffer)
+\begin{DoxyCompactList}\small\item\em The function Encode Message to Protocol format. \end{DoxyCompactList}\item 
+int \hyperlink{Protocol_8h_a7583ea608d84b6ad3dd65421249856e4}{Protocol\+\_\+\+Decode\+Server} (void $\ast$\+\_\+data\+To\+Decode, size\+\_\+t \+\_\+lenght, \hyperlink{Protocol_8h_a2b69287f8af88d9e2f51d882b3ad4354}{Server\+Receive\+Message\+\_\+t} $\ast$\+\_\+message)
+\begin{DoxyCompactList}\small\item\em The function Decode Message from Protocol format to Server\+Receive\+Message\+\_\+t form. \end{DoxyCompactList}\item 
+int \hyperlink{Protocol_8h_ac31b3aa3c16240005b55fa537136af75}{Protocol\+\_\+\+Decode\+Client} (void $\ast$\+\_\+data\+To\+Decode, size\+\_\+t \+\_\+lenght, \hyperlink{Protocol_8h_ae2f0907dd30e2cf75f61a8294018f702}{Client\+Receive\+Message\+\_\+t} $\ast$\+\_\+message)
+\begin{DoxyCompactList}\small\item\em The function Decode Message from Protocol format to Client\+Receive\+Message\+\_\+t form. \end{DoxyCompactList}\item 
+int \hyperlink{Protocol_8h_ab707f15d858b321e051e998672562fda}{Protocol\+\_\+\+Encode\+Sign\+Up\+\_\+\+Response} (\hyperlink{Protocol_8h_a4947063aa4bf9e1f8a563cc89f98f716}{Back\+End\+Status} \+\_\+response\+Status, void $\ast$\+\_\+buffer)
+\begin{DoxyCompactList}\small\item\em encode the response from server-\/end to front-\/end of sign-\/up respond \end{DoxyCompactList}\item 
+int \hyperlink{Protocol_8h_a87d6f4f576370cbd036a3b1d4043f7d9}{Protocol\+\_\+\+Encode\+Delete\+User\+\_\+\+Response} (\hyperlink{Protocol_8h_a4947063aa4bf9e1f8a563cc89f98f716}{Back\+End\+Status} \+\_\+response\+Status, void $\ast$\+\_\+buffer)
+\begin{DoxyCompactList}\small\item\em encode the response from server-\/end to front-\/end of delete user respond \end{DoxyCompactList}\item 
+int \hyperlink{Protocol_8h_ad7f3222918f08111a76b9d16c18408b5}{Protocol\+\_\+\+Encode\+Log\+In\+\_\+\+Response} (\hyperlink{Protocol_8h_a4947063aa4bf9e1f8a563cc89f98f716}{Back\+End\+Status} \+\_\+response\+Status, void $\ast$\+\_\+buffer)
+\begin{DoxyCompactList}\small\item\em encode the response from server-\/end to front-\/end of log-\/in respond \end{DoxyCompactList}\item 
+int \hyperlink{Protocol_8h_ad3d2d769e06f7bf4afc4dfeffb6967f3}{Protocol\+\_\+\+Encode\+Log\+Out\+\_\+\+Response} (\hyperlink{Protocol_8h_a4947063aa4bf9e1f8a563cc89f98f716}{Back\+End\+Status} \+\_\+response\+Status, void $\ast$\+\_\+buffer)
+\begin{DoxyCompactList}\small\item\em encode the response from server-\/end to front-\/end of log-\/out respond \end{DoxyCompactList}\item 
+int \hyperlink{Protocol_8h_a2e80c256d6f065ef13bf1aa092718fec}{Protocol\+\_\+\+Encode\+New\+Group\+\_\+\+Response} (\hyperlink{Protocol_8h_a4947063aa4bf9e1f8a563cc89f98f716}{Back\+End\+Status} \+\_\+response\+Status, \hyperlink{groupsHandle_8h_a833d9365af0fc2308a2172dea4a18094}{sockaddr\+\_\+in\+\_\+t} m\+\_\+group\+Adrres, void $\ast$\+\_\+buffer)
+\begin{DoxyCompactList}\small\item\em encode the response from server-\/end to front-\/end of create new group respond \end{DoxyCompactList}\item 
+int \hyperlink{Protocol_8h_a405def129328019886699c3ae03ab90b}{Protocol\+\_\+\+Encode\+Join\+Group\+\_\+\+Response} (\hyperlink{Protocol_8h_a4947063aa4bf9e1f8a563cc89f98f716}{Back\+End\+Status} \+\_\+response\+Status, \hyperlink{groupsHandle_8h_a833d9365af0fc2308a2172dea4a18094}{sockaddr\+\_\+in\+\_\+t} m\+\_\+group\+Adrres, void $\ast$\+\_\+buffer)
+\begin{DoxyCompactList}\small\item\em encode the response from server-\/end to front-\/end of join group respond \end{DoxyCompactList}\item 
+int \hyperlink{Protocol_8h_a33a256c3e54816e31bc04f198a3a1b05}{Protocol\+\_\+\+Encode\+Leave\+Group\+\_\+\+Response} (\hyperlink{Protocol_8h_a4947063aa4bf9e1f8a563cc89f98f716}{Back\+End\+Status} \+\_\+response\+Status, void $\ast$\+\_\+buffer)
+\begin{DoxyCompactList}\small\item\em encode the response from server-\/end to front-\/end of leave group respond \end{DoxyCompactList}\item 
+int \hyperlink{Protocol_8h_a60b12795700e01590ecddd7876ac897c}{Protocol\+\_\+\+Encode\+Get\+All\+Groups\+\_\+\+Response} (\hyperlink{Protocol_8h_a4947063aa4bf9e1f8a563cc89f98f716}{Back\+End\+Status} \+\_\+response\+Status, const char $\ast$\+\_\+groups\+Names, size\+\_\+t \+\_\+num\+Groups, void $\ast$\+\_\+buffer)
+\begin{DoxyCompactList}\small\item\em encode the response from server-\/end to front-\/end of show all group respond \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\index{Protocol.\+h@{Protocol.\+h}!B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE@{B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE}}
+\index{B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE@{B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE}!Protocol.\+h@{Protocol.\+h}}
+\subsubsection[{\texorpdfstring{B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE}{BUFFER_SIZE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE~1024}\hypertarget{Protocol_8h_a6b20d41d6252e9871430c242cb1a56e7}{}\label{Protocol_8h_a6b20d41d6252e9871430c242cb1a56e7}
+
+
+Definition at line 20 of file Protocol.\+h.
+
+\index{Protocol.\+h@{Protocol.\+h}!D\+E\+L\+I\+M\+I\+T\+ER@{D\+E\+L\+I\+M\+I\+T\+ER}}
+\index{D\+E\+L\+I\+M\+I\+T\+ER@{D\+E\+L\+I\+M\+I\+T\+ER}!Protocol.\+h@{Protocol.\+h}}
+\subsubsection[{\texorpdfstring{D\+E\+L\+I\+M\+I\+T\+ER}{DELIMITER}}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\+E\+L\+I\+M\+I\+T\+ER~\char`\"{}@@@\char`\"{}}\hypertarget{Protocol_8h_a23195218eef2cf21e2beae685a041783}{}\label{Protocol_8h_a23195218eef2cf21e2beae685a041783}
+
+
+Definition at line 31 of file Protocol.\+h.
+
+
+
+Referenced by Logic\+B\+E\+\_\+\+Error\+Func(), Protocol\+\_\+\+Decode\+Client(), Protocol\+\_\+\+Decode\+Server(), Protocol\+\_\+\+Encode\+Get\+All\+Groups(), Protocol\+\_\+\+Encode\+Get\+All\+Groups\+\_\+\+Response(), Protocol\+\_\+\+Encode\+Join\+Group(), Protocol\+\_\+\+Encode\+Join\+Group\+\_\+\+Response(), Protocol\+\_\+\+Encode\+Log\+In(), Protocol\+\_\+\+Encode\+Log\+In\+\_\+\+Response(), Protocol\+\_\+\+Encode\+New\+Group(), Protocol\+\_\+\+Encode\+New\+Group\+\_\+\+Response(), Protocol\+\_\+\+Encode\+Sign\+Up(), and Protocol\+\_\+\+Encode\+Sign\+Up\+\_\+\+Response().
+
+\index{Protocol.\+h@{Protocol.\+h}!D\+E\+L\+I\+M\+I\+T\+E\+R\+\_\+\+L\+E\+N\+G\+HT@{D\+E\+L\+I\+M\+I\+T\+E\+R\+\_\+\+L\+E\+N\+G\+HT}}
+\index{D\+E\+L\+I\+M\+I\+T\+E\+R\+\_\+\+L\+E\+N\+G\+HT@{D\+E\+L\+I\+M\+I\+T\+E\+R\+\_\+\+L\+E\+N\+G\+HT}!Protocol.\+h@{Protocol.\+h}}
+\subsubsection[{\texorpdfstring{D\+E\+L\+I\+M\+I\+T\+E\+R\+\_\+\+L\+E\+N\+G\+HT}{DELIMITER_LENGHT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\+E\+L\+I\+M\+I\+T\+E\+R\+\_\+\+L\+E\+N\+G\+HT~3}\hypertarget{Protocol_8h_a6055f20bb33e0d54f18e7e2d335410d6}{}\label{Protocol_8h_a6055f20bb33e0d54f18e7e2d335410d6}
+
+
+Definition at line 32 of file Protocol.\+h.
+
+
+
+Referenced by Logic\+B\+E\+\_\+\+Error\+Func(), Protocol\+\_\+\+Decode\+Client(), Protocol\+\_\+\+Decode\+Server(), and Protocol\+\_\+\+Encode\+Get\+All\+Groups\+\_\+\+Response().
+
+\index{Protocol.\+h@{Protocol.\+h}!H\+E\+A\+D\+E\+R\+\_\+\+L\+E\+N\+G\+TH@{H\+E\+A\+D\+E\+R\+\_\+\+L\+E\+N\+G\+TH}}
+\index{H\+E\+A\+D\+E\+R\+\_\+\+L\+E\+N\+G\+TH@{H\+E\+A\+D\+E\+R\+\_\+\+L\+E\+N\+G\+TH}!Protocol.\+h@{Protocol.\+h}}
+\subsubsection[{\texorpdfstring{H\+E\+A\+D\+E\+R\+\_\+\+L\+E\+N\+G\+TH}{HEADER_LENGTH}}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\+E\+A\+D\+E\+R\+\_\+\+L\+E\+N\+G\+TH~6}\hypertarget{Protocol_8h_acaf400df9a74b3295697ca29cc9261cb}{}\label{Protocol_8h_acaf400df9a74b3295697ca29cc9261cb}
+
+
+Definition at line 24 of file Protocol.\+h.
+
+\index{Protocol.\+h@{Protocol.\+h}!M\+A\+X\+\_\+\+G\+R\+O\+U\+P\+\_\+\+N\+A\+ME@{M\+A\+X\+\_\+\+G\+R\+O\+U\+P\+\_\+\+N\+A\+ME}}
+\index{M\+A\+X\+\_\+\+G\+R\+O\+U\+P\+\_\+\+N\+A\+ME@{M\+A\+X\+\_\+\+G\+R\+O\+U\+P\+\_\+\+N\+A\+ME}!Protocol.\+h@{Protocol.\+h}}
+\subsubsection[{\texorpdfstring{M\+A\+X\+\_\+\+G\+R\+O\+U\+P\+\_\+\+N\+A\+ME}{MAX_GROUP_NAME}}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+A\+X\+\_\+\+G\+R\+O\+U\+P\+\_\+\+N\+A\+ME~32}\hypertarget{Protocol_8h_adc4e6fd253319f9ad9e2d019d4ac021d}{}\label{Protocol_8h_adc4e6fd253319f9ad9e2d019d4ac021d}
+
+
+Definition at line 28 of file Protocol.\+h.
+
+\index{Protocol.\+h@{Protocol.\+h}!M\+A\+X\+\_\+\+M\+E\+S\+S\+A\+G\+E\+\_\+\+L\+E\+N\+G\+TH@{M\+A\+X\+\_\+\+M\+E\+S\+S\+A\+G\+E\+\_\+\+L\+E\+N\+G\+TH}}
+\index{M\+A\+X\+\_\+\+M\+E\+S\+S\+A\+G\+E\+\_\+\+L\+E\+N\+G\+TH@{M\+A\+X\+\_\+\+M\+E\+S\+S\+A\+G\+E\+\_\+\+L\+E\+N\+G\+TH}!Protocol.\+h@{Protocol.\+h}}
+\subsubsection[{\texorpdfstring{M\+A\+X\+\_\+\+M\+E\+S\+S\+A\+G\+E\+\_\+\+L\+E\+N\+G\+TH}{MAX_MESSAGE_LENGTH}}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+A\+X\+\_\+\+M\+E\+S\+S\+A\+G\+E\+\_\+\+L\+E\+N\+G\+TH~1024}\hypertarget{Protocol_8h_ab234d1358562b66925fb7223c087556b}{}\label{Protocol_8h_ab234d1358562b66925fb7223c087556b}
+
+
+Definition at line 25 of file Protocol.\+h.
+
+
+
+Referenced by Logic\+B\+E\+\_\+\+Error\+Func(), Logic\+F\+E\+\_\+\+Create\+Group(), Logic\+F\+E\+\_\+\+Get\+All\+Groups\+Name(), Logic\+F\+E\+\_\+\+Join\+Group(), Logic\+F\+E\+\_\+\+Login(), Logic\+F\+E\+\_\+\+Signup(), main(), Protocol\+\_\+\+Decode\+Client(), Protocol\+\_\+\+Decode\+Server(), Protocol\+\_\+\+Encode\+Get\+All\+Groups(), Protocol\+\_\+\+Encode\+Get\+All\+Groups\+\_\+\+Response(), Protocol\+\_\+\+Encode\+Join\+Group(), Protocol\+\_\+\+Encode\+Join\+Group\+\_\+\+Response(), Protocol\+\_\+\+Encode\+Log\+In(), Protocol\+\_\+\+Encode\+Log\+In\+\_\+\+Response(), Protocol\+\_\+\+Encode\+New\+Group(), Protocol\+\_\+\+Encode\+New\+Group\+\_\+\+Response(), Protocol\+\_\+\+Encode\+Sign\+Up(), and Protocol\+\_\+\+Encode\+Sign\+Up\+\_\+\+Response().
+
+\index{Protocol.\+h@{Protocol.\+h}!M\+A\+X\+\_\+\+P\+A\+S\+S\+W\+O\+RD@{M\+A\+X\+\_\+\+P\+A\+S\+S\+W\+O\+RD}}
+\index{M\+A\+X\+\_\+\+P\+A\+S\+S\+W\+O\+RD@{M\+A\+X\+\_\+\+P\+A\+S\+S\+W\+O\+RD}!Protocol.\+h@{Protocol.\+h}}
+\subsubsection[{\texorpdfstring{M\+A\+X\+\_\+\+P\+A\+S\+S\+W\+O\+RD}{MAX_PASSWORD}}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+A\+X\+\_\+\+P\+A\+S\+S\+W\+O\+RD~32}\hypertarget{Protocol_8h_ac39f75a2a532f10f6fb237e96c530dcb}{}\label{Protocol_8h_ac39f75a2a532f10f6fb237e96c530dcb}
+
+
+Definition at line 27 of file Protocol.\+h.
+
+
+
+Referenced by Create\+Value(), Logic\+B\+E\+\_\+\+Error\+Func(), Login\+Function(), main(), and Signup\+Function().
+
+\index{Protocol.\+h@{Protocol.\+h}!M\+A\+X\+\_\+\+U\+S\+E\+R\+N\+A\+ME@{M\+A\+X\+\_\+\+U\+S\+E\+R\+N\+A\+ME}}
+\index{M\+A\+X\+\_\+\+U\+S\+E\+R\+N\+A\+ME@{M\+A\+X\+\_\+\+U\+S\+E\+R\+N\+A\+ME}!Protocol.\+h@{Protocol.\+h}}
+\subsubsection[{\texorpdfstring{M\+A\+X\+\_\+\+U\+S\+E\+R\+N\+A\+ME}{MAX_USERNAME}}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+A\+X\+\_\+\+U\+S\+E\+R\+N\+A\+ME~32}\hypertarget{Protocol_8h_a2d9316e742860ef57fe46a27e67d5efe}{}\label{Protocol_8h_a2d9316e742860ef57fe46a27e67d5efe}
+
+
+Definition at line 26 of file Protocol.\+h.
+
+
+
+Referenced by Create\+Value(), Logic\+B\+E\+\_\+\+Error\+Func(), Login\+Function(), main(), and Signup\+Function().
+
+\index{Protocol.\+h@{Protocol.\+h}!N\+A\+X\+\_\+\+I\+P\+\_\+\+L\+E\+N\+G\+TH@{N\+A\+X\+\_\+\+I\+P\+\_\+\+L\+E\+N\+G\+TH}}
+\index{N\+A\+X\+\_\+\+I\+P\+\_\+\+L\+E\+N\+G\+TH@{N\+A\+X\+\_\+\+I\+P\+\_\+\+L\+E\+N\+G\+TH}!Protocol.\+h@{Protocol.\+h}}
+\subsubsection[{\texorpdfstring{N\+A\+X\+\_\+\+I\+P\+\_\+\+L\+E\+N\+G\+TH}{NAX_IP_LENGTH}}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\+A\+X\+\_\+\+I\+P\+\_\+\+L\+E\+N\+G\+TH~16}\hypertarget{Protocol_8h_ae75943ba9ad5a2ef2d7fe44317fe98fd}{}\label{Protocol_8h_ae75943ba9ad5a2ef2d7fe44317fe98fd}
+
+
+Definition at line 29 of file Protocol.\+h.
+
+\index{Protocol.\+h@{Protocol.\+h}!our\+Int@{our\+Int}}
+\index{our\+Int@{our\+Int}!Protocol.\+h@{Protocol.\+h}}
+\subsubsection[{\texorpdfstring{our\+Int}{ourInt}}]{\setlength{\rightskip}{0pt plus 5cm}\#define our\+Int~32}\hypertarget{Protocol_8h_a1b4e5e52f7c96b216ba12126c7ad745c}{}\label{Protocol_8h_a1b4e5e52f7c96b216ba12126c7ad745c}
+
+
+Definition at line 30 of file Protocol.\+h.
+
+\index{Protocol.\+h@{Protocol.\+h}!T\+L\+V\+\_\+\+L\+E\+N\+G\+T\+H\+\_\+\+L\+E\+N\+G\+HT@{T\+L\+V\+\_\+\+L\+E\+N\+G\+T\+H\+\_\+\+L\+E\+N\+G\+HT}}
+\index{T\+L\+V\+\_\+\+L\+E\+N\+G\+T\+H\+\_\+\+L\+E\+N\+G\+HT@{T\+L\+V\+\_\+\+L\+E\+N\+G\+T\+H\+\_\+\+L\+E\+N\+G\+HT}!Protocol.\+h@{Protocol.\+h}}
+\subsubsection[{\texorpdfstring{T\+L\+V\+\_\+\+L\+E\+N\+G\+T\+H\+\_\+\+L\+E\+N\+G\+HT}{TLV_LENGTH_LENGHT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+L\+V\+\_\+\+L\+E\+N\+G\+T\+H\+\_\+\+L\+E\+N\+G\+HT~5}\hypertarget{Protocol_8h_ac36cf5d013d50b0770876b515cca9c4a}{}\label{Protocol_8h_ac36cf5d013d50b0770876b515cca9c4a}
+
+
+Definition at line 23 of file Protocol.\+h.
+
+\index{Protocol.\+h@{Protocol.\+h}!T\+L\+V\+\_\+\+T\+Y\+P\+E\+\_\+\+L\+E\+N\+G\+TH@{T\+L\+V\+\_\+\+T\+Y\+P\+E\+\_\+\+L\+E\+N\+G\+TH}}
+\index{T\+L\+V\+\_\+\+T\+Y\+P\+E\+\_\+\+L\+E\+N\+G\+TH@{T\+L\+V\+\_\+\+T\+Y\+P\+E\+\_\+\+L\+E\+N\+G\+TH}!Protocol.\+h@{Protocol.\+h}}
+\subsubsection[{\texorpdfstring{T\+L\+V\+\_\+\+T\+Y\+P\+E\+\_\+\+L\+E\+N\+G\+TH}{TLV_TYPE_LENGTH}}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+L\+V\+\_\+\+T\+Y\+P\+E\+\_\+\+L\+E\+N\+G\+TH~1}\hypertarget{Protocol_8h_a3faa332b0cc68b45341e5454b601ec55}{}\label{Protocol_8h_a3faa332b0cc68b45341e5454b601ec55}
+
+
+Definition at line 22 of file Protocol.\+h.
+
+
+
+Referenced by T\+L\+V\+\_\+decode().
+
+
+
+\subsection{Typedef Documentation}
+\index{Protocol.\+h@{Protocol.\+h}!Back\+End\+Status@{Back\+End\+Status}}
+\index{Back\+End\+Status@{Back\+End\+Status}!Protocol.\+h@{Protocol.\+h}}
+\subsubsection[{\texorpdfstring{Back\+End\+Status}{BackEndStatus}}]{\setlength{\rightskip}{0pt plus 5cm}typedef enum {\bf Back\+End\+Status}  {\bf Back\+End\+Status}}\hypertarget{Protocol_8h_a078906713f48b14446b935e53a718dbf}{}\label{Protocol_8h_a078906713f48b14446b935e53a718dbf}
+\index{Protocol.\+h@{Protocol.\+h}!Client\+Receive\+Message\+\_\+t@{Client\+Receive\+Message\+\_\+t}}
+\index{Client\+Receive\+Message\+\_\+t@{Client\+Receive\+Message\+\_\+t}!Protocol.\+h@{Protocol.\+h}}
+\subsubsection[{\texorpdfstring{Client\+Receive\+Message\+\_\+t}{ClientReceiveMessage_t}}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf Client\+Receive\+Message}  {\bf Client\+Receive\+Message\+\_\+t}}\hypertarget{Protocol_8h_ae2f0907dd30e2cf75f61a8294018f702}{}\label{Protocol_8h_ae2f0907dd30e2cf75f61a8294018f702}
+\index{Protocol.\+h@{Protocol.\+h}!Message\+Type@{Message\+Type}}
+\index{Message\+Type@{Message\+Type}!Protocol.\+h@{Protocol.\+h}}
+\subsubsection[{\texorpdfstring{Message\+Type}{MessageType}}]{\setlength{\rightskip}{0pt plus 5cm}typedef enum {\bf Message\+Type}  {\bf Message\+Type}}\hypertarget{Protocol_8h_afef78e031412b3bd828c0b9a65e5f5de}{}\label{Protocol_8h_afef78e031412b3bd828c0b9a65e5f5de}
+\index{Protocol.\+h@{Protocol.\+h}!Server\+Receive\+Message\+\_\+t@{Server\+Receive\+Message\+\_\+t}}
+\index{Server\+Receive\+Message\+\_\+t@{Server\+Receive\+Message\+\_\+t}!Protocol.\+h@{Protocol.\+h}}
+\subsubsection[{\texorpdfstring{Server\+Receive\+Message\+\_\+t}{ServerReceiveMessage_t}}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf Server\+Receive\+Message}  {\bf Server\+Receive\+Message\+\_\+t}}\hypertarget{Protocol_8h_a2b69287f8af88d9e2f51d882b3ad4354}{}\label{Protocol_8h_a2b69287f8af88d9e2f51d882b3ad4354}
+\index{Protocol.\+h@{Protocol.\+h}!sockaddr\+\_\+in\+\_\+t@{sockaddr\+\_\+in\+\_\+t}}
+\index{sockaddr\+\_\+in\+\_\+t@{sockaddr\+\_\+in\+\_\+t}!Protocol.\+h@{Protocol.\+h}}
+\subsubsection[{\texorpdfstring{sockaddr\+\_\+in\+\_\+t}{sockaddr_in_t}}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct sockaddr\+\_\+in {\bf sockaddr\+\_\+in\+\_\+t}}\hypertarget{Protocol_8h_a833d9365af0fc2308a2172dea4a18094}{}\label{Protocol_8h_a833d9365af0fc2308a2172dea4a18094}
+
+
+Definition at line 35 of file Protocol.\+h.
+
+
+
+\subsection{Enumeration Type Documentation}
+\index{Protocol.\+h@{Protocol.\+h}!Back\+End\+Status@{Back\+End\+Status}}
+\index{Back\+End\+Status@{Back\+End\+Status}!Protocol.\+h@{Protocol.\+h}}
+\subsubsection[{\texorpdfstring{Back\+End\+Status}{BackEndStatus}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Back\+End\+Status}}\hypertarget{Protocol_8h_a4947063aa4bf9e1f8a563cc89f98f716}{}\label{Protocol_8h_a4947063aa4bf9e1f8a563cc89f98f716}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{Back\+End\+\_\+\+S\+U\+C\+C\+E\+SS@{Back\+End\+\_\+\+S\+U\+C\+C\+E\+SS}!Protocol.\+h@{Protocol.\+h}}\index{Protocol.\+h@{Protocol.\+h}!Back\+End\+\_\+\+S\+U\+C\+C\+E\+SS@{Back\+End\+\_\+\+S\+U\+C\+C\+E\+SS}}\item[{\em 
+Back\+End\+\_\+\+S\+U\+C\+C\+E\+SS\hypertarget{Protocol_8h_a4947063aa4bf9e1f8a563cc89f98f716af5a0a0dbb40cef75c93aa35a80fe58db}{}\label{Protocol_8h_a4947063aa4bf9e1f8a563cc89f98f716af5a0a0dbb40cef75c93aa35a80fe58db}
+}]\index{Back\+End\+\_\+\+S\+Y\+S\+T\+E\+M\+\_\+\+F\+A\+IL@{Back\+End\+\_\+\+S\+Y\+S\+T\+E\+M\+\_\+\+F\+A\+IL}!Protocol.\+h@{Protocol.\+h}}\index{Protocol.\+h@{Protocol.\+h}!Back\+End\+\_\+\+S\+Y\+S\+T\+E\+M\+\_\+\+F\+A\+IL@{Back\+End\+\_\+\+S\+Y\+S\+T\+E\+M\+\_\+\+F\+A\+IL}}\item[{\em 
+Back\+End\+\_\+\+S\+Y\+S\+T\+E\+M\+\_\+\+F\+A\+IL\hypertarget{Protocol_8h_a4947063aa4bf9e1f8a563cc89f98f716af001777638917b48a02bd0e5c9a056ae}{}\label{Protocol_8h_a4947063aa4bf9e1f8a563cc89f98f716af001777638917b48a02bd0e5c9a056ae}
+}]\index{Back\+End\+\_\+\+U\+N\+K\+N\+O\+W\+N\+\_\+\+E\+R\+R\+OR@{Back\+End\+\_\+\+U\+N\+K\+N\+O\+W\+N\+\_\+\+E\+R\+R\+OR}!Protocol.\+h@{Protocol.\+h}}\index{Protocol.\+h@{Protocol.\+h}!Back\+End\+\_\+\+U\+N\+K\+N\+O\+W\+N\+\_\+\+E\+R\+R\+OR@{Back\+End\+\_\+\+U\+N\+K\+N\+O\+W\+N\+\_\+\+E\+R\+R\+OR}}\item[{\em 
+Back\+End\+\_\+\+U\+N\+K\+N\+O\+W\+N\+\_\+\+E\+R\+R\+OR\hypertarget{Protocol_8h_a4947063aa4bf9e1f8a563cc89f98f716af241426fb07cef4d61a0318f453ba42c}{}\label{Protocol_8h_a4947063aa4bf9e1f8a563cc89f98f716af241426fb07cef4d61a0318f453ba42c}
+}]\index{Back\+End\+\_\+\+U\+S\+E\+R\+\_\+\+N\+A\+M\+E\+\_\+\+T\+A\+K\+EN@{Back\+End\+\_\+\+U\+S\+E\+R\+\_\+\+N\+A\+M\+E\+\_\+\+T\+A\+K\+EN}!Protocol.\+h@{Protocol.\+h}}\index{Protocol.\+h@{Protocol.\+h}!Back\+End\+\_\+\+U\+S\+E\+R\+\_\+\+N\+A\+M\+E\+\_\+\+T\+A\+K\+EN@{Back\+End\+\_\+\+U\+S\+E\+R\+\_\+\+N\+A\+M\+E\+\_\+\+T\+A\+K\+EN}}\item[{\em 
+Back\+End\+\_\+\+U\+S\+E\+R\+\_\+\+N\+A\+M\+E\+\_\+\+T\+A\+K\+EN\hypertarget{Protocol_8h_a4947063aa4bf9e1f8a563cc89f98f716af0c1d740ae8f3cac7e54cba9b0f5fa73}{}\label{Protocol_8h_a4947063aa4bf9e1f8a563cc89f98f716af0c1d740ae8f3cac7e54cba9b0f5fa73}
+}]\index{Back\+End\+\_\+\+U\+S\+E\+R\+\_\+\+N\+A\+M\+E\+\_\+\+I\+N\+V\+A\+L\+ID@{Back\+End\+\_\+\+U\+S\+E\+R\+\_\+\+N\+A\+M\+E\+\_\+\+I\+N\+V\+A\+L\+ID}!Protocol.\+h@{Protocol.\+h}}\index{Protocol.\+h@{Protocol.\+h}!Back\+End\+\_\+\+U\+S\+E\+R\+\_\+\+N\+A\+M\+E\+\_\+\+I\+N\+V\+A\+L\+ID@{Back\+End\+\_\+\+U\+S\+E\+R\+\_\+\+N\+A\+M\+E\+\_\+\+I\+N\+V\+A\+L\+ID}}\item[{\em 
+Back\+End\+\_\+\+U\+S\+E\+R\+\_\+\+N\+A\+M\+E\+\_\+\+I\+N\+V\+A\+L\+ID\hypertarget{Protocol_8h_a4947063aa4bf9e1f8a563cc89f98f716a133e65366a202025ad5a9968931bece8}{}\label{Protocol_8h_a4947063aa4bf9e1f8a563cc89f98f716a133e65366a202025ad5a9968931bece8}
+}]\index{Back\+End\+\_\+\+U\+S\+E\+R\+\_\+\+N\+O\+T\+\_\+\+F\+O\+U\+ND@{Back\+End\+\_\+\+U\+S\+E\+R\+\_\+\+N\+O\+T\+\_\+\+F\+O\+U\+ND}!Protocol.\+h@{Protocol.\+h}}\index{Protocol.\+h@{Protocol.\+h}!Back\+End\+\_\+\+U\+S\+E\+R\+\_\+\+N\+O\+T\+\_\+\+F\+O\+U\+ND@{Back\+End\+\_\+\+U\+S\+E\+R\+\_\+\+N\+O\+T\+\_\+\+F\+O\+U\+ND}}\item[{\em 
+Back\+End\+\_\+\+U\+S\+E\+R\+\_\+\+N\+O\+T\+\_\+\+F\+O\+U\+ND\hypertarget{Protocol_8h_a4947063aa4bf9e1f8a563cc89f98f716a8ef09be1193707b89f552c7af2e2454e}{}\label{Protocol_8h_a4947063aa4bf9e1f8a563cc89f98f716a8ef09be1193707b89f552c7af2e2454e}
+}]\index{Back\+End\+\_\+\+P\+A\+S\+S\+W\+O\+R\+D\+\_\+\+I\+N\+V\+A\+L\+ID@{Back\+End\+\_\+\+P\+A\+S\+S\+W\+O\+R\+D\+\_\+\+I\+N\+V\+A\+L\+ID}!Protocol.\+h@{Protocol.\+h}}\index{Protocol.\+h@{Protocol.\+h}!Back\+End\+\_\+\+P\+A\+S\+S\+W\+O\+R\+D\+\_\+\+I\+N\+V\+A\+L\+ID@{Back\+End\+\_\+\+P\+A\+S\+S\+W\+O\+R\+D\+\_\+\+I\+N\+V\+A\+L\+ID}}\item[{\em 
+Back\+End\+\_\+\+P\+A\+S\+S\+W\+O\+R\+D\+\_\+\+I\+N\+V\+A\+L\+ID\hypertarget{Protocol_8h_a4947063aa4bf9e1f8a563cc89f98f716aabf70aba78f50b6b171607a427648971}{}\label{Protocol_8h_a4947063aa4bf9e1f8a563cc89f98f716aabf70aba78f50b6b171607a427648971}
+}]\index{Back\+End\+\_\+\+G\+R\+O\+U\+P\+\_\+\+N\+A\+M\+E\+\_\+\+T\+A\+K\+EN@{Back\+End\+\_\+\+G\+R\+O\+U\+P\+\_\+\+N\+A\+M\+E\+\_\+\+T\+A\+K\+EN}!Protocol.\+h@{Protocol.\+h}}\index{Protocol.\+h@{Protocol.\+h}!Back\+End\+\_\+\+G\+R\+O\+U\+P\+\_\+\+N\+A\+M\+E\+\_\+\+T\+A\+K\+EN@{Back\+End\+\_\+\+G\+R\+O\+U\+P\+\_\+\+N\+A\+M\+E\+\_\+\+T\+A\+K\+EN}}\item[{\em 
+Back\+End\+\_\+\+G\+R\+O\+U\+P\+\_\+\+N\+A\+M\+E\+\_\+\+T\+A\+K\+EN\hypertarget{Protocol_8h_a4947063aa4bf9e1f8a563cc89f98f716aea6c1831700f72622946911e1bbfc464}{}\label{Protocol_8h_a4947063aa4bf9e1f8a563cc89f98f716aea6c1831700f72622946911e1bbfc464}
+}]\index{Back\+End\+\_\+\+G\+R\+O\+U\+P\+\_\+\+N\+A\+M\+E\+\_\+\+I\+N\+V\+A\+L\+ID@{Back\+End\+\_\+\+G\+R\+O\+U\+P\+\_\+\+N\+A\+M\+E\+\_\+\+I\+N\+V\+A\+L\+ID}!Protocol.\+h@{Protocol.\+h}}\index{Protocol.\+h@{Protocol.\+h}!Back\+End\+\_\+\+G\+R\+O\+U\+P\+\_\+\+N\+A\+M\+E\+\_\+\+I\+N\+V\+A\+L\+ID@{Back\+End\+\_\+\+G\+R\+O\+U\+P\+\_\+\+N\+A\+M\+E\+\_\+\+I\+N\+V\+A\+L\+ID}}\item[{\em 
+Back\+End\+\_\+\+G\+R\+O\+U\+P\+\_\+\+N\+A\+M\+E\+\_\+\+I\+N\+V\+A\+L\+ID\hypertarget{Protocol_8h_a4947063aa4bf9e1f8a563cc89f98f716a21e60ca70de7dd1d3351cffafbc58080}{}\label{Protocol_8h_a4947063aa4bf9e1f8a563cc89f98f716a21e60ca70de7dd1d3351cffafbc58080}
+}]\index{Back\+End\+\_\+\+G\+R\+O\+U\+P\+\_\+\+D\+O\+\_\+\+N\+O\+T\+\_\+\+E\+X\+I\+ST@{Back\+End\+\_\+\+G\+R\+O\+U\+P\+\_\+\+D\+O\+\_\+\+N\+O\+T\+\_\+\+E\+X\+I\+ST}!Protocol.\+h@{Protocol.\+h}}\index{Protocol.\+h@{Protocol.\+h}!Back\+End\+\_\+\+G\+R\+O\+U\+P\+\_\+\+D\+O\+\_\+\+N\+O\+T\+\_\+\+E\+X\+I\+ST@{Back\+End\+\_\+\+G\+R\+O\+U\+P\+\_\+\+D\+O\+\_\+\+N\+O\+T\+\_\+\+E\+X\+I\+ST}}\item[{\em 
+Back\+End\+\_\+\+G\+R\+O\+U\+P\+\_\+\+D\+O\+\_\+\+N\+O\+T\+\_\+\+E\+X\+I\+ST\hypertarget{Protocol_8h_a4947063aa4bf9e1f8a563cc89f98f716ac88a49b951d163e5efa76857dd91c3f8}{}\label{Protocol_8h_a4947063aa4bf9e1f8a563cc89f98f716ac88a49b951d163e5efa76857dd91c3f8}
+}]\index{Back\+End\+\_\+\+M\+O\+R\+E\+\_\+\+I\+N\+F\+O\+\_\+\+I\+N\+C\+O\+M\+I\+NG@{Back\+End\+\_\+\+M\+O\+R\+E\+\_\+\+I\+N\+F\+O\+\_\+\+I\+N\+C\+O\+M\+I\+NG}!Protocol.\+h@{Protocol.\+h}}\index{Protocol.\+h@{Protocol.\+h}!Back\+End\+\_\+\+M\+O\+R\+E\+\_\+\+I\+N\+F\+O\+\_\+\+I\+N\+C\+O\+M\+I\+NG@{Back\+End\+\_\+\+M\+O\+R\+E\+\_\+\+I\+N\+F\+O\+\_\+\+I\+N\+C\+O\+M\+I\+NG}}\item[{\em 
+Back\+End\+\_\+\+M\+O\+R\+E\+\_\+\+I\+N\+F\+O\+\_\+\+I\+N\+C\+O\+M\+I\+NG\hypertarget{Protocol_8h_a4947063aa4bf9e1f8a563cc89f98f716a8b0fd6f44f606e9238737c74b59c2ad6}{}\label{Protocol_8h_a4947063aa4bf9e1f8a563cc89f98f716a8b0fd6f44f606e9238737c74b59c2ad6}
+}]\index{Back\+End\+\_\+\+N\+O\+\_\+\+F\+R\+E\+E\+\_\+\+IP@{Back\+End\+\_\+\+N\+O\+\_\+\+F\+R\+E\+E\+\_\+\+IP}!Protocol.\+h@{Protocol.\+h}}\index{Protocol.\+h@{Protocol.\+h}!Back\+End\+\_\+\+N\+O\+\_\+\+F\+R\+E\+E\+\_\+\+IP@{Back\+End\+\_\+\+N\+O\+\_\+\+F\+R\+E\+E\+\_\+\+IP}}\item[{\em 
+Back\+End\+\_\+\+N\+O\+\_\+\+F\+R\+E\+E\+\_\+\+IP\hypertarget{Protocol_8h_a4947063aa4bf9e1f8a563cc89f98f716aa53366e0c918dd9b42f83d0944bf2f2c}{}\label{Protocol_8h_a4947063aa4bf9e1f8a563cc89f98f716aa53366e0c918dd9b42f83d0944bf2f2c}
+}]\index{Back\+End\+\_\+\+C\+L\+I\+E\+N\+T\+\_\+\+D\+I\+S\+C\+O\+N\+N\+E\+C\+T\+ED@{Back\+End\+\_\+\+C\+L\+I\+E\+N\+T\+\_\+\+D\+I\+S\+C\+O\+N\+N\+E\+C\+T\+ED}!Protocol.\+h@{Protocol.\+h}}\index{Protocol.\+h@{Protocol.\+h}!Back\+End\+\_\+\+C\+L\+I\+E\+N\+T\+\_\+\+D\+I\+S\+C\+O\+N\+N\+E\+C\+T\+ED@{Back\+End\+\_\+\+C\+L\+I\+E\+N\+T\+\_\+\+D\+I\+S\+C\+O\+N\+N\+E\+C\+T\+ED}}\item[{\em 
+Back\+End\+\_\+\+C\+L\+I\+E\+N\+T\+\_\+\+D\+I\+S\+C\+O\+N\+N\+E\+C\+T\+ED\hypertarget{Protocol_8h_a4947063aa4bf9e1f8a563cc89f98f716a27625053433accfa0ad40e82c2cdb255}{}\label{Protocol_8h_a4947063aa4bf9e1f8a563cc89f98f716a27625053433accfa0ad40e82c2cdb255}
+}]\index{Back\+End\+\_\+\+R\+E\+Q\+U\+S\+T\+\_\+\+U\+N\+K\+N\+O\+WN@{Back\+End\+\_\+\+R\+E\+Q\+U\+S\+T\+\_\+\+U\+N\+K\+N\+O\+WN}!Protocol.\+h@{Protocol.\+h}}\index{Protocol.\+h@{Protocol.\+h}!Back\+End\+\_\+\+R\+E\+Q\+U\+S\+T\+\_\+\+U\+N\+K\+N\+O\+WN@{Back\+End\+\_\+\+R\+E\+Q\+U\+S\+T\+\_\+\+U\+N\+K\+N\+O\+WN}}\item[{\em 
+Back\+End\+\_\+\+R\+E\+Q\+U\+S\+T\+\_\+\+U\+N\+K\+N\+O\+WN\hypertarget{Protocol_8h_a4947063aa4bf9e1f8a563cc89f98f716adfcbf71ae9705ee576f1fb545550aa8b}{}\label{Protocol_8h_a4947063aa4bf9e1f8a563cc89f98f716adfcbf71ae9705ee576f1fb545550aa8b}
+}]\end{description}
+\end{Desc}
+
+
+Definition at line 61 of file Protocol.\+h.
+
+\index{Protocol.\+h@{Protocol.\+h}!Message\+Type@{Message\+Type}}
+\index{Message\+Type@{Message\+Type}!Protocol.\+h@{Protocol.\+h}}
+\subsubsection[{\texorpdfstring{Message\+Type}{MessageType}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Message\+Type}}\hypertarget{Protocol_8h_ac6606ebe91c8ac66a2c314c79f5ab013}{}\label{Protocol_8h_ac6606ebe91c8ac66a2c314c79f5ab013}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+R\+E\+S\+P\+O\+NS@{M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+R\+E\+S\+P\+O\+NS}!Protocol.\+h@{Protocol.\+h}}\index{Protocol.\+h@{Protocol.\+h}!M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+R\+E\+S\+P\+O\+NS@{M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+R\+E\+S\+P\+O\+NS}}\item[{\em 
+M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+R\+E\+S\+P\+O\+NS\hypertarget{Protocol_8h_ac6606ebe91c8ac66a2c314c79f5ab013a818a26527ed41fd262ae04a93d1cb835}{}\label{Protocol_8h_ac6606ebe91c8ac66a2c314c79f5ab013a818a26527ed41fd262ae04a93d1cb835}
+}]\index{M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+S\+I\+G\+N\+UP@{M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+S\+I\+G\+N\+UP}!Protocol.\+h@{Protocol.\+h}}\index{Protocol.\+h@{Protocol.\+h}!M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+S\+I\+G\+N\+UP@{M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+S\+I\+G\+N\+UP}}\item[{\em 
+M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+S\+I\+G\+N\+UP\hypertarget{Protocol_8h_ac6606ebe91c8ac66a2c314c79f5ab013a5f2a0a8dd047033a22d1b9cc71e6d7be}{}\label{Protocol_8h_ac6606ebe91c8ac66a2c314c79f5ab013a5f2a0a8dd047033a22d1b9cc71e6d7be}
+}]\index{M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+L\+O\+G\+IN@{M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+L\+O\+G\+IN}!Protocol.\+h@{Protocol.\+h}}\index{Protocol.\+h@{Protocol.\+h}!M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+L\+O\+G\+IN@{M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+L\+O\+G\+IN}}\item[{\em 
+M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+L\+O\+G\+IN\hypertarget{Protocol_8h_ac6606ebe91c8ac66a2c314c79f5ab013a5ac5c53dded8b884b051635a2d075c2f}{}\label{Protocol_8h_ac6606ebe91c8ac66a2c314c79f5ab013a5ac5c53dded8b884b051635a2d075c2f}
+}]\index{M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+L\+O\+G\+O\+UT@{M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+L\+O\+G\+O\+UT}!Protocol.\+h@{Protocol.\+h}}\index{Protocol.\+h@{Protocol.\+h}!M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+L\+O\+G\+O\+UT@{M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+L\+O\+G\+O\+UT}}\item[{\em 
+M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+L\+O\+G\+O\+UT\hypertarget{Protocol_8h_ac6606ebe91c8ac66a2c314c79f5ab013ace981ac10f6f7705d69fa2415e975f06}{}\label{Protocol_8h_ac6606ebe91c8ac66a2c314c79f5ab013ace981ac10f6f7705d69fa2415e975f06}
+}]\index{M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+D\+E\+L\+E\+T\+E\+\_\+\+U\+S\+ER@{M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+D\+E\+L\+E\+T\+E\+\_\+\+U\+S\+ER}!Protocol.\+h@{Protocol.\+h}}\index{Protocol.\+h@{Protocol.\+h}!M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+D\+E\+L\+E\+T\+E\+\_\+\+U\+S\+ER@{M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+D\+E\+L\+E\+T\+E\+\_\+\+U\+S\+ER}}\item[{\em 
+M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+D\+E\+L\+E\+T\+E\+\_\+\+U\+S\+ER\hypertarget{Protocol_8h_ac6606ebe91c8ac66a2c314c79f5ab013a9d5e59d6b0e29f2afab0e581f40f4eec}{}\label{Protocol_8h_ac6606ebe91c8ac66a2c314c79f5ab013a9d5e59d6b0e29f2afab0e581f40f4eec}
+}]\index{M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+J\+O\+I\+N\+\_\+\+G\+R\+O\+UP@{M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+J\+O\+I\+N\+\_\+\+G\+R\+O\+UP}!Protocol.\+h@{Protocol.\+h}}\index{Protocol.\+h@{Protocol.\+h}!M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+J\+O\+I\+N\+\_\+\+G\+R\+O\+UP@{M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+J\+O\+I\+N\+\_\+\+G\+R\+O\+UP}}\item[{\em 
+M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+J\+O\+I\+N\+\_\+\+G\+R\+O\+UP\hypertarget{Protocol_8h_ac6606ebe91c8ac66a2c314c79f5ab013adcbf90c96c68ecf2686914ff38304cb7}{}\label{Protocol_8h_ac6606ebe91c8ac66a2c314c79f5ab013adcbf90c96c68ecf2686914ff38304cb7}
+}]\index{M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+C\+R\+E\+A\+T\+E\+\_\+\+G\+R\+O\+UP@{M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+C\+R\+E\+A\+T\+E\+\_\+\+G\+R\+O\+UP}!Protocol.\+h@{Protocol.\+h}}\index{Protocol.\+h@{Protocol.\+h}!M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+C\+R\+E\+A\+T\+E\+\_\+\+G\+R\+O\+UP@{M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+C\+R\+E\+A\+T\+E\+\_\+\+G\+R\+O\+UP}}\item[{\em 
+M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+C\+R\+E\+A\+T\+E\+\_\+\+G\+R\+O\+UP\hypertarget{Protocol_8h_ac6606ebe91c8ac66a2c314c79f5ab013a06c1ea62e284cf49cd6864b80bde0655}{}\label{Protocol_8h_ac6606ebe91c8ac66a2c314c79f5ab013a06c1ea62e284cf49cd6864b80bde0655}
+}]\index{M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+L\+E\+A\+V\+E\+\_\+\+G\+R\+O\+UP@{M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+L\+E\+A\+V\+E\+\_\+\+G\+R\+O\+UP}!Protocol.\+h@{Protocol.\+h}}\index{Protocol.\+h@{Protocol.\+h}!M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+L\+E\+A\+V\+E\+\_\+\+G\+R\+O\+UP@{M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+L\+E\+A\+V\+E\+\_\+\+G\+R\+O\+UP}}\item[{\em 
+M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+L\+E\+A\+V\+E\+\_\+\+G\+R\+O\+UP\hypertarget{Protocol_8h_ac6606ebe91c8ac66a2c314c79f5ab013a3c020031ae130b967153e43c05a55fd3}{}\label{Protocol_8h_ac6606ebe91c8ac66a2c314c79f5ab013a3c020031ae130b967153e43c05a55fd3}
+}]\index{M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+G\+E\+T\+\_\+\+A\+L\+L\+\_\+\+G\+R\+O\+U\+PS@{M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+G\+E\+T\+\_\+\+A\+L\+L\+\_\+\+G\+R\+O\+U\+PS}!Protocol.\+h@{Protocol.\+h}}\index{Protocol.\+h@{Protocol.\+h}!M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+G\+E\+T\+\_\+\+A\+L\+L\+\_\+\+G\+R\+O\+U\+PS@{M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+G\+E\+T\+\_\+\+A\+L\+L\+\_\+\+G\+R\+O\+U\+PS}}\item[{\em 
+M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+G\+E\+T\+\_\+\+A\+L\+L\+\_\+\+G\+R\+O\+U\+PS\hypertarget{Protocol_8h_ac6606ebe91c8ac66a2c314c79f5ab013a1009a2a839bdb551eaec6af12cd0699d}{}\label{Protocol_8h_ac6606ebe91c8ac66a2c314c79f5ab013a1009a2a839bdb551eaec6af12cd0699d}
+}]\end{description}
+\end{Desc}
+
+
+Definition at line 47 of file Protocol.\+h.
+
+
+
+\subsection{Function Documentation}
+\index{Protocol.\+h@{Protocol.\+h}!Protocol\+\_\+\+Decode\+Client@{Protocol\+\_\+\+Decode\+Client}}
+\index{Protocol\+\_\+\+Decode\+Client@{Protocol\+\_\+\+Decode\+Client}!Protocol.\+h@{Protocol.\+h}}
+\subsubsection[{\texorpdfstring{Protocol\+\_\+\+Decode\+Client(void $\ast$\+\_\+data\+To\+Decode, size\+\_\+t \+\_\+lenght, Client\+Receive\+Message\+\_\+t $\ast$\+\_\+message)}{Protocol_DecodeClient(void *_dataToDecode, size_t _lenght, ClientReceiveMessage_t *_message)}}]{\setlength{\rightskip}{0pt plus 5cm}int Protocol\+\_\+\+Decode\+Client (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{\+\_\+data\+To\+Decode, }
+\item[{size\+\_\+t}]{\+\_\+lenght, }
+\item[{{\bf Client\+Receive\+Message\+\_\+t} $\ast$}]{\+\_\+message}
+\end{DoxyParamCaption}
+)}\hypertarget{Protocol_8h_ac31b3aa3c16240005b55fa537136af75}{}\label{Protocol_8h_ac31b3aa3c16240005b55fa537136af75}
+
+
+The function Decode Message from Protocol format to Client\+Receive\+Message\+\_\+t form. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void$\ast$} & \+\_\+data\+To\+Decode -\/ pointer to data that need to decoded \\
+\hline
+{\em size\+\_\+t} & \+\_\+length -\/ Data length \\
+\hline
+{\em Client\+Receive\+Message\+\_\+t$\ast$} & \+\_\+message -\/ Receive Message that the function fill \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool on success true 1, on fail false 0. 
+\end{DoxyReturn}
+
+
+Definition at line 134 of file protocol.\+c.
+
+
+
+References Back\+End\+\_\+\+S\+U\+C\+C\+E\+SS, D\+E\+L\+I\+M\+I\+T\+ER, D\+E\+L\+I\+M\+I\+T\+E\+R\+\_\+\+L\+E\+N\+G\+HT, F\+A\+L\+SE, G\+E\+N\+\_\+\+E\+R\+R\+OR, Client\+Receive\+Message\+::m\+\_\+message\+Type, Client\+Receive\+Message\+::m\+\_\+status, M\+A\+X\+\_\+\+M\+E\+S\+S\+A\+G\+E\+\_\+\+L\+E\+N\+G\+TH, M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+C\+R\+E\+A\+T\+E\+\_\+\+G\+R\+O\+UP, M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+D\+E\+L\+E\+T\+E\+\_\+\+U\+S\+ER, M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+G\+E\+T\+\_\+\+A\+L\+L\+\_\+\+G\+R\+O\+U\+PS, M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+J\+O\+I\+N\+\_\+\+G\+R\+O\+UP, M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+L\+E\+A\+V\+E\+\_\+\+G\+R\+O\+UP, M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+L\+O\+G\+IN, M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+L\+O\+G\+O\+UT, M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+R\+E\+S\+P\+O\+NS, M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+S\+I\+G\+N\+UP, T\+L\+V\+\_\+decode(), T\+L\+V\+\_\+\+M\+O\+R\+E\+\_\+\+T\+L\+V\+S\+\_\+\+T\+O\+\_\+\+D\+E\+C\+O\+DE, T\+L\+V\+\_\+\+S\+U\+C\+C\+E\+SS, and T\+R\+UE.
+
+
+
+Referenced by Logic\+F\+E\+\_\+\+Get\+All\+Groups\+Name(), and main().
+
+\index{Protocol.\+h@{Protocol.\+h}!Protocol\+\_\+\+Decode\+Server@{Protocol\+\_\+\+Decode\+Server}}
+\index{Protocol\+\_\+\+Decode\+Server@{Protocol\+\_\+\+Decode\+Server}!Protocol.\+h@{Protocol.\+h}}
+\subsubsection[{\texorpdfstring{Protocol\+\_\+\+Decode\+Server(void $\ast$\+\_\+data\+To\+Decode, size\+\_\+t \+\_\+lenght, Server\+Receive\+Message\+\_\+t $\ast$\+\_\+message)}{Protocol_DecodeServer(void *_dataToDecode, size_t _lenght, ServerReceiveMessage_t *_message)}}]{\setlength{\rightskip}{0pt plus 5cm}int Protocol\+\_\+\+Decode\+Server (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{\+\_\+data\+To\+Decode, }
+\item[{size\+\_\+t}]{\+\_\+lenght, }
+\item[{{\bf Server\+Receive\+Message\+\_\+t} $\ast$}]{\+\_\+message}
+\end{DoxyParamCaption}
+)}\hypertarget{Protocol_8h_a7583ea608d84b6ad3dd65421249856e4}{}\label{Protocol_8h_a7583ea608d84b6ad3dd65421249856e4}
+
+
+The function Decode Message from Protocol format to Server\+Receive\+Message\+\_\+t form. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void$\ast$} & \+\_\+data\+To\+Decode -\/ pointer to data that need to decoded \\
+\hline
+{\em size\+\_\+t} & \+\_\+length -\/ Data length \\
+\hline
+{\em Server\+Receive\+Message\+\_\+t$\ast$} & \+\_\+message -\/ Receive Message that the function fill \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool on success true 1, on fail false 0. 
+\end{DoxyReturn}
+
+
+Definition at line 206 of file protocol.\+c.
+
+
+
+References D\+E\+L\+I\+M\+I\+T\+ER, D\+E\+L\+I\+M\+I\+T\+E\+R\+\_\+\+L\+E\+N\+G\+HT, F\+A\+L\+SE, G\+E\+N\+\_\+\+E\+R\+R\+OR, Server\+Receive\+Message\+::m\+\_\+group\+Name, Server\+Receive\+Message\+::m\+\_\+\+Message\+Type, Server\+Receive\+Message\+::m\+\_\+password, Server\+Receive\+Message\+::m\+\_\+user\+Name, M\+A\+X\+\_\+\+M\+E\+S\+S\+A\+G\+E\+\_\+\+L\+E\+N\+G\+TH, M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+C\+R\+E\+A\+T\+E\+\_\+\+G\+R\+O\+UP, M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+D\+E\+L\+E\+T\+E\+\_\+\+U\+S\+ER, M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+G\+E\+T\+\_\+\+A\+L\+L\+\_\+\+G\+R\+O\+U\+PS, M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+J\+O\+I\+N\+\_\+\+G\+R\+O\+UP, M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+L\+E\+A\+V\+E\+\_\+\+G\+R\+O\+UP, M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+L\+O\+G\+IN, M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+L\+O\+G\+O\+UT, M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+R\+E\+S\+P\+O\+NS, M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+S\+I\+G\+N\+UP, T\+L\+V\+\_\+decode(), T\+L\+V\+\_\+\+M\+O\+R\+E\+\_\+\+T\+L\+V\+S\+\_\+\+T\+O\+\_\+\+D\+E\+C\+O\+DE, T\+L\+V\+\_\+\+S\+U\+C\+C\+E\+SS, and T\+R\+UE.
+
+
+
+Referenced by Logic\+B\+E\+\_\+\+Recive\+Data\+Func(), and main().
+
+\index{Protocol.\+h@{Protocol.\+h}!Protocol\+\_\+\+Encode\+Delete\+User@{Protocol\+\_\+\+Encode\+Delete\+User}}
+\index{Protocol\+\_\+\+Encode\+Delete\+User@{Protocol\+\_\+\+Encode\+Delete\+User}!Protocol.\+h@{Protocol.\+h}}
+\subsubsection[{\texorpdfstring{Protocol\+\_\+\+Encode\+Delete\+User(void $\ast$\+\_\+buffer)}{Protocol_EncodeDeleteUser(void *_buffer)}}]{\setlength{\rightskip}{0pt plus 5cm}int Protocol\+\_\+\+Encode\+Delete\+User (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{\+\_\+buffer}
+\end{DoxyParamCaption}
+)}\hypertarget{Protocol_8h_af3b80522041d8cf828e8da4054ac7898}{}\label{Protocol_8h_af3b80522041d8cf828e8da4054ac7898}
+
+
+The function Encode Message to Protocol format. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void$\ast$} & \+\_\+buffer -\/ Buffer that in which the message will written \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+on success message length. on fail -\/1 
+\end{DoxyReturn}
+\index{Protocol.\+h@{Protocol.\+h}!Protocol\+\_\+\+Encode\+Delete\+User\+\_\+\+Response@{Protocol\+\_\+\+Encode\+Delete\+User\+\_\+\+Response}}
+\index{Protocol\+\_\+\+Encode\+Delete\+User\+\_\+\+Response@{Protocol\+\_\+\+Encode\+Delete\+User\+\_\+\+Response}!Protocol.\+h@{Protocol.\+h}}
+\subsubsection[{\texorpdfstring{Protocol\+\_\+\+Encode\+Delete\+User\+\_\+\+Response(\+Back\+End\+Status \+\_\+response\+Status, void $\ast$\+\_\+buffer)}{Protocol_EncodeDeleteUser_Response(BackEndStatus _responseStatus, void *_buffer)}}]{\setlength{\rightskip}{0pt plus 5cm}int Protocol\+\_\+\+Encode\+Delete\+User\+\_\+\+Response (
+\begin{DoxyParamCaption}
+\item[{{\bf Back\+End\+Status}}]{\+\_\+response\+Status, }
+\item[{void $\ast$}]{\+\_\+buffer}
+\end{DoxyParamCaption}
+)}\hypertarget{Protocol_8h_a87d6f4f576370cbd036a3b1d4043f7d9}{}\label{Protocol_8h_a87d6f4f576370cbd036a3b1d4043f7d9}
+
+
+encode the response from server-\/end to front-\/end of delete user respond 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+response\+Status} & E\+N\+UM status of back-\/end result \\
+\hline
+{\em \+\_\+buffer} & the buffer in which msg to be send \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+on success message length. on fail -\/1 
+\end{DoxyReturn}
+\index{Protocol.\+h@{Protocol.\+h}!Protocol\+\_\+\+Encode\+Get\+All\+Groups@{Protocol\+\_\+\+Encode\+Get\+All\+Groups}}
+\index{Protocol\+\_\+\+Encode\+Get\+All\+Groups@{Protocol\+\_\+\+Encode\+Get\+All\+Groups}!Protocol.\+h@{Protocol.\+h}}
+\subsubsection[{\texorpdfstring{Protocol\+\_\+\+Encode\+Get\+All\+Groups(void $\ast$\+\_\+buffer)}{Protocol_EncodeGetAllGroups(void *_buffer)}}]{\setlength{\rightskip}{0pt plus 5cm}int Protocol\+\_\+\+Encode\+Get\+All\+Groups (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{\+\_\+buffer}
+\end{DoxyParamCaption}
+)}\hypertarget{Protocol_8h_a14d2c96c6791b08ce3d9b46c6df915b9}{}\label{Protocol_8h_a14d2c96c6791b08ce3d9b46c6df915b9}
+
+
+The function Encode Message to Protocol format. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void$\ast$} & \+\_\+buffer -\/ Buffer that in which the message will written \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+on success message length. on fail -\/1 
+\end{DoxyReturn}
+
+
+Definition at line 364 of file protocol.\+c.
+
+
+
+References D\+E\+L\+I\+M\+I\+T\+ER, G\+E\+N\+\_\+\+E\+R\+R\+OR, M\+A\+X\+\_\+\+M\+E\+S\+S\+A\+G\+E\+\_\+\+L\+E\+N\+G\+TH, M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+G\+E\+T\+\_\+\+A\+L\+L\+\_\+\+G\+R\+O\+U\+PS, T\+L\+V\+\_\+encoder(), T\+L\+V\+\_\+\+M\+O\+R\+E\+\_\+\+T\+L\+V\+S\+\_\+\+T\+O\+\_\+\+D\+E\+C\+O\+DE, and T\+L\+V\+\_\+\+S\+U\+C\+C\+E\+SS.
+
+
+
+Referenced by Logic\+F\+E\+\_\+\+Get\+All\+Groups\+Name().
+
+\index{Protocol.\+h@{Protocol.\+h}!Protocol\+\_\+\+Encode\+Get\+All\+Groups\+\_\+\+Response@{Protocol\+\_\+\+Encode\+Get\+All\+Groups\+\_\+\+Response}}
+\index{Protocol\+\_\+\+Encode\+Get\+All\+Groups\+\_\+\+Response@{Protocol\+\_\+\+Encode\+Get\+All\+Groups\+\_\+\+Response}!Protocol.\+h@{Protocol.\+h}}
+\subsubsection[{\texorpdfstring{Protocol\+\_\+\+Encode\+Get\+All\+Groups\+\_\+\+Response(\+Back\+End\+Status \+\_\+response\+Status, const char $\ast$\+\_\+groups\+Names, size\+\_\+t \+\_\+num\+Groups, void $\ast$\+\_\+buffer)}{Protocol_EncodeGetAllGroups_Response(BackEndStatus _responseStatus, const char *_groupsNames, size_t _numGroups, void *_buffer)}}]{\setlength{\rightskip}{0pt plus 5cm}int Protocol\+\_\+\+Encode\+Get\+All\+Groups\+\_\+\+Response (
+\begin{DoxyParamCaption}
+\item[{{\bf Back\+End\+Status}}]{\+\_\+response\+Status, }
+\item[{const char $\ast$}]{\+\_\+groups\+Names, }
+\item[{size\+\_\+t}]{\+\_\+num\+Groups, }
+\item[{void $\ast$}]{\+\_\+buffer}
+\end{DoxyParamCaption}
+)}\hypertarget{Protocol_8h_a60b12795700e01590ecddd7876ac897c}{}\label{Protocol_8h_a60b12795700e01590ecddd7876ac897c}
+
+
+encode the response from server-\/end to front-\/end of show all group respond 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+response\+Status} & E\+N\+UM status of back-\/end response \\
+\hline
+{\em \+\_\+groups\+Names} & a string of groups names devided by \textbackslash{}0 \\
+\hline
+{\em \+\_\+num\+Groups} & the numer of groups in \+\_\+groups\+Names \\
+\hline
+{\em \+\_\+buffer} & the buffer in which msg to be send \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+on success message length. on fail -\/1 
+\end{DoxyReturn}
+
+
+Definition at line 387 of file protocol.\+c.
+
+
+
+References D\+E\+L\+I\+M\+I\+T\+ER, D\+E\+L\+I\+M\+I\+T\+E\+R\+\_\+\+L\+E\+N\+G\+HT, F\+A\+L\+SE, G\+E\+N\+\_\+\+E\+R\+R\+OR, Client\+Receive\+Message\+::m\+\_\+group\+Adrres, Client\+Receive\+Message\+::m\+\_\+\+Group\+Name, Client\+Receive\+Message\+::m\+\_\+number\+Of\+Groups, M\+A\+X\+\_\+\+M\+E\+S\+S\+A\+G\+E\+\_\+\+L\+E\+N\+G\+TH, M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+G\+E\+T\+\_\+\+A\+L\+L\+\_\+\+G\+R\+O\+U\+PS, T\+L\+V\+\_\+encoder(), T\+L\+V\+\_\+\+M\+O\+R\+E\+\_\+\+T\+L\+V\+S\+\_\+\+T\+O\+\_\+\+D\+E\+C\+O\+DE, T\+L\+V\+\_\+\+S\+U\+C\+C\+E\+SS, and T\+R\+UE.
+
+
+
+Referenced by Logic\+B\+E\+\_\+\+Error\+Func().
+
+\index{Protocol.\+h@{Protocol.\+h}!Protocol\+\_\+\+Encode\+Join\+Group@{Protocol\+\_\+\+Encode\+Join\+Group}}
+\index{Protocol\+\_\+\+Encode\+Join\+Group@{Protocol\+\_\+\+Encode\+Join\+Group}!Protocol.\+h@{Protocol.\+h}}
+\subsubsection[{\texorpdfstring{Protocol\+\_\+\+Encode\+Join\+Group(const char $\ast$\+\_\+group\+Name\+To\+Join, void $\ast$\+\_\+buffer)}{Protocol_EncodeJoinGroup(const char *_groupNameToJoin, void *_buffer)}}]{\setlength{\rightskip}{0pt plus 5cm}int Protocol\+\_\+\+Encode\+Join\+Group (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{\+\_\+group\+Name\+To\+Join, }
+\item[{void $\ast$}]{\+\_\+buffer}
+\end{DoxyParamCaption}
+)}\hypertarget{Protocol_8h_abf375004ce4ebfe0d51c5ca8806d495f}{}\label{Protocol_8h_abf375004ce4ebfe0d51c5ca8806d495f}
+
+
+The function Encode Message to Protocol format. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Char$\ast$} & \+\_\+group\+Name\+To\+Join -\/ group name to join \\
+\hline
+{\em void$\ast$} & \+\_\+buffer -\/ Buffer that in which the message will written \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+on success message length. on fail -\/1 
+\end{DoxyReturn}
+
+
+Definition at line 318 of file protocol.\+c.
+
+
+
+References D\+E\+L\+I\+M\+I\+T\+ER, G\+E\+N\+\_\+\+E\+R\+R\+OR, M\+A\+X\+\_\+\+M\+E\+S\+S\+A\+G\+E\+\_\+\+L\+E\+N\+G\+TH, M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+J\+O\+I\+N\+\_\+\+G\+R\+O\+UP, T\+L\+V\+\_\+encoder(), T\+L\+V\+\_\+\+M\+O\+R\+E\+\_\+\+T\+L\+V\+S\+\_\+\+T\+O\+\_\+\+D\+E\+C\+O\+DE, and T\+L\+V\+\_\+\+S\+U\+C\+C\+E\+SS.
+
+
+
+Referenced by Logic\+F\+E\+\_\+\+Join\+Group().
+
+\index{Protocol.\+h@{Protocol.\+h}!Protocol\+\_\+\+Encode\+Join\+Group\+\_\+\+Response@{Protocol\+\_\+\+Encode\+Join\+Group\+\_\+\+Response}}
+\index{Protocol\+\_\+\+Encode\+Join\+Group\+\_\+\+Response@{Protocol\+\_\+\+Encode\+Join\+Group\+\_\+\+Response}!Protocol.\+h@{Protocol.\+h}}
+\subsubsection[{\texorpdfstring{Protocol\+\_\+\+Encode\+Join\+Group\+\_\+\+Response(\+Back\+End\+Status \+\_\+response\+Status, sockaddr\+\_\+in\+\_\+t m\+\_\+group\+Adrres, void $\ast$\+\_\+buffer)}{Protocol_EncodeJoinGroup_Response(BackEndStatus _responseStatus, sockaddr_in_t m_groupAdrres, void *_buffer)}}]{\setlength{\rightskip}{0pt plus 5cm}int Protocol\+\_\+\+Encode\+Join\+Group\+\_\+\+Response (
+\begin{DoxyParamCaption}
+\item[{{\bf Back\+End\+Status}}]{\+\_\+response\+Status, }
+\item[{{\bf sockaddr\+\_\+in\+\_\+t}}]{m\+\_\+group\+Adrres, }
+\item[{void $\ast$}]{\+\_\+buffer}
+\end{DoxyParamCaption}
+)}\hypertarget{Protocol_8h_a405def129328019886699c3ae03ab90b}{}\label{Protocol_8h_a405def129328019886699c3ae03ab90b}
+
+
+encode the response from server-\/end to front-\/end of join group respond 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+response\+Status} & E\+N\+UM status of back-\/end result \\
+\hline
+{\em m\+\_\+group\+Adrres} & a struct that continues ip and port \\
+\hline
+{\em \+\_\+buffer} & the buffer in which msg to be send \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+on success message length. on fail -\/1 
+\end{DoxyReturn}
+
+
+Definition at line 341 of file protocol.\+c.
+
+
+
+References D\+E\+L\+I\+M\+I\+T\+ER, G\+E\+N\+\_\+\+E\+R\+R\+OR, M\+A\+X\+\_\+\+M\+E\+S\+S\+A\+G\+E\+\_\+\+L\+E\+N\+G\+TH, M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+J\+O\+I\+N\+\_\+\+G\+R\+O\+UP, T\+L\+V\+\_\+encoder(), T\+L\+V\+\_\+\+M\+O\+R\+E\+\_\+\+T\+L\+V\+S\+\_\+\+T\+O\+\_\+\+D\+E\+C\+O\+DE, and T\+L\+V\+\_\+\+S\+U\+C\+C\+E\+SS.
+
+
+
+Referenced by Logic\+B\+E\+\_\+\+Error\+Func().
+
+\index{Protocol.\+h@{Protocol.\+h}!Protocol\+\_\+\+Encode\+Leave\+Group@{Protocol\+\_\+\+Encode\+Leave\+Group}}
+\index{Protocol\+\_\+\+Encode\+Leave\+Group@{Protocol\+\_\+\+Encode\+Leave\+Group}!Protocol.\+h@{Protocol.\+h}}
+\subsubsection[{\texorpdfstring{Protocol\+\_\+\+Encode\+Leave\+Group(const char $\ast$\+\_\+group\+Name\+To\+Leave, void $\ast$\+\_\+buffer)}{Protocol_EncodeLeaveGroup(const char *_groupNameToLeave, void *_buffer)}}]{\setlength{\rightskip}{0pt plus 5cm}int Protocol\+\_\+\+Encode\+Leave\+Group (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{\+\_\+group\+Name\+To\+Leave, }
+\item[{void $\ast$}]{\+\_\+buffer}
+\end{DoxyParamCaption}
+)}\hypertarget{Protocol_8h_af5d614056d93783623f45ba7dc21a422}{}\label{Protocol_8h_af5d614056d93783623f45ba7dc21a422}
+
+
+The function Encode Message to Protocol format. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Char$\ast$} & \+\_\+group\+Name\+To\+Leave -\/ group name to Leave \\
+\hline
+{\em void$\ast$} & \+\_\+buffer -\/ Buffer that in which the message will written \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+on success message length. on fail -\/1 
+\end{DoxyReturn}
+\index{Protocol.\+h@{Protocol.\+h}!Protocol\+\_\+\+Encode\+Leave\+Group\+\_\+\+Response@{Protocol\+\_\+\+Encode\+Leave\+Group\+\_\+\+Response}}
+\index{Protocol\+\_\+\+Encode\+Leave\+Group\+\_\+\+Response@{Protocol\+\_\+\+Encode\+Leave\+Group\+\_\+\+Response}!Protocol.\+h@{Protocol.\+h}}
+\subsubsection[{\texorpdfstring{Protocol\+\_\+\+Encode\+Leave\+Group\+\_\+\+Response(\+Back\+End\+Status \+\_\+response\+Status, void $\ast$\+\_\+buffer)}{Protocol_EncodeLeaveGroup_Response(BackEndStatus _responseStatus, void *_buffer)}}]{\setlength{\rightskip}{0pt plus 5cm}int Protocol\+\_\+\+Encode\+Leave\+Group\+\_\+\+Response (
+\begin{DoxyParamCaption}
+\item[{{\bf Back\+End\+Status}}]{\+\_\+response\+Status, }
+\item[{void $\ast$}]{\+\_\+buffer}
+\end{DoxyParamCaption}
+)}\hypertarget{Protocol_8h_a33a256c3e54816e31bc04f198a3a1b05}{}\label{Protocol_8h_a33a256c3e54816e31bc04f198a3a1b05}
+
+
+encode the response from server-\/end to front-\/end of leave group respond 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+response\+Status} & E\+N\+UM status of back-\/end result \\
+\hline
+{\em \+\_\+buffer} & the buffer in which msg to be send \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+on success message length. on fail -\/1 
+\end{DoxyReturn}
+\index{Protocol.\+h@{Protocol.\+h}!Protocol\+\_\+\+Encode\+Log\+In@{Protocol\+\_\+\+Encode\+Log\+In}}
+\index{Protocol\+\_\+\+Encode\+Log\+In@{Protocol\+\_\+\+Encode\+Log\+In}!Protocol.\+h@{Protocol.\+h}}
+\subsubsection[{\texorpdfstring{Protocol\+\_\+\+Encode\+Log\+In(const char $\ast$\+\_\+user\+Name, const char $\ast$\+\_\+password, void $\ast$\+\_\+buffer)}{Protocol_EncodeLogIn(const char *_userName, const char *_password, void *_buffer)}}]{\setlength{\rightskip}{0pt plus 5cm}int Protocol\+\_\+\+Encode\+Log\+In (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{\+\_\+user\+Name, }
+\item[{const char $\ast$}]{\+\_\+password, }
+\item[{void $\ast$}]{\+\_\+buffer}
+\end{DoxyParamCaption}
+)}\hypertarget{Protocol_8h_a66ec5653cba0946d9003c2ad67f7217a}{}\label{Protocol_8h_a66ec5653cba0946d9003c2ad67f7217a}
+
+
+The function Encode Message to Protocol format. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Char$\ast$} & \+\_\+user\+Name -\/ \hyperlink{structUser}{User} Name \\
+\hline
+{\em Char$\ast$} & \+\_\+password -\/ Password \\
+\hline
+{\em void$\ast$} & \+\_\+buffer -\/ Buffer that in which the message will written \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+on success message length. on fail -\/1 
+\end{DoxyReturn}
+
+
+Definition at line 88 of file protocol.\+c.
+
+
+
+References D\+E\+L\+I\+M\+I\+T\+ER, G\+E\+N\+\_\+\+E\+R\+R\+OR, M\+A\+X\+\_\+\+M\+E\+S\+S\+A\+G\+E\+\_\+\+L\+E\+N\+G\+TH, M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+L\+O\+G\+IN, T\+L\+V\+\_\+encoder(), T\+L\+V\+\_\+\+M\+O\+R\+E\+\_\+\+T\+L\+V\+S\+\_\+\+T\+O\+\_\+\+D\+E\+C\+O\+DE, and T\+L\+V\+\_\+\+S\+U\+C\+C\+E\+SS.
+
+
+
+Referenced by Logic\+F\+E\+\_\+\+Login().
+
+\index{Protocol.\+h@{Protocol.\+h}!Protocol\+\_\+\+Encode\+Log\+In\+\_\+\+Response@{Protocol\+\_\+\+Encode\+Log\+In\+\_\+\+Response}}
+\index{Protocol\+\_\+\+Encode\+Log\+In\+\_\+\+Response@{Protocol\+\_\+\+Encode\+Log\+In\+\_\+\+Response}!Protocol.\+h@{Protocol.\+h}}
+\subsubsection[{\texorpdfstring{Protocol\+\_\+\+Encode\+Log\+In\+\_\+\+Response(\+Back\+End\+Status \+\_\+response\+Status, void $\ast$\+\_\+buffer)}{Protocol_EncodeLogIn_Response(BackEndStatus _responseStatus, void *_buffer)}}]{\setlength{\rightskip}{0pt plus 5cm}int Protocol\+\_\+\+Encode\+Log\+In\+\_\+\+Response (
+\begin{DoxyParamCaption}
+\item[{{\bf Back\+End\+Status}}]{\+\_\+response\+Status, }
+\item[{void $\ast$}]{\+\_\+buffer}
+\end{DoxyParamCaption}
+)}\hypertarget{Protocol_8h_ad7f3222918f08111a76b9d16c18408b5}{}\label{Protocol_8h_ad7f3222918f08111a76b9d16c18408b5}
+
+
+encode the response from server-\/end to front-\/end of log-\/in respond 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+response\+Status} & E\+N\+UM status of back-\/end result \\
+\hline
+{\em \+\_\+buffer} & the buffer in which msg to be send \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+on success message length. on fail -\/1 
+\end{DoxyReturn}
+
+
+Definition at line 111 of file protocol.\+c.
+
+
+
+References D\+E\+L\+I\+M\+I\+T\+ER, G\+E\+N\+\_\+\+E\+R\+R\+OR, M\+A\+X\+\_\+\+M\+E\+S\+S\+A\+G\+E\+\_\+\+L\+E\+N\+G\+TH, M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+L\+O\+G\+IN, T\+L\+V\+\_\+encoder(), T\+L\+V\+\_\+\+M\+O\+R\+E\+\_\+\+T\+L\+V\+S\+\_\+\+T\+O\+\_\+\+D\+E\+C\+O\+DE, and T\+L\+V\+\_\+\+S\+U\+C\+C\+E\+SS.
+
+
+
+Referenced by Logic\+B\+E\+\_\+\+Error\+Func().
+
+\index{Protocol.\+h@{Protocol.\+h}!Protocol\+\_\+\+Encode\+Log\+Out@{Protocol\+\_\+\+Encode\+Log\+Out}}
+\index{Protocol\+\_\+\+Encode\+Log\+Out@{Protocol\+\_\+\+Encode\+Log\+Out}!Protocol.\+h@{Protocol.\+h}}
+\subsubsection[{\texorpdfstring{Protocol\+\_\+\+Encode\+Log\+Out(void $\ast$\+\_\+buffer)}{Protocol_EncodeLogOut(void *_buffer)}}]{\setlength{\rightskip}{0pt plus 5cm}int Protocol\+\_\+\+Encode\+Log\+Out (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{\+\_\+buffer}
+\end{DoxyParamCaption}
+)}\hypertarget{Protocol_8h_add7f07fbeadb88902d82f7397732cac4}{}\label{Protocol_8h_add7f07fbeadb88902d82f7397732cac4}
+
+
+The function Encode Message to Protocol format. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void$\ast$} & \+\_\+buffer -\/ Buffer that in which the message will written \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+on success message length. on fail -\/1 
+\end{DoxyReturn}
+\index{Protocol.\+h@{Protocol.\+h}!Protocol\+\_\+\+Encode\+Log\+Out\+\_\+\+Response@{Protocol\+\_\+\+Encode\+Log\+Out\+\_\+\+Response}}
+\index{Protocol\+\_\+\+Encode\+Log\+Out\+\_\+\+Response@{Protocol\+\_\+\+Encode\+Log\+Out\+\_\+\+Response}!Protocol.\+h@{Protocol.\+h}}
+\subsubsection[{\texorpdfstring{Protocol\+\_\+\+Encode\+Log\+Out\+\_\+\+Response(\+Back\+End\+Status \+\_\+response\+Status, void $\ast$\+\_\+buffer)}{Protocol_EncodeLogOut_Response(BackEndStatus _responseStatus, void *_buffer)}}]{\setlength{\rightskip}{0pt plus 5cm}int Protocol\+\_\+\+Encode\+Log\+Out\+\_\+\+Response (
+\begin{DoxyParamCaption}
+\item[{{\bf Back\+End\+Status}}]{\+\_\+response\+Status, }
+\item[{void $\ast$}]{\+\_\+buffer}
+\end{DoxyParamCaption}
+)}\hypertarget{Protocol_8h_ad3d2d769e06f7bf4afc4dfeffb6967f3}{}\label{Protocol_8h_ad3d2d769e06f7bf4afc4dfeffb6967f3}
+
+
+encode the response from server-\/end to front-\/end of log-\/out respond 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+response\+Status} & E\+N\+UM status of back-\/end result \\
+\hline
+{\em \+\_\+buffer} & the buffer in which msg to be send \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+on success message length. on fail -\/1 
+\end{DoxyReturn}
+\index{Protocol.\+h@{Protocol.\+h}!Protocol\+\_\+\+Encode\+New\+Group@{Protocol\+\_\+\+Encode\+New\+Group}}
+\index{Protocol\+\_\+\+Encode\+New\+Group@{Protocol\+\_\+\+Encode\+New\+Group}!Protocol.\+h@{Protocol.\+h}}
+\subsubsection[{\texorpdfstring{Protocol\+\_\+\+Encode\+New\+Group(const char $\ast$\+\_\+group\+Name, void $\ast$\+\_\+buffer)}{Protocol_EncodeNewGroup(const char *_groupName, void *_buffer)}}]{\setlength{\rightskip}{0pt plus 5cm}int Protocol\+\_\+\+Encode\+New\+Group (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{\+\_\+group\+Name, }
+\item[{void $\ast$}]{\+\_\+buffer}
+\end{DoxyParamCaption}
+)}\hypertarget{Protocol_8h_ac0c1bf52e5c372253b9b4a4633d2f061}{}\label{Protocol_8h_ac0c1bf52e5c372253b9b4a4633d2f061}
+
+
+The function Encode Message to Protocol format. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Char$\ast$} & \+\_\+group\+Name -\/ group name \\
+\hline
+{\em void$\ast$} & \+\_\+buffer -\/ Buffer that in which the message will written \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+on success message length. on fail -\/1 
+\end{DoxyReturn}
+
+
+Definition at line 272 of file protocol.\+c.
+
+
+
+References D\+E\+L\+I\+M\+I\+T\+ER, G\+E\+N\+\_\+\+E\+R\+R\+OR, M\+A\+X\+\_\+\+M\+E\+S\+S\+A\+G\+E\+\_\+\+L\+E\+N\+G\+TH, M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+C\+R\+E\+A\+T\+E\+\_\+\+G\+R\+O\+UP, T\+L\+V\+\_\+encoder(), T\+L\+V\+\_\+\+M\+O\+R\+E\+\_\+\+T\+L\+V\+S\+\_\+\+T\+O\+\_\+\+D\+E\+C\+O\+DE, and T\+L\+V\+\_\+\+S\+U\+C\+C\+E\+SS.
+
+
+
+Referenced by Logic\+F\+E\+\_\+\+Create\+Group().
+
+\index{Protocol.\+h@{Protocol.\+h}!Protocol\+\_\+\+Encode\+New\+Group\+\_\+\+Response@{Protocol\+\_\+\+Encode\+New\+Group\+\_\+\+Response}}
+\index{Protocol\+\_\+\+Encode\+New\+Group\+\_\+\+Response@{Protocol\+\_\+\+Encode\+New\+Group\+\_\+\+Response}!Protocol.\+h@{Protocol.\+h}}
+\subsubsection[{\texorpdfstring{Protocol\+\_\+\+Encode\+New\+Group\+\_\+\+Response(\+Back\+End\+Status \+\_\+response\+Status, sockaddr\+\_\+in\+\_\+t m\+\_\+group\+Adrres, void $\ast$\+\_\+buffer)}{Protocol_EncodeNewGroup_Response(BackEndStatus _responseStatus, sockaddr_in_t m_groupAdrres, void *_buffer)}}]{\setlength{\rightskip}{0pt plus 5cm}int Protocol\+\_\+\+Encode\+New\+Group\+\_\+\+Response (
+\begin{DoxyParamCaption}
+\item[{{\bf Back\+End\+Status}}]{\+\_\+response\+Status, }
+\item[{{\bf sockaddr\+\_\+in\+\_\+t}}]{m\+\_\+group\+Adrres, }
+\item[{void $\ast$}]{\+\_\+buffer}
+\end{DoxyParamCaption}
+)}\hypertarget{Protocol_8h_a2e80c256d6f065ef13bf1aa092718fec}{}\label{Protocol_8h_a2e80c256d6f065ef13bf1aa092718fec}
+
+
+encode the response from server-\/end to front-\/end of create new group respond 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+response\+Status} & E\+N\+UM status of back-\/end result \\
+\hline
+{\em m\+\_\+group\+Adrres} & a struct that continues ip and port \\
+\hline
+{\em \+\_\+buffer} & the buffer in which msg to be send \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+on success message length. on fail -\/1 
+\end{DoxyReturn}
+
+
+Definition at line 295 of file protocol.\+c.
+
+
+
+References D\+E\+L\+I\+M\+I\+T\+ER, G\+E\+N\+\_\+\+E\+R\+R\+OR, M\+A\+X\+\_\+\+M\+E\+S\+S\+A\+G\+E\+\_\+\+L\+E\+N\+G\+TH, M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+C\+R\+E\+A\+T\+E\+\_\+\+G\+R\+O\+UP, T\+L\+V\+\_\+encoder(), T\+L\+V\+\_\+\+M\+O\+R\+E\+\_\+\+T\+L\+V\+S\+\_\+\+T\+O\+\_\+\+D\+E\+C\+O\+DE, and T\+L\+V\+\_\+\+S\+U\+C\+C\+E\+SS.
+
+
+
+Referenced by Logic\+B\+E\+\_\+\+Error\+Func().
+
+\index{Protocol.\+h@{Protocol.\+h}!Protocol\+\_\+\+Encode\+Sign\+Up@{Protocol\+\_\+\+Encode\+Sign\+Up}}
+\index{Protocol\+\_\+\+Encode\+Sign\+Up@{Protocol\+\_\+\+Encode\+Sign\+Up}!Protocol.\+h@{Protocol.\+h}}
+\subsubsection[{\texorpdfstring{Protocol\+\_\+\+Encode\+Sign\+Up(const char $\ast$\+\_\+new\+User\+Name, const char $\ast$\+\_\+password, void $\ast$\+\_\+buffer)}{Protocol_EncodeSignUp(const char *_newUserName, const char *_password, void *_buffer)}}]{\setlength{\rightskip}{0pt plus 5cm}int Protocol\+\_\+\+Encode\+Sign\+Up (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{\+\_\+new\+User\+Name, }
+\item[{const char $\ast$}]{\+\_\+password, }
+\item[{void $\ast$}]{\+\_\+buffer}
+\end{DoxyParamCaption}
+)}\hypertarget{Protocol_8h_a15569709a18ad5ad2372a9a216d522f6}{}\label{Protocol_8h_a15569709a18ad5ad2372a9a216d522f6}
+
+
+The function Encode Message to Protocol format. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Char$\ast$} & \+\_\+new\+User\+Name -\/ \hyperlink{structUser}{User} Name \\
+\hline
+{\em Char$\ast$} & \+\_\+password -\/ Password \\
+\hline
+{\em void$\ast$} & \+\_\+buffer -\/ Buffer that in which the message will written \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+on success message length. on fail -\/1 
+\end{DoxyReturn}
+
+
+Definition at line 41 of file protocol.\+c.
+
+
+
+References D\+E\+L\+I\+M\+I\+T\+ER, G\+E\+N\+\_\+\+E\+R\+R\+OR, M\+A\+X\+\_\+\+M\+E\+S\+S\+A\+G\+E\+\_\+\+L\+E\+N\+G\+TH, M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+S\+I\+G\+N\+UP, T\+L\+V\+\_\+encoder(), T\+L\+V\+\_\+\+M\+O\+R\+E\+\_\+\+T\+L\+V\+S\+\_\+\+T\+O\+\_\+\+D\+E\+C\+O\+DE, and T\+L\+V\+\_\+\+S\+U\+C\+C\+E\+SS.
+
+
+
+Referenced by Logic\+F\+E\+\_\+\+Signup(), and main().
+
+\index{Protocol.\+h@{Protocol.\+h}!Protocol\+\_\+\+Encode\+Sign\+Up\+\_\+\+Response@{Protocol\+\_\+\+Encode\+Sign\+Up\+\_\+\+Response}}
+\index{Protocol\+\_\+\+Encode\+Sign\+Up\+\_\+\+Response@{Protocol\+\_\+\+Encode\+Sign\+Up\+\_\+\+Response}!Protocol.\+h@{Protocol.\+h}}
+\subsubsection[{\texorpdfstring{Protocol\+\_\+\+Encode\+Sign\+Up\+\_\+\+Response(\+Back\+End\+Status \+\_\+response\+Status, void $\ast$\+\_\+buffer)}{Protocol_EncodeSignUp_Response(BackEndStatus _responseStatus, void *_buffer)}}]{\setlength{\rightskip}{0pt plus 5cm}int Protocol\+\_\+\+Encode\+Sign\+Up\+\_\+\+Response (
+\begin{DoxyParamCaption}
+\item[{{\bf Back\+End\+Status}}]{\+\_\+response\+Status, }
+\item[{void $\ast$}]{\+\_\+buffer}
+\end{DoxyParamCaption}
+)}\hypertarget{Protocol_8h_ab707f15d858b321e051e998672562fda}{}\label{Protocol_8h_ab707f15d858b321e051e998672562fda}
+
+
+encode the response from server-\/end to front-\/end of sign-\/up respond 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+response\+Status} & E\+N\+UM status of back-\/end result \\
+\hline
+{\em \+\_\+buffer} & the buffer in which msg to be send \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+on success message length. on fail -\/1 
+\end{DoxyReturn}
+
+
+Definition at line 65 of file protocol.\+c.
+
+
+
+References D\+E\+L\+I\+M\+I\+T\+ER, G\+E\+N\+\_\+\+E\+R\+R\+OR, M\+A\+X\+\_\+\+M\+E\+S\+S\+A\+G\+E\+\_\+\+L\+E\+N\+G\+TH, M\+E\+S\+S\+A\+G\+E\+T\+Y\+P\+E\+\_\+\+S\+I\+G\+N\+UP, T\+L\+V\+\_\+encoder(), T\+L\+V\+\_\+\+M\+O\+R\+E\+\_\+\+T\+L\+V\+S\+\_\+\+T\+O\+\_\+\+D\+E\+C\+O\+DE, and T\+L\+V\+\_\+\+S\+U\+C\+C\+E\+SS.
+
+
+
+Referenced by Logic\+B\+E\+\_\+\+Error\+Func().
+
