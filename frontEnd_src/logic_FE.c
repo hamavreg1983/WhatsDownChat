@@ -372,8 +372,8 @@ static bool OpenChatWindows(sockaddr_in_t* _sockaddr_t, const char* _name, const
 	char* ip = inet_ntoa(_sockaddr_t->sin_addr) ;
 
 	/* setup setting for new windows */
-	sprintf(readerCommand, "gnome-terminal --geometry=100x30+100+0   --command=\"../chats/reader %s %d %s%c", ip, port, _groupName, '\"');
-	sprintf(writerCommand, "gnome-terminal --geometry=100x10+100+600 --command=\"../chats/writer %s %d %s %s%c", ip, port, _name, _groupName, '\"');
+	sprintf(readerCommand, "gnome-terminal --geometry=100x30+100+0   --command=\"chats/reader %s %d %s%c", ip, port, _groupName, '\"');
+	sprintf(writerCommand, "gnome-terminal --geometry=100x10+100+600 --command=\"chats/writer %s %d %s %s%c", ip, port, _name, _groupName, '\"');
 
 	system(readerCommand);
 	system(writerCommand);
