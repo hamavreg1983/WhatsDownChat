@@ -9,7 +9,6 @@
 #include <string.h> /* strncpy */
 #include <stdio.h> /* sprintf */
 #include <err.h> /* warn & err */
-/* inet */
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
@@ -19,11 +18,6 @@
 #include "tlv.h"
 
 /* ~~~ Defines ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-
-/* TEMP */
-//#define TRUE 1
-//#define FALSE 0
-
 
 /* ~~~ Struct ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
@@ -480,7 +474,7 @@ static int DecodeGroupsName(ClientReceiveMessage_t* _message , void* _decodedStr
 		++groupNum;
 	}
 
-//	_message->m_numberOfGroups = groupNum;
+/*	_message->m_numberOfGroups = groupNum; */
 
 	return general_itr;
 }

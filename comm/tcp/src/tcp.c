@@ -5,6 +5,9 @@
  *  @authorYuval Hamberg
  */
 
+/* timeradd */
+#define _DEFAULT_SOURCE
+
 #include <netinet/in.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -232,6 +235,8 @@ static bool NonBlockingServer(TCP_S_t* _TCP)
 {
 	char buffer[BUFFER_MAX_SIZE];
 	int resultSize = 0;
+	list_node_t *node;
+	list_iterator_t *itr;
 
 	_TCP->m_isServerRun = TRUE;
 
@@ -242,8 +247,7 @@ static bool NonBlockingServer(TCP_S_t* _TCP)
 			/* keep on accepting all waiting client while there are some */
 		}
 
-		list_node_t *node;
-		list_iterator_t *itr = list_iterator_new(_TCP->m_sockets, LIST_HEAD);
+		itr = list_iterator_new(_TCP->m_sockets, LIST_HEAD);
 		while ((node = list_iterator_next(itr)))
 		{
 			resultSize = TCP_Recive( getSocket(node) , buffer, BUFFER_MAX_SIZE);
@@ -274,12 +278,13 @@ bool TCP_StopServer(TCP_S_t* _TCP)
 
 int TCP_Send(uint _socketNum, void* _msg, uint _msgLength)
 {
+	int sent_bytes;
+
 	if ( NULL == _msg)
 	{
 		return GENERAL_ERROR;
 	}
 
-	int sent_bytes;
 	sent_bytes = send( _socketNum, _msg, _msgLength, 0 );
 
 	if (0 > sent_bytes)
@@ -337,6 +342,9 @@ bool IsConnected(TCP_S_t* _TCP)
 
 static bool ServerSetup(TCP_S_t* _TCP)
 {
+	struct sockaddr_in sIn;
+	int optval;
+
 	/* setSocket. */
 	_TCP->m_listenSocket = socket(PF_INET, SOCK_STREAM, 0);
 	if (SetSocketBlockingEnabled(_TCP->m_listenSocket, FALSE) < 0)
@@ -346,7 +354,7 @@ static bool ServerSetup(TCP_S_t* _TCP)
 	}
 
 	/* Reusing port */
-	int optval = 1;
+	optval = 1;
 	if ( setsockopt(_TCP->m_listenSocket, SOL_SOCKET, SO_REUSEADDR, &optval, sizeof(optval) ) < 0)
 	{
 		perror("Socket setsockopt Failed");
@@ -355,7 +363,6 @@ static bool ServerSetup(TCP_S_t* _TCP)
 	}
 
 	/* bind */
-	struct sockaddr_in sIn;
 	memset(&sIn , 0 , sizeof(sIn) );
 	sIn.sin_family = AF_INET;
 	if ( strlen(_TCP->m_serverIP) == 0 || _TCP->m_serverIP[0] == '\0')
@@ -387,17 +394,18 @@ static bool ServerSetup(TCP_S_t* _TCP)
 
 static bool TCP_Server_ConnectNewClient(TCP_S_t* _TCP)
 {
+	struct sockaddr_in sIn;
+	uint addr_len;
+	int socket;
+	SocketInfo_t* aSI;
+
 	if (! IsStructValid(_TCP) )
 	{
 		return FALSE;
 	}
 
-	struct sockaddr_in sIn;
 	memset(&sIn , 0 , sizeof(sIn) );
-	uint addr_len;
 	addr_len = sizeof(sIn);
-	int socket;
-	SocketInfo_t* aSI;
 
 	socket = accept(_TCP->m_listenSocket,  (struct sockaddr *) &sIn, &addr_len ) ;
 
@@ -465,6 +473,9 @@ static bool TCP_Server_ConnectNewClient(TCP_S_t* _TCP)
 
 static bool TCP_ServerDisconnectClient(TCP_S_t* _TCP, uint _socketNum)
 {
+	list_node_t *node;
+	list_iterator_t * it;
+
 	if (! IsStructValid(_TCP) )
 	{
 		return FALSE;
@@ -476,8 +487,7 @@ static bool TCP_ServerDisconnectClient(TCP_S_t* _TCP, uint _socketNum)
 	}
 
 	/* TODO for better preformance search from tail to head as most of the sockes to remove are at the tail */
-	list_node_t *node;
-	list_iterator_t *it = list_iterator_new(_TCP->m_sockets, LIST_HEAD);
+	it = list_iterator_new(_TCP->m_sockets, LIST_HEAD);
 	while ((node = list_iterator_next(it)))
 	{
 		if ( getSocket(node) == _socketNum)
@@ -514,16 +524,16 @@ static bool MoveNodeToHead(list_t* _socketsContiner, list_node_t* node, uint _ti
 	/* remove old node */
 	list_remove(_socketsContiner, node);
 
-	//setTimeout(node, WhenIsTime2Die(_timeoutMS) );
+	/*setTimeout(node, WhenIsTime2Die(_timeoutMS) );*/
 
 	/* TODO does the above line fits with the one below?! */
 
 	/* add socket to list of sockets at head */
-//	aSI = CreateSocketInfo(socketTemp, _timeoutMS);
-//	if (!aSI)
-//	{
-//		return FALSE;
-//	}
+/*	aSI = CreateSocketInfo(socketTemp, _timeoutMS);*/
+/*	if (!aSI)*/
+/*	{*/
+/*		return FALSE;*/
+/*	}*/
 
 	/* create new node with old data */
 	newNode = list_node_new(SI);
@@ -555,7 +565,7 @@ static bool SelectServer(TCP_S_t* _TCP)
 	int activity;
 	int max_sd;
 
-	//set of socket descriptors
+	/*set of socket descriptors*/
 	fd_set readfds;
 
 	timeval_t when2wakeup;
@@ -564,14 +574,14 @@ static bool SelectServer(TCP_S_t* _TCP)
 	while( _TCP->m_isServerRun )
 	{
 		/* TODO next line bracks code */
-		//when2wakeup = DealWithTimeout(_TCP); /* close sockets that are open for longer than timeout */ /* TODO BUGs lay here!!! */
+		when2wakeup = DealWithTimeout(_TCP); /* close sockets that are open for longer than timeout TODO BUGs lay here!!! */
 		KillOldestClient(_TCP); /* if capacity is full, close oldest connections */
 
 		max_sd = SetupSelect( _TCP->m_listenSocket, _TCP->m_sockets, &readfds);
 
-		//wait for an activity on one of the sockets , timeout is NULL ,
-		//so wait indefinitely
-		//activity = select( max_sd + 1 , &readfds , NULL , NULL , &when2wakeup);
+		/*wait for an activity on one of the sockets , timeout is NULL ,*/
+		/*so wait indefinitely*/
+		/*activity = select( max_sd + 1 , &readfds , NULL , NULL , &when2wakeup);*/
 		activity = select( max_sd + 1 , &readfds , NULL , NULL , NULL); /* after the timeout replace this line with the one above */
 
 		if ((activity < 0) && (errno!=EINTR)) /* change to my function that check if real failed */
@@ -587,8 +597,8 @@ static bool SelectServer(TCP_S_t* _TCP)
 		else{
 			/* activity > 0 means found real activity. */
 
-			//If something happened on the master socket ,
-			//then its an incoming connection
+			/*If something happened on the master socket ,*/
+			/*then its an incoming connection*/
 			if (FD_ISSET(_TCP->m_listenSocket, &readfds))
 			{
 				/* call server connect function */
@@ -625,7 +635,7 @@ static timeval_t DealWithTimeout(TCP_S_t* _TCP)
 		time2die = getTimeout(tailNode);
 		timersub(&time2die, &currentTime, &when2wakeup);
 
-		if ( timercmp(&time2die, &currentTime, >) )
+		if ( timercmp(&time2die, &currentTime, > ) )
 		{
 			/* time2die is later than current time */
 			/* just return when to wakeup */
@@ -653,25 +663,25 @@ static int SetupSelect(int _listenSocket, list_t* _socketList, fd_set* _readfds)
 	list_iterator_t* itr;
 	list_node_t *node;
 
-	//clear the socket set
+	/*clear the socket set*/
 	FD_ZERO(_readfds);
 
-	//add master socket to set
+	/*add master socket to set*/
 	FD_SET(_listenSocket, _readfds);
 	max_sd = _listenSocket;
 	FD_SET(0, _readfds);
 
-	//add child sockets to set
+	/*add child sockets to set*/
 	itr = list_iterator_new(_socketList, LIST_HEAD);
 	while ((node = list_iterator_next(itr)))
 	{
-		//socket descriptor
+		/*socket descriptor*/
 		sd = getSocket(node);
 
-		//if valid socket descriptor then add to read list
+		/*if valid socket descriptor then add to read list*/
 		FD_SET( sd , _readfds);
 
-		//highest file descriptor number, need it for the select function
+		/*highest file descriptor number, need it for the select function*/
 		if(sd > max_sd)
 		{
 			max_sd = sd;
@@ -688,7 +698,7 @@ static int ReadFromSelect(TCP_S_t* _TCP, fd_set* _readfds)
 	list_node_t *node;
 	char buffer[BUFFER_MAX_SIZE];
 
-	//else its some IO operation on some other socket
+	/*else its some IO operation on some other socket*/
 	itr = list_iterator_new(_TCP->m_sockets, LIST_HEAD);
 	while ((node = list_iterator_next(itr)))
 	{
@@ -739,8 +749,8 @@ static bool KillOldestClient(TCP_S_t* _TCP)
 		{
 			perror("Can't remove at ShouldKillClient");
 		}
-		//list_rpop(_TCP->m_sockets); /* TODO shopuld it be here? */
-		//list_remove(_TCP->m_sockets, tailNode);
+		/* list_rpop(_TCP->m_sockets); *//* TODO shopuld it be here? */
+		/*list_remove(_TCP->m_sockets, tailNode);*/
 	}
 
 	return TRUE;
@@ -777,36 +787,38 @@ static void DestorySocketInfo(SocketInfo_t* _SI)
 
 static int getSocket(list_node_t* _node)
 {
+	SocketInfo_t* tempSocketInfo = _node->val;
+
 	if (NULL == _node)
 	{
 		return -1;
 	}
 
-	SocketInfo_t* tempSocketInfo = _node->val;
 	return tempSocketInfo->m_socketFD;
 }
 
-//static int setSocket(list_node_t* _node, int _socketNum)
-//{
-//	if (NULL == _node)
-//	{
-//		return -1;
-//	}
-//
-//	SocketInfo_t* tempSocketInfo = _node->val;
-//	tempSocketInfo->m_socketFD = _socketNum;
-//	return tempSocketInfo->m_socketFD;
-//}
+/*static int setSocket(list_node_t* _node, int _socketNum)*/
+/*{*/
+/*	if (NULL == _node)*/
+/*	{*/
+/*		return -1;*/
+/*	}*/
+/**/
+/*	SocketInfo_t* tempSocketInfo = _node->val;*/
+/*	tempSocketInfo->m_socketFD = _socketNum;*/
+/*	return tempSocketInfo->m_socketFD;*/
+/*}*/
 
 static timeval_t getTimeout(list_node_t* _node)
 {
+		SocketInfo_t* tempSocketInfo = _node->val;
+
 		if (NULL == _node)
 		{
 			timeval_t temp = {0,0};
 			return temp;
 		}
 
-		SocketInfo_t* tempSocketInfo = _node->val;
 		return tempSocketInfo->m_timeToDie;
 }
 
@@ -830,13 +842,15 @@ static timeval_t WhenIsTime2Die(uint _timeoutMS)
 /** Returns true on success, or false if there was an error */
 static bool SetSocketBlockingEnabled(int fd, bool blocking)
 {
+	int flags;
+
 	if (fd < 0) return FALSE;
 
 #ifdef WIN32
 	unsigned long mode = blocking ? 0 : 1;
 	return (ioctlsocket(fd, FIONBIO, &mode) == 0) ? TRUE : FALSE;
 #else
-	int flags = fcntl(fd, F_GETFL, 0);
+	flags = fcntl(fd, F_GETFL, 0);
 	if (flags < 0) return FALSE;
 	flags = blocking ? (flags&~O_NONBLOCK) : (flags|O_NONBLOCK);
 	return (fcntl(fd, F_SETFL, flags) == 0) ? TRUE : FALSE;
@@ -847,3 +861,4 @@ static bool IsFail_nonBlocking(int _result)
 {
 	return (0 > _result && errno != EAGAIN && errno != EWOULDBLOCK);
 }
+

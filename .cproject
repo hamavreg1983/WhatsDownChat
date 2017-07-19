@@ -153,6 +153,7 @@
 								<option id="gnu.c.compiler.option.dialect.std.483160369" name="Language standard" superClass="gnu.c.compiler.option.dialect.std" useByScannerDiscovery="true" value="gnu.c.compiler.dialect.default" valueType="enumerated"/>
 								<option id="gnu.c.compiler.option.warnings.pedantic.934314552" name="Pedantic (-pedantic)" superClass="gnu.c.compiler.option.warnings.pedantic" useByScannerDiscovery="false" value="true" valueType="boolean"/>
 								<option id="gnu.c.compiler.option.warnings.extrawarn.1871779789" name="Extra warnings (-Wextra)" superClass="gnu.c.compiler.option.warnings.extrawarn" useByScannerDiscovery="false" value="true" valueType="boolean"/>
+								<option id="gnu.c.compiler.option.warnings.toerrors.1406069064" name="Warnings as errors (-Werror)" superClass="gnu.c.compiler.option.warnings.toerrors" useByScannerDiscovery="false" value="false" valueType="boolean"/>
 								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.717688568" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.c.linker.exe.debug.1488709169" name="GCC C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.exe.debug">
@@ -214,7 +215,7 @@
 									<listOptionValue builtIn="false" value="../comm/tcp/src"/>
 									<listOptionValue builtIn="false" value="../src"/>
 								</option>
-								<option id="gnu.c.compiler.option.dialect.std.956888805" name="Language standard" superClass="gnu.c.compiler.option.dialect.std" useByScannerDiscovery="true" value="gnu.c.compiler.dialect.default" valueType="enumerated"/>
+								<option id="gnu.c.compiler.option.dialect.std.956888805" name="Language standard" superClass="gnu.c.compiler.option.dialect.std" useByScannerDiscovery="true" value="gnu.c.compiler.dialect.c90" valueType="enumerated"/>
 								<option id="gnu.c.compiler.option.warnings.pedantic.69920334" name="Pedantic (-pedantic)" superClass="gnu.c.compiler.option.warnings.pedantic" useByScannerDiscovery="false" value="true" valueType="boolean"/>
 								<option id="gnu.c.compiler.option.warnings.extrawarn.1249448728" name="Extra warnings (-Wextra)" superClass="gnu.c.compiler.option.warnings.extrawarn" useByScannerDiscovery="false" value="false" valueType="boolean"/>
 								<option id="gnu.c.compiler.option.warnings.allwarn.1350290893" name="All warnings (-Wall)" superClass="gnu.c.compiler.option.warnings.allwarn" useByScannerDiscovery="false" value="true" valueType="boolean"/>

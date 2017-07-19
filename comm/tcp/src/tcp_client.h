@@ -10,10 +10,7 @@
 #ifndef TCP_CLIENT_H_
 #define TCP_CLIENT_H_
 
-typedef unsigned int uint;
-typedef int bool;
-#define TRUE 1
-#define FALSE 0
+#include "defines.h"
 
 /* ~~~ Struct ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 typedef struct TCP_C TCP_C_t;

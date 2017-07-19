@@ -130,7 +130,7 @@ int UsersHandle_IsUserPasswordMatch(UsersHandle_t* _usersHandel, const char* _us
 {
 	User_t* value;
 
-	if (NULL == (value = ds_hashmap_get_str( _usersHandel->m_continer , _userName) ) )
+	if (NULL == (value = ds_hashmap_get_str( _usersHandel->m_continer , (char*)_userName) ) )
 	{
 		/* key username does not exists */
 		return FALSE;

@@ -5,7 +5,7 @@
  *  @authoruv
  */
 
-#include "netUDP_MultiCast.h"
+#define _GNU_SOURCE
 
 #include <sys/types.h>
 #include <sys/socket.h>
@@ -16,6 +16,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+
+#include "netUDP_MultiCast.h"
 
 /* ~~~ Defines ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 

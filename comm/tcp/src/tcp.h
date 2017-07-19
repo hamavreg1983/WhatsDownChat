@@ -13,14 +13,13 @@
 #define TCP_H_
 
 #include "sys/types.h" /* size_t */
+#include "defines.h"
 
 /* ~~~ Defines ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 #define MAX_CLIENTS_NUM 1000
 #define BUFFER_MAX_SIZE 1024
 
-typedef unsigned int uint;
-typedef int bool;
 #define TRUE 1
 #define FALSE 0
 

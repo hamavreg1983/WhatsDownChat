@@ -38,14 +38,17 @@ static bool PrintBackEndResponse(BackEndStatus _statusServer);
 /************************************************/
 Client_UI* UI_Create(Logic_FE_t* _frontEnd)
 {
-
+	Client_UI* newClient;
 	if (!_frontEnd)
 	{
 		return NULL;
 	}
 
-	Client_UI* newClient = calloc(1,sizeof(Client_UI));
-	/* TODO test malloc passed */
+	newClient = calloc(1,sizeof(Client_UI));
+	if (!newClient)
+	{
+		return NULL;
+	}
 
 	newClient->m_logicFE = _frontEnd;
 

@@ -153,7 +153,7 @@ void
 ds_hashmap_foreach_value(struct DSHashMap *hash, char* (tostring)(void*));
 
 int
-ds_hashmap_foreach_valueAction(struct DSHashMap *hash, void* _contex, char* (valueActFunc)(void*, void* _buffer, uint* _num));
+ds_hashmap_foreach_valueAction(struct DSHashMap *hash, void* _contex, char* (valueActFunc)(void*, void* _buffer, int32_t* _num));
 
 #endif
 

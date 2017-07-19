@@ -26,6 +26,7 @@ int main(int argc, char* argv[])
 	uint serverPort = 0;
 	char serverIP[IP_LENGTH] = { 0 };
 	char portString[PORT_LENGTH] = { 0 };
+	WhatDownClientApp_t* appClient;
 
 	if (argc == 3)
 	{
@@ -84,7 +85,7 @@ int main(int argc, char* argv[])
 			}
 	}
 
-	WhatDownClientApp_t* appClient = WhatDownClientApp_Create(serverIP, serverPort);
+	appClient = WhatDownClientApp_Create(serverIP, serverPort);
 	if (!appClient)
 	{
 		printf("Error\n");
@@ -96,6 +97,7 @@ int main(int argc, char* argv[])
 	WhatDownClientApp_Destroy(appClient);
 
 	printf("\n--END--\n");
+	return 0;
 }
 
 

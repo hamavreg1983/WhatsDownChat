@@ -71,7 +71,7 @@ Logic_FE_t* LogicFE_Create(TCP_C_t* _netClient)
 	}
 
 	logicFE->m_netClient = _netClient;
-//	logicFE->m_ui = _ui;
+/*	logicFE->m_ui = _ui; */
 	logicFE->m_magicNumer = MAGIC_NUMBER_ALIVE_LOGIC_FE;
 
 	strcpy( logicFE->m_userName , "UnknownName" );
@@ -384,4 +384,5 @@ static bool OpenChatWindows(sockaddr_in_t* _sockaddr_t, const char* _name, const
 
 	return TRUE;
 }
+
 

@@ -1,9 +1,7 @@
-
-//
-// list.h
-//
-// Copyright (c) 2010 TJ Holowaychuk <tj@vision-media.ca>
-//
+/**
+ * @file list.h
+ * @copyright Copyright (c) 2010 TJ Holowaychuk <tj@vision-media.ca>
+ */
 
 #ifndef LIST_H
 #define LIST_H
@@ -14,11 +12,11 @@ extern "C" {
 
 #include <stdlib.h>
 
-// Library version
+/* Library version */
 
 #define LIST_VERSION "0.0.5"
 
-// Memory management macros
+/* Memory management macros */
 
 #ifndef LIST_MALLOC
 #define LIST_MALLOC malloc
@@ -68,12 +66,12 @@ typedef struct {
   list_direction_t direction;
 } list_iterator_t;
 
-// Node prototypes.
+/* Node prototypes. */
 
 list_node_t *
 list_node_new(void *val);
 
-// list_t prototypes.
+/* list_t prototypes. */
 
 list_t *
 list_new();
@@ -102,7 +100,7 @@ list_remove(list_t *self, list_node_t *node);
 void
 list_destroy(list_t *self);
 
-// list_t iterator prototypes.
+/* list_t iterator prototypes. */
 
 list_iterator_t *
 list_iterator_new(list_t *list, list_direction_t direction);
