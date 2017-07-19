@@ -22,6 +22,10 @@ typedef struct GroupHandel GroupHandel_t;
 
 /* ~~~ API function ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
+/**
+ * @brief setup the process
+ * @return a pointer to the struct
+ */
 GroupHandel_t* GroupsHandel_Create();
 
 void GroupsHandel_Destroy(GroupHandel_t* _groupsHndl);

@@ -129,18 +129,27 @@ static int Menu()
 {
 	char choose[2];
 	size_t sel = 1;
-	printf("\n Please select option \n");
-	printf(" Log out from server ------------------> 3  \n");
-	printf(" Disconnect from server ---------------> 4  \n");
-	printf(" Delete user --------------------------> 5  \n");
-	printf(" Create new group ---------------------> 6  \n");
-	printf(" Join to group ------------------------> 7  \n");
-	printf(" Leave group --------------------------> 8  \n");
-	printf(" Show all groups ----------------------> 9  \n");
-	printf(" To Exit Press-------------------------> 0  \n");
-	GetUserInput(choose, 2);
-	sel = atoi(choose);
-	system("clear");
+
+	while (TRUE)
+	{
+		printf("\n Please select option \n");
+		printf(" Log out from server ------------------> 3  \n");
+		printf(" Disconnect from server ---------------> 4  \n");
+		printf(" Delete user --------------------------> 5  \n");
+		printf(" Create new group ---------------------> 6  \n");
+		printf(" Join to group ------------------------> 7  \n");
+		printf(" Leave group --------------------------> 8  \n");
+		printf(" Show all groups ----------------------> 9  \n");
+		printf(" To Exit Press-------------------------> 0  \n");
+		GetUserInput(choose, 2);
+		sel = atoi(choose);
+
+		system("clear");
+		if (sel != 1 && sel != 2)
+		{
+			break;
+		}
+	}
 
 return sel;
 }

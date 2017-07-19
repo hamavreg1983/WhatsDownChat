@@ -82,7 +82,7 @@ static void PrintMsg(const char* _msg)
 	int i;
 
 	printf("%s", GO_UP_LINE_TERMINAL);
-	for (i = 0; i < strlen(_msg) - 5 ; ++i)
+	for (i = 0; i < strlen(_msg) - 4 ; ++i)
 		{
 			putchar('-');
 		}
@@ -90,7 +90,7 @@ static void PrintMsg(const char* _msg)
 
 	printf( "| %s |\n" , _msg);
 
-	for (i = 0; i < strlen(_msg) - 5 ; ++i)
+	for (i = 0; i < strlen(_msg) - 4 ; ++i)
 	{
 		putchar('-');
 	}

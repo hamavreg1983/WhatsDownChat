@@ -6,7 +6,7 @@
  *
  *  @brief A handle of communication address. IP and port, holds a struct sockaddr_in of unused ones. FIFO implamentaion.
  *
- *  @TODO add comments to API
+ *  TODO add comments to API
  */
 
 #ifndef IPHANDLE_H_
