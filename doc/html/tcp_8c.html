@@ -68,12 +68,10 @@
 <code>#include &lt;fcntl.h&gt;</code><br />
 <code>#include &lt;errno.h&gt;</code><br />
 <code>#include &lt;unistd.h&gt;</code><br />
-<code>#include &quot;<a class="el" href="defines_8h_source.html">defines.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="list_8h_source.html">list.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="tcp_8h_source.html">tcp.h</a>&quot;</code><br />
-</div>
-<p><a href="tcp_8c_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
+<code>#include &quot;<a class="el" href="defines_8h.html">defines.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="list_8h.html">list.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="tcp_8h.html">tcp.h</a>&quot;</code><br />
+</div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTCP__S.html">TCP_S</a></td></tr>
@@ -105,6 +103,48 @@ Typedefs</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a2e6a90720deb9c8ad625153632cdfe12"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="whatDownBackEndApp_8c.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tcp_8c.html#a2e6a90720deb9c8ad625153632cdfe12">TCP_Server_ConnectNewClient</a> (<a class="el" href="tcp_8h.html#a03d44ed4c82d8938cc484f7d14284b24">TCP_S_t</a> *_TCP)</td></tr>
+<tr class="memdesc:a2e6a90720deb9c8ad625153632cdfe12"><td class="mdescLeft">&#160;</td><td class="mdescRight">when a new client is detected, this function is called and handles the connection on server side.  <a href="#a2e6a90720deb9c8ad625153632cdfe12">More...</a><br /></td></tr>
+<tr class="separator:a2e6a90720deb9c8ad625153632cdfe12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaeed7fbe7d9161fc7f3faca76153be23"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="whatDownBackEndApp_8c.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tcp_8c.html#aaeed7fbe7d9161fc7f3faca76153be23">TCP_ServerDisconnectClient</a> (<a class="el" href="tcp_8h.html#a03d44ed4c82d8938cc484f7d14284b24">TCP_S_t</a> *_TCP, <a class="el" href="tcp_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> _socketNum)</td></tr>
+<tr class="memdesc:aaeed7fbe7d9161fc7f3faca76153be23"><td class="mdescLeft">&#160;</td><td class="mdescRight">when a client has disconnected is detected, this function is called and handles the connection on server side.  <a href="#aaeed7fbe7d9161fc7f3faca76153be23">More...</a><br /></td></tr>
+<tr class="separator:aaeed7fbe7d9161fc7f3faca76153be23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63e725d6eb5fd36b5ee8fb42cfa51c31"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="whatDownBackEndApp_8c.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tcp_8c.html#a63e725d6eb5fd36b5ee8fb42cfa51c31">SelectServer</a> (<a class="el" href="tcp_8h.html#a03d44ed4c82d8938cc484f7d14284b24">TCP_S_t</a> *_TCP)</td></tr>
+<tr class="separator:a63e725d6eb5fd36b5ee8fb42cfa51c31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae55131f09a09a79f899c309b2786ab93"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="whatDownBackEndApp_8c.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tcp_8c.html#ae55131f09a09a79f899c309b2786ab93">NonBlockingServer</a> (<a class="el" href="tcp_8h.html#a03d44ed4c82d8938cc484f7d14284b24">TCP_S_t</a> *_TCP)</td></tr>
+<tr class="separator:ae55131f09a09a79f899c309b2786ab93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91c829d9a7288fcf82e352890c4de360"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tcp_8c.html#a91c829d9a7288fcf82e352890c4de360">SetupSelect</a> (int _listenSocket, <a class="el" href="structlist__t.html">list_t</a> *_socketList, fd_set *_readfds)</td></tr>
+<tr class="separator:a91c829d9a7288fcf82e352890c4de360"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af302a73542fd37dfc32e5a1d9dc0dc43"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tcp_8c.html#af302a73542fd37dfc32e5a1d9dc0dc43">ReadFromSelect</a> (<a class="el" href="tcp_8h.html#a03d44ed4c82d8938cc484f7d14284b24">TCP_S_t</a> *_TCP, fd_set *_readfds)</td></tr>
+<tr class="separator:af302a73542fd37dfc32e5a1d9dc0dc43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a592e7f150c35a5a659febb004926ced2"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="whatDownBackEndApp_8c.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tcp_8c.html#a592e7f150c35a5a659febb004926ced2">IsStructValid</a> (<a class="el" href="tcp_8h.html#a03d44ed4c82d8938cc484f7d14284b24">TCP_S_t</a> *_TCP)</td></tr>
+<tr class="separator:a592e7f150c35a5a659febb004926ced2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3209914cda8fb9e5a78350ef438c27b"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="whatDownBackEndApp_8c.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tcp_8c.html#ad3209914cda8fb9e5a78350ef438c27b">IsConnected</a> (<a class="el" href="tcp_8h.html#a03d44ed4c82d8938cc484f7d14284b24">TCP_S_t</a> *_TCP)</td></tr>
+<tr class="separator:ad3209914cda8fb9e5a78350ef438c27b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54a46769d34f857a6eb0bedbaca35716"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="whatDownBackEndApp_8c.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tcp_8c.html#a54a46769d34f857a6eb0bedbaca35716">ServerSetup</a> (<a class="el" href="tcp_8h.html#a03d44ed4c82d8938cc484f7d14284b24">TCP_S_t</a> *_TCP)</td></tr>
+<tr class="separator:a54a46769d34f857a6eb0bedbaca35716"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6cc7461a46c7a64ca94fd7a0a6c9e1e"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="whatDownBackEndApp_8c.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tcp_8c.html#ae6cc7461a46c7a64ca94fd7a0a6c9e1e">SetSocketBlockingEnabled</a> (int fd, <a class="el" href="whatDownBackEndApp_8c.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a> blocking)</td></tr>
+<tr class="separator:ae6cc7461a46c7a64ca94fd7a0a6c9e1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a636023fb589baf52a5c177caca2c37d9"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="whatDownBackEndApp_8c.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tcp_8c.html#a636023fb589baf52a5c177caca2c37d9">IsFail_nonBlocking</a> (int _result)</td></tr>
+<tr class="separator:a636023fb589baf52a5c177caca2c37d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47e723428dde0b5f46d0cbe8d4d23449"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="whatDownBackEndApp_8c.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tcp_8c.html#a47e723428dde0b5f46d0cbe8d4d23449">MoveNodeToHead</a> (<a class="el" href="structlist__t.html">list_t</a> *_socketsContiner, <a class="el" href="list_8h.html#ad8b8636e2e25308b521b32071e849c80">list_node_t</a> *node, <a class="el" href="tcp_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> _timeoutMS)</td></tr>
+<tr class="separator:a47e723428dde0b5f46d0cbe8d4d23449"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4712f507871ebb43e37154e3a354b175"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="whatDownBackEndApp_8c.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tcp_8c.html#a4712f507871ebb43e37154e3a354b175">KillOldestClient</a> (<a class="el" href="tcp_8h.html#a03d44ed4c82d8938cc484f7d14284b24">TCP_S_t</a> *_TCP)</td></tr>
+<tr class="separator:a4712f507871ebb43e37154e3a354b175"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5e20c7cbde82404eb5cefe49e149c4d"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="tcp_8c.html#aeba0d8f51eb0a83c2b01ecf27e0b3260">timeval_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tcp_8c.html#af5e20c7cbde82404eb5cefe49e149c4d">DealWithTimeout</a> (<a class="el" href="tcp_8h.html#a03d44ed4c82d8938cc484f7d14284b24">TCP_S_t</a> *_TCP)</td></tr>
+<tr class="separator:af5e20c7cbde82404eb5cefe49e149c4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaffceff9103fc9e346a79195c417b0ef"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="tcp_8c.html#ad9099d62ab3b732488b83ca705b0b850">SocketInfo_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tcp_8c.html#aaffceff9103fc9e346a79195c417b0ef">CreateSocketInfo</a> (int _socket, <a class="el" href="tcp_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> _timeoutMS)</td></tr>
+<tr class="separator:aaffceff9103fc9e346a79195c417b0ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6400ad8fb3fdf3704e1e7a2d6cad6afa"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tcp_8c.html#a6400ad8fb3fdf3704e1e7a2d6cad6afa">DestorySocketInfo</a> (<a class="el" href="tcp_8c.html#ad9099d62ab3b732488b83ca705b0b850">SocketInfo_t</a> *_SI)</td></tr>
+<tr class="separator:a6400ad8fb3fdf3704e1e7a2d6cad6afa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ec2a851cdde0451a42922650729c7c2"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tcp_8c.html#a6ec2a851cdde0451a42922650729c7c2">getSocket</a> (<a class="el" href="list_8h.html#ad8b8636e2e25308b521b32071e849c80">list_node_t</a> *_node)</td></tr>
+<tr class="separator:a6ec2a851cdde0451a42922650729c7c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67f0ee104266dec7e8d8e5ca211e2d2a"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="tcp_8c.html#aeba0d8f51eb0a83c2b01ecf27e0b3260">timeval_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tcp_8c.html#a67f0ee104266dec7e8d8e5ca211e2d2a">getTimeout</a> (<a class="el" href="list_8h.html#ad8b8636e2e25308b521b32071e849c80">list_node_t</a> *_node)</td></tr>
+<tr class="separator:a67f0ee104266dec7e8d8e5ca211e2d2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac406d0ddbd0b8db41095d5ad94326ea0"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="tcp_8c.html#aeba0d8f51eb0a83c2b01ecf27e0b3260">timeval_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tcp_8c.html#ac406d0ddbd0b8db41095d5ad94326ea0">setTimeout</a> (<a class="el" href="list_8h.html#ad8b8636e2e25308b521b32071e849c80">list_node_t</a> *_node, <a class="el" href="tcp_8c.html#aeba0d8f51eb0a83c2b01ecf27e0b3260">timeval_t</a> _when2die)</td></tr>
+<tr class="separator:ac406d0ddbd0b8db41095d5ad94326ea0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89c4d0e0916ec7a5cb590ac26253ea92"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="tcp_8c.html#aeba0d8f51eb0a83c2b01ecf27e0b3260">timeval_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tcp_8c.html#a89c4d0e0916ec7a5cb590ac26253ea92">WhenIsTime2Die</a> (<a class="el" href="tcp_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> _timeoutMS)</td></tr>
+<tr class="separator:a89c4d0e0916ec7a5cb590ac26253ea92"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0294f84faa4c3b34c67906450247a4bd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="tcp_8h.html#a03d44ed4c82d8938cc484f7d14284b24">TCP_S_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tcp_8c.html#a0294f84faa4c3b34c67906450247a4bd">TCP_CreateServer</a> (<a class="el" href="tcp_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> _port, const char *_serverIP, <a class="el" href="tcp_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> _maxConnections, <a class="el" href="tcp_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> _timeoutMS, <a class="el" href="tcp_8h.html#a03acbb6cbffc391f3be83fa353e5f89c">userActionFunc</a> _reciveDataFunc, <a class="el" href="tcp_8h.html#a12b172b17797d0f66fd06ef346b5bf30">clientConnectionChangeFunc</a> _newClientConnected, <a class="el" href="tcp_8h.html#a12b172b17797d0f66fd06ef346b5bf30">clientConnectionChangeFunc</a> _clientDissconected, <a class="el" href="tcp_8h.html#a6abfbec9c242e3862442d5d899d8a3bd">errorFunc</a> _errorFunc, void *_contex)</td></tr>
 <tr class="memdesc:a0294f84faa4c3b34c67906450247a4bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create the server and setup all is needed of work.  <a href="#a0294f84faa4c3b34c67906450247a4bd">More...</a><br /></td></tr>
 <tr class="separator:a0294f84faa4c3b34c67906450247a4bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -135,10 +175,6 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="tcp_8c_source.html#l00027">27</a> of file <a class="el" href="tcp_8c_source.html">tcp.c</a>.</p>
-
-<p>Referenced by <a class="el" href="tcp_8c_source.html#l00121">TCP_CreateServer()</a>, and <a class="el" href="tcp_8c_source.html#l00295">TCP_Recive()</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a79069c343d84db050c5a5ffb1a8dded6"></a>
@@ -150,10 +186,6 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="tcp_8c_source.html#l00032">32</a> of file <a class="el" href="tcp_8c_source.html">tcp.c</a>.</p>
-
-<p>Referenced by <a class="el" href="tcp_8c_source.html#l00295">TCP_Recive()</a>.</p>
 
 </div>
 </div>
@@ -167,10 +199,6 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="tcp_8c_source.html#l00028">28</a> of file <a class="el" href="tcp_8c_source.html">tcp.c</a>.</p>
-
-<p>Referenced by <a class="el" href="tcp_8c_source.html#l00184">TCP_DestroyServer()</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="addb19d3cad828ef25e991e3d0747aa27"></a>
@@ -182,10 +210,6 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="tcp_8c_source.html#l00031">31</a> of file <a class="el" href="tcp_8c_source.html">tcp.c</a>.</p>
-
-<p>Referenced by <a class="el" href="tcp_8c_source.html#l00295">TCP_Recive()</a>, and <a class="el" href="tcp_8c_source.html#l00275">TCP_Send()</a>.</p>
 
 </div>
 </div>
@@ -199,10 +223,6 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="tcp_8c_source.html#l00035">35</a> of file <a class="el" href="tcp_8c_source.html">tcp.c</a>.</p>
-
-<p>Referenced by <a class="el" href="tcp_8c_source.html#l00295">TCP_Recive()</a>, and <a class="el" href="tcp_8c_source.html#l00212">TCP_RunServer()</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a0709bba95f20208ffd54582938ab4a70"></a>
@@ -214,10 +234,6 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="tcp_8c_source.html#l00029">29</a> of file <a class="el" href="tcp_8c_source.html">tcp.c</a>.</p>
-
-<p>Referenced by <a class="el" href="tcp_8c_source.html#l00295">TCP_Recive()</a>.</p>
 
 </div>
 </div>
@@ -244,11 +260,490 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="tcp_8c_source.html#l00037">37</a> of file <a class="el" href="tcp_8c_source.html">tcp.c</a>.</p>
-
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="aaffceff9103fc9e346a79195c417b0ef"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="tcp_8c.html#ad9099d62ab3b732488b83ca705b0b850">SocketInfo_t</a> * CreateSocketInfo </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>_socket</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="tcp_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td>
+          <td class="paramname"><em>_timeoutMS</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="af5e20c7cbde82404eb5cefe49e149c4d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="tcp_8c.html#aeba0d8f51eb0a83c2b01ecf27e0b3260">timeval_t</a> DealWithTimeout </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="tcp_8h.html#a03d44ed4c82d8938cc484f7d14284b24">TCP_S_t</a> *&#160;</td>
+          <td class="paramname"><em>_TCP</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a6400ad8fb3fdf3704e1e7a2d6cad6afa"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void DestorySocketInfo </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="tcp_8c.html#ad9099d62ab3b732488b83ca705b0b850">SocketInfo_t</a> *&#160;</td>
+          <td class="paramname"><em>_SI</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a6ec2a851cdde0451a42922650729c7c2"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int getSocket </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="list_8h.html#ad8b8636e2e25308b521b32071e849c80">list_node_t</a> *&#160;</td>
+          <td class="paramname"><em>_node</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a67f0ee104266dec7e8d8e5ca211e2d2a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="tcp_8c.html#aeba0d8f51eb0a83c2b01ecf27e0b3260">timeval_t</a> getTimeout </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="list_8h.html#ad8b8636e2e25308b521b32071e849c80">list_node_t</a> *&#160;</td>
+          <td class="paramname"><em>_node</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ad3209914cda8fb9e5a78350ef438c27b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="whatDownBackEndApp_8c.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a> IsConnected </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="tcp_8h.html#a03d44ed4c82d8938cc484f7d14284b24">TCP_S_t</a> *&#160;</td>
+          <td class="paramname"><em>_TCP</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a636023fb589baf52a5c177caca2c37d9"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="whatDownBackEndApp_8c.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a> IsFail_nonBlocking </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>_result</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a592e7f150c35a5a659febb004926ced2"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="whatDownBackEndApp_8c.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a> IsStructValid </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="tcp_8h.html#a03d44ed4c82d8938cc484f7d14284b24">TCP_S_t</a> *&#160;</td>
+          <td class="paramname"><em>_TCP</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a4712f507871ebb43e37154e3a354b175"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="whatDownBackEndApp_8c.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a> KillOldestClient </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="tcp_8h.html#a03d44ed4c82d8938cc484f7d14284b24">TCP_S_t</a> *&#160;</td>
+          <td class="paramname"><em>_TCP</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a47e723428dde0b5f46d0cbe8d4d23449"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="whatDownBackEndApp_8c.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a> MoveNodeToHead </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structlist__t.html">list_t</a> *&#160;</td>
+          <td class="paramname"><em>_socketsContiner</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="list_8h.html#ad8b8636e2e25308b521b32071e849c80">list_node_t</a> *&#160;</td>
+          <td class="paramname"><em>node</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="tcp_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td>
+          <td class="paramname"><em>_timeoutMS</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ae55131f09a09a79f899c309b2786ab93"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="whatDownBackEndApp_8c.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a> NonBlockingServer </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="tcp_8h.html#a03d44ed4c82d8938cc484f7d14284b24">TCP_S_t</a> *&#160;</td>
+          <td class="paramname"><em>_TCP</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="af302a73542fd37dfc32e5a1d9dc0dc43"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int ReadFromSelect </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="tcp_8h.html#a03d44ed4c82d8938cc484f7d14284b24">TCP_S_t</a> *&#160;</td>
+          <td class="paramname"><em>_TCP</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">fd_set *&#160;</td>
+          <td class="paramname"><em>_readfds</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a63e725d6eb5fd36b5ee8fb42cfa51c31"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="whatDownBackEndApp_8c.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a> SelectServer </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="tcp_8h.html#a03d44ed4c82d8938cc484f7d14284b24">TCP_S_t</a> *&#160;</td>
+          <td class="paramname"><em>_TCP</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a54a46769d34f857a6eb0bedbaca35716"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="whatDownBackEndApp_8c.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a> ServerSetup </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="tcp_8h.html#a03d44ed4c82d8938cc484f7d14284b24">TCP_S_t</a> *&#160;</td>
+          <td class="paramname"><em>_TCP</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ae6cc7461a46c7a64ca94fd7a0a6c9e1e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="whatDownBackEndApp_8c.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a> SetSocketBlockingEnabled </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>fd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="whatDownBackEndApp_8c.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a>&#160;</td>
+          <td class="paramname"><em>blocking</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns true on success, or false if there was an error </p>
+
+</div>
+</div>
+<a class="anchor" id="ac406d0ddbd0b8db41095d5ad94326ea0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="tcp_8c.html#aeba0d8f51eb0a83c2b01ecf27e0b3260">timeval_t</a> setTimeout </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="list_8h.html#ad8b8636e2e25308b521b32071e849c80">list_node_t</a> *&#160;</td>
+          <td class="paramname"><em>_node</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="tcp_8c.html#aeba0d8f51eb0a83c2b01ecf27e0b3260">timeval_t</a>&#160;</td>
+          <td class="paramname"><em>_when2die</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a91c829d9a7288fcf82e352890c4de360"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int SetupSelect </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>_listenSocket</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structlist__t.html">list_t</a> *&#160;</td>
+          <td class="paramname"><em>_socketList</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">fd_set *&#160;</td>
+          <td class="paramname"><em>_readfds</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a0294f84faa4c3b34c67906450247a4bd"></a>
 <div class="memitem">
 <div class="memproto">
@@ -331,12 +826,6 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>a pointer to the struct. NULL if failed. </dd></dl>
 
-<p>Definition at line <a class="el" href="tcp_8c_source.html#l00121">121</a> of file <a class="el" href="tcp_8c_source.html">tcp.c</a>.</p>
-
-<p>References <a class="el" href="tcp_8c_source.html#l00027">ALIVE_MAGIC_NUMBER</a>, <a class="el" href="list_8c_source.html#l00015">list_new()</a>, <a class="el" href="tcp_8c_source.html#l00062">TCP_S::m_closedConnectionFunc</a>, <a class="el" href="tcp_8c_source.html#l00049">TCP_S::m_connectedNum</a>, <a class="el" href="tcp_8c_source.html#l00048">TCP_S::m_connectionCapacity</a>, <a class="el" href="tcp_8c_source.html#l00065">TCP_S::m_contex</a>, <a class="el" href="tcp_8c_source.html#l00063">TCP_S::m_errorFunc</a>, <a class="el" href="tcp_8c_source.html#l00050">TCP_S::m_listenSocket</a>, <a class="el" href="tcp_8c_source.html#l00046">TCP_S::m_magicNumber</a>, <a class="el" href="tcp_8c_source.html#l00061">TCP_S::m_newConnectionFunc</a>, <a class="el" href="tcp_8c_source.html#l00060">TCP_S::m_reciveDataFunc</a>, <a class="el" href="tcp_8c_source.html#l00054">TCP_S::m_serverIP</a>, <a class="el" href="tcp_8c_source.html#l00053">TCP_S::m_serverPort</a>, <a class="el" href="tcp_8c_source.html#l00051">TCP_S::m_sockets</a>, and <a class="el" href="tcp_8c_source.html#l00056">TCP_S::m_timeoutMS</a>.</p>
-
-<p>Referenced by <a class="el" href="server_8c_source.html#l00070">ActivateServer()</a>, and <a class="el" href="whatDownBackEndApp_8c_source.html#l00041">WhatDownBackEndApp_Create()</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a499da7918e4333e56eb591be71b2ec14"></a>
@@ -361,12 +850,6 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void. silent fail. </dd></dl>
-
-<p>Definition at line <a class="el" href="tcp_8c_source.html#l00184">184</a> of file <a class="el" href="tcp_8c_source.html">tcp.c</a>.</p>
-
-<p>References <a class="el" href="tcp_8c_source.html#l00028">DEAD_MAGIC_NUMBER</a>, <a class="el" href="usersHandle_8c_source.html#l00152">IsStructValid()</a>, <a class="el" href="list_8c_source.html#l00032">list_destroy()</a>, <a class="el" href="list_8h_source.html#l00036">LIST_HEAD</a>, <a class="el" href="list__iterator_8c_source.html#l00016">list_iterator_new()</a>, <a class="el" href="list__iterator_8c_source.html#l00044">list_iterator_next()</a>, <a class="el" href="tcp_8c_source.html#l00050">TCP_S::m_listenSocket</a>, <a class="el" href="tcp_8c_source.html#l00046">TCP_S::m_magicNumber</a>, and <a class="el" href="tcp_8c_source.html#l00051">TCP_S::m_sockets</a>.</p>
-
-<p>Referenced by <a class="el" href="server_8c_source.html#l00070">ActivateServer()</a>, <a class="el" href="logic__backEnd_8c_source.html#l00095">LogicBE_Destroy()</a>, and <a class="el" href="whatDownBackEndApp_8c_source.html#l00108">WhatDownBackEndApp_Destroy()</a>.</p>
 
 </div>
 </div>
@@ -411,12 +894,6 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>positive number represent the number of bytes read. negative number represent error. </dd></dl>
 
-<p>Definition at line <a class="el" href="tcp_8c_source.html#l00295">295</a> of file <a class="el" href="tcp_8c_source.html">tcp.c</a>.</p>
-
-<p>References <a class="el" href="tcp_8c_source.html#l00027">ALIVE_MAGIC_NUMBER</a>, <a class="el" href="tcp_8c_source.html#l00032">BACK_LOG_CAPACITY</a>, <a class="el" href="tcp_8h_source.html#l00020">BUFFER_MAX_SIZE</a>, <a class="el" href="tcp_8h_source.html#l00025">FALSE</a>, <a class="el" href="tcp_8c_source.html#l00031">GENERAL_ERROR</a>, <a class="el" href="tcp_8c_source.html#l00035">IS_NON_BLOCKING_METHOD</a>, <a class="el" href="usersHandle_8c_source.html#l00152">IsStructValid()</a>, <a class="el" href="list_8c_source.html#l00165">list_at()</a>, <a class="el" href="list_8h_source.html#l00036">LIST_HEAD</a>, <a class="el" href="list__iterator_8c_source.html#l00016">list_iterator_new()</a>, <a class="el" href="list__iterator_8c_source.html#l00044">list_iterator_next()</a>, <a class="el" href="list_8c_source.html#l00116">list_lpush()</a>, <a class="el" href="list__node_8c_source.html#l00015">list_node_new()</a>, <a class="el" href="list_8c_source.html#l00189">list_remove()</a>, <a class="el" href="list_8c_source.html#l00053">list_rpush()</a>, <a class="el" href="tcp_8c_source.html#l00062">TCP_S::m_closedConnectionFunc</a>, <a class="el" href="tcp_8c_source.html#l00049">TCP_S::m_connectedNum</a>, <a class="el" href="tcp_8c_source.html#l00048">TCP_S::m_connectionCapacity</a>, <a class="el" href="tcp_8c_source.html#l00065">TCP_S::m_contex</a>, <a class="el" href="tcp_8c_source.html#l00063">TCP_S::m_errorFunc</a>, <a class="el" href="tcp_8c_source.html#l00058">TCP_S::m_isServerRun</a>, <a class="el" href="tcp_8c_source.html#l00050">TCP_S::m_listenSocket</a>, <a class="el" href="tcp_8c_source.html#l00046">TCP_S::m_magicNumber</a>, <a class="el" href="tcp_8c_source.html#l00071">SocketInfo::m_magicNumber</a>, <a class="el" href="tcp_8c_source.html#l00061">TCP_S::m_newConnectionFunc</a>, <a class="el" href="tcp_8c_source.html#l00060">TCP_S::m_reciveDataFunc</a>, <a class="el" href="tcp_8c_source.html#l00054">TCP_S::m_serverIP</a>, <a class="el" href="tcp_8c_source.html#l00053">TCP_S::m_serverPort</a>, <a class="el" href="tcp_8c_source.html#l00073">SocketInfo::m_socketFD</a>, <a class="el" href="tcp_8c_source.html#l00051">TCP_S::m_sockets</a>, <a class="el" href="tcp_8c_source.html#l00056">TCP_S::m_timeoutMS</a>, <a class="el" href="tcp_8c_source.html#l00074">SocketInfo::m_timeToDie</a>, <a class="el" href="defines_8c_source.html#l00010">sanity_check()</a>, <a class="el" href="tcp_8c_source.html#l00029">SI_MAGIC_NUMBER</a>, <a class="el" href="tcp_8c_source.html#l00295">TCP_Recive()</a>, <a class="el" href="tcp_8h_source.html#l00028">TOO_MANY_CONNECTION</a>, <a class="el" href="tcp_8h_source.html#l00024">TRUE</a>, and <a class="el" href="list_8h_source.html#l00047">list_node::val</a>.</p>
-
-<p>Referenced by <a class="el" href="tcp_8c_source.html#l00295">TCP_Recive()</a>, and <a class="el" href="tcp_8c_source.html#l00212">TCP_RunServer()</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="ace34ff46cc71a97ab0f30ac7727dbfc3"></a>
@@ -441,12 +918,6 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the status of return. TRUE when stopped normally or FALSE when failed to run. </dd></dl>
-
-<p>Definition at line <a class="el" href="tcp_8c_source.html#l00212">212</a> of file <a class="el" href="tcp_8c_source.html">tcp.c</a>.</p>
-
-<p>References <a class="el" href="tcp_8h_source.html#l00020">BUFFER_MAX_SIZE</a>, <a class="el" href="tcp_8h_source.html#l00025">FALSE</a>, <a class="el" href="tcp_8c_source.html#l00035">IS_NON_BLOCKING_METHOD</a>, <a class="el" href="usersHandle_8c_source.html#l00152">IsStructValid()</a>, <a class="el" href="list_8h_source.html#l00036">LIST_HEAD</a>, <a class="el" href="list__iterator_8c_source.html#l00016">list_iterator_new()</a>, <a class="el" href="list__iterator_8c_source.html#l00044">list_iterator_next()</a>, <a class="el" href="tcp_8c_source.html#l00065">TCP_S::m_contex</a>, <a class="el" href="tcp_8c_source.html#l00058">TCP_S::m_isServerRun</a>, <a class="el" href="tcp_8c_source.html#l00060">TCP_S::m_reciveDataFunc</a>, <a class="el" href="tcp_8c_source.html#l00051">TCP_S::m_sockets</a>, <a class="el" href="tcp_8c_source.html#l00295">TCP_Recive()</a>, and <a class="el" href="tcp_8h_source.html#l00024">TRUE</a>.</p>
-
-<p>Referenced by <a class="el" href="server_8c_source.html#l00070">ActivateServer()</a>, and <a class="el" href="whatDownBackEndApp_8c_source.html#l00128">WhatDownBackEndApp_Run()</a>.</p>
 
 </div>
 </div>
@@ -491,11 +962,82 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>positive number represent the number of bytes send. negative number represent error. </dd></dl>
 
-<p>Definition at line <a class="el" href="tcp_8c_source.html#l00275">275</a> of file <a class="el" href="tcp_8c_source.html">tcp.c</a>.</p>
+</div>
+</div>
+<a class="anchor" id="a2e6a90720deb9c8ad625153632cdfe12"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="whatDownBackEndApp_8c.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a> TCP_Server_ConnectNewClient </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="tcp_8h.html#a03d44ed4c82d8938cc484f7d14284b24">TCP_S_t</a> *&#160;</td>
+          <td class="paramname"><em>_TCP</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
-<p>References <a class="el" href="tcp_8c_source.html#l00031">GENERAL_ERROR</a>.</p>
+<p>when a new client is detected, this function is called and handles the connection on server side. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_TCP</td><td>pointer to the struct </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the status of return. TRUE when stopped normally or FALSE when failed </dd></dl>
 
-<p>Referenced by <a class="el" href="logic__backEnd_8c_source.html#l00183">LogicBE_ErrorFunc()</a>, and <a class="el" href="server_8c_source.html#l00056">MyFunc()</a>.</p>
+</div>
+</div>
+<a class="anchor" id="aaeed7fbe7d9161fc7f3faca76153be23"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="whatDownBackEndApp_8c.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a> TCP_ServerDisconnectClient </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="tcp_8h.html#a03d44ed4c82d8938cc484f7d14284b24">TCP_S_t</a> *&#160;</td>
+          <td class="paramname"><em>_TCP</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="tcp_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td>
+          <td class="paramname"><em>_socketNum</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>when a client has disconnected is detected, this function is called and handles the connection on server side. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_TCP</td><td>pointer to the struct </td></tr>
+    <tr><td class="paramname">_socketNum</td><td>the connection number (file descriptor socket) which need to disconnect </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the status of return. TRUE when normally or FALSE when failed </dd></dl>
 
 </div>
 </div>
@@ -522,11 +1064,29 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>bool TRUE 1 is success or FALSE 0 if failed. </dd></dl>
 
-<p>Definition at line <a class="el" href="tcp_8c_source.html#l00265">265</a> of file <a class="el" href="tcp_8c_source.html">tcp.c</a>.</p>
-
-<p>References <a class="el" href="tcp_8h_source.html#l00025">FALSE</a>, <a class="el" href="usersHandle_8c_source.html#l00152">IsStructValid()</a>, <a class="el" href="tcp_8c_source.html#l00058">TCP_S::m_isServerRun</a>, and <a class="el" href="tcp_8h_source.html#l00024">TRUE</a>.</p>
-
-<p>Referenced by <a class="el" href="server_8c_source.html#l00022">sigAbortHandler()</a>, and <a class="el" href="whatDownBackEndApp_8c_source.html#l00138">WhatDownBackEndApp_Stop()</a>.</p>
+</div>
+</div>
+<a class="anchor" id="a89c4d0e0916ec7a5cb590ac26253ea92"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="tcp_8c.html#aeba0d8f51eb0a83c2b01ecf27e0b3260">timeval_t</a> WhenIsTime2Die </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="tcp_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td>
+          <td class="paramname"><em>_timeoutMS</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>

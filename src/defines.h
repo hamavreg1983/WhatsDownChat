@@ -55,10 +55,7 @@
 #endif /* TRUE */
 
 
-//#ifndef __cplusplus
-//#ifndef bool
 typedef int bool;
-//#endif /* __cplusplus */
 
 typedef unsigned int uint;
 typedef unsigned int Uint;

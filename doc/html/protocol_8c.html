@@ -60,14 +60,20 @@
 <code>#include &lt;sys/socket.h&gt;</code><br />
 <code>#include &lt;netinet/in.h&gt;</code><br />
 <code>#include &lt;arpa/inet.h&gt;</code><br />
-<code>#include &quot;<a class="el" href="defines_8h_source.html">defines.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="Protocol_8h_source.html">Protocol.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="tlv_8h_source.html">tlv.h</a>&quot;</code><br />
-</div>
-<p><a href="protocol_8c_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
+<code>#include &quot;<a class="el" href="defines_8h.html">defines.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="Protocol_8h.html">Protocol.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="tlv_8h.html">tlv.h</a>&quot;</code><br />
+</div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a7de9861f50682bdf474e2c5c0be68ad3"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="protocol_8c.html#a7de9861f50682bdf474e2c5c0be68ad3">CopyUntilDelimiter</a> (void *_dst, void *_src, size_t _length, char *_delim, <a class="el" href="tcp_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> _delimLength)</td></tr>
+<tr class="separator:a7de9861f50682bdf474e2c5c0be68ad3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ca49baef1e9286039aa6506af4d7b30"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="whatDownBackEndApp_8c.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="protocol_8c.html#a9ca49baef1e9286039aa6506af4d7b30">IsDelim</a> (void *_msg, char *_delim, <a class="el" href="tcp_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> _delimLength)</td></tr>
+<tr class="separator:a9ca49baef1e9286039aa6506af4d7b30"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63f0d271957f5f94b7c7597eeab0c4fe"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="protocol_8c.html#a63f0d271957f5f94b7c7597eeab0c4fe">DecodeGroupsName</a> (<a class="el" href="Protocol_8h.html#ae2f0907dd30e2cf75f61a8294018f702">ClientReceiveMessage_t</a> *_message, void *decodedStr, <a class="el" href="tcp_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> groupsLength, char *_delim, <a class="el" href="tcp_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> _delimLength)</td></tr>
+<tr class="separator:a63f0d271957f5f94b7c7597eeab0c4fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8f995ee7f4cfac8caec2c108fd462ab"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="protocol_8c.html#ad8f995ee7f4cfac8caec2c108fd462ab">DecodeAddress</a> (<a class="el" href="Protocol_8h.html#ae2f0907dd30e2cf75f61a8294018f702">ClientReceiveMessage_t</a> *_message, void *_decodedStr, char *_delim, <a class="el" href="tcp_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> _delimLength)</td></tr>
+<tr class="separator:ad8f995ee7f4cfac8caec2c108fd462ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a15569709a18ad5ad2372a9a216d522f6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="protocol_8c.html#a15569709a18ad5ad2372a9a216d522f6">Protocol_EncodeSignUp</a> (const char *_newUserName, const char *_password, void *_buffer)</td></tr>
 <tr class="memdesc:a15569709a18ad5ad2372a9a216d522f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">The function Encode Message to Protocol format.  <a href="#a15569709a18ad5ad2372a9a216d522f6">More...</a><br /></td></tr>
 <tr class="separator:a15569709a18ad5ad2372a9a216d522f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -106,6 +112,196 @@ Functions</h2></td></tr>
 <tr class="separator:a60b12795700e01590ecddd7876ac897c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="a7de9861f50682bdf474e2c5c0be68ad3"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int CopyUntilDelimiter </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>_dst</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>_src</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>_length</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>_delim</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="tcp_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td>
+          <td class="paramname"><em>_delimLength</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ad8f995ee7f4cfac8caec2c108fd462ab"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int DecodeAddress </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="Protocol_8h.html#ae2f0907dd30e2cf75f61a8294018f702">ClientReceiveMessage_t</a> *&#160;</td>
+          <td class="paramname"><em>_message</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>_decodedStr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>_delim</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="tcp_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td>
+          <td class="paramname"><em>_delimLength</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a63f0d271957f5f94b7c7597eeab0c4fe"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int DecodeGroupsName </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="Protocol_8h.html#ae2f0907dd30e2cf75f61a8294018f702">ClientReceiveMessage_t</a> *&#160;</td>
+          <td class="paramname"><em>_message</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>decodedStr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="tcp_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td>
+          <td class="paramname"><em>groupsLength</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>_delim</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="tcp_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td>
+          <td class="paramname"><em>_delimLength</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a9ca49baef1e9286039aa6506af4d7b30"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="whatDownBackEndApp_8c.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a> IsDelim </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>_msg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>_delim</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="tcp_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td>
+          <td class="paramname"><em>_delimLength</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="ac31b3aa3c16240005b55fa537136af75"></a>
 <div class="memitem">
 <div class="memproto">
@@ -139,19 +335,13 @@ Functions</h2></td></tr>
 <p>The function Decode Message from Protocol format to ClientReceiveMessage_t form. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">void*</td><td>_dataToDecode - pointer to data that need to decoded </td></tr>
-    <tr><td class="paramname">size_t</td><td>_length - Data length </td></tr>
-    <tr><td class="paramname">ClientReceiveMessage_t*</td><td>_message - Receive Message that the function fill </td></tr>
+    <tr><td class="paramname">_dataToDecode</td><td>pointer to data that need to decoded </td></tr>
+    <tr><td class="paramname">_lenght</td><td>Data length </td></tr>
+    <tr><td class="paramname">_message</td><td>Receive Message that the function fill </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>bool on success true 1, on fail false 0. </dd></dl>
-
-<p>Definition at line <a class="el" href="protocol_8c_source.html#l00134">134</a> of file <a class="el" href="protocol_8c_source.html">protocol.c</a>.</p>
-
-<p>References <a class="el" href="Protocol_8h_source.html#l00063">BackEnd_SUCCESS</a>, <a class="el" href="Protocol_8h_source.html#l00031">DELIMITER</a>, <a class="el" href="Protocol_8h_source.html#l00032">DELIMITER_LENGHT</a>, <a class="el" href="tcp_8h_source.html#l00025">FALSE</a>, <a class="el" href="defines_8h_source.html#l00068">GEN_ERROR</a>, <a class="el" href="Protocol_8h_source.html#l00090">ClientReceiveMessage::m_messageType</a>, <a class="el" href="Protocol_8h_source.html#l00091">ClientReceiveMessage::m_status</a>, <a class="el" href="Protocol_8h_source.html#l00025">MAX_MESSAGE_LENGTH</a>, <a class="el" href="Protocol_8h_source.html#l00055">MESSAGETYPE_CREATE_GROUP</a>, <a class="el" href="Protocol_8h_source.html#l00053">MESSAGETYPE_DELETE_USER</a>, <a class="el" href="Protocol_8h_source.html#l00057">MESSAGETYPE_GET_ALL_GROUPS</a>, <a class="el" href="Protocol_8h_source.html#l00054">MESSAGETYPE_JOIN_GROUP</a>, <a class="el" href="Protocol_8h_source.html#l00056">MESSAGETYPE_LEAVE_GROUP</a>, <a class="el" href="Protocol_8h_source.html#l00051">MESSAGETYPE_LOGIN</a>, <a class="el" href="Protocol_8h_source.html#l00052">MESSAGETYPE_LOGOUT</a>, <a class="el" href="Protocol_8h_source.html#l00049">MESSAGETYPE_RESPONS</a>, <a class="el" href="Protocol_8h_source.html#l00050">MESSAGETYPE_SIGNUP</a>, <a class="el" href="tlv_8c_source.html#l00053">TLV_decode()</a>, <a class="el" href="tlv_8h_source.html#l00034">TLV_MORE_TLVS_TO_DECODE</a>, <a class="el" href="tlv_8h_source.html#l00033">TLV_SUCCESS</a>, and <a class="el" href="tcp_8h_source.html#l00024">TRUE</a>.</p>
-
-<p>Referenced by <a class="el" href="logic__FE_8c_source.html#l00252">LogicFE_GetAllGroupsName()</a>, and <a class="el" href="client__userInput_8c_source.html#l00020">main()</a>.</p>
 
 </div>
 </div>
@@ -188,19 +378,13 @@ Functions</h2></td></tr>
 <p>The function Decode Message from Protocol format to ServerReceiveMessage_t form. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">void*</td><td>_dataToDecode - pointer to data that need to decoded </td></tr>
-    <tr><td class="paramname">size_t</td><td>_length - Data length </td></tr>
-    <tr><td class="paramname">ServerReceiveMessage_t*</td><td>_message - Receive Message that the function fill </td></tr>
+    <tr><td class="paramname">_dataToDecode</td><td>- pointer to data that need to decoded </td></tr>
+    <tr><td class="paramname">_lenght</td><td>- Data length </td></tr>
+    <tr><td class="paramname">_message</td><td>- Receive Message that the function fill </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>bool on success true 1, on fail false 0. </dd></dl>
-
-<p>Definition at line <a class="el" href="protocol_8c_source.html#l00206">206</a> of file <a class="el" href="protocol_8c_source.html">protocol.c</a>.</p>
-
-<p>References <a class="el" href="Protocol_8h_source.html#l00031">DELIMITER</a>, <a class="el" href="Protocol_8h_source.html#l00032">DELIMITER_LENGHT</a>, <a class="el" href="tcp_8h_source.html#l00025">FALSE</a>, <a class="el" href="defines_8h_source.html#l00068">GEN_ERROR</a>, <a class="el" href="Protocol_8h_source.html#l00085">ServerReceiveMessage::m_groupName</a>, <a class="el" href="Protocol_8h_source.html#l00082">ServerReceiveMessage::m_MessageType</a>, <a class="el" href="Protocol_8h_source.html#l00084">ServerReceiveMessage::m_password</a>, <a class="el" href="Protocol_8h_source.html#l00083">ServerReceiveMessage::m_userName</a>, <a class="el" href="Protocol_8h_source.html#l00025">MAX_MESSAGE_LENGTH</a>, <a class="el" href="Protocol_8h_source.html#l00055">MESSAGETYPE_CREATE_GROUP</a>, <a class="el" href="Protocol_8h_source.html#l00053">MESSAGETYPE_DELETE_USER</a>, <a class="el" href="Protocol_8h_source.html#l00057">MESSAGETYPE_GET_ALL_GROUPS</a>, <a class="el" href="Protocol_8h_source.html#l00054">MESSAGETYPE_JOIN_GROUP</a>, <a class="el" href="Protocol_8h_source.html#l00056">MESSAGETYPE_LEAVE_GROUP</a>, <a class="el" href="Protocol_8h_source.html#l00051">MESSAGETYPE_LOGIN</a>, <a class="el" href="Protocol_8h_source.html#l00052">MESSAGETYPE_LOGOUT</a>, <a class="el" href="Protocol_8h_source.html#l00049">MESSAGETYPE_RESPONS</a>, <a class="el" href="Protocol_8h_source.html#l00050">MESSAGETYPE_SIGNUP</a>, <a class="el" href="tlv_8c_source.html#l00053">TLV_decode()</a>, <a class="el" href="tlv_8h_source.html#l00034">TLV_MORE_TLVS_TO_DECODE</a>, <a class="el" href="tlv_8h_source.html#l00033">TLV_SUCCESS</a>, and <a class="el" href="tcp_8h_source.html#l00024">TRUE</a>.</p>
-
-<p>Referenced by <a class="el" href="logic__backEnd_8c_source.html#l00112">LogicBE_ReciveDataFunc()</a>, and <a class="el" href="whatdownApp_8c_source.html#l00019">main()</a>.</p>
 
 </div>
 </div>
@@ -221,17 +405,11 @@ Functions</h2></td></tr>
 <p>The function Encode Message to Protocol format. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">void*</td><td>_buffer - Buffer that in which the message will written </td></tr>
+    <tr><td class="paramname">_buffer</td><td>- Buffer that in which the message will written </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>on success message length. on fail -1 </dd></dl>
-
-<p>Definition at line <a class="el" href="protocol_8c_source.html#l00364">364</a> of file <a class="el" href="protocol_8c_source.html">protocol.c</a>.</p>
-
-<p>References <a class="el" href="Protocol_8h_source.html#l00031">DELIMITER</a>, <a class="el" href="defines_8h_source.html#l00068">GEN_ERROR</a>, <a class="el" href="Protocol_8h_source.html#l00025">MAX_MESSAGE_LENGTH</a>, <a class="el" href="Protocol_8h_source.html#l00057">MESSAGETYPE_GET_ALL_GROUPS</a>, <a class="el" href="tlv_8c_source.html#l00026">TLV_encoder()</a>, <a class="el" href="tlv_8h_source.html#l00034">TLV_MORE_TLVS_TO_DECODE</a>, and <a class="el" href="tlv_8h_source.html#l00033">TLV_SUCCESS</a>.</p>
-
-<p>Referenced by <a class="el" href="logic__FE_8c_source.html#l00252">LogicFE_GetAllGroupsName()</a>.</p>
 
 </div>
 </div>
@@ -283,12 +461,6 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>on success message length. on fail -1 </dd></dl>
 
-<p>Definition at line <a class="el" href="protocol_8c_source.html#l00387">387</a> of file <a class="el" href="protocol_8c_source.html">protocol.c</a>.</p>
-
-<p>References <a class="el" href="Protocol_8h_source.html#l00031">DELIMITER</a>, <a class="el" href="Protocol_8h_source.html#l00032">DELIMITER_LENGHT</a>, <a class="el" href="tcp_8h_source.html#l00025">FALSE</a>, <a class="el" href="defines_8h_source.html#l00068">GEN_ERROR</a>, <a class="el" href="Protocol_8h_source.html#l00092">ClientReceiveMessage::m_groupAdrres</a>, <a class="el" href="Protocol_8h_source.html#l00093">ClientReceiveMessage::m_GroupName</a>, <a class="el" href="Protocol_8h_source.html#l00094">ClientReceiveMessage::m_numberOfGroups</a>, <a class="el" href="Protocol_8h_source.html#l00025">MAX_MESSAGE_LENGTH</a>, <a class="el" href="Protocol_8h_source.html#l00057">MESSAGETYPE_GET_ALL_GROUPS</a>, <a class="el" href="tlv_8c_source.html#l00026">TLV_encoder()</a>, <a class="el" href="tlv_8h_source.html#l00034">TLV_MORE_TLVS_TO_DECODE</a>, <a class="el" href="tlv_8h_source.html#l00033">TLV_SUCCESS</a>, and <a class="el" href="tcp_8h_source.html#l00024">TRUE</a>.</p>
-
-<p>Referenced by <a class="el" href="logic__backEnd_8c_source.html#l00183">LogicBE_ErrorFunc()</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="abf375004ce4ebfe0d51c5ca8806d495f"></a>
@@ -318,18 +490,12 @@ Functions</h2></td></tr>
 <p>The function Encode Message to Protocol format. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">Char*</td><td>_groupNameToJoin - group name to join </td></tr>
-    <tr><td class="paramname">void*</td><td>_buffer - Buffer that in which the message will written </td></tr>
+    <tr><td class="paramname">_groupNameToJoin</td><td>group name to join </td></tr>
+    <tr><td class="paramname">_buffer</td><td>Buffer that in which the message will written </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>on success message length. on fail -1 </dd></dl>
-
-<p>Definition at line <a class="el" href="protocol_8c_source.html#l00318">318</a> of file <a class="el" href="protocol_8c_source.html">protocol.c</a>.</p>
-
-<p>References <a class="el" href="Protocol_8h_source.html#l00031">DELIMITER</a>, <a class="el" href="defines_8h_source.html#l00068">GEN_ERROR</a>, <a class="el" href="Protocol_8h_source.html#l00025">MAX_MESSAGE_LENGTH</a>, <a class="el" href="Protocol_8h_source.html#l00054">MESSAGETYPE_JOIN_GROUP</a>, <a class="el" href="tlv_8c_source.html#l00026">TLV_encoder()</a>, <a class="el" href="tlv_8h_source.html#l00034">TLV_MORE_TLVS_TO_DECODE</a>, and <a class="el" href="tlv_8h_source.html#l00033">TLV_SUCCESS</a>.</p>
-
-<p>Referenced by <a class="el" href="logic__FE_8c_source.html#l00207">LogicFE_JoinGroup()</a>.</p>
 
 </div>
 </div>
@@ -374,12 +540,6 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>on success message length. on fail -1 </dd></dl>
 
-<p>Definition at line <a class="el" href="protocol_8c_source.html#l00341">341</a> of file <a class="el" href="protocol_8c_source.html">protocol.c</a>.</p>
-
-<p>References <a class="el" href="Protocol_8h_source.html#l00031">DELIMITER</a>, <a class="el" href="defines_8h_source.html#l00068">GEN_ERROR</a>, <a class="el" href="Protocol_8h_source.html#l00025">MAX_MESSAGE_LENGTH</a>, <a class="el" href="Protocol_8h_source.html#l00054">MESSAGETYPE_JOIN_GROUP</a>, <a class="el" href="tlv_8c_source.html#l00026">TLV_encoder()</a>, <a class="el" href="tlv_8h_source.html#l00034">TLV_MORE_TLVS_TO_DECODE</a>, and <a class="el" href="tlv_8h_source.html#l00033">TLV_SUCCESS</a>.</p>
-
-<p>Referenced by <a class="el" href="logic__backEnd_8c_source.html#l00183">LogicBE_ErrorFunc()</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a66ec5653cba0946d9003c2ad67f7217a"></a>
@@ -415,19 +575,13 @@ Functions</h2></td></tr>
 <p>The function Encode Message to Protocol format. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">Char*</td><td>_userName - <a class="el" href="structUser.html">User</a> Name </td></tr>
-    <tr><td class="paramname">Char*</td><td>_password - Password </td></tr>
-    <tr><td class="paramname">void*</td><td>_buffer - Buffer that in which the message will written </td></tr>
+    <tr><td class="paramname">_userName</td><td>- <a class="el" href="structUser.html">User</a> Name </td></tr>
+    <tr><td class="paramname">_password</td><td>- Password </td></tr>
+    <tr><td class="paramname">_buffer</td><td>- Buffer that in which the message will written </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>on success message length. on fail -1 </dd></dl>
-
-<p>Definition at line <a class="el" href="protocol_8c_source.html#l00088">88</a> of file <a class="el" href="protocol_8c_source.html">protocol.c</a>.</p>
-
-<p>References <a class="el" href="Protocol_8h_source.html#l00031">DELIMITER</a>, <a class="el" href="defines_8h_source.html#l00068">GEN_ERROR</a>, <a class="el" href="Protocol_8h_source.html#l00025">MAX_MESSAGE_LENGTH</a>, <a class="el" href="Protocol_8h_source.html#l00051">MESSAGETYPE_LOGIN</a>, <a class="el" href="tlv_8c_source.html#l00026">TLV_encoder()</a>, <a class="el" href="tlv_8h_source.html#l00034">TLV_MORE_TLVS_TO_DECODE</a>, and <a class="el" href="tlv_8h_source.html#l00033">TLV_SUCCESS</a>.</p>
-
-<p>Referenced by <a class="el" href="logic__FE_8c_source.html#l00122">LogicFE_Login()</a>.</p>
 
 </div>
 </div>
@@ -465,12 +619,6 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>on success message length. on fail -1 </dd></dl>
 
-<p>Definition at line <a class="el" href="protocol_8c_source.html#l00111">111</a> of file <a class="el" href="protocol_8c_source.html">protocol.c</a>.</p>
-
-<p>References <a class="el" href="Protocol_8h_source.html#l00031">DELIMITER</a>, <a class="el" href="defines_8h_source.html#l00068">GEN_ERROR</a>, <a class="el" href="Protocol_8h_source.html#l00025">MAX_MESSAGE_LENGTH</a>, <a class="el" href="Protocol_8h_source.html#l00051">MESSAGETYPE_LOGIN</a>, <a class="el" href="tlv_8c_source.html#l00026">TLV_encoder()</a>, <a class="el" href="tlv_8h_source.html#l00034">TLV_MORE_TLVS_TO_DECODE</a>, and <a class="el" href="tlv_8h_source.html#l00033">TLV_SUCCESS</a>.</p>
-
-<p>Referenced by <a class="el" href="logic__backEnd_8c_source.html#l00183">LogicBE_ErrorFunc()</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="ac0c1bf52e5c372253b9b4a4633d2f061"></a>
@@ -498,20 +646,14 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>The function Encode Message to Protocol format. </p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>TODO </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">Char*</td><td>_groupName - group name </td></tr>
-    <tr><td class="paramname">void*</td><td>_buffer - Buffer that in which the message will written </td></tr>
+    <tr><td class="paramname">_groupName</td><td>- group name </td></tr>
+    <tr><td class="paramname">_buffer</td><td>- Buffer that in which the message will written </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>on success message length. on fail -1 </dd></dl>
-
-<p>Definition at line <a class="el" href="protocol_8c_source.html#l00272">272</a> of file <a class="el" href="protocol_8c_source.html">protocol.c</a>.</p>
-
-<p>References <a class="el" href="Protocol_8h_source.html#l00031">DELIMITER</a>, <a class="el" href="defines_8h_source.html#l00068">GEN_ERROR</a>, <a class="el" href="Protocol_8h_source.html#l00025">MAX_MESSAGE_LENGTH</a>, <a class="el" href="Protocol_8h_source.html#l00055">MESSAGETYPE_CREATE_GROUP</a>, <a class="el" href="tlv_8c_source.html#l00026">TLV_encoder()</a>, <a class="el" href="tlv_8h_source.html#l00034">TLV_MORE_TLVS_TO_DECODE</a>, and <a class="el" href="tlv_8h_source.html#l00033">TLV_SUCCESS</a>.</p>
-
-<p>Referenced by <a class="el" href="logic__FE_8c_source.html#l00163">LogicFE_CreateGroup()</a>.</p>
 
 </div>
 </div>
@@ -556,12 +698,6 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>on success message length. on fail -1 </dd></dl>
 
-<p>Definition at line <a class="el" href="protocol_8c_source.html#l00295">295</a> of file <a class="el" href="protocol_8c_source.html">protocol.c</a>.</p>
-
-<p>References <a class="el" href="Protocol_8h_source.html#l00031">DELIMITER</a>, <a class="el" href="defines_8h_source.html#l00068">GEN_ERROR</a>, <a class="el" href="Protocol_8h_source.html#l00025">MAX_MESSAGE_LENGTH</a>, <a class="el" href="Protocol_8h_source.html#l00055">MESSAGETYPE_CREATE_GROUP</a>, <a class="el" href="tlv_8c_source.html#l00026">TLV_encoder()</a>, <a class="el" href="tlv_8h_source.html#l00034">TLV_MORE_TLVS_TO_DECODE</a>, and <a class="el" href="tlv_8h_source.html#l00033">TLV_SUCCESS</a>.</p>
-
-<p>Referenced by <a class="el" href="logic__backEnd_8c_source.html#l00183">LogicBE_ErrorFunc()</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a15569709a18ad5ad2372a9a216d522f6"></a>
@@ -597,19 +733,13 @@ Functions</h2></td></tr>
 <p>The function Encode Message to Protocol format. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">Char*</td><td>_newUserName - <a class="el" href="structUser.html">User</a> Name </td></tr>
-    <tr><td class="paramname">Char*</td><td>_password - Password </td></tr>
-    <tr><td class="paramname">void*</td><td>_buffer - Buffer that in which the message will written </td></tr>
+    <tr><td class="paramname">_newUserName</td><td>- <a class="el" href="structUser.html">User</a> Name </td></tr>
+    <tr><td class="paramname">_password</td><td>- Password </td></tr>
+    <tr><td class="paramname">_buffer</td><td>- Buffer that in which the message will written </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>on success message length. on fail -1 </dd></dl>
-
-<p>Definition at line <a class="el" href="protocol_8c_source.html#l00041">41</a> of file <a class="el" href="protocol_8c_source.html">protocol.c</a>.</p>
-
-<p>References <a class="el" href="Protocol_8h_source.html#l00031">DELIMITER</a>, <a class="el" href="defines_8h_source.html#l00068">GEN_ERROR</a>, <a class="el" href="Protocol_8h_source.html#l00025">MAX_MESSAGE_LENGTH</a>, <a class="el" href="Protocol_8h_source.html#l00050">MESSAGETYPE_SIGNUP</a>, <a class="el" href="tlv_8c_source.html#l00026">TLV_encoder()</a>, <a class="el" href="tlv_8h_source.html#l00034">TLV_MORE_TLVS_TO_DECODE</a>, and <a class="el" href="tlv_8h_source.html#l00033">TLV_SUCCESS</a>.</p>
-
-<p>Referenced by <a class="el" href="logic__FE_8c_source.html#l00082">LogicFE_Signup()</a>, and <a class="el" href="client__userInput_8c_source.html#l00020">main()</a>.</p>
 
 </div>
 </div>
@@ -646,12 +776,6 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>on success message length. on fail -1 </dd></dl>
-
-<p>Definition at line <a class="el" href="protocol_8c_source.html#l00065">65</a> of file <a class="el" href="protocol_8c_source.html">protocol.c</a>.</p>
-
-<p>References <a class="el" href="Protocol_8h_source.html#l00031">DELIMITER</a>, <a class="el" href="defines_8h_source.html#l00068">GEN_ERROR</a>, <a class="el" href="Protocol_8h_source.html#l00025">MAX_MESSAGE_LENGTH</a>, <a class="el" href="Protocol_8h_source.html#l00050">MESSAGETYPE_SIGNUP</a>, <a class="el" href="tlv_8c_source.html#l00026">TLV_encoder()</a>, <a class="el" href="tlv_8h_source.html#l00034">TLV_MORE_TLVS_TO_DECODE</a>, and <a class="el" href="tlv_8h_source.html#l00033">TLV_SUCCESS</a>.</p>
-
-<p>Referenced by <a class="el" href="logic__backEnd_8c_source.html#l00183">LogicBE_ErrorFunc()</a>.</p>
 
 </div>
 </div>

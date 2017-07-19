@@ -32,7 +32,7 @@ TLV_Result TLV_encoder(char* _inputStr, char _datatype, Uint dataLenght, char* _
 		return TLV_INPUT_ERROR;
 	}
 	
-	sprintfResult = sprintf(_tlvedString, "%c%0*d%s", _datatype, TLV_LENGTH_LENGTH, dataLenght, _inputStr);
+	sprintfResult = sprintf(_tlvedString, "%c%0*d%s", _datatype, TLV_META_LENGTH_LENGTH, dataLenght, _inputStr);
 	if (-1 == sprintfResult) 
 	{
 		warn("TLV_encoder error. sprintf %d. _inputStr:%s _tlvedString:%s dataLenght:%d", sprintfResult, _inputStr, _tlvedString, dataLenght);
@@ -53,10 +53,10 @@ TLV_Result TLV_encoder(char* _inputStr, char _datatype, Uint dataLenght, char* _
 TLV_Result TLV_decode(char* _TLV_String, Uint _TLV_StringLength, char* _decodedStr, Uint* _decodedStrLength, char* _datatypeFound, char** _nextTLV_Ptr, Uint* _nextTLV_Lenth)
 {
 	Uint lengthStr;
-	char temp_lengthStr[TLV_LENGTH_LENGTH];
+	char temp_lengthStr[TLV_META_LENGTH_LENGTH];
 	Uint totalSizeOfTLV;
 	
-	if (NULL == _TLV_String || NULL == _decodedStr || TLV_TYPE_LENGTH + TLV_LENGTH_LENGTH >= _TLV_StringLength)
+	if (NULL == _TLV_String || NULL == _decodedStr || TLV_TYPE_LENGTH + TLV_META_LENGTH_LENGTH >= _TLV_StringLength)
 	{
 		*_nextTLV_Ptr = NULL;
 		*_nextTLV_Lenth = 0;
@@ -73,15 +73,15 @@ TLV_Result TLV_decode(char* _TLV_String, Uint _TLV_StringLength, char* _decodedS
 		strncpy(_datatypeFound, _TLV_String, TLV_TYPE_LENGTH);
 	}
 	
-	strncpy(temp_lengthStr, _TLV_String + TLV_TYPE_LENGTH , TLV_LENGTH_LENGTH);
+	strncpy(temp_lengthStr, _TLV_String + TLV_TYPE_LENGTH , TLV_META_LENGTH_LENGTH);
 	lengthStr = atoi(temp_lengthStr);
 	*_decodedStrLength = lengthStr;
 	
-	strncpy(_decodedStr, _TLV_String + TLV_TYPE_LENGTH + TLV_LENGTH_LENGTH, lengthStr);
+	strncpy(_decodedStr, _TLV_String + TLV_TYPE_LENGTH + TLV_META_LENGTH_LENGTH, lengthStr);
 /*	_decodedStr[lengthStr] = '\0';*/
 	
 	
-	totalSizeOfTLV = TLV_TYPE_LENGTH + TLV_LENGTH_LENGTH + lengthStr; /* for readabilty */
+	totalSizeOfTLV = TLV_TYPE_LENGTH + TLV_META_LENGTH_LENGTH + lengthStr; /* for readabilty */
 	
 	#if !defined(NDEBUG)
 		printf(" _datatypeFound:%c\n",*_datatypeFound);

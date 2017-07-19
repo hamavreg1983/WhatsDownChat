@@ -25,7 +25,7 @@
 /* ~~~ Defines ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 //#define TLV_TYPE_LENGTH 1 			/* size in char of type of information send */
-#define TLV_LENGTH_LENGTH TLV_LENGTH_LENGHT			/* size in char of number that is the size of str information send. eg. 2 digits is 42 */
+#define TLV_META_LENGTH_LENGTH TLV_LENGHT_LENGTHT			/* size in char of number that is the size of str information send. eg. 2 digits is 42 */
 #define TLV_META_LENGTH HEADER_LENGTH
 
 

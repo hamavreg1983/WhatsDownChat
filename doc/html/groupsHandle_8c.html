@@ -57,12 +57,10 @@
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;string.h&gt;</code><br />
-<code>#include &quot;<a class="el" href="groupsHandle_8h_source.html">groupsHandle.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="hashmap_8h_source.html">hashmap.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="Protocol_8h_source.html">Protocol.h</a>&quot;</code><br />
-</div>
-<p><a href="groupsHandle_8c_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
+<code>#include &quot;<a class="el" href="groupsHandle_8h.html">groupsHandle.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="hashmap_8h.html">hashmap.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="Protocol_8h.html">Protocol.h</a>&quot;</code><br />
+</div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structGroupHandel.html">GroupHandel</a></td></tr>
@@ -86,6 +84,18 @@ Typedefs</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:aa8d69de97b0e26ddccd3c56c3106b768"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="whatDownBackEndApp_8c.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="groupsHandle_8c.html#aa8d69de97b0e26ddccd3c56c3106b768">IsStructValid</a> (<a class="el" href="groupsHandle_8h.html#a7763a5cfe578f64684989a97379e4899">GroupHandel_t</a> *_groupsHndl)</td></tr>
+<tr class="separator:aa8d69de97b0e26ddccd3c56c3106b768"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe2b8fabd12534dedbc1e1003876bc3f"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="groupsHandle_8c.html#afca83913b2c7e3b45d7e707e1a1d26e8">GroupUnit_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="groupsHandle_8c.html#afe2b8fabd12534dedbc1e1003876bc3f">CreateValue</a> (const char *_groupName, struct sockaddr_in *m_groupAddrs, <a class="el" href="tcp_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> _socketNum)</td></tr>
+<tr class="separator:afe2b8fabd12534dedbc1e1003876bc3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e692f9572d24451cb625493433ebc9e"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="groupsHandle_8c.html#a4e692f9572d24451cb625493433ebc9e">DestoyValue</a> (<a class="el" href="groupsHandle_8c.html#afca83913b2c7e3b45d7e707e1a1d26e8">GroupUnit_t</a> *_group)</td></tr>
+<tr class="separator:a4e692f9572d24451cb625493433ebc9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf24b15718476945ce5ea5d9bb8afb78"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="whatDownBackEndApp_8c.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="groupsHandle_8c.html#aaf24b15718476945ce5ea5d9bb8afb78">AddUser2Group</a> (<a class="el" href="groupsHandle_8c.html#afca83913b2c7e3b45d7e707e1a1d26e8">GroupUnit_t</a> *_group, <a class="el" href="tcp_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> _socketNum)</td></tr>
+<tr class="separator:aaf24b15718476945ce5ea5d9bb8afb78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6fef26f776441becd7fd165fd9de207"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="groupsHandle_8c.html#afca83913b2c7e3b45d7e707e1a1d26e8">GroupUnit_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="groupsHandle_8c.html#ab6fef26f776441becd7fd165fd9de207">GroupsHandel_FindGroup</a> (<a class="el" href="groupsHandle_8h.html#a7763a5cfe578f64684989a97379e4899">GroupHandel_t</a> *_groupsHndl, const char *_groupName)</td></tr>
+<tr class="separator:ab6fef26f776441becd7fd165fd9de207"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4002a81e1648bda1d941281b260c208b"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="whatDownBackEndApp_8c.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="groupsHandle_8c.html#a4002a81e1648bda1d941281b260c208b">IsUserInGroup</a> (<a class="el" href="groupsHandle_8c.html#afca83913b2c7e3b45d7e707e1a1d26e8">GroupUnit_t</a> *_group, <a class="el" href="tcp_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> _socket)</td></tr>
+<tr class="separator:a4002a81e1648bda1d941281b260c208b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a602cf1b1779043eb8c6734f6bb208620"><td class="memItemLeft" align="right" valign="top"><a class="el" href="groupsHandle_8h.html#a7763a5cfe578f64684989a97379e4899">GroupHandel_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="groupsHandle_8c.html#a602cf1b1779043eb8c6734f6bb208620">GroupsHandel_Create</a> ()</td></tr>
 <tr class="memdesc:a602cf1b1779043eb8c6734f6bb208620"><td class="mdescLeft">&#160;</td><td class="mdescRight">setup the process  <a href="#a602cf1b1779043eb8c6734f6bb208620">More...</a><br /></td></tr>
 <tr class="separator:a602cf1b1779043eb8c6734f6bb208620"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -117,10 +127,6 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="groupsHandle_8c_source.html#l00014">14</a> of file <a class="el" href="groupsHandle_8c_source.html">groupsHandle.c</a>.</p>
-
-<p>Referenced by <a class="el" href="groupsHandle_8c_source.html#l00051">GroupsHandel_Create()</a>, and <a class="el" href="groupsHandle_8c_source.html#l00201">GroupsHandel_GetGroupsName()</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a251b53598358788064b226e190630a1a"></a>
@@ -133,10 +139,6 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="groupsHandle_8c_source.html#l00015">15</a> of file <a class="el" href="groupsHandle_8c_source.html">groupsHandle.c</a>.</p>
-
-<p>Referenced by <a class="el" href="groupsHandle_8c_source.html#l00201">GroupsHandel_GetGroupsName()</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a4369ed57d4c3779df5b0f11389ecee66"></a>
@@ -148,8 +150,6 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="groupsHandle_8c_source.html#l00017">17</a> of file <a class="el" href="groupsHandle_8c_source.html">groupsHandle.c</a>.</p>
 
 </div>
 </div>
@@ -167,6 +167,80 @@ Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="aaf24b15718476945ce5ea5d9bb8afb78"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="whatDownBackEndApp_8c.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a> AddUser2Group </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="groupsHandle_8c.html#afca83913b2c7e3b45d7e707e1a1d26e8">GroupUnit_t</a> *&#160;</td>
+          <td class="paramname"><em>_group</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="tcp_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td>
+          <td class="paramname"><em>_socketNum</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="afe2b8fabd12534dedbc1e1003876bc3f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="groupsHandle_8c.html#afca83913b2c7e3b45d7e707e1a1d26e8">GroupUnit_t</a> * CreateValue </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>_groupName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct sockaddr_in *&#160;</td>
+          <td class="paramname"><em>m_groupAddrs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="tcp_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td>
+          <td class="paramname"><em>_socketNum</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="af8e3a810f3f94e42fefbeafd4bad3fa8"></a>
 <div class="memitem">
 <div class="memproto">
@@ -181,9 +255,29 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="groupsHandle_8c_source.html#l00072">72</a> of file <a class="el" href="groupsHandle_8c_source.html">groupsHandle.c</a>.</p>
-
-<p>References <a class="el" href="groupsHandle_8c_source.html#l00036">GroupUnit::m_groupAddrs</a>.</p>
+</div>
+</div>
+<a class="anchor" id="a4e692f9572d24451cb625493433ebc9e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void DestoyValue </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="groupsHandle_8c.html#afca83913b2c7e3b45d7e707e1a1d26e8">GroupUnit_t</a> *&#160;</td>
+          <td class="paramname"><em>_group</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -217,10 +311,6 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="groupsHandle_8c_source.html#l00194">194</a> of file <a class="el" href="groupsHandle_8c_source.html">groupsHandle.c</a>.</p>
-
-<p>Referenced by <a class="el" href="groupsHandle_8c_source.html#l00201">GroupsHandel_GetGroupsName()</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a602cf1b1779043eb8c6734f6bb208620"></a>
@@ -239,12 +329,6 @@ Functions</h2></td></tr>
 <p>setup the process </p>
 <dl class="section return"><dt>Returns</dt><dd>a pointer to the struct </dd></dl>
 
-<p>Definition at line <a class="el" href="groupsHandle_8c_source.html#l00051">51</a> of file <a class="el" href="groupsHandle_8c_source.html">groupsHandle.c</a>.</p>
-
-<p>References <a class="el" href="hashmap_8c_source.html#l00038">ds_hashmap_create()</a>, <a class="el" href="groupsHandle_8c_source.html#l00026">GroupHandel::m_groupContiner</a>, <a class="el" href="groupsHandle_8c_source.html#l00024">GroupHandel::m_magicNumber</a>, and <a class="el" href="groupsHandle_8c_source.html#l00014">MAGIC_NUMBER_GRP_HNDL</a>.</p>
-
-<p>Referenced by <a class="el" href="whatDownBackEndApp_8c_source.html#l00041">WhatDownBackEndApp_Create()</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a996e3b85e012ac747dbde463eb6e0cd4"></a>
@@ -261,11 +345,39 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="groupsHandle_8c_source.html#l00078">78</a> of file <a class="el" href="groupsHandle_8c_source.html">groupsHandle.c</a>.</p>
-
-<p>References <a class="el" href="hashmap_8c_source.html#l00057">ds_hashmap_free()</a>, <a class="el" href="usersHandle_8c_source.html#l00152">IsStructValid()</a>, <a class="el" href="groupsHandle_8c_source.html#l00026">GroupHandel::m_groupContiner</a>, and <a class="el" href="groupsHandle_8c_source.html#l00024">GroupHandel::m_magicNumber</a>.</p>
-
-<p>Referenced by <a class="el" href="whatDownBackEndApp_8c_source.html#l00041">WhatDownBackEndApp_Create()</a>, and <a class="el" href="whatDownBackEndApp_8c_source.html#l00108">WhatDownBackEndApp_Destroy()</a>.</p>
+</div>
+</div>
+<a class="anchor" id="ab6fef26f776441becd7fd165fd9de207"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="groupsHandle_8c.html#afca83913b2c7e3b45d7e707e1a1d26e8">GroupUnit_t</a> * GroupsHandel_FindGroup </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="groupsHandle_8h.html#a7763a5cfe578f64684989a97379e4899">GroupHandel_t</a> *&#160;</td>
+          <td class="paramname"><em>_groupsHndl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>_groupName</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -292,10 +404,6 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="groupsHandle_8c_source.html#l00175">175</a> of file <a class="el" href="groupsHandle_8c_source.html">groupsHandle.c</a>.</p>
-
-<p>References <a class="el" href="tcp_8h_source.html#l00025">FALSE</a>, <a class="el" href="usersHandle_8c_source.html#l00152">IsStructValid()</a>, and <a class="el" href="groupsHandle_8c_source.html#l00036">GroupUnit::m_groupAddrs</a>.</p>
 
 </div>
 </div>
@@ -335,12 +443,6 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="groupsHandle_8c_source.html#l00201">201</a> of file <a class="el" href="groupsHandle_8c_source.html">groupsHandle.c</a>.</p>
-
-<p>References <a class="el" href="usersHandle_8c_source.html#l00157">CreateValue()</a>, <a class="el" href="hashmap_8c_source.html#l00362">ds_hashmap_foreach_valueAction()</a>, <a class="el" href="hashmap_8c_source.html#l00244">ds_hashmap_get_str()</a>, <a class="el" href="tcp_8h_source.html#l00025">FALSE</a>, <a class="el" href="defines_8h_source.html#l00068">GEN_ERROR</a>, <a class="el" href="groupsHandle_8c_source.html#l00194">GetGroupNameToStr()</a>, <a class="el" href="usersHandle_8c_source.html#l00152">IsStructValid()</a>, <a class="el" href="groupsHandle_8c_source.html#l00036">GroupUnit::m_groupAddrs</a>, <a class="el" href="groupsHandle_8c_source.html#l00026">GroupHandel::m_groupContiner</a>, <a class="el" href="groupsHandle_8c_source.html#l00034">GroupUnit::m_groupName</a>, <a class="el" href="groupsHandle_8c_source.html#l00024">GroupHandel::m_magicNumber</a>, <a class="el" href="groupsHandle_8c_source.html#l00032">GroupUnit::m_magicNumber</a>, <a class="el" href="groupsHandle_8c_source.html#l00035">GroupUnit::m_userInGroupNum</a>, <a class="el" href="groupsHandle_8c_source.html#l00037">GroupUnit::m_usersSockets</a>, <a class="el" href="groupsHandle_8c_source.html#l00014">MAGIC_NUMBER_GRP_HNDL</a>, <a class="el" href="groupsHandle_8c_source.html#l00015">MAGIC_NUMBER_GRP_UNT</a>, and <a class="el" href="tcp_8h_source.html#l00024">TRUE</a>.</p>
-
-<p>Referenced by <a class="el" href="logic__backEnd_8c_source.html#l00183">LogicBE_ErrorFunc()</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a25674f7eb4a41fad51eb016f5b18af64"></a>
@@ -366,12 +468,6 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="groupsHandle_8c_source.html#l00159">159</a> of file <a class="el" href="groupsHandle_8c_source.html">groupsHandle.c</a>.</p>
-
-<p>References <a class="el" href="hashmap_8c_source.html#l00244">ds_hashmap_get_str()</a>, <a class="el" href="tcp_8h_source.html#l00025">FALSE</a>, <a class="el" href="usersHandle_8c_source.html#l00152">IsStructValid()</a>, <a class="el" href="groupsHandle_8c_source.html#l00026">GroupHandel::m_groupContiner</a>, and <a class="el" href="tcp_8h_source.html#l00024">TRUE</a>.</p>
-
-<p>Referenced by <a class="el" href="groupsHandle_8c_source.html#l00099">GroupsHandel_NewGroup()</a>, and <a class="el" href="logic__backEnd_8c_source.html#l00183">LogicBE_ErrorFunc()</a>.</p>
 
 </div>
 </div>
@@ -411,12 +507,6 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="groupsHandle_8c_source.html#l00126">126</a> of file <a class="el" href="groupsHandle_8c_source.html">groupsHandle.c</a>.</p>
-
-<p>References <a class="el" href="tcp_8h_source.html#l00025">FALSE</a>, <a class="el" href="usersHandle_8c_source.html#l00152">IsStructValid()</a>, <a class="el" href="groupsHandle_8c_source.html#l00036">GroupUnit::m_groupAddrs</a>, and <a class="el" href="tcp_8h_source.html#l00024">TRUE</a>.</p>
-
-<p>Referenced by <a class="el" href="logic__backEnd_8c_source.html#l00183">LogicBE_ErrorFunc()</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a097e87adcc8129fb6523e1b6a00cda17"></a>
@@ -455,11 +545,63 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="groupsHandle_8c_source.html#l00099">99</a> of file <a class="el" href="groupsHandle_8c_source.html">groupsHandle.c</a>.</p>
+</div>
+</div>
+<a class="anchor" id="aa8d69de97b0e26ddccd3c56c3106b768"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="whatDownBackEndApp_8c.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a> IsStructValid </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="groupsHandle_8h.html#a7763a5cfe578f64684989a97379e4899">GroupHandel_t</a> *&#160;</td>
+          <td class="paramname"><em>_groupsHndl</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
-<p>References <a class="el" href="usersHandle_8c_source.html#l00157">CreateValue()</a>, <a class="el" href="hashmap_8c_source.html#l00091">ds_hashmap_put_str()</a>, <a class="el" href="tcp_8h_source.html#l00025">FALSE</a>, <a class="el" href="groupsHandle_8c_source.html#l00159">GroupsHandel_IsGroupExist()</a>, <a class="el" href="usersHandle_8c_source.html#l00152">IsStructValid()</a>, <a class="el" href="groupsHandle_8c_source.html#l00026">GroupHandel::m_groupContiner</a>, and <a class="el" href="tcp_8h_source.html#l00024">TRUE</a>.</p>
-
-<p>Referenced by <a class="el" href="logic__backEnd_8c_source.html#l00183">LogicBE_ErrorFunc()</a>.</p>
+</div>
+</div>
+<a class="anchor" id="a4002a81e1648bda1d941281b260c208b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="whatDownBackEndApp_8c.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a> IsUserInGroup </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="groupsHandle_8c.html#afca83913b2c7e3b45d7e707e1a1d26e8">GroupUnit_t</a> *&#160;</td>
+          <td class="paramname"><em>_group</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="tcp_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td>
+          <td class="paramname"><em>_socket</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>

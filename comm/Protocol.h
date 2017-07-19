@@ -20,13 +20,13 @@
 #define BUFFER_SIZE 1024
 
 #define TLV_TYPE_LENGTH 1
-#define TLV_LENGTH_LENGHT 5
+#define TLV_LENGHT_LENGTHT 5
 #define HEADER_LENGTH 6
 #define MAX_MESSAGE_LENGTH 1024
 #define MAX_USERNAME 32
 #define MAX_PASSWORD 32
 #define MAX_GROUP_NAME 32
-#define NAX_IP_LENGTH 16
+#define NAX_IP_lenght 16
 #define ourInt 32
 #define DELIMITER "@@@"
 #define DELIMITER_LENGHT 3
@@ -94,87 +94,88 @@ typedef struct ClientReceiveMessage
     size_t m_numberOfGroups;
 } ClientReceiveMessage_t;
 
-
+/**TODO */
 
 /* ~~~ Request functions ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
- /**
-  * @brief The function Encode Message to Protocol format
-  * @param Char* _groupName - group name
-  * @param void* _buffer - Buffer that in which the message will written
-  * @return on success message length. on fail -1
-  */
+/**
+ * @brief The function Encode Message to Protocol format
+ * @param _groupName - group name
+ * @param _buffer - Buffer that in which the message will written
+ * @return on success message length. on fail -1
+ */
 int Protocol_EncodeNewGroup(const char* _groupName, void* _buffer);
 
- /**
-  * @brief The function Encode Message to Protocol format
-  * @param void* _buffer - Buffer that in which the message will written
-  * @return on success message length. on fail -1
-  */
+/**
+ * @brief The function Encode Message to Protocol format
+ * @param _buffer - Buffer that in which the message will written
+ * @return on success message length. on fail -1
+ */
 int Protocol_EncodeGetAllGroups(void* _buffer);
 
- /**
-  * @brief The function Encode Message to Protocol format
-  * @param Char* _groupNameToJoin - group name to join
-  * @param void* _buffer - Buffer that in which the message will written
-  * @return on success message length. on fail -1
-  */
+/**
+ * @brief The function Encode Message to Protocol format
+ * @param _groupNameToJoin group name to join
+ * @param _buffer Buffer that in which the message will written
+ * @return on success message length. on fail -1
+ */
 int Protocol_EncodeJoinGroup(const char* _groupNameToJoin, void* _buffer);
 
- /**
-  * @brief The function Encode Message to Protocol format
-  * @param Char* _groupNameToLeave - group name to Leave
-  * @param void* _buffer - Buffer that in which the message will written
-  * @return on success message length. on fail -1
-  */
+/**
+ * @brief The function Encode Message to Protocol format
+ * @param _groupNameToLeave - group name to Leave
+ * @param _buffer - Buffer that in which the message will written
+ * @return on success message length. on fail -1
+ */
 int Protocol_EncodeLeaveGroup(const char* _groupNameToLeave, void* _buffer);
 
 
- /**
-  * @brief The function Encode Message to Protocol format
-  * @param Char* _userName - User Name
-  * @param Char* _password - Password
-  * @param void* _buffer - Buffer that in which the message will written
-  * @return on success message length. on fail -1
-  */
+/**
+ * @brief The function Encode Message to Protocol format
+ * @param _userName - User Name
+ * @param _password - Password
+ * @param _buffer - Buffer that in which the message will written
+ * @return on success message length. on fail -1
+ */
 int Protocol_EncodeLogIn(const char* _userName, const char* _password, void* _buffer);
 
- /**
-  * @brief The function Encode Message to Protocol format
-  * @param void* _buffer - Buffer that in which the message will written
-  * @return on success message length. on fail -1
-  */
+/**
+ * @brief The function Encode Message to Protocol format
+ * @param _buffer - Buffer that in which the message will written
+ * @return on success message length. on fail -1
+ */
 int Protocol_EncodeLogOut(void* _buffer);
 
- /**
-  * @brief The function Encode Message to Protocol format
-  * @param Char* _newUserName - User Name
-  * @param Char* _password - Password
-  * @param void* _buffer - Buffer that in which the message will written
-  * @return on success message length. on fail -1
-  */
+/**
+ * @brief The function Encode Message to Protocol format
+ * @param _newUserName - User Name
+ * @param _password - Password
+ * @param _buffer - Buffer that in which the message will written
+ * @return on success message length. on fail -1
+ */
 int Protocol_EncodeSignUp(const char* _newUserName, const char* _password, void* _buffer);
 
 
- /**
-  * @brief The function Encode Message to Protocol format
-  * @param void* _buffer - Buffer that in which the message will written
-  * @return on success message length. on fail -1
-  */
+/**
+ * @brief The function Encode Message to Protocol format
+ * @param _buffer - Buffer that in which the message will written
+ * @return on success message length. on fail negative 1
+ */
 int Protocol_EncodeDeleteUser(void* _buffer);
 
- /**
-  * @brief The function Decode Message from  Protocol format to ServerReceiveMessage_t form
-  * @param void* _dataToDecode - pointer to data that need to decoded
-  * @param size_t _length - Data length
-  * @param ServerReceiveMessage_t* _message - Receive Message that the function fill
-  * @return bool on success true 1,  on fail false 0.
-  */
+/**
+ * @brief The function Decode Message from  Protocol format to ServerReceiveMessage_t form
+ * @param _dataToDecode - pointer to data that need to decoded
+ * @param _lenght - Data length
+ * @param _message - Receive Message that the function fill
+ * @return bool on success true 1,  on fail false 0.
+ */
 int Protocol_DecodeServer(void* _dataToDecode, size_t _lenght, ServerReceiveMessage_t* _message );
+
 /**
  * @brief The function Decode Message from  Protocol format to ClientReceiveMessage_t form
- * @param void* _dataToDecode - pointer to data that need to decoded
- * @param size_t _length - Data length
- * @param ClientReceiveMessage_t* _message - Receive Message that the function fill
+ * @param _dataToDecode pointer to data that need to decoded
+ * @param _lenght Data length
+ * @param _message Receive Message that the function fill
  * @return bool on success true 1,  on fail false 0.
  */
 int Protocol_DecodeClient(void* _dataToDecode, size_t _lenght, ClientReceiveMessage_t* _message );

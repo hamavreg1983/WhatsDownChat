@@ -55,12 +55,16 @@
 <div class="contents">
 <div class="textblock"><code>#include &lt;stdlib.h&gt;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
-<code>#include &quot;<a class="el" href="vector_8h_source.html">vector.h</a>&quot;</code><br />
-</div>
-<p><a href="vector_8c_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
+<code>#include &quot;<a class="el" href="vector_8h.html">vector.h</a>&quot;</code><br />
+</div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:af5824d4e85f86c4e9c504e37a1da0908"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8c.html#af5824d4e85f86c4e9c504e37a1da0908">ds_vector_maybe_expand</a> (struct <a class="el" href="structDSVector.html">DSVector</a> *vec)</td></tr>
+<tr class="separator:af5824d4e85f86c4e9c504e37a1da0908"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e5d721e6571e284ed76e01e07b55e44"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8c.html#a9e5d721e6571e284ed76e01e07b55e44">ds_vector_quicksort</a> (struct <a class="el" href="structDSVector.html">DSVector</a> *vec, int32_t left, int32_t right, int32_t(compare)(void *, void *))</td></tr>
+<tr class="separator:a9e5d721e6571e284ed76e01e07b55e44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57a963a6de49a6f176a34e4135ce30c3"><td class="memItemLeft" align="right" valign="top">static int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8c.html#a57a963a6de49a6f176a34e4135ce30c3">ds_vector_partition</a> (struct <a class="el" href="structDSVector.html">DSVector</a> *vec, int32_t left, int32_t right, int32_t pivot, int32_t(compare)(void *, void *))</td></tr>
+<tr class="separator:a57a963a6de49a6f176a34e4135ce30c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aefd0995c21f04f7e879f0263f600b41c"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="structDSVector.html">DSVector</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8c.html#aefd0995c21f04f7e879f0263f600b41c">ds_vector_create</a> ()</td></tr>
 <tr class="separator:aefd0995c21f04f7e879f0263f600b41c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac6ed19262b452ee335826aba817c63d1"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="structDSVector.html">DSVector</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8c.html#ac6ed19262b452ee335826aba817c63d1">ds_vector_create_capacity</a> (int32_t capacity)</td></tr>
@@ -116,12 +120,6 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Adds an element to the end of a vector. Runs in constant time. </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00075">75</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
-
-<p>References <a class="el" href="vector_8h_source.html#l00014">DSVector::data</a>, and <a class="el" href="vector_8h_source.html#l00012">DSVector::size</a>.</p>
-
-<p>Referenced by <a class="el" href="hashmap_8c_source.html#l00103">ds_hashmap_put_int()</a>, and <a class="el" href="vector_8c_source.html#l00062">ds_vector_copy()</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a5fd466f5ab26a4f5f9b0075381da561b"></a>
@@ -139,10 +137,6 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Copies a vector, but not the data. Make sure you free it! </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00062">62</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
-
-<p>References <a class="el" href="vector_8h_source.html#l00013">DSVector::capacity</a>, <a class="el" href="vector_8h_source.html#l00014">DSVector::data</a>, <a class="el" href="vector_8c_source.html#l00075">ds_vector_append()</a>, <a class="el" href="vector_8c_source.html#l00027">ds_vector_create_capacity()</a>, and <a class="el" href="vector_8h_source.html#l00012">DSVector::size</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="aefd0995c21f04f7e879f0263f600b41c"></a>
@@ -158,12 +152,6 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Creates a vector with DS_VECTOR_BASE_CAPACITY. ds_vector_free or ds_vector_free_no_data will need to be called when done with the vector to avoid memory leaks. </p>
-
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00021">21</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
-
-<p>References <a class="el" href="vector_8c_source.html#l00027">ds_vector_create_capacity()</a>.</p>
-
-<p>Referenced by <a class="el" href="hashmap_8c_source.html#l00038">ds_hashmap_create()</a>.</p>
 
 </div>
 </div>
@@ -181,12 +169,6 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Creates a vector with the given capacity. (N.B. This vector will still automatically increase in size if necessary.) </p>
-
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00027">27</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
-
-<p>References <a class="el" href="vector_8h_source.html#l00013">DSVector::capacity</a>, <a class="el" href="vector_8h_source.html#l00014">DSVector::data</a>, and <a class="el" href="vector_8h_source.html#l00012">DSVector::size</a>.</p>
-
-<p>Referenced by <a class="el" href="vector_8c_source.html#l00062">ds_vector_copy()</a>, and <a class="el" href="vector_8c_source.html#l00021">ds_vector_create()</a>.</p>
 
 </div>
 </div>
@@ -222,10 +204,6 @@ Functions</h2></td></tr>
 <p>Higher-order function to find the first element in the vector such that compare(needle, element) == 0. Where compare is defined as: compare(a, b) &lt; 0 when a &lt; b compare(a, b) = 0 when a = b compare(a, b) &gt; 0 when a &gt; b</p>
 <p>Returns an unsigned -1 if needle is not found. </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00154">154</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
-
-<p>References <a class="el" href="vector_8h_source.html#l00014">DSVector::data</a>, and <a class="el" href="vector_8h_source.html#l00012">DSVector::size</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="ade407775904bab6cde24052138056da9"></a>
@@ -243,10 +221,6 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Free's a vector AND its data. </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00043">43</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
-
-<p>References <a class="el" href="vector_8h_source.html#l00014">DSVector::data</a>, and <a class="el" href="vector_8h_source.html#l00012">DSVector::size</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="abdbcaae263961908730da00e39bd1c5c"></a>
@@ -263,12 +237,6 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Free's just the vector's representation. Data is NOT freed. </p>
-
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00055">55</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
-
-<p>References <a class="el" href="vector_8h_source.html#l00014">DSVector::data</a>.</p>
-
-<p>Referenced by <a class="el" href="hashmap_8c_source.html#l00057">ds_hashmap_free()</a>.</p>
 
 </div>
 </div>
@@ -296,12 +264,6 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Gets an element at index i from a vector. </p>
-
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00114">114</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
-
-<p>References <a class="el" href="vector_8h_source.html#l00014">DSVector::data</a>, and <a class="el" href="vector_8h_source.html#l00012">DSVector::size</a>.</p>
-
-<p>Referenced by <a class="el" href="hashmap_8c_source.html#l00341">ds_hashmap_foreach_value()</a>, <a class="el" href="hashmap_8c_source.html#l00362">ds_hashmap_foreach_valueAction()</a>, <a class="el" href="hashmap_8c_source.html#l00296">ds_hashmap_print_keys()</a>, <a class="el" href="hashmap_8c_source.html#l00317">ds_hashmap_print_keyvals()</a>, and <a class="el" href="hashmap_8c_source.html#l00171">ds_hashmap_remove_int()</a>.</p>
 
 </div>
 </div>
@@ -336,10 +298,6 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Places an element at index i, and shifts the rest of the vector to the right by one. If index == size of vector, then the element will be appended to the end of the vector. </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00082">82</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
-
-<p>References <a class="el" href="vector_8h_source.html#l00014">DSVector::data</a>, and <a class="el" href="vector_8h_source.html#l00012">DSVector::size</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a0343ab9b92e8e4e6ff836bbfebebe077"></a>
@@ -367,9 +325,127 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Higher-order function to map func over every element in vector. </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00145">145</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+</div>
+</div>
+<a class="anchor" id="af5824d4e85f86c4e9c504e37a1da0908"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void ds_vector_maybe_expand </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="structDSVector.html">DSVector</a> *&#160;</td>
+          <td class="paramname"><em>vec</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
-<p>References <a class="el" href="vector_8h_source.html#l00014">DSVector::data</a>, and <a class="el" href="vector_8h_source.html#l00012">DSVector::size</a>.</p>
+</div>
+</div>
+<a class="anchor" id="a57a963a6de49a6f176a34e4135ce30c3"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int32_t ds_vector_partition </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="structDSVector.html">DSVector</a> *&#160;</td>
+          <td class="paramname"><em>vec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>left</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>right</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>pivot</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32_t(compare)(void *, void *)&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a9e5d721e6571e284ed76e01e07b55e44"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void ds_vector_quicksort </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="structDSVector.html">DSVector</a> *&#160;</td>
+          <td class="paramname"><em>vec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>left</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>right</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32_t(compare)(void *, void *)&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -397,12 +473,6 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Removes an element from the vector at some index. Also shifts everything to right of index to the left. Does <em>NOT</em> free the data. </p>
-
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00101">101</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
-
-<p>References <a class="el" href="vector_8h_source.html#l00014">DSVector::data</a>, and <a class="el" href="vector_8h_source.html#l00012">DSVector::size</a>.</p>
-
-<p>Referenced by <a class="el" href="hashmap_8c_source.html#l00171">ds_hashmap_remove_int()</a>.</p>
 
 </div>
 </div>
@@ -437,10 +507,6 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Sets an elements at index to data. No data is freed. </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00123">123</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
-
-<p>References <a class="el" href="vector_8h_source.html#l00014">DSVector::data</a>, and <a class="el" href="vector_8h_source.html#l00012">DSVector::size</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a91228659d8014ef3e340df24c8fa535a"></a>
@@ -467,12 +533,6 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>I've implemented my own Quicksort (based on the Wikipedia entry on Quicksort) because I didn't like how the standard library's version of qsort forces you to define the comparison function. (Namely, that the arguments are void** instead of void*.) </p>
-
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00173">173</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
-
-<p>References <a class="el" href="vector_8h_source.html#l00013">DSVector::capacity</a>, <a class="el" href="vector_8h_source.html#l00014">DSVector::data</a>, and <a class="el" href="vector_8h_source.html#l00012">DSVector::size</a>.</p>
-
-<p>Referenced by <a class="el" href="hashmap_8c_source.html#l00391">ds_hashmap_sort_by()</a>.</p>
 
 </div>
 </div>
@@ -506,10 +566,6 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Swaps the data from vector element i to vector element j. </p>
-
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00132">132</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
-
-<p>References <a class="el" href="vector_8h_source.html#l00014">DSVector::data</a>, and <a class="el" href="vector_8h_source.html#l00012">DSVector::size</a>.</p>
 
 </div>
 </div>

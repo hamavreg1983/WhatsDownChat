@@ -51,7 +51,8 @@
 <a href="#nested-classes">Data Structures</a> &#124;
 <a href="#define-members">Macros</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">hashmap.h File Reference</div>  </div>
 </div><!--header-->
@@ -59,10 +60,8 @@
 <div class="textblock"><code>#include &lt;assert.h&gt;</code><br />
 <code>#include &lt;stdbool.h&gt;</code><br />
 <code>#include &lt;stdint.h&gt;</code><br />
-<code>#include &quot;<a class="el" href="vector_8h_source.html">vector.h</a>&quot;</code><br />
-</div>
-<p><a href="hashmap_8h_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
+<code>#include &quot;<a class="el" href="vector_8h.html">vector.h</a>&quot;</code><br />
+</div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structDSHashMap.html">DSHashMap</a></td></tr>
@@ -124,6 +123,11 @@ Functions</h2></td></tr>
 <tr class="separator:ac451f86cddc9e8f49952a11c68b8d94e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac92734e9c5d4783d2eebd24ffdf9d527"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hashmap_8h.html#ac92734e9c5d4783d2eebd24ffdf9d527">ds_hashmap_foreach_valueAction</a> (struct <a class="el" href="structDSHashMap.html">DSHashMap</a> *hash, void *_contex, char *(valueActFunc)(void *, void *_buffer, <a class="el" href="tcp_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> *_num))</td></tr>
 <tr class="separator:ac92734e9c5d4783d2eebd24ffdf9d527"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a8ac2e6c7de831862d7259d711da42505"><td class="memItemLeft" align="right" valign="top">static const int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hashmap_8h.html#a8ac2e6c7de831862d7259d711da42505">DS_HASHMAP_BUCKETS</a> = 1000000</td></tr>
+<tr class="separator:a8ac2e6c7de831862d7259d711da42505"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a class="anchor" id="a300918537036543a8e5c01b6c473b66c"></a>
@@ -135,10 +139,6 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="hashmap_8h_source.html#l00014">14</a> of file <a class="el" href="hashmap_8h_source.html">hashmap.h</a>.</p>
-
-<p>Referenced by <a class="el" href="hashmap_8c_source.html#l00341">ds_hashmap_foreach_value()</a>, <a class="el" href="hashmap_8c_source.html#l00362">ds_hashmap_foreach_valueAction()</a>, <a class="el" href="hashmap_8c_source.html#l00256">ds_hashmap_get_int()</a>, <a class="el" href="hashmap_8c_source.html#l00224">ds_hashmap_get_key()</a>, <a class="el" href="hashmap_8c_source.html#l00296">ds_hashmap_print_keys()</a>, <a class="el" href="hashmap_8c_source.html#l00317">ds_hashmap_print_keyvals()</a>, <a class="el" href="hashmap_8c_source.html#l00103">ds_hashmap_put_int()</a>, <a class="el" href="hashmap_8c_source.html#l00171">ds_hashmap_remove_int()</a>, and <a class="el" href="hashmap_8c_source.html#l00391">ds_hashmap_sort_by()</a>.</p>
 
 </div>
 </div>
@@ -152,10 +152,6 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="hashmap_8h_source.html#l00015">15</a> of file <a class="el" href="hashmap_8h_source.html">hashmap.h</a>.</p>
-
-<p>Referenced by <a class="el" href="hashmap_8c_source.html#l00341">ds_hashmap_foreach_value()</a>, <a class="el" href="hashmap_8c_source.html#l00362">ds_hashmap_foreach_valueAction()</a>, <a class="el" href="hashmap_8c_source.html#l00057">ds_hashmap_free()</a>, <a class="el" href="hashmap_8c_source.html#l00256">ds_hashmap_get_int()</a>, <a class="el" href="hashmap_8c_source.html#l00224">ds_hashmap_get_key()</a>, <a class="el" href="hashmap_8c_source.html#l00244">ds_hashmap_get_str()</a>, <a class="el" href="hashmap_8c_source.html#l00296">ds_hashmap_print_keys()</a>, <a class="el" href="hashmap_8c_source.html#l00317">ds_hashmap_print_keyvals()</a>, <a class="el" href="hashmap_8c_source.html#l00103">ds_hashmap_put_int()</a>, <a class="el" href="hashmap_8c_source.html#l00091">ds_hashmap_put_str()</a>, <a class="el" href="hashmap_8c_source.html#l00171">ds_hashmap_remove_int()</a>, <a class="el" href="hashmap_8c_source.html#l00163">ds_hashmap_remove_str()</a>, and <a class="el" href="hashmap_8c_source.html#l00391">ds_hashmap_sort_by()</a>.</p>
-
 </div>
 </div>
 <h2 class="groupheader">Typedef Documentation</h2>
@@ -168,8 +164,6 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="hashmap_8h_source.html#l00039">39</a> of file <a class="el" href="hashmap_8h_source.html">hashmap.h</a>.</p>
 
 </div>
 </div>
@@ -198,12 +192,6 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="hashmap_8c_source.html#l00250">250</a> of file <a class="el" href="hashmap_8c_source.html">hashmap.c</a>.</p>
-
-<p>References <a class="el" href="hashmap_8c_source.html#l00256">ds_hashmap_get_int()</a>.</p>
-
-<p>Referenced by <a class="el" href="hashmap_8c_source.html#l00341">ds_hashmap_foreach_value()</a>, <a class="el" href="hashmap_8c_source.html#l00224">ds_hashmap_get_key()</a>, and <a class="el" href="hashmap_8c_source.html#l00317">ds_hashmap_print_keyvals()</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a482bb1a196953d68fb9add6be3c1e37c"></a>
@@ -230,12 +218,6 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="hashmap_8c_source.html#l00238">238</a> of file <a class="el" href="hashmap_8c_source.html">hashmap.c</a>.</p>
-
-<p>References <a class="el" href="hashmap_8c_source.html#l00244">ds_hashmap_get_str()</a>.</p>
-
-<p>Referenced by <a class="el" href="hashmap_8c_source.html#l00341">ds_hashmap_foreach_value()</a>, <a class="el" href="hashmap_8c_source.html#l00362">ds_hashmap_foreach_valueAction()</a>, <a class="el" href="hashmap_8c_source.html#l00224">ds_hashmap_get_key()</a>, and <a class="el" href="hashmap_8c_source.html#l00317">ds_hashmap_print_keyvals()</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="ae9c15e8fc0f24cf917646f196991cfa1"></a>
@@ -251,12 +233,6 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Initializes a HashMap. </p>
-
-<p>Definition at line <a class="el" href="hashmap_8c_source.html#l00038">38</a> of file <a class="el" href="hashmap_8c_source.html">hashmap.c</a>.</p>
-
-<p>References <a class="el" href="hashmap_8h_source.html#l00021">DSHashMap::buckets</a>, <a class="el" href="vector_8c_source.html#l00021">ds_vector_create()</a>, and <a class="el" href="hashmap_8h_source.html#l00020">DSHashMap::keys</a>.</p>
-
-<p>Referenced by <a class="el" href="groupsHandle_8c_source.html#l00051">GroupsHandel_Create()</a>, and <a class="el" href="usersHandle_8c_source.html#l00051">UsersHandle_Create()</a>.</p>
 
 </div>
 </div>
@@ -283,10 +259,6 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="hashmap_8c_source.html#l00341">341</a> of file <a class="el" href="hashmap_8c_source.html">hashmap.c</a>.</p>
-
-<p>References <a class="el" href="hashmap_8c_source.html#l00250">ds_geti()</a>, <a class="el" href="hashmap_8c_source.html#l00238">ds_gets()</a>, <a class="el" href="hashmap_8h_source.html#l00014">DS_HASHMAP_KEY_INT</a>, <a class="el" href="hashmap_8h_source.html#l00015">DS_HASHMAP_KEY_STRING</a>, <a class="el" href="vector_8c_source.html#l00114">ds_vector_get()</a>, <a class="el" href="hashmap_8h_source.html#l00034">DSHashKey::i</a>, <a class="el" href="structDSHashKey.html#ad2ed83c36c76bc722abd06aacce6c688">DSHashKey::key</a>, <a class="el" href="hashmap_8h_source.html#l00020">DSHashMap::keys</a>, <a class="el" href="hashmap_8h_source.html#l00032">DSHashKey::keytype</a>, <a class="el" href="hashmap_8h_source.html#l00035">DSHashKey::s</a>, and <a class="el" href="vector_8h_source.html#l00012">DSVector::size</a>.</p>
 
 </div>
 </div>
@@ -319,12 +291,6 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="hashmap_8c_source.html#l00362">362</a> of file <a class="el" href="hashmap_8c_source.html">hashmap.c</a>.</p>
-
-<p>References <a class="el" href="hashmap_8c_source.html#l00238">ds_gets()</a>, <a class="el" href="hashmap_8h_source.html#l00014">DS_HASHMAP_KEY_INT</a>, <a class="el" href="hashmap_8h_source.html#l00015">DS_HASHMAP_KEY_STRING</a>, <a class="el" href="vector_8c_source.html#l00114">ds_vector_get()</a>, <a class="el" href="hashmap_8h_source.html#l00034">DSHashKey::i</a>, <a class="el" href="structDSHashKey.html#ad2ed83c36c76bc722abd06aacce6c688">DSHashKey::key</a>, <a class="el" href="hashmap_8h_source.html#l00020">DSHashMap::keys</a>, <a class="el" href="hashmap_8h_source.html#l00032">DSHashKey::keytype</a>, <a class="el" href="hashmap_8h_source.html#l00035">DSHashKey::s</a>, and <a class="el" href="vector_8h_source.html#l00012">DSVector::size</a>.</p>
-
-<p>Referenced by <a class="el" href="groupsHandle_8c_source.html#l00201">GroupsHandel_GetGroupsName()</a>.</p>
 
 </div>
 </div>
@@ -359,12 +325,6 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Frees all memory associated with the hash map. If 'free_data' is true, user data will be freed too. If 'free_string_keys' is true, then string keys will be freed too. </p>
 
-<p>Definition at line <a class="el" href="hashmap_8c_source.html#l00057">57</a> of file <a class="el" href="hashmap_8c_source.html">hashmap.c</a>.</p>
-
-<p>References <a class="el" href="hashmap_8h_source.html#l00021">DSHashMap::buckets</a>, <a class="el" href="hashmap_8h_source.html#l00026">DSHashItem::data</a>, <a class="el" href="hashmap_8h_source.html#l00015">DS_HASHMAP_KEY_STRING</a>, <a class="el" href="vector_8c_source.html#l00055">ds_vector_free_no_data()</a>, <a class="el" href="hashmap_8h_source.html#l00025">DSHashItem::key</a>, <a class="el" href="structDSHashKey.html#ad2ed83c36c76bc722abd06aacce6c688">DSHashKey::key</a>, <a class="el" href="hashmap_8h_source.html#l00020">DSHashMap::keys</a>, <a class="el" href="hashmap_8h_source.html#l00032">DSHashKey::keytype</a>, <a class="el" href="hashmap_8h_source.html#l00027">DSHashItem::next</a>, and <a class="el" href="hashmap_8h_source.html#l00035">DSHashKey::s</a>.</p>
-
-<p>Referenced by <a class="el" href="groupsHandle_8c_source.html#l00078">GroupsHandel_Destroy()</a>, and <a class="el" href="usersHandle_8c_source.html#l00073">UsersHandle_Destroy()</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a3ddeaf5147c2a5ca32d59354180caaba"></a>
@@ -392,12 +352,6 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Gets an element with integer key from hash map. </p>
 
-<p>Definition at line <a class="el" href="hashmap_8c_source.html#l00256">256</a> of file <a class="el" href="hashmap_8c_source.html">hashmap.c</a>.</p>
-
-<p>References <a class="el" href="hashmap_8h_source.html#l00021">DSHashMap::buckets</a>, <a class="el" href="hashmap_8h_source.html#l00026">DSHashItem::data</a>, <a class="el" href="hashmap_8h_source.html#l00014">DS_HASHMAP_KEY_INT</a>, <a class="el" href="hashmap_8h_source.html#l00015">DS_HASHMAP_KEY_STRING</a>, <a class="el" href="hashmap_8h_source.html#l00025">DSHashItem::key</a>, and <a class="el" href="hashmap_8h_source.html#l00027">DSHashItem::next</a>.</p>
-
-<p>Referenced by <a class="el" href="hashmap_8c_source.html#l00250">ds_geti()</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="aa7eab016106a044ded6907ebabce9768"></a>
@@ -414,10 +368,6 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Gets an element if you have a <a class="el" href="structDSHashKey.html">DSHashKey</a> struct. </p>
-
-<p>Definition at line <a class="el" href="hashmap_8c_source.html#l00224">224</a> of file <a class="el" href="hashmap_8c_source.html">hashmap.c</a>.</p>
-
-<p>References <a class="el" href="hashmap_8c_source.html#l00250">ds_geti()</a>, <a class="el" href="hashmap_8c_source.html#l00238">ds_gets()</a>, <a class="el" href="hashmap_8h_source.html#l00014">DS_HASHMAP_KEY_INT</a>, <a class="el" href="hashmap_8h_source.html#l00015">DS_HASHMAP_KEY_STRING</a>, <a class="el" href="hashmap_8h_source.html#l00031">DSHashKey::hash</a>, <a class="el" href="hashmap_8h_source.html#l00034">DSHashKey::i</a>, <a class="el" href="structDSHashKey.html#ad2ed83c36c76bc722abd06aacce6c688">DSHashKey::key</a>, <a class="el" href="hashmap_8h_source.html#l00032">DSHashKey::keytype</a>, and <a class="el" href="hashmap_8h_source.html#l00035">DSHashKey::s</a>.</p>
 
 </div>
 </div>
@@ -446,12 +396,6 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Gets an element with string key from hash map. </p>
 
-<p>Definition at line <a class="el" href="hashmap_8c_source.html#l00244">244</a> of file <a class="el" href="hashmap_8c_source.html">hashmap.c</a>.</p>
-
-<p>References <a class="el" href="hashmap_8h_source.html#l00015">DS_HASHMAP_KEY_STRING</a>.</p>
-
-<p>Referenced by <a class="el" href="hashmap_8c_source.html#l00238">ds_gets()</a>, <a class="el" href="groupsHandle_8c_source.html#l00201">GroupsHandel_GetGroupsName()</a>, <a class="el" href="groupsHandle_8c_source.html#l00159">GroupsHandel_IsGroupExist()</a>, <a class="el" href="usersHandle_8c_source.html#l00113">UsersHandle_IsUserExist()</a>, and <a class="el" href="usersHandle_8c_source.html#l00129">UsersHandle_IsUserPasswordMatch()</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a28f2fda68eb914356380378da246c3b5"></a>
@@ -468,10 +412,6 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Prints a list of key names/numbers for debugging purposes. </p>
-
-<p>Definition at line <a class="el" href="hashmap_8c_source.html#l00296">296</a> of file <a class="el" href="hashmap_8c_source.html">hashmap.c</a>.</p>
-
-<p>References <a class="el" href="hashmap_8h_source.html#l00014">DS_HASHMAP_KEY_INT</a>, <a class="el" href="hashmap_8h_source.html#l00015">DS_HASHMAP_KEY_STRING</a>, <a class="el" href="vector_8c_source.html#l00114">ds_vector_get()</a>, <a class="el" href="hashmap_8h_source.html#l00034">DSHashKey::i</a>, <a class="el" href="structDSHashKey.html#ad2ed83c36c76bc722abd06aacce6c688">DSHashKey::key</a>, <a class="el" href="hashmap_8h_source.html#l00020">DSHashMap::keys</a>, <a class="el" href="hashmap_8h_source.html#l00032">DSHashKey::keytype</a>, <a class="el" href="hashmap_8h_source.html#l00035">DSHashKey::s</a>, and <a class="el" href="vector_8h_source.html#l00012">DSVector::size</a>.</p>
 
 </div>
 </div>
@@ -499,10 +439,6 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Prints a list of key,value pairs for debugging purposes. This needs a function that turns values into strings. </p>
-
-<p>Definition at line <a class="el" href="hashmap_8c_source.html#l00317">317</a> of file <a class="el" href="hashmap_8c_source.html">hashmap.c</a>.</p>
-
-<p>References <a class="el" href="hashmap_8c_source.html#l00250">ds_geti()</a>, <a class="el" href="hashmap_8c_source.html#l00238">ds_gets()</a>, <a class="el" href="hashmap_8h_source.html#l00014">DS_HASHMAP_KEY_INT</a>, <a class="el" href="hashmap_8h_source.html#l00015">DS_HASHMAP_KEY_STRING</a>, <a class="el" href="vector_8c_source.html#l00114">ds_vector_get()</a>, <a class="el" href="hashmap_8h_source.html#l00034">DSHashKey::i</a>, <a class="el" href="structDSHashKey.html#ad2ed83c36c76bc722abd06aacce6c688">DSHashKey::key</a>, <a class="el" href="hashmap_8h_source.html#l00020">DSHashMap::keys</a>, <a class="el" href="hashmap_8h_source.html#l00032">DSHashKey::keytype</a>, <a class="el" href="hashmap_8h_source.html#l00035">DSHashKey::s</a>, and <a class="el" href="vector_8h_source.html#l00012">DSVector::size</a>.</p>
 
 </div>
 </div>
@@ -537,12 +473,6 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Adds an element with integer key to hash map. </p>
 
-<p>Definition at line <a class="el" href="hashmap_8c_source.html#l00103">103</a> of file <a class="el" href="hashmap_8c_source.html">hashmap.c</a>.</p>
-
-<p>References <a class="el" href="hashmap_8h_source.html#l00021">DSHashMap::buckets</a>, <a class="el" href="hashmap_8h_source.html#l00026">DSHashItem::data</a>, <a class="el" href="hashmap_8h_source.html#l00014">DS_HASHMAP_KEY_INT</a>, <a class="el" href="hashmap_8h_source.html#l00015">DS_HASHMAP_KEY_STRING</a>, <a class="el" href="vector_8c_source.html#l00075">ds_vector_append()</a>, <a class="el" href="hashmap_8h_source.html#l00031">DSHashKey::hash</a>, <a class="el" href="hashmap_8h_source.html#l00034">DSHashKey::i</a>, <a class="el" href="hashmap_8h_source.html#l00025">DSHashItem::key</a>, <a class="el" href="structDSHashKey.html#ad2ed83c36c76bc722abd06aacce6c688">DSHashKey::key</a>, <a class="el" href="hashmap_8h_source.html#l00020">DSHashMap::keys</a>, <a class="el" href="hashmap_8h_source.html#l00032">DSHashKey::keytype</a>, <a class="el" href="hashmap_8h_source.html#l00027">DSHashItem::next</a>, and <a class="el" href="hashmap_8h_source.html#l00035">DSHashKey::s</a>.</p>
-
-<p>Referenced by <a class="el" href="hashmap_8c_source.html#l00097">ds_puti()</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a6f2e38dda1a43b9ba155ade2a006c04b"></a>
@@ -576,12 +506,6 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Adds an element with string key to hash map. </p>
 
-<p>Definition at line <a class="el" href="hashmap_8c_source.html#l00091">91</a> of file <a class="el" href="hashmap_8c_source.html">hashmap.c</a>.</p>
-
-<p>References <a class="el" href="hashmap_8h_source.html#l00015">DS_HASHMAP_KEY_STRING</a>.</p>
-
-<p>Referenced by <a class="el" href="hashmap_8c_source.html#l00085">ds_puts()</a>, <a class="el" href="groupsHandle_8c_source.html#l00099">GroupsHandel_NewGroup()</a>, and <a class="el" href="usersHandle_8c_source.html#l00088">UsersHandle_AddNewUser()</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="acb56a65f55fc65e54db4bed80a48675f"></a>
@@ -614,10 +538,6 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Similarly as 'ds_hashmap_remove_str' but with an integer as a key. Since an integer is a key, there is never a need to free a string key. </p>
-
-<p>Definition at line <a class="el" href="hashmap_8c_source.html#l00171">171</a> of file <a class="el" href="hashmap_8c_source.html">hashmap.c</a>.</p>
-
-<p>References <a class="el" href="hashmap_8h_source.html#l00021">DSHashMap::buckets</a>, <a class="el" href="hashmap_8h_source.html#l00026">DSHashItem::data</a>, <a class="el" href="hashmap_8h_source.html#l00014">DS_HASHMAP_KEY_INT</a>, <a class="el" href="hashmap_8h_source.html#l00015">DS_HASHMAP_KEY_STRING</a>, <a class="el" href="vector_8c_source.html#l00114">ds_vector_get()</a>, <a class="el" href="vector_8c_source.html#l00101">ds_vector_remove()</a>, <a class="el" href="hashmap_8h_source.html#l00025">DSHashItem::key</a>, <a class="el" href="structDSHashKey.html#ad2ed83c36c76bc722abd06aacce6c688">DSHashKey::key</a>, <a class="el" href="hashmap_8h_source.html#l00020">DSHashMap::keys</a>, <a class="el" href="hashmap_8h_source.html#l00027">DSHashItem::next</a>, <a class="el" href="hashmap_8h_source.html#l00035">DSHashKey::s</a>, and <a class="el" href="vector_8h_source.html#l00012">DSVector::size</a>.</p>
 
 </div>
 </div>
@@ -658,10 +578,6 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Removes an element using a string key. If 'free_data' is true, then all user data will be freed. If 'free_string_keys' is true, then all string will be freed. </p>
 
-<p>Definition at line <a class="el" href="hashmap_8c_source.html#l00163">163</a> of file <a class="el" href="hashmap_8c_source.html">hashmap.c</a>.</p>
-
-<p>References <a class="el" href="hashmap_8h_source.html#l00015">DS_HASHMAP_KEY_STRING</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a09a189458543317f9dc1325e7b0a69d0"></a>
@@ -690,12 +606,6 @@ Functions</h2></td></tr>
 <p>Sorts the keys using the provided compare function. The compare function is defined as follows: compare(k1, k2) &lt; 0 when k1 &lt; k2 compare(k1, k2) = 0 when k1 = k2 compare(k1, k2) &gt; 0 when k1 &gt; k2</p>
 <p>NOTE: The comparison doesn't have to be on the keys directly. One could use ds_get and compare those values. </p>
 
-<p>Definition at line <a class="el" href="hashmap_8c_source.html#l00391">391</a> of file <a class="el" href="hashmap_8c_source.html">hashmap.c</a>.</p>
-
-<p>References <a class="el" href="hashmap_8h_source.html#l00014">DS_HASHMAP_KEY_INT</a>, <a class="el" href="hashmap_8h_source.html#l00015">DS_HASHMAP_KEY_STRING</a>, <a class="el" href="vector_8c_source.html#l00173">ds_vector_sort()</a>, <a class="el" href="hashmap_8h_source.html#l00034">DSHashKey::i</a>, <a class="el" href="structDSHashKey.html#ad2ed83c36c76bc722abd06aacce6c688">DSHashKey::key</a>, <a class="el" href="hashmap_8h_source.html#l00020">DSHashMap::keys</a>, <a class="el" href="hashmap_8h_source.html#l00032">DSHashKey::keytype</a>, and <a class="el" href="hashmap_8h_source.html#l00035">DSHashKey::s</a>.</p>
-
-<p>Referenced by <a class="el" href="hashmap_8c_source.html#l00385">ds_hashmap_sort_keys()</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a236f5b7164b85ab765524f8e8337983d"></a>
@@ -712,10 +622,6 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Sorts the keys in alphanumeric order. </p>
-
-<p>Definition at line <a class="el" href="hashmap_8c_source.html#l00385">385</a> of file <a class="el" href="hashmap_8c_source.html">hashmap.c</a>.</p>
-
-<p>References <a class="el" href="hashmap_8c_source.html#l00391">ds_hashmap_sort_by()</a>.</p>
 
 </div>
 </div>
@@ -748,10 +654,6 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="hashmap_8c_source.html#l00097">97</a> of file <a class="el" href="hashmap_8c_source.html">hashmap.c</a>.</p>
-
-<p>References <a class="el" href="hashmap_8c_source.html#l00103">ds_hashmap_put_int()</a>.</p>
 
 </div>
 </div>
@@ -786,9 +688,26 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Some shortcut functions: ds_puts -&gt; ds_hashmap_put_str ds_puti -&gt; ds_hashmap_put_int ds_gets -&gt; ds_hashmap_get_str ds_geti -&gt; ds_hashmap_get_int </p>
 
-<p>Definition at line <a class="el" href="hashmap_8c_source.html#l00085">85</a> of file <a class="el" href="hashmap_8c_source.html">hashmap.c</a>.</p>
-
-<p>References <a class="el" href="hashmap_8c_source.html#l00091">ds_hashmap_put_str()</a>.</p>
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a class="anchor" id="a8ac2e6c7de831862d7259d711da42505"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int32_t DS_HASHMAP_BUCKETS = 1000000</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>

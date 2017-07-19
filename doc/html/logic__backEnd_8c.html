@@ -57,14 +57,12 @@
 <div class="contents">
 <div class="textblock"><code>#include &lt;string.h&gt;</code><br />
 <code>#include &lt;err.h&gt;</code><br />
-<code>#include &quot;<a class="el" href="logic__backEnd_8h_source.html">logic_backEnd.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="Protocol_8h_source.html">Protocol.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="usersHandle_8h_source.html">usersHandle.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="ipHandle_8h_source.html">ipHandle.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="groupsHandle_8h_source.html">groupsHandle.h</a>&quot;</code><br />
-</div>
-<p><a href="logic__backEnd_8c_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
+<code>#include &quot;<a class="el" href="logic__backEnd_8h.html">logic_backEnd.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="Protocol_8h.html">Protocol.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="usersHandle_8h.html">usersHandle.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="ipHandle_8h.html">ipHandle.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="groupsHandle_8h.html">groupsHandle.h</a>&quot;</code><br />
+</div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structLogic__BE.html">Logic_BE</a></td></tr>
@@ -79,6 +77,22 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a51bf90038ccadac13a4d813b24662896"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="logic__backEnd_8c.html#a51bf90038ccadac13a4d813b24662896">LogicBE_Send</a> (<a class="el" href="logic__backEnd_8h.html#a3d470643313450e901076473552495b6">Logic_BE_t</a> *_logic, <a class="el" href="tcp_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> _socketNum, <a class="el" href="Protocol_8h.html#ac6606ebe91c8ac66a2c314c79f5ab013">MessageType</a> _msgType, <a class="el" href="Protocol_8h.html#a4947063aa4bf9e1f8a563cc89f98f716">BackEndStatus</a> _responseResult, void *_msg, <a class="el" href="tcp_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> _msgLength)</td></tr>
+<tr class="separator:a51bf90038ccadac13a4d813b24662896"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a360691f865a8a78103549e395806be75"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="whatDownBackEndApp_8c.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="logic__backEnd_8c.html#a360691f865a8a78103549e395806be75">SignUp</a> (<a class="el" href="logic__backEnd_8h.html#a3d470643313450e901076473552495b6">Logic_BE_t</a> *_logicBE, <a class="el" href="Protocol_8h.html#a2b69287f8af88d9e2f51d882b3ad4354">ServerReceiveMessage_t</a> *m_decodedMsg, <a class="el" href="tcp_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> _socketNum)</td></tr>
+<tr class="separator:a360691f865a8a78103549e395806be75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab28f24e096f358ade0c70b73e2f48319"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="whatDownBackEndApp_8c.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="logic__backEnd_8c.html#ab28f24e096f358ade0c70b73e2f48319">LogIN</a> (<a class="el" href="logic__backEnd_8h.html#a3d470643313450e901076473552495b6">Logic_BE_t</a> *_logicBE, <a class="el" href="Protocol_8h.html#a2b69287f8af88d9e2f51d882b3ad4354">ServerReceiveMessage_t</a> *m_decodedMsg, <a class="el" href="tcp_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> _socketNum)</td></tr>
+<tr class="separator:ab28f24e096f358ade0c70b73e2f48319"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15ff3e0983733ebe1a34fffc79d78c7b"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="whatDownBackEndApp_8c.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="logic__backEnd_8c.html#a15ff3e0983733ebe1a34fffc79d78c7b">CreateGroup</a> (<a class="el" href="logic__backEnd_8h.html#a3d470643313450e901076473552495b6">Logic_BE_t</a> *_logicBE, <a class="el" href="Protocol_8h.html#a2b69287f8af88d9e2f51d882b3ad4354">ServerReceiveMessage_t</a> *_decodedMsg, <a class="el" href="tcp_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> _socketNum)</td></tr>
+<tr class="separator:a15ff3e0983733ebe1a34fffc79d78c7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad073ef664ca546dbbd6ede909af4cacc"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="whatDownBackEndApp_8c.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="logic__backEnd_8c.html#ad073ef664ca546dbbd6ede909af4cacc">JoinGroup</a> (<a class="el" href="logic__backEnd_8h.html#a3d470643313450e901076473552495b6">Logic_BE_t</a> *_logicBE, <a class="el" href="Protocol_8h.html#a2b69287f8af88d9e2f51d882b3ad4354">ServerReceiveMessage_t</a> *_decodedMsg, <a class="el" href="tcp_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> _socketNum)</td></tr>
+<tr class="separator:ad073ef664ca546dbbd6ede909af4cacc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad993172d93bf1bfccf5953ebeeeb0992"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="whatDownBackEndApp_8c.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="logic__backEnd_8c.html#ad993172d93bf1bfccf5953ebeeeb0992">GetAllGroups</a> (<a class="el" href="logic__backEnd_8h.html#a3d470643313450e901076473552495b6">Logic_BE_t</a> *_logicBE, <a class="el" href="Protocol_8h.html#a2b69287f8af88d9e2f51d882b3ad4354">ServerReceiveMessage_t</a> *_decodedMsg, <a class="el" href="tcp_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> _socketNum)</td></tr>
+<tr class="separator:ad993172d93bf1bfccf5953ebeeeb0992"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae9fdc012bd2cd8271ca211ca0bc690e"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="whatDownBackEndApp_8c.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="logic__backEnd_8c.html#aae9fdc012bd2cd8271ca211ca0bc690e">IsStructValid</a> (<a class="el" href="logic__backEnd_8h.html#a3d470643313450e901076473552495b6">Logic_BE_t</a> *_logicBE)</td></tr>
+<tr class="separator:aae9fdc012bd2cd8271ca211ca0bc690e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca958e3c68df553030d82c26ebb655f8"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="whatDownBackEndApp_8c.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="logic__backEnd_8c.html#aca958e3c68df553030d82c26ebb655f8">FlushServerReceiveMessage_t</a> (<a class="el" href="Protocol_8h.html#a2b69287f8af88d9e2f51d882b3ad4354">ServerReceiveMessage_t</a> *_decodedMsg)</td></tr>
+<tr class="separator:aca958e3c68df553030d82c26ebb655f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acd172243f5f7450ab6b0844200ac25d2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="logic__backEnd_8h.html#a3d470643313450e901076473552495b6">Logic_BE_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="logic__backEnd_8c.html#acd172243f5f7450ab6b0844200ac25d2">LogicBE_Create</a> (void *_usersHandel, void *_groupHandle, void *_IP_handle)</td></tr>
 <tr class="memdesc:acd172243f5f7450ab6b0844200ac25d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">create and setup for the process  <a href="#acd172243f5f7450ab6b0844200ac25d2">More...</a><br /></td></tr>
 <tr class="separator:acd172243f5f7450ab6b0844200ac25d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -112,10 +126,6 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="logic__backEnd_8c_source.html#l00018">18</a> of file <a class="el" href="logic__backEnd_8c_source.html">logic_backEnd.c</a>.</p>
-
-<p>Referenced by <a class="el" href="logic__backEnd_8c_source.html#l00053">LogicBE_Create()</a>, and <a class="el" href="logic__backEnd_8c_source.html#l00183">LogicBE_ErrorFunc()</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="ac2e54baaed0df35f4944e6715046c15c"></a>
@@ -128,13 +138,177 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="logic__backEnd_8c_source.html#l00020">20</a> of file <a class="el" href="logic__backEnd_8c_source.html">logic_backEnd.c</a>.</p>
-
-<p>Referenced by <a class="el" href="logic__backEnd_8c_source.html#l00183">LogicBE_ErrorFunc()</a>.</p>
-
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="a15ff3e0983733ebe1a34fffc79d78c7b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="whatDownBackEndApp_8c.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a> CreateGroup </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="logic__backEnd_8h.html#a3d470643313450e901076473552495b6">Logic_BE_t</a> *&#160;</td>
+          <td class="paramname"><em>_logicBE</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="Protocol_8h.html#a2b69287f8af88d9e2f51d882b3ad4354">ServerReceiveMessage_t</a> *&#160;</td>
+          <td class="paramname"><em>_decodedMsg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="tcp_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td>
+          <td class="paramname"><em>_socketNum</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aca958e3c68df553030d82c26ebb655f8"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="whatDownBackEndApp_8c.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a> FlushServerReceiveMessage_t </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="Protocol_8h.html#a2b69287f8af88d9e2f51d882b3ad4354">ServerReceiveMessage_t</a> *&#160;</td>
+          <td class="paramname"><em>_decodedMsg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ad993172d93bf1bfccf5953ebeeeb0992"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="whatDownBackEndApp_8c.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a> GetAllGroups </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="logic__backEnd_8h.html#a3d470643313450e901076473552495b6">Logic_BE_t</a> *&#160;</td>
+          <td class="paramname"><em>_logicBE</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="Protocol_8h.html#a2b69287f8af88d9e2f51d882b3ad4354">ServerReceiveMessage_t</a> *&#160;</td>
+          <td class="paramname"><em>_decodedMsg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="tcp_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td>
+          <td class="paramname"><em>_socketNum</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aae9fdc012bd2cd8271ca211ca0bc690e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="whatDownBackEndApp_8c.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a> IsStructValid </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="logic__backEnd_8h.html#a3d470643313450e901076473552495b6">Logic_BE_t</a> *&#160;</td>
+          <td class="paramname"><em>_logicBE</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ad073ef664ca546dbbd6ede909af4cacc"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="whatDownBackEndApp_8c.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a> JoinGroup </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="logic__backEnd_8h.html#a3d470643313450e901076473552495b6">Logic_BE_t</a> *&#160;</td>
+          <td class="paramname"><em>_logicBE</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="Protocol_8h.html#a2b69287f8af88d9e2f51d882b3ad4354">ServerReceiveMessage_t</a> *&#160;</td>
+          <td class="paramname"><em>_decodedMsg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="tcp_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td>
+          <td class="paramname"><em>_socketNum</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="abcfbd71f4199a83af84ffa5554b0870d"></a>
 <div class="memitem">
 <div class="memproto">
@@ -168,10 +342,6 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>TRUE for success and FALSE for errors </dd></dl>
-
-<p>Definition at line <a class="el" href="logic__backEnd_8c_source.html#l00175">175</a> of file <a class="el" href="logic__backEnd_8c_source.html">logic_backEnd.c</a>.</p>
-
-<p>Referenced by <a class="el" href="whatDownBackEndApp_8c_source.html#l00041">WhatDownBackEndApp_Create()</a>.</p>
 
 </div>
 </div>
@@ -216,12 +386,6 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>a pointer to the struct </dd></dl>
 
-<p>Definition at line <a class="el" href="logic__backEnd_8c_source.html#l00053">53</a> of file <a class="el" href="logic__backEnd_8c_source.html">logic_backEnd.c</a>.</p>
-
-<p>References <a class="el" href="logic__backEnd_8c_source.html#l00035">Logic_BE::m_decodedMsg</a>, <a class="el" href="logic__backEnd_8c_source.html#l00032">Logic_BE::m_groupHandle</a>, <a class="el" href="logic__backEnd_8c_source.html#l00033">Logic_BE::m_IP_handle</a>, <a class="el" href="logic__backEnd_8c_source.html#l00028">Logic_BE::m_magicNumber</a>, <a class="el" href="logic__backEnd_8c_source.html#l00031">Logic_BE::m_usersHandel</a>, and <a class="el" href="logic__backEnd_8c_source.html#l00018">MAGIC_NUMBER_BE_LOGIC</a>.</p>
-
-<p>Referenced by <a class="el" href="whatDownBackEndApp_8c_source.html#l00041">WhatDownBackEndApp_Create()</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="ab6507ca1a2ae73dc72e8544e58ba342a"></a>
@@ -245,12 +409,6 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-
-<p>Definition at line <a class="el" href="logic__backEnd_8c_source.html#l00095">95</a> of file <a class="el" href="logic__backEnd_8c_source.html">logic_backEnd.c</a>.</p>
-
-<p>References <a class="el" href="usersHandle_8c_source.html#l00152">IsStructValid()</a>, <a class="el" href="logic__backEnd_8c_source.html#l00035">Logic_BE::m_decodedMsg</a>, <a class="el" href="logic__backEnd_8c_source.html#l00028">Logic_BE::m_magicNumber</a>, <a class="el" href="logic__backEnd_8c_source.html#l00030">Logic_BE::m_net</a>, and <a class="el" href="tcp_8c_source.html#l00184">TCP_DestroyServer()</a>.</p>
-
-<p>Referenced by <a class="el" href="whatDownBackEndApp_8c_source.html#l00041">WhatDownBackEndApp_Create()</a>, and <a class="el" href="whatDownBackEndApp_8c_source.html#l00108">WhatDownBackEndApp_Destroy()</a>.</p>
 
 </div>
 </div>
@@ -295,12 +453,6 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>TRUE for success and FALSE for errors </dd></dl>
 
-<p>Definition at line <a class="el" href="logic__backEnd_8c_source.html#l00183">183</a> of file <a class="el" href="logic__backEnd_8c_source.html">logic_backEnd.c</a>.</p>
-
-<p>References <a class="el" href="Protocol_8h_source.html#l00072">BackEnd_GROUP_DO_NOT_EXIST</a>, <a class="el" href="Protocol_8h_source.html#l00071">BackEnd_GROUP_NAME_INVALID</a>, <a class="el" href="Protocol_8h_source.html#l00070">BackEnd_GROUP_NAME_TAKEN</a>, <a class="el" href="Protocol_8h_source.html#l00074">BackEnd_NO_FREE_IP</a>, <a class="el" href="Protocol_8h_source.html#l00069">BackEnd_PASSWORD_INVALID</a>, <a class="el" href="Protocol_8h_source.html#l00063">BackEnd_SUCCESS</a>, <a class="el" href="Protocol_8h_source.html#l00064">BackEnd_SYSTEM_FAIL</a>, <a class="el" href="Protocol_8h_source.html#l00067">BackEnd_USER_NAME_INVALID</a>, <a class="el" href="Protocol_8h_source.html#l00066">BackEnd_USER_NAME_TAKEN</a>, <a class="el" href="Protocol_8h_source.html#l00068">BackEnd_USER_NOT_FOUND</a>, <a class="el" href="Protocol_8h_source.html#l00031">DELIMITER</a>, <a class="el" href="Protocol_8h_source.html#l00032">DELIMITER_LENGHT</a>, <a class="el" href="tcp_8h_source.html#l00025">FALSE</a>, <a class="el" href="groupsHandle_8c_source.html#l00201">GroupsHandel_GetGroupsName()</a>, <a class="el" href="groupsHandle_8c_source.html#l00159">GroupsHandel_IsGroupExist()</a>, <a class="el" href="groupsHandle_8c_source.html#l00126">GroupsHandel_JoinGroup()</a>, <a class="el" href="groupsHandle_8c_source.html#l00099">GroupsHandel_NewGroup()</a>, <a class="el" href="ipHandle_8c_source.html#l00091">IP_Handle_GetFreeIP()</a>, <a class="el" href="usersHandle_8c_source.html#l00152">IsStructValid()</a>, <a class="el" href="logic__backEnd_8c_source.html#l00035">Logic_BE::m_decodedMsg</a>, <a class="el" href="logic__backEnd_8c_source.html#l00032">Logic_BE::m_groupHandle</a>, <a class="el" href="Protocol_8h_source.html#l00085">ServerReceiveMessage::m_groupName</a>, <a class="el" href="logic__backEnd_8c_source.html#l00033">Logic_BE::m_IP_handle</a>, <a class="el" href="logic__backEnd_8c_source.html#l00028">Logic_BE::m_magicNumber</a>, <a class="el" href="Protocol_8h_source.html#l00084">ServerReceiveMessage::m_password</a>, <a class="el" href="Protocol_8h_source.html#l00083">ServerReceiveMessage::m_userName</a>, <a class="el" href="logic__backEnd_8c_source.html#l00031">Logic_BE::m_usersHandel</a>, <a class="el" href="logic__backEnd_8c_source.html#l00018">MAGIC_NUMBER_BE_LOGIC</a>, <a class="el" href="reader_8c_source.html#l00026">MAX_GROUP_NAME</a>, <a class="el" href="Protocol_8h_source.html#l00025">MAX_MESSAGE_LENGTH</a>, <a class="el" href="Protocol_8h_source.html#l00027">MAX_PASSWORD</a>, <a class="el" href="Protocol_8h_source.html#l00026">MAX_USERNAME</a>, <a class="el" href="Protocol_8h_source.html#l00055">MESSAGETYPE_CREATE_GROUP</a>, <a class="el" href="Protocol_8h_source.html#l00053">MESSAGETYPE_DELETE_USER</a>, <a class="el" href="Protocol_8h_source.html#l00057">MESSAGETYPE_GET_ALL_GROUPS</a>, <a class="el" href="Protocol_8h_source.html#l00054">MESSAGETYPE_JOIN_GROUP</a>, <a class="el" href="Protocol_8h_source.html#l00056">MESSAGETYPE_LEAVE_GROUP</a>, <a class="el" href="Protocol_8h_source.html#l00051">MESSAGETYPE_LOGIN</a>, <a class="el" href="Protocol_8h_source.html#l00052">MESSAGETYPE_LOGOUT</a>, <a class="el" href="Protocol_8h_source.html#l00050">MESSAGETYPE_SIGNUP</a>, <a class="el" href="logic__backEnd_8c_source.html#l00020">MINIMAL_USER_PASSWORD</a>, <a class="el" href="protocol_8c_source.html#l00387">Protocol_EncodeGetAllGroups_Response()</a>, <a class="el" href="protocol_8c_source.html#l00341">Protocol_EncodeJoinGroup_Response()</a>, <a class="el" href="protocol_8c_source.html#l00111">Protocol_EncodeLogIn_Response()</a>, <a class="el" href="protocol_8c_source.html#l00295">Protocol_EncodeNewGroup_Response()</a>, <a class="el" href="protocol_8c_source.html#l00065">Protocol_EncodeSignUp_Response()</a>, <a class="el" href="tcp_8c_source.html#l00275">TCP_Send()</a>, <a class="el" href="tcp_8h_source.html#l00024">TRUE</a>, <a class="el" href="usersHandle_8c_source.html#l00088">UsersHandle_AddNewUser()</a>, <a class="el" href="usersHandle_8c_source.html#l00113">UsersHandle_IsUserExist()</a>, and <a class="el" href="usersHandle_8c_source.html#l00129">UsersHandle_IsUserPasswordMatch()</a>.</p>
-
-<p>Referenced by <a class="el" href="whatDownBackEndApp_8c_source.html#l00041">WhatDownBackEndApp_Create()</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a934f27e2ae1ce832f88161d21fac53b6"></a>
@@ -336,10 +488,6 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>TRUE for success and FALSE for errors </dd></dl>
-
-<p>Definition at line <a class="el" href="logic__backEnd_8c_source.html#l00168">168</a> of file <a class="el" href="logic__backEnd_8c_source.html">logic_backEnd.c</a>.</p>
-
-<p>Referenced by <a class="el" href="whatDownBackEndApp_8c_source.html#l00041">WhatDownBackEndApp_Create()</a>.</p>
 
 </div>
 </div>
@@ -391,11 +539,63 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>TRUE for success and FALSE for errors </dd></dl>
 
-<p>Definition at line <a class="el" href="logic__backEnd_8c_source.html#l00112">112</a> of file <a class="el" href="logic__backEnd_8c_source.html">logic_backEnd.c</a>.</p>
-
-<p>References <a class="el" href="defines_8h_source.html#l00068">GEN_ERROR</a>, <a class="el" href="usersHandle_8c_source.html#l00152">IsStructValid()</a>, <a class="el" href="logic__backEnd_8c_source.html#l00035">Logic_BE::m_decodedMsg</a>, <a class="el" href="Protocol_8h_source.html#l00082">ServerReceiveMessage::m_MessageType</a>, <a class="el" href="Protocol_8h_source.html#l00055">MESSAGETYPE_CREATE_GROUP</a>, <a class="el" href="Protocol_8h_source.html#l00053">MESSAGETYPE_DELETE_USER</a>, <a class="el" href="Protocol_8h_source.html#l00057">MESSAGETYPE_GET_ALL_GROUPS</a>, <a class="el" href="Protocol_8h_source.html#l00054">MESSAGETYPE_JOIN_GROUP</a>, <a class="el" href="Protocol_8h_source.html#l00056">MESSAGETYPE_LEAVE_GROUP</a>, <a class="el" href="Protocol_8h_source.html#l00051">MESSAGETYPE_LOGIN</a>, <a class="el" href="Protocol_8h_source.html#l00052">MESSAGETYPE_LOGOUT</a>, <a class="el" href="Protocol_8h_source.html#l00050">MESSAGETYPE_SIGNUP</a>, <a class="el" href="protocol_8c_source.html#l00206">Protocol_DecodeServer()</a>, and <a class="el" href="tcp_8h_source.html#l00024">TRUE</a>.</p>
-
-<p>Referenced by <a class="el" href="whatDownBackEndApp_8c_source.html#l00041">WhatDownBackEndApp_Create()</a>.</p>
+</div>
+</div>
+<a class="anchor" id="a51bf90038ccadac13a4d813b24662896"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int LogicBE_Send </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="logic__backEnd_8h.html#a3d470643313450e901076473552495b6">Logic_BE_t</a> *&#160;</td>
+          <td class="paramname"><em>_logic</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="tcp_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td>
+          <td class="paramname"><em>_socketNum</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="Protocol_8h.html#ac6606ebe91c8ac66a2c314c79f5ab013">MessageType</a>&#160;</td>
+          <td class="paramname"><em>_msgType</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="Protocol_8h.html#a4947063aa4bf9e1f8a563cc89f98f716">BackEndStatus</a>&#160;</td>
+          <td class="paramname"><em>_responseResult</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>_msg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="tcp_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td>
+          <td class="paramname"><em>_msgLength</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -433,11 +633,85 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>TRUE for succses and FALSE if one of the parameters is wrong </dd></dl>
 
-<p>Definition at line <a class="el" href="logic__backEnd_8c_source.html#l00083">83</a> of file <a class="el" href="logic__backEnd_8c_source.html">logic_backEnd.c</a>.</p>
+</div>
+</div>
+<a class="anchor" id="ab28f24e096f358ade0c70b73e2f48319"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="whatDownBackEndApp_8c.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a> LogIN </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="logic__backEnd_8h.html#a3d470643313450e901076473552495b6">Logic_BE_t</a> *&#160;</td>
+          <td class="paramname"><em>_logicBE</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="Protocol_8h.html#a2b69287f8af88d9e2f51d882b3ad4354">ServerReceiveMessage_t</a> *&#160;</td>
+          <td class="paramname"><em>m_decodedMsg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="tcp_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td>
+          <td class="paramname"><em>_socketNum</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
-<p>References <a class="el" href="tcp_8h_source.html#l00025">FALSE</a>, <a class="el" href="usersHandle_8c_source.html#l00152">IsStructValid()</a>, <a class="el" href="logic__backEnd_8c_source.html#l00030">Logic_BE::m_net</a>, and <a class="el" href="tcp_8h_source.html#l00024">TRUE</a>.</p>
-
-<p>Referenced by <a class="el" href="whatDownBackEndApp_8c_source.html#l00041">WhatDownBackEndApp_Create()</a>.</p>
+</div>
+</div>
+<a class="anchor" id="a360691f865a8a78103549e395806be75"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="whatDownBackEndApp_8c.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a> SignUp </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="logic__backEnd_8h.html#a3d470643313450e901076473552495b6">Logic_BE_t</a> *&#160;</td>
+          <td class="paramname"><em>_logicBE</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="Protocol_8h.html#a2b69287f8af88d9e2f51d882b3ad4354">ServerReceiveMessage_t</a> *&#160;</td>
+          <td class="paramname"><em>m_decodedMsg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="tcp_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td>
+          <td class="paramname"><em>_socketNum</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>

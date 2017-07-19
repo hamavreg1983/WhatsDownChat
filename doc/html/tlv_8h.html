@@ -59,17 +59,15 @@
 
 <p>encoding / decodeing system for commanacation.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="defines_8h_source.html">defines.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="Protocol_8h_source.html">Protocol.h</a>&quot;</code><br />
-</div>
-<p><a href="tlv_8h_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
+<div class="textblock"><code>#include &quot;<a class="el" href="defines_8h.html">defines.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="Protocol_8h.html">Protocol.h</a>&quot;</code><br />
+</div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:a8de3ed741dadc9c979a4ff17c0a9116e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tlv_8h.html#a8de3ed741dadc9c979a4ff17c0a9116e">NDEBUG</a></td></tr>
 <tr class="separator:a8de3ed741dadc9c979a4ff17c0a9116e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2a1b69687fbaad3cf59a121ac6f29f02"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tlv_8h.html#a2a1b69687fbaad3cf59a121ac6f29f02">TLV_LENGTH_LENGTH</a>&#160;&#160;&#160;<a class="el" href="Protocol_8h.html#ac36cf5d013d50b0770876b515cca9c4a">TLV_LENGTH_LENGHT</a>			/* size in char of number that is the size of str information send. eg. 2 digits is 42 */</td></tr>
-<tr class="separator:a2a1b69687fbaad3cf59a121ac6f29f02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e32ce4ed33fac979382aa596af8cd6b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tlv_8h.html#a4e32ce4ed33fac979382aa596af8cd6b">TLV_META_LENGTH_LENGTH</a>&#160;&#160;&#160;<a class="el" href="Protocol_8h.html#afdd07e4f8a49db90d626a66e607f026c">TLV_LENGHT_LENGTHT</a>			/* size in char of number that is the size of str information send. eg. 2 digits is 42 */</td></tr>
+<tr class="separator:a4e32ce4ed33fac979382aa596af8cd6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a907584b72b7ddec20a9c4af3af03411e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tlv_8h.html#a907584b72b7ddec20a9c4af3af03411e">TLV_META_LENGTH</a>&#160;&#160;&#160;<a class="el" href="Protocol_8h.html#acaf400df9a74b3295697ca29cc9261cb">HEADER_LENGTH</a></td></tr>
 <tr class="separator:a907584b72b7ddec20a9c4af3af03411e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -111,8 +109,6 @@ Functions</h2></td></tr>
 <dl class="bug"><dt><b><a class="el" href="bug.html#_bug000003">Bug:</a></b></dt><dd><p class="startdd">No known bugs. </p>
 <p class="enddd">check that no str function are called that prevent non string information. </p>
 </dd></dl>
-
-<p>Definition in file <a class="el" href="tlv_8h_source.html">tlv.h</a>.</p>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
 <a class="anchor" id="a8de3ed741dadc9c979a4ff17c0a9116e"></a>
 <div class="memitem">
@@ -123,24 +119,6 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="tlv_8h_source.html#l00008">8</a> of file <a class="el" href="tlv_8h_source.html">tlv.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a2a1b69687fbaad3cf59a121ac6f29f02"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define TLV_LENGTH_LENGTH&#160;&#160;&#160;<a class="el" href="Protocol_8h.html#ac36cf5d013d50b0770876b515cca9c4a">TLV_LENGTH_LENGHT</a>			/* size in char of number that is the size of str information send. eg. 2 digits is 42 */</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="tlv_8h_source.html#l00028">28</a> of file <a class="el" href="tlv_8h_source.html">tlv.h</a>.</p>
-
-<p>Referenced by <a class="el" href="tlv_8c_source.html#l00053">TLV_decode()</a>, and <a class="el" href="tlv_8c_source.html#l00026">TLV_encoder()</a>.</p>
 
 </div>
 </div>
@@ -154,7 +132,17 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="tlv_8h_source.html#l00029">29</a> of file <a class="el" href="tlv_8h_source.html">tlv.h</a>.</p>
+</div>
+</div>
+<a class="anchor" id="a4e32ce4ed33fac979382aa596af8cd6b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TLV_META_LENGTH_LENGTH&#160;&#160;&#160;<a class="el" href="Protocol_8h.html#afdd07e4f8a49db90d626a66e607f026c">TLV_LENGHT_LENGTHT</a>			/* size in char of number that is the size of str information send. eg. 2 digits is 42 */</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -199,8 +187,6 @@ Functions</h2></td></tr>
 <tr><td class="fieldname"><a class="anchor" id="ae18a348386ce12478f6b5774e0ae7dffa971a3cb4da4c6a5efa3e7cacc05223cd"></a>TLV_ALLOCATION_ERROR&#160;</td><td class="fielddoc">
 </td></tr>
 </table>
-
-<p>Definition at line <a class="el" href="tlv_8h_source.html#l00032">32</a> of file <a class="el" href="tlv_8h_source.html">tlv.h</a>.</p>
 
 </div>
 </div>
@@ -271,12 +257,6 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="tlv_8c_source.html#l00053">53</a> of file <a class="el" href="tlv_8c_source.html">tlv.c</a>.</p>
-
-<p>References <a class="el" href="tlv_8h_source.html#l00037">TLV_INPUT_ERROR</a>, <a class="el" href="tlv_8h_source.html#l00028">TLV_LENGTH_LENGTH</a>, <a class="el" href="tlv_8h_source.html#l00034">TLV_MORE_TLVS_TO_DECODE</a>, <a class="el" href="tlv_8h_source.html#l00033">TLV_SUCCESS</a>, <a class="el" href="tlv_8h_source.html#l00035">TLV_TRANCATED_TLV</a>, and <a class="el" href="Protocol_8h_source.html#l00022">TLV_TYPE_LENGTH</a>.</p>
-
-<p>Referenced by <a class="el" href="protocol_8c_source.html#l00134">Protocol_DecodeClient()</a>, and <a class="el" href="protocol_8c_source.html#l00206">Protocol_DecodeServer()</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a5bb90cef2437ae12098dfe226ae1c600"></a>
@@ -332,12 +312,6 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-
-<p>Definition at line <a class="el" href="tlv_8c_source.html#l00026">26</a> of file <a class="el" href="tlv_8c_source.html">tlv.c</a>.</p>
-
-<p>References <a class="el" href="tlv_8h_source.html#l00037">TLV_INPUT_ERROR</a>, <a class="el" href="tlv_8h_source.html#l00028">TLV_LENGTH_LENGTH</a>, <a class="el" href="tlv_8h_source.html#l00033">TLV_SUCCESS</a>, and <a class="el" href="tlv_8h_source.html#l00038">TLV_UNKNOWN_ERROR</a>.</p>
-
-<p>Referenced by <a class="el" href="protocol_8c_source.html#l00364">Protocol_EncodeGetAllGroups()</a>, <a class="el" href="protocol_8c_source.html#l00387">Protocol_EncodeGetAllGroups_Response()</a>, <a class="el" href="protocol_8c_source.html#l00318">Protocol_EncodeJoinGroup()</a>, <a class="el" href="protocol_8c_source.html#l00341">Protocol_EncodeJoinGroup_Response()</a>, <a class="el" href="protocol_8c_source.html#l00088">Protocol_EncodeLogIn()</a>, <a class="el" href="protocol_8c_source.html#l00111">Protocol_EncodeLogIn_Response()</a>, <a class="el" href="protocol_8c_source.html#l00272">Protocol_EncodeNewGroup()</a>, <a class="el" href="protocol_8c_source.html#l00295">Protocol_EncodeNewGroup_Response()</a>, <a class="el" href="protocol_8c_source.html#l00041">Protocol_EncodeSignUp()</a>, and <a class="el" href="protocol_8c_source.html#l00065">Protocol_EncodeSignUp_Response()</a>.</p>
 
 </div>
 </div>

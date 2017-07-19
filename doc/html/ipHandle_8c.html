@@ -58,11 +58,9 @@
 <div class="textblock"><code>#include &lt;netinet/in.h&gt;</code><br />
 <code>#include &lt;sys/socket.h&gt;</code><br />
 <code>#include &lt;arpa/inet.h&gt;</code><br />
-<code>#include &quot;<a class="el" href="ipHandle_8h_source.html">ipHandle.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="queue_8h_source.html">queue.h</a>&quot;</code><br />
-</div>
-<p><a href="ipHandle_8c_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
+<code>#include &quot;<a class="el" href="ipHandle_8h.html">ipHandle.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="queue_8h.html">queue.h</a>&quot;</code><br />
+</div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structIP__Handle.html">IP_Handle</a></td></tr>
@@ -75,6 +73,12 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a6d38cbb525cbfe0c087fd47cd6aa003c"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="whatDownBackEndApp_8c.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ipHandle_8c.html#a6d38cbb525cbfe0c087fd47cd6aa003c">IsStructValid</a> (<a class="el" href="ipHandle_8h.html#add91812b3634709f7dfe7d00713c83d1">IP_Handle_t</a> *_ipHndl)</td></tr>
+<tr class="separator:a6d38cbb525cbfe0c087fd47cd6aa003c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa81dccea21ab2ecfd7f1a06a6db4e16f"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="whatDownBackEndApp_8c.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ipHandle_8c.html#aa81dccea21ab2ecfd7f1a06a6db4e16f">CreateAddrsAndQue</a> (struct <a class="el" href="structDSQueue.html">DSQueue</a> *_ipContiner, const char *_firstIP, <a class="el" href="tcp_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> _numOfAdrs, <a class="el" href="tcp_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> _port)</td></tr>
+<tr class="separator:aa81dccea21ab2ecfd7f1a06a6db4e16f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65b315604384665c13ee121166dc1c22"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="groupsHandle_8h.html#a833d9365af0fc2308a2172dea4a18094">sockaddr_in_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ipHandle_8c.html#a65b315604384665c13ee121166dc1c22">CreateAddrs</a> (uint32_t _ip, <a class="el" href="tcp_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> _port)</td></tr>
+<tr class="separator:a65b315604384665c13ee121166dc1c22"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa7167158774647218169056976d42a0e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="ipHandle_8h.html#add91812b3634709f7dfe7d00713c83d1">IP_Handle_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ipHandle_8c.html#aa7167158774647218169056976d42a0e">IP_Handle_Create</a> (const char *_firestIP, <a class="el" href="tcp_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> _maxNumOfIPs, <a class="el" href="tcp_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> _portNum)</td></tr>
 <tr class="separator:aa7167158774647218169056976d42a0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1752c6ea61e24e672244bf103229414b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ipHandle_8c.html#a1752c6ea61e24e672244bf103229414b">IP_Handle_Destory</a> (<a class="el" href="ipHandle_8h.html#add91812b3634709f7dfe7d00713c83d1">IP_Handle_t</a> *_ipHndl)</td></tr>
@@ -96,13 +100,89 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="ipHandle_8c_source.html#l00017">17</a> of file <a class="el" href="ipHandle_8c_source.html">ipHandle.c</a>.</p>
-
-<p>Referenced by <a class="el" href="ipHandle_8c_source.html#l00037">IP_Handle_Create()</a>, and <a class="el" href="ipHandle_8c_source.html#l00107">IP_Handle_Release()</a>.</p>
-
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="a65b315604384665c13ee121166dc1c22"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="groupsHandle_8h.html#a833d9365af0fc2308a2172dea4a18094">sockaddr_in_t</a> * CreateAddrs </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>_ip</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="tcp_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td>
+          <td class="paramname"><em>_port</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aa81dccea21ab2ecfd7f1a06a6db4e16f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="whatDownBackEndApp_8c.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a> CreateAddrsAndQue </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="structDSQueue.html">DSQueue</a> *&#160;</td>
+          <td class="paramname"><em>_ipContiner</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>_firstIP</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="tcp_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td>
+          <td class="paramname"><em>_numOfAdrs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="tcp_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td>
+          <td class="paramname"><em>_port</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="aa7167158774647218169056976d42a0e"></a>
 <div class="memitem">
 <div class="memproto">
@@ -133,12 +213,6 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="ipHandle_8c_source.html#l00037">37</a> of file <a class="el" href="ipHandle_8c_source.html">ipHandle.c</a>.</p>
-
-<p>References <a class="el" href="queue_8c_source.html#l00040">ds_queue_create()</a>, <a class="el" href="ipHandle_8c_source.html#l00026">IP_Handle::m_ipContiner</a>, <a class="el" href="ipHandle_8c_source.html#l00024">IP_Handle::m_magicNumber</a>, and <a class="el" href="ipHandle_8c_source.html#l00017">MAGIC_NUMBER_ALIVE_IP_HANDLE</a>.</p>
-
-<p>Referenced by <a class="el" href="whatDownBackEndApp_8c_source.html#l00041">WhatDownBackEndApp_Create()</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a1752c6ea61e24e672244bf103229414b"></a>
@@ -154,12 +228,6 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="ipHandle_8c_source.html#l00066">66</a> of file <a class="el" href="ipHandle_8c_source.html">ipHandle.c</a>.</p>
-
-<p>References <a class="el" href="queue_8c_source.html#l00071">ds_queue_free()</a>, <a class="el" href="queue_8c_source.html#l00132">ds_queue_get()</a>, <a class="el" href="queue_8c_source.html#l00088">ds_queue_length()</a>, <a class="el" href="usersHandle_8c_source.html#l00152">IsStructValid()</a>, <a class="el" href="ipHandle_8c_source.html#l00026">IP_Handle::m_ipContiner</a>, and <a class="el" href="ipHandle_8c_source.html#l00024">IP_Handle::m_magicNumber</a>.</p>
-
-<p>Referenced by <a class="el" href="whatDownBackEndApp_8c_source.html#l00041">WhatDownBackEndApp_Create()</a>, and <a class="el" href="whatDownBackEndApp_8c_source.html#l00108">WhatDownBackEndApp_Destroy()</a>.</p>
 
 </div>
 </div>
@@ -185,12 +253,6 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>pointer to the address struct used in network module. NULL if errors. </dd></dl>
-
-<p>Definition at line <a class="el" href="ipHandle_8c_source.html#l00091">91</a> of file <a class="el" href="ipHandle_8c_source.html">ipHandle.c</a>.</p>
-
-<p>References <a class="el" href="queue_8c_source.html#l00132">ds_queue_get()</a>, <a class="el" href="queue_8c_source.html#l00088">ds_queue_length()</a>, <a class="el" href="usersHandle_8c_source.html#l00152">IsStructValid()</a>, and <a class="el" href="ipHandle_8c_source.html#l00026">IP_Handle::m_ipContiner</a>.</p>
-
-<p>Referenced by <a class="el" href="logic__backEnd_8c_source.html#l00183">LogicBE_ErrorFunc()</a>.</p>
 
 </div>
 </div>
@@ -218,9 +280,29 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="ipHandle_8c_source.html#l00107">107</a> of file <a class="el" href="ipHandle_8c_source.html">ipHandle.c</a>.</p>
-
-<p>References <a class="el" href="queue_8c_source.html#l00098">ds_queue_capacity()</a>, <a class="el" href="queue_8c_source.html#l00088">ds_queue_length()</a>, <a class="el" href="queue_8c_source.html#l00113">ds_queue_put()</a>, <a class="el" href="tcp_8h_source.html#l00025">FALSE</a>, <a class="el" href="usersHandle_8c_source.html#l00152">IsStructValid()</a>, <a class="el" href="ipHandle_8c_source.html#l00026">IP_Handle::m_ipContiner</a>, <a class="el" href="ipHandle_8c_source.html#l00024">IP_Handle::m_magicNumber</a>, <a class="el" href="ipHandle_8c_source.html#l00017">MAGIC_NUMBER_ALIVE_IP_HANDLE</a>, and <a class="el" href="tcp_8h_source.html#l00024">TRUE</a>.</p>
+</div>
+</div>
+<a class="anchor" id="a6d38cbb525cbfe0c087fd47cd6aa003c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="whatDownBackEndApp_8c.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a> IsStructValid </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="ipHandle_8h.html#add91812b3634709f7dfe7d00713c83d1">IP_Handle_t</a> *&#160;</td>
+          <td class="paramname"><em>_ipHndl</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>

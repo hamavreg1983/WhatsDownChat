@@ -61,11 +61,9 @@
 <code>#include &lt;sys/socket.h&gt;</code><br />
 <code>#include &lt;netinet/in.h&gt;</code><br />
 <code>#include &lt;arpa/inet.h&gt;</code><br />
-<code>#include &quot;<a class="el" href="logicFE_8h_source.html">logicFE.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="Protocol_8h_source.html">Protocol.h</a>&quot;</code><br />
-</div>
-<p><a href="logic__FE_8c_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
+<code>#include &quot;<a class="el" href="logicFE_8h.html">logicFE.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="Protocol_8h.html">Protocol.h</a>&quot;</code><br />
+</div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structLogic__FE.html">Logic_FE</a></td></tr>
@@ -92,6 +90,14 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a4ae1ad2699bdbc78f7b98e9b39736bef"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="logic__FE_8c.html#a4ae1ad2699bdbc78f7b98e9b39736bef">LogicFE_Send</a> (<a class="el" href="Client__ui_8h.html#adc22b842bed5c7e594f04d5f5a110b2c">Logic_FE_t</a> *_logic, void *_msg, <a class="el" href="tcp_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> _msgLength)</td></tr>
+<tr class="separator:a4ae1ad2699bdbc78f7b98e9b39736bef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9bc73b99da6c16816a12da228e7884f5"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="logic__FE_8c.html#a9bc73b99da6c16816a12da228e7884f5">LogicFE_Recive</a> (<a class="el" href="tcp__client_8h.html#a3db7b57ed8c85377051fea41ecaf4ff9">TCP_C_t</a> *_netClient, <a class="el" href="Protocol_8h.html#ae2f0907dd30e2cf75f61a8294018f702">ClientReceiveMessage_t</a> *_recivebuf)</td></tr>
+<tr class="separator:a9bc73b99da6c16816a12da228e7884f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2925cd56d755594e698507e0238b2e69"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="whatDownBackEndApp_8c.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="logic__FE_8c.html#a2925cd56d755594e698507e0238b2e69">IsStructValid</a> (<a class="el" href="Client__ui_8h.html#adc22b842bed5c7e594f04d5f5a110b2c">Logic_FE_t</a> *_logic)</td></tr>
+<tr class="separator:a2925cd56d755594e698507e0238b2e69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ca61dc757ffb86efa60532ce525726b"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="whatDownBackEndApp_8c.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="logic__FE_8c.html#a9ca61dc757ffb86efa60532ce525726b">OpenChatWindows</a> (<a class="el" href="groupsHandle_8h.html#a833d9365af0fc2308a2172dea4a18094">sockaddr_in_t</a> *_sockaddr_t, const char *_name, const char *_groupName)</td></tr>
+<tr class="separator:a9ca61dc757ffb86efa60532ce525726b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4f5babfc3d2ba3e31270b7acca4c24e5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Client__ui_8h.html#adc22b842bed5c7e594f04d5f5a110b2c">Logic_FE_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="logic__FE_8c.html#a4f5babfc3d2ba3e31270b7acca4c24e5">LogicFE_Create</a> (<a class="el" href="tcp__client_8h.html#a3db7b57ed8c85377051fea41ecaf4ff9">TCP_C_t</a> *_netClient)</td></tr>
 <tr class="memdesc:a4f5babfc3d2ba3e31270b7acca4c24e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">create and setup  <a href="#a4f5babfc3d2ba3e31270b7acca4c24e5">More...</a><br /></td></tr>
 <tr class="separator:a4f5babfc3d2ba3e31270b7acca4c24e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -122,10 +128,6 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="logic__FE_8c_source.html#l00022">22</a> of file <a class="el" href="logic__FE_8c_source.html">logic_FE.c</a>.</p>
-
-<p>Referenced by <a class="el" href="logic__FE_8c_source.html#l00052">LogicFE_Create()</a>, and <a class="el" href="logic__FE_8c_source.html#l00252">LogicFE_GetAllGroupsName()</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="ab9f5b30d33c2cf2507381b694b186a8e"></a>
@@ -137,8 +139,6 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="logic__FE_8c_source.html#l00021">21</a> of file <a class="el" href="logic__FE_8c_source.html">logic_FE.c</a>.</p>
 
 </div>
 </div>
@@ -215,6 +215,30 @@ Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="a2925cd56d755594e698507e0238b2e69"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="whatDownBackEndApp_8c.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a> IsStructValid </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="Client__ui_8h.html#adc22b842bed5c7e594f04d5f5a110b2c">Logic_FE_t</a> *&#160;</td>
+          <td class="paramname"><em>_logic</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a4f5babfc3d2ba3e31270b7acca4c24e5"></a>
 <div class="memitem">
 <div class="memproto">
@@ -237,12 +261,6 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the pointer to the struct </dd></dl>
-
-<p>Definition at line <a class="el" href="logic__FE_8c_source.html#l00052">52</a> of file <a class="el" href="logic__FE_8c_source.html">logic_FE.c</a>.</p>
-
-<p>References <a class="el" href="logic__FE_8c_source.html#l00030">Logic_FE::m_magicNumer</a>, <a class="el" href="logic__FE_8c_source.html#l00032">Logic_FE::m_netClient</a>, <a class="el" href="logic__FE_8c_source.html#l00037">Logic_FE::m_recivebuf</a>, <a class="el" href="logic__FE_8c_source.html#l00034">Logic_FE::m_userName</a>, and <a class="el" href="logic__FE_8c_source.html#l00022">MAGIC_NUMBER_ALIVE_LOGIC_FE</a>.</p>
-
-<p>Referenced by <a class="el" href="ClientWhatDownApp_8c_source.html#l00036">WhatDownClientApp_Create()</a>.</p>
 
 </div>
 </div>
@@ -279,12 +297,6 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>TRUE for success. FALSE for fail </dd></dl>
-
-<p>Definition at line <a class="el" href="logic__FE_8c_source.html#l00163">163</a> of file <a class="el" href="logic__FE_8c_source.html">logic_FE.c</a>.</p>
-
-<p>References <a class="el" href="Protocol_8h_source.html#l00063">BackEnd_SUCCESS</a>, <a class="el" href="usersHandle_8c_source.html#l00152">IsStructValid()</a>, <a class="el" href="Protocol_8h_source.html#l00092">ClientReceiveMessage::m_groupAdrres</a>, <a class="el" href="logic__FE_8c_source.html#l00032">Logic_FE::m_netClient</a>, <a class="el" href="logic__FE_8c_source.html#l00037">Logic_FE::m_recivebuf</a>, <a class="el" href="logic__FE_8c_source.html#l00034">Logic_FE::m_userName</a>, <a class="el" href="Protocol_8h_source.html#l00025">MAX_MESSAGE_LENGTH</a>, and <a class="el" href="protocol_8c_source.html#l00272">Protocol_EncodeNewGroup()</a>.</p>
-
-<p>Referenced by <a class="el" href="Client__ui_8c_source.html#l00278">CreateNewGroupFunction()</a>.</p>
 
 </div>
 </div>
@@ -336,12 +348,6 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p>Definition at line <a class="el" href="logic__FE_8c_source.html#l00252">252</a> of file <a class="el" href="logic__FE_8c_source.html">logic_FE.c</a>.</p>
-
-<p>References <a class="el" href="Protocol_8h_source.html#l00063">BackEnd_SUCCESS</a>, <a class="el" href="Protocol_8h_source.html#l00064">BackEnd_SYSTEM_FAIL</a>, <a class="el" href="tcp_8h_source.html#l00025">FALSE</a>, <a class="el" href="usersHandle_8c_source.html#l00152">IsStructValid()</a>, <a class="el" href="Protocol_8h_source.html#l00093">ClientReceiveMessage::m_GroupName</a>, <a class="el" href="logic__FE_8c_source.html#l00030">Logic_FE::m_magicNumer</a>, <a class="el" href="Protocol_8h_source.html#l00090">ClientReceiveMessage::m_messageType</a>, <a class="el" href="logic__FE_8c_source.html#l00032">Logic_FE::m_netClient</a>, <a class="el" href="Protocol_8h_source.html#l00094">ClientReceiveMessage::m_numberOfGroups</a>, <a class="el" href="logic__FE_8c_source.html#l00037">Logic_FE::m_recivebuf</a>, <a class="el" href="Protocol_8h_source.html#l00091">ClientReceiveMessage::m_status</a>, <a class="el" href="logic__FE_8c_source.html#l00022">MAGIC_NUMBER_ALIVE_LOGIC_FE</a>, <a class="el" href="Protocol_8h_source.html#l00025">MAX_MESSAGE_LENGTH</a>, <a class="el" href="protocol_8c_source.html#l00134">Protocol_DecodeClient()</a>, <a class="el" href="protocol_8c_source.html#l00364">Protocol_EncodeGetAllGroups()</a>, <a class="el" href="tcp__client_8c_source.html#l00180">TCP_ClientRecive()</a>, <a class="el" href="tcp__client_8c_source.html#l00158">TCP_ClientSend()</a>, and <a class="el" href="tcp_8h_source.html#l00024">TRUE</a>.</p>
-
-<p>Referenced by <a class="el" href="Client__ui_8c_source.html#l00325">GetAllGruopFunction()</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a4d7b352ee598d5b629fa59c52e355b68"></a>
@@ -377,12 +383,6 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>TRUE for success. FALSE for fail </dd></dl>
-
-<p>Definition at line <a class="el" href="logic__FE_8c_source.html#l00207">207</a> of file <a class="el" href="logic__FE_8c_source.html">logic_FE.c</a>.</p>
-
-<p>References <a class="el" href="Protocol_8h_source.html#l00063">BackEnd_SUCCESS</a>, <a class="el" href="usersHandle_8c_source.html#l00152">IsStructValid()</a>, <a class="el" href="Protocol_8h_source.html#l00092">ClientReceiveMessage::m_groupAdrres</a>, <a class="el" href="logic__FE_8c_source.html#l00032">Logic_FE::m_netClient</a>, <a class="el" href="logic__FE_8c_source.html#l00037">Logic_FE::m_recivebuf</a>, <a class="el" href="logic__FE_8c_source.html#l00034">Logic_FE::m_userName</a>, <a class="el" href="Protocol_8h_source.html#l00025">MAX_MESSAGE_LENGTH</a>, and <a class="el" href="protocol_8c_source.html#l00318">Protocol_EncodeJoinGroup()</a>.</p>
-
-<p>Referenced by <a class="el" href="Client__ui_8c_source.html#l00298">JoinGruopFunction()</a>.</p>
 
 </div>
 </div>
@@ -427,11 +427,79 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>TRUE for success. FALSE for fail </dd></dl>
 
-<p>Definition at line <a class="el" href="logic__FE_8c_source.html#l00122">122</a> of file <a class="el" href="logic__FE_8c_source.html">logic_FE.c</a>.</p>
+</div>
+</div>
+<a class="anchor" id="a9bc73b99da6c16816a12da228e7884f5"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int LogicFE_Recive </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="tcp__client_8h.html#a3db7b57ed8c85377051fea41ecaf4ff9">TCP_C_t</a> *&#160;</td>
+          <td class="paramname"><em>_netClient</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="Protocol_8h.html#ae2f0907dd30e2cf75f61a8294018f702">ClientReceiveMessage_t</a> *&#160;</td>
+          <td class="paramname"><em>_recivebuf</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
-<p>References <a class="el" href="Protocol_8h_source.html#l00063">BackEnd_SUCCESS</a>, <a class="el" href="defines_8h_source.html#l00068">GEN_ERROR</a>, <a class="el" href="usersHandle_8c_source.html#l00152">IsStructValid()</a>, <a class="el" href="logic__FE_8c_source.html#l00032">Logic_FE::m_netClient</a>, <a class="el" href="logic__FE_8c_source.html#l00037">Logic_FE::m_recivebuf</a>, <a class="el" href="logic__FE_8c_source.html#l00034">Logic_FE::m_userName</a>, <a class="el" href="Protocol_8h_source.html#l00025">MAX_MESSAGE_LENGTH</a>, and <a class="el" href="protocol_8c_source.html#l00088">Protocol_EncodeLogIn()</a>.</p>
-
-<p>Referenced by <a class="el" href="Client__ui_8c_source.html#l00237">LoginFunction()</a>.</p>
+</div>
+</div>
+<a class="anchor" id="a4ae1ad2699bdbc78f7b98e9b39736bef"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int LogicFE_Send </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="Client__ui_8h.html#adc22b842bed5c7e594f04d5f5a110b2c">Logic_FE_t</a> *&#160;</td>
+          <td class="paramname"><em>_logic</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>_msg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="tcp_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td>
+          <td class="paramname"><em>_msgLength</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -476,11 +544,45 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>TRUE for success. FALSE for fail </dd></dl>
 
-<p>Definition at line <a class="el" href="logic__FE_8c_source.html#l00082">82</a> of file <a class="el" href="logic__FE_8c_source.html">logic_FE.c</a>.</p>
-
-<p>References <a class="el" href="Protocol_8h_source.html#l00063">BackEnd_SUCCESS</a>, <a class="el" href="defines_8h_source.html#l00068">GEN_ERROR</a>, <a class="el" href="usersHandle_8c_source.html#l00152">IsStructValid()</a>, <a class="el" href="logic__FE_8c_source.html#l00032">Logic_FE::m_netClient</a>, <a class="el" href="logic__FE_8c_source.html#l00037">Logic_FE::m_recivebuf</a>, <a class="el" href="logic__FE_8c_source.html#l00034">Logic_FE::m_userName</a>, <a class="el" href="Protocol_8h_source.html#l00025">MAX_MESSAGE_LENGTH</a>, and <a class="el" href="protocol_8c_source.html#l00041">Protocol_EncodeSignUp()</a>.</p>
-
-<p>Referenced by <a class="el" href="Client__ui_8c_source.html#l00208">SignupFunction()</a>.</p>
+</div>
+</div>
+<a class="anchor" id="a9ca61dc757ffb86efa60532ce525726b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="whatDownBackEndApp_8c.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a> OpenChatWindows </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="groupsHandle_8h.html#a833d9365af0fc2308a2172dea4a18094">sockaddr_in_t</a> *&#160;</td>
+          <td class="paramname"><em>_sockaddr_t</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>_groupName</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
