@@ -21,7 +21,7 @@ typedef struct \hyperlink{structIP__Handle}{I\+P\+\_\+\+Handle} \hyperlink{ipHan
 void \hyperlink{ipHandle_8h_a1752c6ea61e24e672244bf103229414b}{I\+P\+\_\+\+Handle\+\_\+\+Destory} (\hyperlink{ipHandle_8h_add91812b3634709f7dfe7d00713c83d1}{I\+P\+\_\+\+Handle\+\_\+t} $\ast$\+\_\+ip\+Hndl)
 \item 
 \hyperlink{groupsHandle_8h_a833d9365af0fc2308a2172dea4a18094}{sockaddr\+\_\+in\+\_\+t} $\ast$ \hyperlink{ipHandle_8h_aa0bea26f65367b88585ef7412e18479b}{I\+P\+\_\+\+Handle\+\_\+\+Get\+Free\+IP} (\hyperlink{ipHandle_8h_add91812b3634709f7dfe7d00713c83d1}{I\+P\+\_\+\+Handle\+\_\+t} $\ast$\+\_\+ip\+Hndl)
-\item 
+\begin{DoxyCompactList}\small\item\em asks for an address to use. no one also would use it until the caller returns it. \end{DoxyCompactList}\item 
 \hyperlink{whatDownBackEndApp_8c_a1062901a7428fdd9c7f180f5e01ea056}{bool} \hyperlink{ipHandle_8h_a8a0cd1ca9d559cc937dc650361c6dd1c}{I\+P\+\_\+\+Handle\+\_\+\+Release} (\hyperlink{ipHandle_8h_add91812b3634709f7dfe7d00713c83d1}{I\+P\+\_\+\+Handle\+\_\+t} $\ast$\+\_\+ip\+Hndl, \hyperlink{groupsHandle_8h_a833d9365af0fc2308a2172dea4a18094}{sockaddr\+\_\+in\+\_\+t} $\ast$\+\_\+address\+To\+Release)
 \end{DoxyCompactItemize}
 
@@ -35,7 +35,7 @@ Jul 16, 2017
 \begin{DoxyAuthor}{Author}
 Yuval Hamberg
 \end{DoxyAuthor}
-add comments to A\+PI 
+T\+O\+DO add comments to A\+PI 
 
 \subsection{Typedef Documentation}
 \index{ip\+Handle.\+h@{ip\+Handle.\+h}!I\+P\+\_\+\+Handle\+\_\+t@{I\+P\+\_\+\+Handle\+\_\+t}}
@@ -102,6 +102,18 @@ Referenced by What\+Down\+Back\+End\+App\+\_\+\+Create(), and What\+Down\+Back\+
 \item[{{\bf I\+P\+\_\+\+Handle\+\_\+t} $\ast$}]{\+\_\+ip\+Hndl}
 \end{DoxyParamCaption}
 )}\hypertarget{ipHandle_8h_aa0bea26f65367b88585ef7412e18479b}{}\label{ipHandle_8h_aa0bea26f65367b88585ef7412e18479b}
+
+
+asks for an address to use. no one also would use it until the caller returns it. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+ip\+Hndl} & the pointer to the struct \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer to the address struct used in network module. N\+U\+LL if errors. 
+\end{DoxyReturn}
 
 
 Definition at line 91 of file ip\+Handle.\+c.

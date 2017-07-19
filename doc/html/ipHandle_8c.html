@@ -137,6 +137,7 @@ Functions</h2></td></tr>
 <tr class="memitem:a1752c6ea61e24e672244bf103229414b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ipHandle_8c.html#a1752c6ea61e24e672244bf103229414b">IP_Handle_Destory</a> (<a class="el" href="ipHandle_8h.html#add91812b3634709f7dfe7d00713c83d1">IP_Handle_t</a> *_ipHndl)</td></tr>
 <tr class="separator:a1752c6ea61e24e672244bf103229414b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa0bea26f65367b88585ef7412e18479b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="groupsHandle_8h.html#a833d9365af0fc2308a2172dea4a18094">sockaddr_in_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ipHandle_8c.html#aa0bea26f65367b88585ef7412e18479b">IP_Handle_GetFreeIP</a> (<a class="el" href="ipHandle_8h.html#add91812b3634709f7dfe7d00713c83d1">IP_Handle_t</a> *_ipHndl)</td></tr>
+<tr class="memdesc:aa0bea26f65367b88585ef7412e18479b"><td class="mdescLeft">&#160;</td><td class="mdescRight">asks for an address to use. no one also would use it until the caller returns it.  <a href="#aa0bea26f65367b88585ef7412e18479b">More...</a><br /></td></tr>
 <tr class="separator:aa0bea26f65367b88585ef7412e18479b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8a0cd1ca9d559cc937dc650361c6dd1c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="whatDownBackEndApp_8c.html#a1062901a7428fdd9c7f180f5e01ea056">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ipHandle_8c.html#a8a0cd1ca9d559cc937dc650361c6dd1c">IP_Handle_Release</a> (<a class="el" href="ipHandle_8h.html#add91812b3634709f7dfe7d00713c83d1">IP_Handle_t</a> *_ipHndl, <a class="el" href="groupsHandle_8h.html#a833d9365af0fc2308a2172dea4a18094">sockaddr_in_t</a> *_addressToRelease)</td></tr>
 <tr class="separator:a8a0cd1ca9d559cc937dc650361c6dd1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -232,6 +233,15 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>asks for an address to use. no one also would use it until the caller returns it. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_ipHndl</td><td>the pointer to the struct </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>pointer to the address struct used in network module. NULL if errors. </dd></dl>
 
 <p>Definition at line <a class="el" href="ipHandle_8c_source.html#l00091">91</a> of file <a class="el" href="ipHandle_8c_source.html">ipHandle.c</a>.</p>
 
